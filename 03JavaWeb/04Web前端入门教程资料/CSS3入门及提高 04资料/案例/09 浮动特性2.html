@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		section {
+			width: 800px;
+			height: 500px;
+			background-color: pink;
+		}
+		section div:first-child {
+			width: 200px;
+			height: 200px;
+			background-color: purple;
+			
+		}
+		section div:last-child {
+			width: 249px;
+			height: 300px;
+			background-color: skyblue;
+			float: left;
+			/* 熊大和熊二都浮动，则盒子会顶对齐 */
+			/* 熊大不浮动  熊二都浮动，
+			熊二会跑到下一行  */
+		}
+        </style>
+    </head>
+    <body>
+    <section>
+    	<div>熊大</div>
+    	<div>熊二</div>
+    </section>
+    </body>
+</html>

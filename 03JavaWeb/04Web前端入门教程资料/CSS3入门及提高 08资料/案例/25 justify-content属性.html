@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		section {
+		width: 1000px;
+		height: 300px;
+		border: 2px solid pink;
+		margin: 100px auto;
+		display: flex;
+		/* justify-content: flex-start; 让子元素从父容器的开头开始排序  但是盒子顺序不变 */
+		/*justify-content: flex-end;  让子元素从父容器的开头开始排序 但是盒子顺序不变 */
+		 /*justify-content: center; 让子元素在父容器中间显示 */
+		/*justify-content: space-between;  左右的盒子贴近父盒子，中间的平均分布空白间距 */
+		justify-content: space-around; /*  相当于给每个盒子添加了左右margin外边距 */ 
+		}
+		div {
+			width: 250px;
+			height: 100%;
+
+		}
+		div:first-child {
+			background-color: pink;
+		}
+		div:nth-child(2) {
+			background-color: purple;
+		}
+		div:nth-child(3) {
+			background-color: skyblue;
+		}
+        </style>
+    </head>
+    <body>
+    <section>
+    	<div>1</div>
+    	<div>2</div>
+    	<div>3</div>
+    </section>
+    </body>
+</html>

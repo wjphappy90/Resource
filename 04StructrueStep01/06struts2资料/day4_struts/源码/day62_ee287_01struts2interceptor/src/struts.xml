@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<package name="p1" extends="struts-default">
+		<!-- 声明一个拦截器 -->
+		<interceptors>
+			<interceptor name="myInterceptor" class="com.itheima.web.interceptors.MyInterceptor"></interceptor>
+			<interceptor name="myInterceptor2" class="com.itheima.web.interceptors.MyInterceptor2"></interceptor>
+		</interceptors>
+	
+		<action name="demo1" class="com.itheima.web.action.Demo1Action" method="demo1">
+			<!-- 引用拦截器：当我们写了自己的拦截器引用时，默认的拦截器栈就失效了 -->
+			<interceptor-ref name="myInterceptor2"></interceptor-ref>
+			<interceptor-ref name="myInterceptor"></interceptor-ref>
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+</struts>

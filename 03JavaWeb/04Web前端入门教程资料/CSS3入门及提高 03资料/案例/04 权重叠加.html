@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		
+		ul li { /*  ul 0001  li 0001  叠加  0,0,0,2 */
+			color: green;
+		}
+		li { /*  0,0,0,1 */
+			color: red;
+		}
+		nav ul li {/* 叠加之后的  0,0,0,3  最后执行蓝色*/
+			color: blue;
+		}
+		.daohang ul li {  
+			color: pink;
+		}
+        </style>
+    </head>
+    <body>
+    <nav class="daohang">
+    	<ul>
+    		<li>李白</li>
+    		<li>程咬金</li>
+    		<li>鲁班1号</li>
+    	</ul>
+    </nav>
+    </body>
+</html>

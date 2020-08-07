@@ -1,0 +1,155 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+a{
+	color: #fff;
+}
+td a{color:#9f3a38;}
+a:visited{
+	color: red;
+}
+i.icon.film:before {
+    color: #3992d0;
+}
+strong{
+	color: red;
+}
+ .ui.grid > [class*="three wide"].column{
+ 	background: #317eb4;
+ }
+.ui.grid > .green.row, .ui.grid > .green.column, .ui.grid > .row > .green.column{
+	padding:0 0 0 5px;
+}
+.ui.table thead tr:first-child > th:first-child{
+	width: 64px;
+	text-align: center;
+}
+ .ui.celled.table tr td:first-child{
+ 	text-align: center;
+ }
+/*header*/
+.ui.segment{
+	margin: 0;
+	border:none;
+	border-radius: 0;
+	box-shadow: none;
+}
+.ui.clearing.segment{
+	background:#07902a;
+	padding: 0 10px;	
+}
+.ui.horizontal.list{
+	margin-top: 8px;
+}
+.ui.tab.segment{
+	padding: 0;
+}
+.ui.grid > .column:not(.row){
+	padding: 0;
+}
+h3.ui.header{
+	font-size: 2.03rem;
+    color: #fff;
+}
+
+.thirteen.wide.column .tab.segment{
+	padding: 10px;
+}
+.ui.grid{
+	margin: 0;
+	min-height: 900px;
+}
+.ui.grid > .black.column,.ui.grid > .olive.column{
+	padding: 0;
+	
+}
+.olive.column .ui.segment{
+	background: #B5CC18;
+	box-shadow: none;
+	padding: 0;
+}
+/*left*/
+
+.ui.accordion:not(.styled) .title ~ .content:not(.ui){
+	/*padding: 0;*/
+}
+.ui.accordion .title:not(.ui){
+	color: #fff;
+	font-size: 15px;
+	font-family: "微软雅黑";
+    padding: 8px;
+    line-height: 22px;
+    font-weight: bold;
+    border-bottom: 1px dotted #67a95a;
+}
+
+.ui.accordion .title .dropdown.icon{
+	float:right
+}
+.accordion .content{
+	color: #fff;
+}
+.header.item{
+	cursor: pointer;
+	line-height: 28px;
+	margin: 0 33px;
+}
+.ui.inverted.segment{
+	    background: #07902a;
+	    padding: 0;
+}
+.ui.grid > [class*="two wide"].column{
+	background: #07902a;
+	padding: 0;
+}
+.title.active,.ui.inverted.accordion .content{
+	background-color: rgb(7, 144, 42);
+}
+.header.item.active{
+	color: #40e2e0;
+}
+/*right*/
+.ui.breadcrumb{
+	background-color: #f9fafb;
+    padding: 12px;
+    display: block;
+}
+i.square.icon{
+	font-size: 24px;
+    margin: 0;
+    height: inherit;
+}
+.ui.floated.header{
+	margin-top: 0.5em;
+}
+.ui.list > .item a, .ui.list .list > .item a{
+	padding: 0 5px;
+}
+.ui.horizontal.list > .item >a> i.icon{
+	font-size: 24px;
+	padding: 0;
+	margin: 0;
+}
+.btns,.items{
+	overflow:hidden;
+	padding: 15px 15px 0;
+}
+.btns .settings{
+	float:left;
+}
+.btns .search{
+	float:right;
+}
+
+.ui.breadcrumb a {
+    color: #949596;
+}
+.ui.breadcrumb .home.icon{
+	font-size: 14px;
+    color: #737475;
+}
+
+
+

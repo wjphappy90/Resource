@@ -1,0 +1,148 @@
+
+--条件判断
+declare
+  v_price1 number(10,2);--单价
+  v_price2 number(10,2);--单价
+  v_price3 number(10,2);--单价
+ 
+  v_usenum2 number(10,2);--吨数
+  v_money number(10,2);--金额
+  v_account t_account%rowtype;--台账行记录类型 
+begin
+  v_price1:=2.45;--单价赋值（5吨以下）
+  v_price2:=3.45;--单价赋值 （5-10吨）
+  v_price3:=4.45;--单价赋值 （超过10吨）
+  
+  --从数据库中提取
+  select * into v_account from t_account 
+  where year='2012' and month='01' and owneruuid=1 ;
+  
+  v_usenum2:=round( v_account.usenum/1000,2);--吨数
+  
+  
+  --v_money:=v_price*v_usenum2;--金额
+  
+  --阶梯水费计算
+  
+  if v_usenum2<=5 then 
+    v_money:=v_price1*v_usenum2;
+  elsif v_usenum2>5 and v_usenum2<=10  then 
+    v_money:=v_price1*5+ v_price2*( v_usenum2-5 );
+  else
+    v_money:=v_price1*5+ v_price2*5 +v_price3*(v_usenum2-10);
+  end if;
+  
+  
+  DBMS_OUTPUT.put_line('字数：'||v_account.usenum||'金额：'||v_money);
+
+exception
+  when no_data_found  then
+    DBMS_OUTPUT.put_line('没有找到账务数据');
+  when too_many_rows then
+    DBMS_OUTPUT.put_line('返回多行账务数据');
+end;
+
+
+--无条件循环:1 到100
+
+declare
+  v_num number;  
+begin
+  v_num:=1;
+  loop
+    dbms_output.put_line(v_num);
+    v_num:=v_num+1;  
+    
+    exit when v_num>100;
+    
+  end loop;
+end ;
+
+
+--有条件循环：1 到100
+declare
+  v_num number;
+begin
+  v_num:=1;
+  
+  while  v_num<=100
+  loop
+     dbms_output.put_line(v_num);
+     v_num:=v_num+1;  
+  
+  end loop; 
+end;
+
+
+--for循环
+
+
+begin
+  
+  for v_num in  1 .. 100  
+  loop
+    dbms_output.put_line(v_num);
+  end loop;
+
+end;
+
+
+--游标 
+
+select * from t_pricetable where ownertypeid=1
+---------
+declare
+  cursor cur_pricetable is select * from t_pricetable where ownertypeid=1;--声明游标
+  v_pricetable t_pricetable%rowtype;
+begin
+  
+  open cur_pricetable;--打开游标
+  loop
+    fetch cur_pricetable into v_pricetable;--提取游标
+    exit when cur_pricetable%notfound;--如果游标到底端，循环结束
+    
+    DBMS_OUTPUT.put_line('价格:'||v_pricetable.price||'吨数：'
+          ||v_pricetable.minnum||'-'||v_pricetable.maxnum);  
+    
+  end loop;
+  
+  close cur_pricetable;--关闭游标
+end;
+
+
+--带参数的游标
+declare
+  cursor cur_pricetable(v_type number) 
+         is select * from t_pricetable where ownertypeid=v_type;--声明游标
+  v_pricetable t_pricetable%rowtype;
+begin
+  
+  open cur_pricetable(2);--打开游标时指定参数值
+  loop
+    fetch cur_pricetable into v_pricetable;--提取游标
+    exit when cur_pricetable%notfound;--如果游标到底端，循环结束
+    
+    DBMS_OUTPUT.put_line('价格:'||v_pricetable.price||'吨数：'
+          ||v_pricetable.minnum||'-'||v_pricetable.maxnum);  
+    
+  end loop;
+  
+  close cur_pricetable;--关闭游标
+end;
+
+
+--for循环 带参数的游标
+declare
+  cursor cur_pricetable(v_type number) 
+         is select * from t_pricetable where ownertypeid=v_type;--声明游标
+  --v_pricetable t_pricetable%rowtype;
+begin
+  
+  for v_pricetable in cur_pricetable(3)
+  loop
+    DBMS_OUTPUT.put_line('价格:'||v_pricetable.price||'吨数：'
+          ||v_pricetable.minnum||'-'||v_pricetable.maxnum); 
+  end loop;  
+ 
+end;
+

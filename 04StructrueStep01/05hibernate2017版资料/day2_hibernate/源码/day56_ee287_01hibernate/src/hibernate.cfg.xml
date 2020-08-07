@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 在类的根路径下创建名称为hibernate.cfg.xml的配置文件
+导入约束：dtd约束
+ -->
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!-- 配置SessionFactory
+			SessionFactory的作用就是用于创建Session对象的。
+			Session对象就是hibernate中操作数据库的核心对象。
+		此处的配置不要求背，但是要求记住创建SessionFactory必须的三部分信息
+			第一部分：
+				连接数据库的信息
+			第二部分：
+				hibernate的可选配置
+			第三部分：
+				映射文件的位置
+	-->
+	<session-factory>
+		<!-- 第一部分：连接数据库的信息 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/day55_ee287_hibernate01</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">1234</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property><!-- 数据库的方言 -->
+		<!-- 第二部分：hibernate的可选配置 -->
+		<!-- 是否显示hibernate生成的SQL语句 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 是否使用格式化输出sql语句到控制台 -->
+		<property name="hibernate.format_sql">false</property>
+		<!-- 配置hibernate采用何种方式生成DDL语句 -->
+		<!-- SQL结构化查询语言：一共分为6个部分
+			 DDL：Data Definition Language
+			 DML：Data Manipulation Language
+			 DQL：Data Query Language
+			 DCL：Data Control Language			 数据控制语言
+			 CCL：Cursor Control Language		   游标控制语言
+			 TPL：Transaction Processing Language  事务处理语言
+		-->
+		<property name="hibernate.hbm2ddl.auto">update</property><!-- update表示检测实体类的映射配置和数据库的表结构是否一致，如果不一致，更新表结构 -->
+		<!-- 设置hibernate的连接池提供商 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<!-- 把session和线程绑定，从而实现一个线程只有一个Session -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- 第三部分：映射配置文件的位置 -->
+		<mapping resource="com/itheima/domain/Customer.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

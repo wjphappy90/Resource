@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		section {
+		width: 1000px;
+		height: 600px;
+		border: 2px solid pink;
+		margin: 100px auto;
+		display: flex;
+		flex-flow: row wrap;  /* 这句话必须有 否则下面的不起效果 */
+		align-content: space-around;
+		}
+		div {
+			width: 250px;
+			height: 200px;
+
+		}
+		div:first-child {
+			background-color: pink;
+
+		}
+		div:nth-child(2) {
+			background-color: purple;
+			order: 1; 
+		}
+		div:nth-child(3) {
+			background-color: skyblue;
+
+		}
+		div:nth-child(4) {
+			background-color: hotpink;
+			order: -1;/* 数值越小，越往前  可是负数*/
+		}
+		div:nth-child(5) {
+			background-color: deeppink;
+		}
+		div:nth-child(6) {
+			background-color: #f40;
+			order: -2;
+		}
+		div:nth-child(7) {
+			background-color: #daa520;
+		}
+        </style>
+    </head>
+    <body>
+    <section>
+    	<div>1</div>
+    	<div>2</div>
+    	<div>3</div>
+    	<div>4</div>
+    	<div>5</div>
+    	<div>6</div>
+    	<div>7</div>
+    </section>
+    </body>
+</html>

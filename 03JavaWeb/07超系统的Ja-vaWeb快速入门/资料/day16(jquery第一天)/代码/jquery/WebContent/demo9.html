@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>子元素过滤选择器</title>
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//设置列表中第2个li字号为30
+		//$("ul li:nth-child(2)").css("font-size",30);
+		//设置列表中第一行字体为红色
+		//$("ul li:first-child").css("color","red");
+		//设置列表中最后一行字体为蓝色	
+		//$("ul li:last-child").css("color","blue");
+		//获取ul下只有一个li的信息
+		alert($("ul li:only-child").html());
+	});
+</script>
+</head>
+<body>
+	<ul>
+		<li>JAVA</li>
+		<li>IOS</li>
+		<li>PYTHON</li>
+		<li>C++</li>
+	</ul>
+	<ul>
+		<li>刘德华</li>
+		<li>张学友</li>
+		<li>郭富城</li>
+	</ul>
+	<ul>
+		<li>NodeJS</li>
+	</ul>
+</body>
+</html>

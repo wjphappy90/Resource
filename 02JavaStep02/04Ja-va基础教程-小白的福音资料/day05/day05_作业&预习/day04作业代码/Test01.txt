@@ -1,0 +1,29 @@
+/**
+ * 1.分析以下需求，并用代码实现：
+ *	(1)打印1到100之内的整数，但数字中包含9的要跳过
+ *	(2)每行输出5个满足条件的数，之间用空格分隔
+ *	(3)如：1 2 3 4 5
+ *
+ */
+public class Test01 {
+	public static void main(String[] args) {
+		//1.定义计数器，用于统计满足条件的数的个数
+		int count = 0;
+		//2.for循环遍历1-100的数字
+		for(int i = 1;i<=100;i++) {
+			//3.求出每个数字的个位(ge)和十位(shi)
+			int ge = i%10;
+			int shi = i/10%10;
+			if((ge==9||shi==9))
+				continue;
+			//4.统计满足条件的数
+			count++;
+			//5.打印满足条件的数
+			System.out.print(i+" ");
+			//6.如果个数是5的整数倍则换行
+			if(count%5==0) {
+				System.out.println();
+			}
+		}
+	}	
+}

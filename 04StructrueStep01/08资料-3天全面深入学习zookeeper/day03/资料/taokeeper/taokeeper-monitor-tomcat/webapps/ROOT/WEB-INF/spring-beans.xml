@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName" xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Service -->
+	<bean id="reportService" class="com.taobao.taokeeper.monitor.service.impl.ReportServiceImpl" />
+
+	<bean id="zooKeeperClusterDAO" class="com.taobao.taokeeper.dao.impl.ZooKeeperClusterDAOImpl" />
+	<bean id="alarmSettingsDAO" class="com.taobao.taokeeper.dao.impl.AlarmSettingsDAOImpl" />
+	<bean id="taoKeeperSettingsDAO" class="com.taobao.taokeeper.dao.impl.SettingsDAOImpl" />
+	<bean id="reportDAO" class="com.taobao.taokeeper.dao.impl.ReportDAOImpl" />
+</beans>

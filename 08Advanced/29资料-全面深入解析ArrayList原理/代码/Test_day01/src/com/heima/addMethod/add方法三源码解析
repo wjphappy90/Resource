@@ -1,0 +1,34 @@
+public class ArrayList<E> {
+    //长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+
+    public boolean addAll(Collection<? extends E> c) {
+        //把有数据的集合转成数组
+        Object[] a = c.toArray();
+        //有数据集合长度赋值给numNew
+        int numNew = a.length;
+        //校验以及扩容
+        ensureCapacityInternal(size + numNew);  // Increments modCount
+        //真正拷贝的代码
+        System.arraycopy(a, 0, elementData, size, numNew);
+        //集合的长度进行更改
+        size += numNew;
+        //根据numNew的值返回是否添加成功
+        return numNew != 0;
+    }
+
+ }
+
+ //结论:底层使用了System.arraycopy方法进行了拷贝

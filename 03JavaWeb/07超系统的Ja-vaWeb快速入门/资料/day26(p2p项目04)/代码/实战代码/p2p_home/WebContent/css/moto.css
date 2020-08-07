@@ -1,0 +1,117 @@
+.container-fluid{
+	padding: 0;
+}
+.col-md-4{
+	padding: 0;
+}
+.yellow{
+	color: #fd953f;
+}
+.yellow i{
+	font-style: normal;
+	font-size:32px
+}
+.tab-content .form-control{
+	width: 60%;
+	display: inline-block;
+}
+
+.intro .show .thumbnail{
+	border: none;
+}
+.thumbnail .caption{
+	text-align: center;
+}
+.caption .btn-info{
+	padding: 7px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+.pro1,.pro2,.pro3{
+	  border-bottom: 1px solid #EAEAEA;
+	  margin-bottom: 20px;
+}
+.pro1 h4,.pro2 h4,.pro3 h4{
+	    font-size: 22px;
+}
+.caption.pro1{
+	color: #f7b42c;
+}
+.caption.pro2{
+	color: #63be49;
+}
+.caption.pro3{
+	color: #ac8fd2;
+}
+.intro .title{
+	line-height: 50px;
+    background: #f0f0f0;
+    margin: 20px 0;
+    font-size: 16px;
+    border-bottom: 2px solid #2FA8E1;
+}
+.title span{
+	display: inline-block;   
+    padding: 0 15px;   
+}
+span.tit-one{
+	background: #2fa8e1;
+	color: #fff;
+}
+table .width{
+    width: 24%;
+    background: #2fa8e1;
+    color: #fff;
+}
+/*collapse width*/
+.tab-content .table-bordered>tbody>tr>td{
+	font-size:16px;
+	vertical-align: middle;
+	padding: 12px;
+}
+.tab-content .table-bordered{
+	border-top: 2px solid #5bc0de;
+}
+.tab-content .shopWidth{
+	width: 18%;
+}
+td.range{
+	padding: 8px 0;
+}
+td .demo{
+	padding-left: 10px;
+}
+
+.intro .tab-content{
+	margin-top: 20px;
+}
+
+#shopArea1,#shopArea2,#shopArea3 {
+	position: relative;
+}
+.tab-pane span.ico{
+	display: block;
+	background:url(../img/m-tou/m-arrow.png) no-repeat;
+	width: 24px;
+    height: 24px;
+    
+    position: absolute;
+    
+}
+#shopArea1 span.ico{
+	left: 15%;
+	top: -20px;
+}
+#shopArea2 span.ico{
+	left: 50%;
+	top: -20px;
+}
+#shopArea3 span.ico{
+	right:15%;
+	top: -20px;
+}
+
+.word{
+	color: red;
+	font-size: 13px;
+}

@@ -1,0 +1,212 @@
+1.分析以下需求，并用代码实现：
+	(1)打印1到100之内的整数，但数字中包含9的要跳过
+	(2)每行输出5个满足条件的数，之间用空格分隔
+	(3)如：1 2 3 4 5
+		答：参考答案
+			public class Test01 {
+				public static void main(String[] args) {
+					//1.定义计数器，用于统计满足条件的数的个数
+					int count = 0;
+					//2.for循环遍历1-100的数字
+					for(int i = 1;i<=100;i++) {
+						//3.求出每个数字的个位(ge)和十位(shi)
+						int ge = i%10;
+						int shi = i/10%10;
+						if((ge==9||shi==9))
+							continue;
+						//4.统计满足条件的数
+						count++;
+						//5.打印满足条件的数
+						System.out.print(i+" ");
+						//6.如果个数是5的整数倍则换行
+						if(count%5==0) {
+							System.out.println();
+						}
+					}
+				}	
+			}
+			
+2.分析以下需求，并用代码实现：
+	(1)按照从大到小的顺序输出四位数中的个位+百位=十位+千位(3553,2332,1166,8228,3773)的数字及个数
+	(2)每行输出5个满足条件的数，之间用空格分隔
+	(3)如：9999 9988 9977 9966 9955 
+		答：参考答案
+			public class Test02 {
+				public static void main(String[] args) {
+					//1.定义计数器count用来统计满足条件的四位数的个数
+					int count = 0;
+					//2.从大到小的顺序遍历四位数(这样就按照从大到小的顺序输出了)，并输出满足条件的四位数
+					for(int i=9999;i>=1000;i--) {
+						//3.求出每个四位数的每位数字个位(ge)、十位(shi)、百位(bai)、千位(qian)
+						int ge = i%10;
+						int shi = i/10%10;
+						int bai = i/100%10;
+						int qian = i/1000;
+						//4.满足条件，计数器自增，并5个一行打印
+						if(ge + bai == shi + qian) {
+							count++;
+							System.out.print(i+" ");
+							if(count%5==0) {
+								System.out.println();
+							}
+						}
+					}
+					//5.打印满足条件的所有四位数的个数
+					System.out.println();
+					System.out.println("满足条件的四位数的个数为:"+count);
+				}
+			}
+			
+3.分析以下需求，并用代码实现：
+	(1)珠穆朗玛峰高度为8848米，有一张足够大的纸，厚度为0.001米
+	(2)请问，我折叠多少次，可以折成珠穆朗玛峰的高度。
+	答：参考答案
+		public class Test03 {
+			public static void main(String[] args) {
+				//1.计数器统计折纸的次数
+				int count = 0;
+				//2.为了方便计算将纸张的厚度和山的高度都转换成毫米
+				//定义纸张的厚度为1毫米
+				int paperHigh = 1;
+				//定义山的高度为8848000毫米
+				int mountainHigh = 8848000;
+				//3.只要纸张折叠后的厚度<山的高度，就循环
+				while(paperHigh<mountainHigh) {
+					paperHigh*=2;
+					count++;
+				}
+				//4.输出折叠后的纸张的总厚度和折叠次数
+				System.out.println("纸张折叠后的总厚度为："+paperHigh);
+				System.out.println("纸张折叠的次数为："+count);
+			}
+		}
+		
+4.分析以下需求，并用代码实现：
+	(1)倒着打印九九乘法表
+		答：参考答案
+			public class Test04 {
+				public static void main(String[] args) {
+					for(int i = 9;i>=1;i--) {
+						for(int j = 1;j<=i;j++) {
+							System.out.print(j+"*"+i+"="+i*j+'\t');
+						}
+						System.out.println();
+					}
+				}
+			}
+			
+5.分析以下需求，并用代码实现：
+	(1) 计算15+25+35+....+1005的和
+		答：参考答案
+			public class Test05 {
+				public static void main(String[] args) {
+					int i = 15;
+					int sum = 0;
+					//注意这里不能写=，如果写上<=,就会多计算一个数1015
+					while(i<=1005) {
+						sum+=i;
+						i+=10;
+					}
+					System.out.println(sum);
+				}
+			}
+			
+6.分析以下需求，并用代码实现：
+	(1)打印倒直角三角形
+		*****
+		****
+		***
+		**
+		*
+		答：参考答案
+			public class Test06 {
+				public static void main(String[] args) {
+					/*
+						*****
+						****
+						***
+						**
+						*
+					*/
+					for(int i=1;i<=5;i++) {
+						for(int j= 5;j>=i;j--) {
+							System.out.print("*");
+						}
+						System.out.println();
+					}	
+				}
+			}			
+
+7.分析以下需求，并用代码实现(每个小需求都要封装成一个方法)：
+	(1)求两个数据之和(整数和小数)
+	(2)判断两个数据是否相等(整数和小数)
+	(3)获取两个数中较大的值(整数和小数)
+	(4)打印m行n列的星形矩形
+	(5)打印nn乘法表
+		答：参考答案
+			public class Test07 {
+				public static void main(String[] args) {
+					int a = 10;
+					int b = 20;
+					int sum = add(a,b);
+					System.out.println("sum="+sum);
+					System.out.println(isEquals(a, b));
+					System.out.println("max="+getMax(a, b));
+					double ad = 10.35;
+					double bd = 10.355;
+					double sumd = add(ad,bd);
+					System.out.println();
+					System.out.println("sum="+sumd);
+					System.out.println(isEquals(ad, bd));
+					System.out.println("max="+getMax(ad, bd));
+					print(5,5);
+					print99(5);
+					
+				}
+				//1.求两个int类型数据的和
+				public static int add(int a,int b) {	
+					int sum = a + b;
+					return sum;							
+				}
+				//2.求两个double类型数据的和
+				public static double add(double a,double b) {	
+					double sum = a + b;
+					return sum;							
+				}
+				//3.判断两个int数据是否相等
+				public static boolean isEquals(int a,int b) {		//isEquals 是否相等
+					return a == b;
+				}
+				//4.判断两个double数据是否相等
+				public static boolean isEquals(double a,double b) {		//isEquals 是否相等
+					return a == b;
+				}
+				//5.求两个int类型数据的最大值
+				public static int getMax(int a,int b) {
+					return a > b ? a : b;
+				}
+				//6.求两个double类型数据的最大值
+				public static double getMax(double a,double b) {
+					return a > b ? a : b;
+				}
+				//7.打印m行n列的星形矩形
+				public static void print(int a,int b) {
+					for (int i = 1;i <= a ;i++ ) {					//行数
+						for (int j = 1;j <= b ;j++ ) {				//列数
+							System.out.print("*");
+						}
+						System.out.println();
+					}
+				}
+				//8.打印nn乘法表
+				public static void print99(int a) {
+					for (int i = 1;i <= a ;i++ ) {					//行数
+						for (int j = 1;j <= i ;j++ ) {				//列数
+							System.out.print(j + "*" + i + "=" + (i * j) + "\t" );
+						}
+						System.out.println();
+					}
+				}
+			}
+			
+8.把今天讲过的其他案例再练习一遍

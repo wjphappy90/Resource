@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <!-- 配置要扫描的包 -->
+    <context:component-scan base-package="com.itheima" />
+
+    <!-- 1.dataSource -->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql:///case" />
+        <property name="username" value="root" />
+        <property name="password" value="adminadmin" />
+    </bean>
+
+    <!-- 2.EntityManagerFactory -->
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <!-- 注入数据源 -->
+        <property name="dataSource" ref="dataSource" />
+        <!-- 指定实体类所在的包 -->
+        <property name="packagesToScan" value="com.itheima.domain" />
+        <!-- 指定jpa的实现提供者 -->
+        <property name="persistenceProvider">
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider" />
+        </property>
+        <!--JPA供应商适配器 -->
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <!-- 是否生成DDL语句   是否自动建表 -->
+                <property name="generateDdl" value="true" />
+                <!-- 数据库厂商名称 -->
+                <property name="database" value="MYSQL" />
+                <!-- 数据库方言 -->
+                <property name="databasePlatform"
+                          value="org.hibernate.dialect.MySQLDialect" />
+                <!-- 是否显示SQL -->
+                <property name="showSql" value="true" />
+            </bean>
+        </property>
+    </bean>
+
+
+    <!-- 3.事务管理器 -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <!-- 整合spring data jpa -->
+    <!--spring 通过代理的方式为dao接口提供实现类，需要指明为哪些接口去产生代理类-->
+    <jpa:repositories base-package="com.itheima.dao"
+                      transaction-manager-ref="transactionManager"
+                      entity-manager-factory-ref="entityManagerFactory" />
+
+    <!-- 4.txAdvice -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" propagation="SUPPORTS" />
+            <tx:method name="find*" read-only="true" propagation="SUPPORTS" />
+            <tx:method name="*" propagation="REQUIRED" read-only="false" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 5.aop -->
+    <aop:config>
+        <aop:pointcut id="pointcut"
+                      expression="execution(* com.itheima.service.impl.*.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
+    </aop:config>
+</beans>

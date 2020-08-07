@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>嵌套函数--作用域链</title>
+		<script type="text/javascript">
+			
+			function myload(){
+				//页面加载完成后，得到页面上所有的div
+				var divs=document.getElementsByTagName("div");
+				
+				for(var i=0;i<divs.length;i++){
+					//当点击div时调用匿名函数，完成点击后的操作	
+					(function(n){
+						divs[n].onclick=function(){
+							alert(n); //3
+						};
+					})(i)
+				}	
+				
+				//alert(i); //js中没有块作用域，也就是i可以在外部使用
+			}
+			
+			window.onload=myload;//页面加载完成后调用myload函数
+			
+			
+		</script>
+	</head>
+	<body>
+		<div>aaaa</div>
+		<div>bbbb</div>
+		<div>cccc</div>
+	</body>
+</html>

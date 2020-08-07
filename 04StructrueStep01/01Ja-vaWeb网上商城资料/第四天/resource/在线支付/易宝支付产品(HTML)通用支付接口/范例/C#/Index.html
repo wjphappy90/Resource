@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>B2C在线支付测试</title>
+</head>
+<body>
+	<div><b>支付请求</b></div>
+	<div>
+		<form method="POST" action="Req.aspx" id="Form1">
+			<div>商户订单号:<input type="text" name="p2_Order" id="p2_Order" /></div>
+			<div>支付金额:<input type="text" name="p3_Amt" id="p3_Amt" />*</div>
+			<div>商品名称:<input type="text" name="p5_Pid" id="p5_Pid" /></div>
+            <div>商品种类:<input type="text" name="p6_Pcat" id="p6_Pcat" /></div>
+            <div>商品描述:<input type="text" name="p7_Pdesc" id="p7_Pdesc" /></div>
+			<div>接收支付成功数据的地址:<input type="text" name="p8_Url" id="p8_Url" value="http://localhost/Callback.aspx" />*</div>
+            <div>商户扩展信息:<input type="text" id="pa_MP" name="pa_MP" /></div>
+            <div>选择银行文字按钮:<input type="radio" name="pd_FrpId" value="1000000-NET" checked="checked" />易宝支付会员账户<br />&nbsp;
+		  		<input class="radio" type="radio" name="pd_FrpId" value="" />易宝支付网关<br />&nbsp;
+		  		<input class="radio" type="radio" name="pd_FrpId" value="ICBC-NET" />中国工商银行<br />&nbsp;
+		  		<input class="radio" type="radio" name="pd_FrpId" value="ABC-NET" />中国农业银行<br />&nbsp;
+		  		<input class="radio" type="radio" name="pd_FrpId" value="CMBCHINA-NET" />招商银行<br />&nbsp;
+		  		<input class="radio" type="radio" name="pd_FrpId" value="CCB-NET" />建设银行
+            </div>
+            <div>应答机制:<input type="text" id="pr_NeedResponse" name="pr_NeedResponse" value="1" /></div>
+			<div><input type="submit" value="提交" id="Submit1" name="Submit1" /></div>
+		</form>
+	</div>
+	<div><b>订单明细查询</b></div>
+	<div>
+		<form method="post" action="QueryOrderStatus.aspx" id="Form2">
+			<div>商户订单号:<input type="text" name="p2_Order" /></div>
+			<div><input type="submit" value="提交" id="submit2" name="submit2" /></div>
+		</form>
+	</div>
+	<div><b>退款接口</b></div>
+	<div>
+		<form method="post" action="Refund.aspx" id="Form3">
+			<div>易宝交易流水号:<input type="text" name="pb_TrxId" id="Text1" />*</div>
+			<div>退款金额:<input type="text" name="p3_Amt" id="Text2" />*</div>
+			<div>退款说明:<input type="text" name="p5_Desc" id="Text3" /></div>
+			<div><input type="submit" value="提交" id="submit3" name="submit2" /></div>
+		</form>
+	</div>
+</body>
+</html>

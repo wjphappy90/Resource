@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        /* 链接 登录 的颜色为红色,同时主导航栏里面的所有的链接改为蓝色     (简单) */
+			.site-r a {
+				color: red;
+			}
+			.nav ul li a {
+				color: skyblue;
+			}
+			/* 主导航栏和侧导航栏里面文字都是14像素并且是微软雅黑。（中等) */
+			.nav, .sitenav {
+				/* font-size: 14px;
+				font-family: "microsoft yahei"; */
+				font: 14px "microsoft yahei";
+			}
+			/* 主导航栏里面的一级菜单链接文字颜色为绿色 */
+			.nav > ul > li > a {  
+				color: green;
+			}
+        </style>
+    </head>
+<body>
+	<!-- 主导航栏 -->
+    <div class="nav">    
+		<ul>
+		    <li><a href="#">公司首页</a></li>
+		    <li><a href="#">公司简介</a></li>
+		    <li><a href="#">公司产品</a></li>
+		    <li>
+		    	<a href="#">联系我们</a>
+		    	<ul>
+		    		<li><a href="#">公司邮箱</a></li>
+		    		<li><a href="#">公司电话</a></li>
+		    	</ul>
+		    </li>
+		</ul>
+	</div>
+	<!-- 侧导航栏 -->
+	<div class="sitenav">    
+		<div class="site-l">左侧侧导航栏</div>
+		<div class="site-r"><a href="#">登录</a></div>
+	</div>
+</body>
+</html>

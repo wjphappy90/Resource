@@ -1,0 +1,18 @@
+/**
+ * 6.分析以下需求，并用代码实现：
+ *	(1) 计算15+25+35+....+1005的和
+ * @author JX
+ *
+ */
+public class Test05 {
+	public static void main(String[] args) {
+		int i = 15;
+		int sum = 0;
+		//注意这里不能写=，如果写上<=,就会多计算一个数1015
+		while(i<=1005) {
+			sum+=i;
+			i+=10;
+		}
+		System.out.println(sum);
+	}
+}

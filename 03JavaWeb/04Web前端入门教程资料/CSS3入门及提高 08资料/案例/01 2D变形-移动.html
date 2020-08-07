@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        /*transform: translateX(x, y)*/
+        /*变形： 移动*/
+        transition: all 0.5s;
+    }
+        div:active {  /*a:active 鼠标没点击没有松开鼠标的时候触发的状态 相当于点击*/
+            /*transform: translate(50px, 50px); 当我们点击之后再移动位置*/
+        /*transform: translate(50px); 当我们点击之后再移动位置 x轴*/
+            /*transform: translate(0, 50px); 当我们点击之后再移动位置 y轴*/
+            transform: translateX(100px); 只跟一个参数就是 X
+        /*transform: translateY(100px); 只跟一个参数就是 Y*/
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

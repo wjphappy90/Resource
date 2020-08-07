@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        /*transform: translate(100px)  水平移动100像素*/
+        /*transform: translate(50%)  translate 如果移动的距离是%
+        不是以父级宽度为准，以自己宽度为准*/
+        /*transform: translate(50%);  y意思就是让div盒子 自己宽度200 的一半 走 100像素*/
+        /*已让我们让定位的盒子居中对齐*/
+        position: absolute;
+
+        left: 50%; /*以父级宽度为准*/
+        top: 50%;
+        /*margin-left: -100px; 需要计算不合适*/
+        transform: translate(-50%, -50%);
+    }
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

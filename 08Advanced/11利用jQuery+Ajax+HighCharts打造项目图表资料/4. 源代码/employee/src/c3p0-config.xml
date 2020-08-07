@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<c3p0-config>
+    <!--指定默认的连接配置-->
+    <default-config>
+        <!--连接数据库的信息-->
+        <property name="user">root</property>
+        <property name="password">root</property>
+        <property name="jdbcUrl">jdbc:mysql:///test</property>
+        <property name="driverClass">com.mysql.jdbc.Driver</property>
+    </default-config>
+</c3p0-config>

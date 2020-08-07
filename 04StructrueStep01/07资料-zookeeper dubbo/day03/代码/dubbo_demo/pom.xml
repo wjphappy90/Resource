@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.itheima.demo</groupId>
+    <artifactId>dubbo_demo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>rmi_server</module>
+        <module>rmi_client</module>
+        <module>hessian_server</module>
+        <module>hessian_client</module>
+        <module>myRpc</module>
+        <module>dubbo_interface</module>
+        <module>dubbo_provider</module>
+        <module>dubbo_consumer</module>
+        <module>boot_dubbo_provider</module>
+        <module>java_spi</module>
+    </modules>
+
+
+</project>

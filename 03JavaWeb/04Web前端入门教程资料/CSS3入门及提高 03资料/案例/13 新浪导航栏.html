@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		nav {
+			height: 41px;
+			background-color: #FCFCFC;
+			border-top: 3px solid #FF8500;  /* 上边框 */
+			border-bottom: 1px solid #EDEEF0;  /* 下边框 */
+		}
+		nav a {
+			font-size: 14px;
+			color: #4C4C4C;
+			text-decoration: none; /*  取消下划线 */
+			padding: 0 15px;  /* 上下是0  左右是 15  */
+			height: 41px;
+			line-height: 41px; /* 行高等于高度可以文字垂直居中 */
+			/* 因为链接是行内元素么有大小  所以需要转换  行内块 */
+			display: inline-block;
+		}
+		nav a:hover {  /* 链接伪类选择器  鼠标经过a链接的时候 */
+			background-color: #eee;
+		}
+        </style>
+    </head>
+    <body>
+    <nav>
+    	<a href="#">首页</a>
+    	<a href="#">手机新浪网</a>
+    	<a href="#">网站导航</a>
+    	<a href="#">三个字</a>
+    </nav>
+    </body>
+</html>

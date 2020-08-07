@@ -1,0 +1,124 @@
+1.分析以下需求，并用代码实现：
+	(1)模拟Arrays.toString(int[] arr);方法，自己封装一个public static String toString(int[] arr);
+	(2)如果int类型数组arr为null，toString方法返回字符串"null"
+	(3)如果int类型数组arr长度为0，toString方法返回字符串"[]"
+	(4)如果int类型数组arr的内容为{1,2,3,4,5},toString方法返回字符串"[1, 2, 3, 4, 5]"
+		答：参考答案
+			package com.heima.tests;
+			public class Test01 {
+				public static void main(String[] args) {
+					int[] arr1 = null;
+					System.out.println(toString(arr1));
+					int[] arr2 = new int[0];
+					System.out.println(toString(arr2));
+					int[] arr3 = {1,2,3,4,5};
+					System.out.println(toString(arr3));
+				}
+				public static String toString(int[] arr) {
+					//数组为空直接返回字符串"null"
+					if (arr == null)
+						return "null";
+					int maxLen = arr.length - 1;
+					//数组长度为0，返回字符串"[]"
+					if (maxLen == -1)
+						return "[]";
+
+					StringBuilder sb = new StringBuilder();
+					sb.append('[');
+					for (int i = 0; ; i++) {
+						sb.append(arr[i]);
+						if (i == maxLen)
+							return sb.append(']').toString();
+						sb.append(", ");
+					}
+				}
+			}
+	
+2.分析以下需求，并用代码实现：
+	(1)有一个数字字符串"25 11 -6 20 102 9",数字之间用空格间隔	
+	(2)利用冒泡排序对这串数字按照从小到大排序，生成一个数值有序的字符串"-6 9 11 20 25 102"
+	(3)提示:用String类提供的split方法(用" "(空格)作为split方法的参数来切割)，然后生成对应的数字字符串数组
+		答：参考答案
+			package com.heima.tests;
+			public class Test02 {
+				public static void main(String[] args) {
+					String str = "25 11 -6 20 102 9";
+					//1.将字符串数字变成字符串数组
+					String[] arr = str.split(" ");
+					//2.定义一个int数组,长度和arr相同
+					int[] intArr = new int[arr.length];
+					//3.将arr中的字符串类型的数字转成int类型并存入新数组intArr中
+					for(int i =0;i<arr.length;i++) {
+						intArr[i] = Integer.parseInt(arr[i]);
+					}
+					//4.调用sort方法对数组排序
+					sort(intArr);
+					//5.toString()方法将数组变成字符串
+					System.out.println(toString(intArr));
+				}
+				//定义toString方法,将int[]数组变成字符串形式"23 9 -4 18 100 7"
+				private static String toString(int[] arr) {
+					StringBuilder sb = new StringBuilder();
+					for(int i=0;;i++) {
+						sb.append(arr[i]);
+						if(i==arr.length-1)
+							return sb.toString();	
+						sb.append(" ");
+					}			
+				}
+				//冒泡排序对整型数组排序
+				public static void sort(int[] arr) {
+					for(int i =0;i<arr.length-1;i++) {
+						for(int j=0;j<arr.length-i-1;j++) {
+							if(arr[j]>arr[j+1]) {
+								int temp = arr[j];
+								arr[j] = arr[j+1];
+								arr[j+1] = temp;
+							}
+						}
+					}
+				}
+			}
+
+	
+3.分析以下需求，并用代码实现：
+	(1)打印由7，8，9三个数组组成的三位数，要求该三位数中任意两位数字不能相同
+	(2)打印格式最后的三位数字以空格分隔，如789 798 879 897 978 987
+		答：参考答案
+			package com.heima.tests;
+			public class Test03 {
+				public static void main(String[] args) {
+					int[] arr = {7,8,9};
+					int len = arr.length;
+					StringBuilder sb = new StringBuilder();
+					for(int i=0;i<len;i++) {
+						for(int j=0;j<len;j++) {
+							for(int k=0;k<len;k++) {
+								if((arr[i]!=arr[j])&&(arr[j]!=arr[k])&&(arr[k]!=arr[i])) {
+									int temp = arr[i]*100+arr[j]*10+arr[k];
+									sb.append(temp+" ");
+								}
+							}
+						}
+					}
+					//链式编程去掉最后一个空格
+					sb.replace(sb.lastIndexOf(" "), sb.length(), "");
+					System.out.println(sb.toString());
+				}
+			}
+
+	
+4.简述String、StringBuilder、StringBuffer的区别？
+	答:略
+
+5.练习今天课堂代码
+	
+	
+	
+	
+	
+
+	
+	
+
+	

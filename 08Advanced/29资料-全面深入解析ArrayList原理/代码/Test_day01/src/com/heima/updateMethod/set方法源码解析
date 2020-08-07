@@ -1,0 +1,32 @@
+public class ArrayList<E> {
+    //长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+
+    public E set(int index, E element) {
+        //校验索引
+        rangeCheck(index);
+        //根据索引取出元素 --> 被替换的元素
+        E oldValue = elementData(index);
+        //把element存入到elementData数组中
+        elementData[index] = element;
+        //返回被替换的元素
+        return oldValue;
+    }
+
+    private void rangeCheck(int index) {
+        if (index >= size)
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+ }

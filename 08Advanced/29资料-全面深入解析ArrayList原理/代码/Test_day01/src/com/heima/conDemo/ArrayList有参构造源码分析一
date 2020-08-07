@@ -1,0 +1,20 @@
+
+public class ArrayList<E> {
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //指定容量的构造方法
+    public ArrayList(int initialCapacity) {
+        //判断容量是否大于0
+        if (initialCapacity > 0) {
+            //根据构造方法的参数创建指定长度的数据
+            this.elementData = new Object[initialCapacity];
+        } else if (initialCapacity == 0) {
+            //将空数组的地址赋值给elementData
+            this.elementData = EMPTY_ELEMENTDATA;
+        } else {
+            //制造出异常
+            throw new IllegalArgumentException("Illegal Capacity: "+
+                                               initialCapacity);
+        }
+    }
+}

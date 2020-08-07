@@ -1,0 +1,25 @@
+server:
+  port: 7003 #服务端口
+spring:
+  application:
+    name: rabbitmq-consumer #指定服务名
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: itcast
+    password: itcast
+    virtual-host: myhost
+  cloud:
+    stream:
+      instanceCount: 2
+      instanceIndex: 1
+      bindings:
+        input:
+          destination: itcast-default
+        inputOrder:
+          destination: testChannel
+          group: group-2
+          consumer:
+            partitioned: true
+      binders:
+        defaultRabbit:
+          type: rabbit

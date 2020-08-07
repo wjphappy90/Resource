@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery.extend</title>
+
+<script src="/jquery_other/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	//对全局的jquery对象扩展(插件)
+	$.extend({
+		maxValue:function(a,b){
+			return a>b?a:b;
+		},
+		minValue:function(a,b){
+			return a>b?b:a;
+		}
+	});
+	
+	//页面加载完成后操作
+	$(function() {
+		alert($.maxValue(10,20));
+		alert($.minValue(10,20));
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

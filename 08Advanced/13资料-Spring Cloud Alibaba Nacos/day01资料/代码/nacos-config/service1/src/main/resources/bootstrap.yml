@@ -1,0 +1,25 @@
+server:
+  port: 56010 #启动端口 命令行注入
+
+spring:
+  application:
+    name: service1
+  cloud:
+    nacos:
+      config:
+        #enabled: false #关闭配置
+        server-addr: 127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850 # 配置中心地址
+        file-extension: yaml #dataid 的名称就是application的name加file-extension   service1.yaml
+        namespace: c67e4a97-a698-4d6d-9bb1-cfac5f5b51c4 # 开发环境  指定 具体的namespace
+        group: TEST_GROUP # 测试组
+#        shared-dataids: ext-config-common01.properties,ext-config-common02.properties,ext-config-common03.properties
+#        refreshable-dataids: ext-config-common01.properties
+        ext-config[0]:
+          data-id: ext-config-common01.properties
+        ext-config[1]:
+          data-id: ext-config-common02.properties
+          group: GLOBALE_GROUP
+        ext-config[2]:
+          data-id: ext-config-common03.properties
+          group: REFRESH_GROUP
+          refresh: true  #动态刷新配置

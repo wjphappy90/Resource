@@ -1,0 +1,153 @@
+1.熟练掌握Eclipse中的常用视图和视窗结构(多练习)
+	答：略
+
+2.熟练掌握Eclipse中工作空间的基本配置(多练习)
+	答：略
+
+3.熟练掌握Eclipse中内容辅助键和常用快捷键(多练习)
+	答：略
+
+5.分析以下需求，并用代码实现：
+	(1)在Eclipse中常见一个java项目，名称为myday11
+	(2)在myday11项目中创建一个包，名称为com.heima.tests
+	(3)将第5天的代码导入到com.heima.test包中
+		答：参考答案在day11代码中
+	
+6.数量掌握Eclipse中的断点调试功能(通过案例演示)
+	(1)完成第5题作业后，找到com.heima.test包中的类Test04，并在main方法中的"int[] arr = getArrayByKeyBoard();"语句前面设置断点
+	(2)通过debug调试演示Test04案例的运行过程
+		答：略
+
+7.分析以下需求，并用代码实现：
+	(1)在第5题创建的java项目myday11中，建立包com.heima.domain
+	(2)在com.heima.domain包定义一个学生类Student，包含姓名(String name)、性别(String gender)、年龄(int age)、成绩(int score)，所有属性要私有
+	(3)利用快捷键生成空参构造、有参构造、set方法、get方法、hashCode方法、equals方法、toString方法
+	(4)在myday11项目的com.heima.tests包中建立一个类Test05,对Student类进行测试(要求测试空参构造、有参构造、set方法、get方法、hashCode方法、equals方法、toString方法)
+		答：参考答案
+			package com.heima.tests;
+			import com.heima.domain.Student;
+			public class Student {
+				//姓名属性
+				private String name;
+				//性别属性
+				private String gender;
+				//年龄属性
+				private int age;
+				//成绩属性
+				private int score;
+				//空参构造，快捷键alt+/ 后者alt+shift+s ->c
+				public Student() {
+					
+				}
+				//有参构造，快捷键alt+shift+s -> o ->回车
+				public Student(String name, String gender, int age, int score) {
+					this.name = name;
+					this.gender = gender;
+					this.age = age;
+					this.score = score;
+				}
+				//set和get方法，快捷键alt+shif+s -> r -> tab -> 回车 -> shift+tab —> 回车
+				public String getName() {
+					return name;
+				}
+				public void setName(String name) {
+					this.name = name;
+				}
+				public String getGender() {
+					return gender;
+				}
+				public void setGender(String gender) {
+					this.gender = gender;
+				}
+				public int getAge() {
+					return age;
+				}
+				public void setAge(int age) {
+					this.age = age;
+				}
+				public int getScore() {
+					return score;
+				}
+				public void setScore(int score) {
+					this.score = score;
+				}
+				
+				//hashCode方法，快捷键alt+shif+s -> h -> 回车 
+				public int hashCode() {
+					final int prime = 31;
+					int result = 1;
+					result = prime * result + age;
+					result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+					result = prime * result + ((name == null) ? 0 : name.hashCode());
+					result = prime * result + score;
+					return result;
+				}
+				//equals方法，快捷键alt+shif+s -> h -> 回车 
+				public boolean equals(Object obj) {
+					if (this == obj)
+						return true;
+					if (obj == null)
+						return false;
+					if (getClass() != obj.getClass())
+						return false;
+					Student other = (Student) obj;
+					if (age != other.age)
+						return false;
+					if (gender == null) {
+						if (other.gender != null)
+							return false;
+					} else if (!gender.equals(other.gender))
+						return false;
+					if (name == null) {
+						if (other.name != null)
+							return false;
+					} else if (!name.equals(other.name))
+						return false;
+					if (score != other.score)
+						return false;
+					return true;
+				}
+				
+				//toString方法，快捷键alt+shift+s -> s
+				public String toString() {
+					return "Student [name=" + name + ", gender=" + gender + ", age=" + age
+							+ ", score=" + score + "]";
+				}	
+			}
+			
+	//测试类内容
+		package com.heima.tests;
+		import com.heima.domain.Student;
+		public class Test05 {
+			public static void main(String[] args) {
+				//1.利用空参构造创建对象
+				Student s1 = new Student();
+				//2.利用set方法给对象属性赋值
+				s1.setName("杨过");
+				s1.setAge(20);
+				s1.setGender("男");
+				s1.setScore(95);
+				//3.利用get方法打印学生对象对象属性,这里设置的打印格式和toString的格式一样
+				System.out.println("Student [name="+s1.getName()+", gender="+s1.getGender()+", age="+s1.getAge()+", score="+s1.getScore()+"]");
+				//4.利用tostring打印学生对象信息
+				System.out.println(s1.toString());
+				System.out.println("==========================================");
+				//5.利用有参构造创建对象
+				Student s2 = new Student("小龙女","女",35,80);
+				//6.利用hashCode方法计算两个学生对象的hashCode值，并打印
+				int hashCode1 = s1.hashCode();
+				int hashCode2 = s2.hashCode();
+				System.out.println("对象s1的hashCode值为："+hashCode1+",对象s2的hashCode值为："+hashCode2);
+				//7.利用equals方法判断两个对象是否相同，并打印
+				boolean b = s1.equals(s2);
+				System.out.println("对象s1和对象s2是"+(b?"相同":"不同")+"的");
+			}
+		}
+
+
+
+8.简述==和equals的区别？
+	答：参考答案
+		(1)==是一个比较运算符号,既可以比较基本数据类型,也可以比较引用数据类型,基本数据类型比较的是值,引用数据类型比较的是地址值
+		(2)equals方法是一个方法,只能比较引用数据类型,所有的对象都会继承Object类中的方法,如果没有重写Object类中的equals方法,
+			equals方法和==号比较引用数据类型无区别,重写后的equals方法比较的是对象中的属性

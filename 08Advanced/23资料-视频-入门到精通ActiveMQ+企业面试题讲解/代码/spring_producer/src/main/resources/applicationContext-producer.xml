@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amp="http://activemq.apache.org/schema/core"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+    <!--1.创建连接工厂对象-->
+    <amp:connectionFactory
+        id="connetionFactory"
+        brokerURL="tcp://192.168.66.133:61616"
+        userName="admin"
+        password="admin"
+    />
+
+    <!--2.创建缓存连接工厂-->
+    <bean id="cachingConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <!--注入连接工厂-->
+        <property name="targetConnectionFactory" ref="connetionFactory"/>
+        <!--缓存消息数据-->
+        <property name="sessionCacheSize" value="5"/>
+    </bean>
+
+    <!--3.创建用于点对点发送的JmsTemplate-->
+    <bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <!--注入缓存连接工厂-->
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <!--指定是否为发布订阅模式-->
+        <property name="pubSubDomain" value="false"/>
+    </bean>
+
+    <!--4.创建用于发布订阅发送的JmsTemplate-->
+    <bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <!--注入缓存连接工厂-->
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <!--指定是否为发布订阅模式-->
+        <property name="pubSubDomain" value="true"/>
+    </bean>
+</beans>

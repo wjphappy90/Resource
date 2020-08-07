@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		* {  /* 清空默认的内外边距 几乎是我们写css 必须要写的 */
+			margin: 0;
+			padding: 0;
+		}
+
+		.searchPic {
+			width: 238px;
+			height: 294px;
+			border: 1px solid #D9E0EE;
+			border-top: 3px solid #FF8400;  /* 这句话要放到 border 的下面 */
+			margin: 100px;
+		}
+		.searchPic h3 {
+			height: 35px;
+			line-height: 35px;  /* 让行高等于高度 ，可以让文字垂直居中 */
+			border-bottom: 1px solid #D9E0EE; 
+			font-size: 16px;
+			font-weight:  normal;  /*  让粗体不变粗 */
+			padding-left: 12px;  /* 因为这个h3我么没有给宽度 继承的父亲的宽度 padding就不会撑开盒子了 */
+		}
+        </style>
+    </head>
+    <body>
+     <div class="searchPic">
+     	<h3>搜索趣图</h3>
+     </div>
+    </body>
+</html>

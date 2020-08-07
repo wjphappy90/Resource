@@ -1,0 +1,28 @@
+/**
+ * 7.分析以下需求，并用代码实现：
+ *	(1)打印倒直角三角形
+ *		*****
+ *		****
+ *		***
+ *		**
+ *		*
+ * @author JX
+ *
+ */
+public class Test06 {
+	public static void main(String[] args) {
+		/*
+			*****
+			****
+			***
+			**
+			*
+		*/
+		for(int i=1;i<=5;i++) {
+			for(int j= 5;j>=i;j--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}	
+	}
+}

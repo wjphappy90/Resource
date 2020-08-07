@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            /*animation:动画名称 动画时间 运动曲线  何时开始  播放次数  是否反方向;*/
+            animation: car 5s infinite;  /*引用动画*/
+        }
+        /*定义动画*/
+        @keyframes car {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(1000px, 0, 0);
+            }
+            51% {
+                transform: translate3d(1000px, 0, 0) rotateY(180deg);
+                /*如果多组变形 都属于 tarnsform 我们用空格隔开就好了*/
+            }
+            100% {
+                transform: translate3d(0, 0, 0) rotateY(180deg);
+                /*如果多组变形 都属于 tarnsform 我们用空格隔开就好了*/
+            }
+
+        }
+    </style>
+</head>
+<body>
+<img src="images/car.jpg"  width="100" alt=""/>
+</body>
+</html>

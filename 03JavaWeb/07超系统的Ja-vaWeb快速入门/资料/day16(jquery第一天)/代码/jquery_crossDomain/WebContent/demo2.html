@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>案例-显示商品信息</title>
+<script type="text/javascript"
+	src="/jquery_crossDomain/js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		//将div隐藏
+		$("#content").hide();
+		
+		$("#a").toggle(function(){
+			//向服务器发送请求，得到商品信息，在页面上展示 
+			var url="http://localhost:8080/jquery_ajax/product"
+			$.ajax({
+				url:url,
+				type:"get",
+				dataType:"jsonp",
+				jsonpCallback:"cb",
+				success:function(data){
+				var jsonObj=eval(data); 
+				//[{"count":100,"id":1,"name":"电视机","price":2000},{"count":200,"id":2,"name":"洗衣机","price":1000}]
+				//处理响应json数据，封装成table的html代码
+				var tab=$("<table border='1'><tr><td>编号</td><td>名称</td><td>数量</td><td>价格</td></tr></table>");
+				
+				for( var i=0;i<jsonObj.length;i++){
+					var obj=jsonObj[i];
+					var tr=$("<tr><td>"+obj.id+"</td><td>"+obj.name+"</td><td>"+obj.count+"</td><td>"+obj.price+"</td></tr>");
+					//内部插入操作
+					tab.append(tr);
+				}
+				//将table在添加到div中
+				$("#content").append(tab);
+				
+				//显示div
+				$("#content").fadeIn(1500);
+				
+			}
+			});
+			
+		},function(){
+			//将商品的信息隐藏
+			//将div隐藏
+			$("#content").fadeOut(1500);
+			//清空div
+			$("#content").html("");
+		});
+	});
+</script>
+</head>
+<body>
+
+	<a href="javascript:void(0)" id="a">显示商品信息</a>
+	<hr>
+	<div id="content"></div>
+</body>
+</html>

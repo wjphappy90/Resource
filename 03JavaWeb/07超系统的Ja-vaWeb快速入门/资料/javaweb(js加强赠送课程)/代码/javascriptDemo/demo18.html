@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript中继承--构造继承</title>
+		<script type="text/javascript">
+			//创建一个父类
+			function Father() {
+				this.name = "张三";
+				this.show = function() {
+					alert("hello " + this.name);
+				}
+			}
+
+			//			Father.prototype.say=function(){
+			//				alert("hello father");
+			//			}
+
+			//创建一个子类
+			function Son() {
+				Father.call(this);
+				this.name = "李四";
+			}
+
+			var s = new Son();
+			s.show();
+			//			s.say();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

@@ -1,0 +1,187 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" type="text/css" href="../CSS/tutorial.css" tppabs="http://www.zvon.org/xxl/XPathTutorial/CSS/tutorial.css">
+      <title>XPath Tutorial</title>
+   <style>#newZvonMessage {margin:1em; padding:1em; border:2px solid navy;}</style>
+<script src="../../../../www.google.com/jsapi" tppabs="http://www.google.com/jsapi"></script> 
+<script src="../../../Javascript/old_zvon.js" tppabs="http://www.zvon.org/Javascript/old_zvon.js" type="text/javascript" ></script> 
+<script>google.load("jquery", "1");</script> 
+</head>
+   <body>
+      <table xmlns="http://www.w3.org/1999/xhtml" width="100%">
+         <tr>
+            <td><span class="mediumText"><a class="naviBlack" target="_self" href="../Output/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output/examples.html">English</a> | <a class="naviBlack" target="_self" href="../Output_cze/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/examples.html">膷esky</a> | <a class="naviBlack" target="_self" href="../Output_dut/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/examples.html">Nederlands</a> | <a class="naviBlack" target="_self" href="../Output_fre/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_fre/examples.html">Fran&ccedil;ais</a> | <b>&gt;&gt;&nbsp;Espa&ntilde;ol&nbsp;&lt;&lt;</b> | <a class="naviBlack" target="_self" href="../Output_rus/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_rus/examples.html">袩芯-褉褍褋褋泻懈</a> | <a class="naviBlack" target="_self" href="../Output_ger/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ger/examples.html">Deutsch</a> | <a class="naviBlack" target="_self" href="../Output_chi/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/examples.html">涓枃</a> | <a class="naviBlack" target="_self" href="../Output_ita/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/examples.html">Italiano</a> | <a class="naviBlack" target="_self" href="../Output_pol/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_pol/examples.html">Polski</a></span></td>
+         </tr>
+      </table>
+      <table xmlns="http://www.w3.org/1999/xhtml" class="bar" width="750px" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+            <td class="naviBlue"><a class="naviWhite" target="_top" href="../General_spa/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_spa/examples.html">Intro</a> 
+               	/
+               	  <a class="naviWhite" target="_top" href="javascript:if(confirm('http://zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://zvon.org/'" tppabs="http://zvon.org/">Buscar</a> 
+               	/
+               	<a class="naviWhite" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/"> ZVON </a></td>
+         </tr>
+      </table>
+      <table xmlns="http://www.w3.org/1999/xhtml" width="100%">
+         <tr>
+            <td class="descriptionMenu">
+               <ul>
+                  <li>
+                     	 &gt;&gt;&nbsp;Examples&nbsp;&lt;&lt;
+                     
+                  </li>
+                  <li><a class="menu" href="paths.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/paths.html">XPaths</a></li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <hr xmlns="http://www.w3.org/1999/xhtml">
+      <table border="1" width="100%" cellpadding="1">
+         <tr>
+            <td><a class="example" href="example1.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example1.html" target="mainWindow">Ejemplo 1</a><br>La sintaxis b&aacute;sica de XPath es similar a la del 
+               direccionamiento de ficheros. Un camino que se inicia con '/', 
+               representa un camino absoluto hacia el elemento requerido.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example2.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example2.html" target="mainWindow">Ejemplo 2</a><br>Cuando el camino se inicia con '//' todos los elementos
+               en el documento que cumplen con el criterio que sigue son seleccionados.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example3.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example3.html" target="mainWindow">Ejemplo 3</a><br>El asterisco '*' selecciona todos los elementos ubicados por el camino que lo precede.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example4.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example4.html" target="mainWindow">Ejemplo 4</a><br>Una expresi&oacute;n entre corchetes permite precisar la 
+               especificaci&oacute;n de un elemento. Un n&uacute;mero dentro de los corchetes representa 
+               la posici&oacute;n del elemento en el conjunto seleccionado. La funci&oacute;n last() 
+               selecciona el &uacute;ltimo elemento en la selecci&oacute;n.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example5.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example5.html" target="mainWindow">Ejemplo 5</a><br>Los atributos se especifican con el s&iacute;mbolo prefijo '@'.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example6.html" target="mainWindow">Ejemplo 6</a><br>Los valores de los atributos pueden ser utilizados 
+               como criterio de selecci&oacute;n. La funci&oacute;n 'normalize-space' elimina los espacios 
+               al principio y al final, as&iacute; como tambien remplaza las secuencias de blancos 
+               por un solo espacio.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example7.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example7.html" target="mainWindow">Ejemplo 7</a><br>La funci&oacute;n count() cuenta el n&uacute;mero de elementos seleccionados
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example8.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example8.html" target="mainWindow">Ejemplo 8</a><br>La funci&oacute;n name() produce el nombre del elemento 
+               seleccionado, la funci&oacute;n 'starts-with' es verdadera cuando la cadena de 
+               caracteres pasada en primer argumento tiene como prefijo al segundo argumento.
+               Lo funci&oacute;n 'contains' es verdadera cuando la cadena del primer 
+               argumento contiene al segundo argumento.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example9.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example9.html" target="mainWindow">Ejemplo 9</a><br>La funci&oacute;n 'string-length' produce el n&uacute;mero de 
+               caracteres de su argumento. Se debe utilizar &amp;lt; en remplazo de &lt;  
+               y &amp;gt; en remplazo de &gt;.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example10.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example10.html" target="mainWindow">Ejemplo 10</a><br>Diferentes caminos pueden ser combinados con el separador '|'.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example11.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example11.html" target="mainWindow">Ejemplo 11</a><br>El eje 'child' contiene a los hijos del nodo del contexto. 
+               El eje 'child' es el seleccionado por defecto y puede ser omitido.  
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example12.html" target="mainWindow">Ejemplo 12</a><br>El eje 'descendant' contiene a los descendientes del 
+               nodo de contexto; los descendientes son los hijos del nodo y sus descendientes; 
+               El eje 'descendant' nunca contiene ni atributos ni nodos 'namespace'.
+               
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example13.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example13.html" target="mainWindow">Ejemplo 13</a><br>El eje 'parent' contiene el padre del nodo del contexto, 
+               si &eacute;ste existe.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example14.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example14.html" target="mainWindow">Ejemplo 14</a><br>El eje 'ancestor' contiene los ancestros del nodo 
+               del contexto, que son el padre del nodo y sus ancestros; 
+               Se deduce entonces que el eje 'ancestor' de un patron correspondiente
+               a al menos un nodo contiene el elemento raiz salvo en 
+               el caso de que el contexto especifique &uacute;nicamente la raiz misma.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example15.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example15.html" target="mainWindow">Ejemplo 15</a><br>El eje 'following-sibling' contiene todos los nodos 
+               hermanos que siguen el nodo del contexto.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example16.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example16.html" target="mainWindow">Ejemplo 16</a><br>El eje 'preceding-sibling' contiene todos los elementos hermanos
+               que preceden el nodo del contexto.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example17.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example17.html" target="mainWindow">Ejemplo 17</a><br>El eje 'following' contiene todos los nodos del documento
+               que se encuentran luego del nodo del contexto. Esto no incluye ancestros, descendientes,
+               nodos de atributo ni nodos 'namespace'.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example18.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example18.html" target="mainWindow">Ejemplo 18</a><br>El eje 'preceding' contiene todos los nodos del documento
+               que se encuentran antes del nodo del contexto. Esto no incluye ancestros, descendientes,
+               nodos de atributo ni nodos 'namespace'.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example19.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example19.html" target="mainWindow">Ejemplo 19</a><br>El eje 'descendant-or-self' contiene el nodo
+               contexto y sus descendentes.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example20.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example20.html" target="mainWindow">Ejemplo 20</a><br>El eje 'ancestor-or-self' contiene el nodo del 
+               contexto as&iacute; como sus ancestros; El eje 'ancestor-or-self' contiene el nodo 
+               raiz salvo en el caso donde el patron que precede al eje no especifique 
+               ning&uacute;n nodo del documento.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example21.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example21.html" target="mainWindow">Ejemplo 21</a><br> Para un camino que especifica un &uacute;nico elemento
+               de un documento, los ejes 'ancestor', 'descendant', 'following', 
+               'preceding' y 'self' constituyen una partici&oacute;n de ese documento
+               (no tomando en cuenta nodos de atributos ni de 'namespace'): 
+               No tienen nodos en comun y juntos especifican todos los nodos del documento.
+               
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example22.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example22.html" target="mainWindow">Ejemplo 22</a><br>El operador 'div' realiza divisiones en punto flotante,
+               el operador 'mod' calcula el residuo entero de la divisi&oacute;n. 
+               El operador 'floor' calcula el m&aacute;s grande entero que no es mayor que el argumento.
+               la funci&oacute;n 'ceiling' produce el mas peque&ntilde;o entero que no es menor que el argumento.
+            </td>
+         </tr>
+      </table>
+   
+<script type="text/javascript"> 
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15189975-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })(); 
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript构造函数</title>
+		<script type="text/javascript">
+			//a： 构造函数的函数名首字母必须大写。
+			//b： 内部使用this对象， 来指向将要生成的对象实例。
+			//c： 使用new操作符来调用构造函数， 并返回对象实例。
+			
+			//构造函数
+			function Person(name,age){
+				this.name=name;
+				this.age=age;
+				this.sayHello=function(){
+					alert("hello "+this.name);
+				}
+			};
+			
+			//使用prototype来添加属性与方法
+			Person.prototype.address="北京";
+			Person.prototype.toString=function(){
+				alert(this.name+" "+this.age+"  "+this.address);
+			};
+			
+			var p1=new Person("tom",20);
+			var p2=new Person("james",30);			
+			//console.info(p1.name+"  "+p1.age+" "+p1.address);
+			//console.info(p2.name+"  "+p2.age+"  "+p2.address);
+			//p1.sayHello();
+			p2.sayHello();			
+			p1.toString();
+			p2.toString();
+			
+			
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

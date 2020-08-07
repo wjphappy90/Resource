@@ -1,0 +1,57 @@
+public class ArrayList<E> {
+    //长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+
+     public boolean addAll(int index, Collection<? extends E> c) {
+        //校验索引
+        rangeCheckForAdd(index);
+        //将数据源转成数组
+        Object[] a = c.toArray();
+        //记录数据源的长度 3
+        int numNew = a.length;
+        //目的就是为了给集合存储数据的数组进行扩容
+        ensureCapacityInternal(size + numNew);
+
+        //numMoved:代表要移动元素的个数 --> 1个
+        //numMoved: 数据目的(集合list1)的长度-调用addAll的第一个参数 (索引1)
+        int numMoved = size - index;
+        //判断需要移动的个数是否大于0
+        if (numMoved > 0)
+            //使用System中的方法arraycopy进行移动
+            System.arraycopy(elementData, index, elementData, index + numNew,
+                             numMoved);
+        //才是真正将数据源(list)中的所有数据添加到数据目的(lsit1)
+        System.arraycopy(a, 0, elementData, index, numNew);
+        size += numNew;
+        return numNew != 0;
+    }
+
+    private void rangeCheckForAdd(int index) {
+        if (index > size || index < 0)
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+ }
+
+public final class System {
+
+    参数
+            src - 源数组。
+            srcPos - 源数组中的起始位置。
+            dest - 目标数组。
+            destPos - 目的地数据中的起始位置。
+            length - 要复制的数组元素的数量。
+
+    public static void arraycopy​(Object src,int srcPos,Object dest,int destPos,int length)
+}

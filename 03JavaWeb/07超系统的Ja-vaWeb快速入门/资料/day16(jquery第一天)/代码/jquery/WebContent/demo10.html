@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单过滤选择器</title>
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//当username与password失去焦点后，判断录入的数据不能为空
+		$(":text,:password").blur(function() {
+			//获取数据
+			var value = $(this).val();
+			if ($.trim(value) == "") {
+				alert($(this).attr("name")+"不可以为空");
+			}
+		});
+
+		//对button添加点击事件，提交form表单
+		$(":button").click(function(){
+			$("form").submit();
+		});
+	});
+</script>
+</head>
+<body>
+
+	<form>
+		USERNAME:<input type="text" name="username"><br>
+		PASSWORD:<input type="password" name="password"><br> <input
+			type="button" value="按钮">
+	</form>
+
+</body>
+</html>

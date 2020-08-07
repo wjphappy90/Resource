@@ -1,0 +1,6 @@
+class ArgsTest {
+	public static void main(String[] args) {
+		//args = new String[]{"abc","def","ghi"};
+		System.out.println(args.length);
+	}
+}

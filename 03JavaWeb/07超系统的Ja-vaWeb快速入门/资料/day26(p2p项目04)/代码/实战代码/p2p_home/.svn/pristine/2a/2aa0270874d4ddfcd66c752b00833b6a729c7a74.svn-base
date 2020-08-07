@@ -1,0 +1,150 @@
+.account{
+	padding: 15px;
+}
+.nav>li>a:focus, .nav>li>a:hover{
+	background-color: #30a9e2;
+	color: #fff;
+}
+.nav-header.collapsed > span.glyphicon-chevron-toggle:before {
+    content: "\e114";
+}
+
+.nav-header > span.glyphicon-chevron-toggle:before {
+    content: "\e113";
+}
+.state-tips {
+	margin-bottom: 8px;
+}
+.state-tips a{
+	width: 26px;
+	height: 26px;
+	margin: 7px 0 0;
+	display: inline-block;
+	vertical-align: middle;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #e8ecef;
+	background-image:url(../img/member/member-icon.png);
+	background-repeat: no-repeat;
+	
+	
+}
+.state-tips .tip-one{
+	background-position: 6px 3px ;
+}
+.state-tips .tip-two{
+	background-position: 0 -44px;
+}
+.state-tips .tip-three{
+	background-position: 7px -95px;
+}
+.state-tips .tip-four{
+	background-position: 4px -146px;
+}
+.rank p{
+	font-size:13px;
+	color: #9c9b9b;
+}
+/*tab*/
+.tabs{
+	margin: 20px 0;
+}
+.tabs li{
+	background: #f4f4f4;
+	border-bottom: 1px solid #fff;
+}
+.tabs .nav-header{
+	padding: 13px 15px;
+	background: #e4e4e4;
+	margin: 1px 0;
+}
+.tabs .nav-header:first-child{
+	background: #30a9e2;
+}
+.tabs .nav-header a{
+	color: #555;
+	display: block;
+}
+.tabs .nav-header a:hover,.tabs .nav-header a:focus{
+text-decoration: none;
+}
+.tabs .nav-header:first-child a{
+	color: #fff;
+}
+/*content*/
+.accountMain .bdrtb{
+	border: 1px solid #e4e3e3;
+    line-height: 32px;
+    border-right: 0;
+    border-left: 0;
+}
+.accountMain .bdrtb span{
+	font-size:16px;
+	color: #30a9e2;
+}
+.content .bdb{
+	font-size:18px;
+	color: #30a9e2;
+	border-bottom:1px solid #e4e3e3;
+	padding: 4px 0;
+}
+.accountMain .yue{
+	margin: 30px 0 ;
+}
+.tab-content,p{
+	color: #aeaeae;
+}
+.thumbnail{
+	text-align: center;
+	text-align: center;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid #ddd;
+}
+
+/*tabs*/
+.addCard{
+	text-align: center;
+    width: 22%;
+    background: #e4e4e4;
+    padding:38px 0 38px; 
+    border-radius: 7px;
+}
+.addCard a{
+	
+    text-decoration: none;
+}
+.addCard a span{
+	line-height: 32px;
+}
+.addCard a .plus{
+	width: 20px;
+    height: 20px;
+    display: block;
+    background: url(../img/member/member-icon.png) no-repeat -1px -967px;
+    margin: 0 auto;
+}
+/*安全设置*/
+.safe .content .table{
+	margin-top: 28px;
+}
+.safe .table .tr:first-child .td{
+	border-top: none;
+}
+.safe .table td{
+	line-height: 28px;
+	color: #666;
+}
+.table .no{
+	color: #fd953f;
+}
+.table .tool{
+	color:#2fa8e1
+}
+.glyphicon-ok-circle{
+color:#65C565 ;	
+}
+.glyphicon-info-sign{
+	color: #FD953F;
+}

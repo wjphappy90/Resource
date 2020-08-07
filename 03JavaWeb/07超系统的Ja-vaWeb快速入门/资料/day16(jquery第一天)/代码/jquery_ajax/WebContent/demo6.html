@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>案例-省市二级联动</title>
+<script type="text/javascript" src="/jquery_ajax/js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+	$(function() {
+		
+		//页面加载完成后向服务器发送请求
+		var url="/jquery_ajax/city?method=xml"
+		$.post(url,function(data){
+			//alert(data); //这时的data它代表的是xml的document对象.
+			var xml=$(data);  //将dom对象转换成jquery对象
+			var names=xml.find("省份 name"); //在xml中查找 省份标签下有name标签的所有name标签
+			//遍历所有的name标签
+			names.each(function(){
+				var pname=($(this).text()) //得到name标签中的省份名称
+				
+				$("#province").append("<option>"+pname+"</option>")
+				
+			});
+			
+			//给省份下拉框添加change事件
+			$("#province").change(function(){
+				
+				//清空city下拉框
+				$("#city").html("<option>--选择城市--</option>");
+				
+				//得到选择的省份名称
+				var pname=$(this).val();
+				
+				//查找对应的pname的父元素<省份>
+				var province=xml.find("name:contains('"+pname+"')").parent();
+				var list=province.next();
+				//得到list标签下的所有子标签name
+				var cnames=list.find("name")
+				cnames.each(function(){
+					//得到省份对应的城市名称
+					var cname=($(this).text());
+					$("#city").append("<option>"+cname+"</option>")
+				});
+			});
+			
+		},"xml");
+
+	});
+</script>
+</head>
+<body>
+
+	<select id="province">
+		<option>--选择省份--</option>
+	</select>省
+
+	<select id="city">
+		<option>--选择城市--</option>
+	</select>市
+</body>
+</html>

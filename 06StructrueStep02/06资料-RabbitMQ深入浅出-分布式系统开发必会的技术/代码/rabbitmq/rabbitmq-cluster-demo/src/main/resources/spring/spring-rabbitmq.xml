@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <rabbit:queue id="itemQueue" name="item_queue" auto-declare="true"/>
+    <rabbit:topic-exchange id="itemTopicExchange" name="item_topic_exchange" auto-declare="true">
+        <rabbit:bindings>
+            <rabbit:binding pattern="item.#" queue="itemQueue"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+</beans>

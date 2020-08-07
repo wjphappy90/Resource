@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        margin: 100px auto;
+
+    }
+    div:hover {
+        transform: scale(2);  /*x 水平缩放 y垂直缩放 如果只写一个参数， 宽度和高度都缩放*/
+    }
+        section {
+            width: 632px;
+            height: 340px;
+            margin: 0 auto;
+            overflow: hidden; /*溢出隐藏*/
+            border: 2px solid red;
+
+        }
+        section img {
+            transition: all 0.2s; 因为图片缩放了， /*实际图片做动画 所以过渡要给img 做动画  谁做动画，谁加过渡*/
+        }
+        section:hover img {  /*鼠标经过section 的时候 里面的img做 缩放*/
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+<section>
+    <img src="images/mi.jpg" alt=""/>
+</section>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .father {
+            width: 300px;
+            border: 1px solid red;
+            /* float: left;   给father 创建了 BFC*/
+            position: absolute; /*给father 创建了 BFC*/
+        }
+        .son1, .son2 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+        .son2 {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="son1"></div>
+    <div class="son2"></div>
+</div>
+</body>
+</html>

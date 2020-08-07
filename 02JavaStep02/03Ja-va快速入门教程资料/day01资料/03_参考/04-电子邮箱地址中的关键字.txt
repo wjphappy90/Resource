@@ -1,0 +1,10 @@
+zhangsan@itcast.cn
+@163.com
+@sina.com.cn
+@sohu.com
+
+__________@163.com
+尼古拉斯·赵四
+nicholas_zhaosi@163.com
+
+@符号：被保留的、有特殊含义的、自己不能瞎用的符号。“关键字”。

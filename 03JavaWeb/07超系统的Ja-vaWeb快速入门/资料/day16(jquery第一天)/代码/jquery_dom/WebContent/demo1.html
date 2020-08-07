@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文档操作-插入</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//内部插入
+		//1.在select中开始添加一项<option value='学前班'>学前班</option>
+		//$("#edu").prepend($("<option value='学前班'>学前班</option>"));
+		//$("<option value='学前班'>学前班</option>").prependTo($("#edu"));
+		
+		//2.在select最后添加一项<option value='研究生'>研究生</option>
+		//s$("#edu").append($("<option value='研究生'>研究生</option>"));
+		//$("<option value='研究生'>研究生</option>").appendTo($("#edu"));
+
+		//外部插入
+		//1.在select中开始添加一项<option value='学前班'>学前班</option>
+		//$("#edu option:first").before($("<option value='学前班'>学前班</option>"));
+		//$("<option value='学前班'>学前班</option>").insertBefore($("#edu option:first"));
+		//2.在select最后添加一项<option value='研究生'>研究生</option>
+		
+		//$("#edu option:last").after($("<option value='研究生'>研究生</option>"));
+		$("<option value='研究生'>研究生</option>").insertAfter($("#edu option:last"));
+		
+		
+	});
+</script>
+</head>
+<body>
+	<select id="edu">
+	
+		<option value="小学">小学</option>
+		<option value="中学">中学</option>
+		<option value="本科">本科</option>
+		
+	</select>
+</body>
+</html>

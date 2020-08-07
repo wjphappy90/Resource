@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript对象创建--直接量</title>
+		<script type="text/javascript">
+			var a={}; //空对象  不代表null
+			var b={id:1,name:'tom'}; //创建对象它具有属性id与name
+			var c={
+				"age":20,
+				"sex":"male",
+				"all":{name1:"value1","name2":"value2"},
+				"fun":function(){
+					alert("ok");
+				}
+			};
+			console.info(b.id+"  "+b.name);
+			console.info(c.age);
+			console.info(c.all.name1);
+			c.fun();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

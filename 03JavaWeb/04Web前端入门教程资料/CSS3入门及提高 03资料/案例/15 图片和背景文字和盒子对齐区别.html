@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div {
+		width: 300px;
+		height: 100px;
+		border: 1px solid pink;
+		text-align: center; /*  文字居中水平 */
+		margin: 10px auto;  /* 盒子水平居中  左右margin 改为 auto 就阔以了 */
+	}
+	section {
+		width: 400px;
+		height: 400px;
+		border: 1px solid #000;
+	}
+	section img {  
+		width: 200px;/* 插入图片更改大小 width 和 height */
+		height: 210px;
+		margin-top: 30px;  /* 插入图片更改位置 可以用margin 或padding  盒模型 */
+		margin-left: 50px; /* 插入当图片也是一个盒子 */
+	}
+
+	aside {
+		width: 400px;
+		height: 400px;
+		border: 1px solid purple;
+		background: #fff url(images/sun.jpg) no-repeat;
+	
+		background-size: 200px 210px; /*  背景图片更改大小只能用 background-size */
+		background-position: 30px 50px; /* 背景图片更该位置 我用 background-position */
+	}
+	</style>
+</head>
+<body>
+	1. 文字水平居中  和  盒子水平居中 
+
+	<div>文字水平居中</div>
+
+	2. 插入图片和背景图片
+
+	<section>
+		<img src="images/sun.jpg" height="691" width="721" alt="">123
+	</section>
+
+	<aside>
+		123123123
+	</aside>
+
+	3. 一般情况下，背景图片适合做一些小图标使用 
+	   产品展示之类的就用插入图片
+</body>
+</html>

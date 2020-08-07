@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.ssh.domain.Customer" table="cst_customer" catalog="maven" optimistic-lock="version">
+		<id name="custId" type="java.lang.Long">
+			<column name="cust_id" />
+			<generator class="identity" />
+		</id>
+
+		<property name="custName" type="string">
+			<column name="cust_name" length="32" not-null="true"></column>
+		</property>
+		<property name="custPhone" type="string">
+			<column name="cust_phone" length="64"></column>
+		</property>
+		<property name="custMobile" type="string">
+			<column name="cust_mobile" length="16"></column>
+		</property>
+	</class>
+</hibernate-mapping>

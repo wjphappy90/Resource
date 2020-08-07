@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;  /* 取消列表的默认样式小点 */
+		}
+		.top {
+			height: 60px;
+			background-color: #000;
+		}
+		.banner {
+			width: 960px;
+			height: 400px;
+			background-color: skyblue;
+			margin: 20px auto;
+			border-radius: 15px;
+		}
+		.main {
+			width: 960px;
+			margin: 0 auto;
+			height: 200px;
+		}
+		.main ul li {
+			width: 240px;
+			height: 200px;
+			background-color: pink;
+			float: left;  /* 浮动的目的让多个块级li 一行显示 而且米有缝隙呦 */
+		}
+		.main ul li:nth-child(even) {  /* even 偶数  个  odd  奇数 */
+			background-color: purple;
+		}
+		.footer {
+			height: 100px;
+			background-color: #000;
+		}
+        </style>
+    </head>
+    <body>
+	<div class="top">top</div>
+	<div class="banner">banner</div>
+	<div class="main">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+	<div class="footer">footer</div>
+    </body>
+</html>

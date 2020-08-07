@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 开启开发者模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<package name="p1" extends="struts-default">
+		<action name="demo1" class="com.itheima.web.action.Demo1Action" method="demo1">
+			<result name="success" type="dispatcher">/success.jsp</result>
+		</action>
+		
+		<!-- 我们在action标签内部不写任何拦截器，默认是由defaultStack拦截器栈执行的，如果写了任何一个拦截器，默认的就失效了 -->
+		<action name="demo2" class="com.itheima.web.action.Demo2Action" method="demo2">
+			<interceptor-ref name="exception"/>
+            <interceptor-ref name="alias"/>
+            <!--  <interceptor-ref name="servletConfig"/> -->
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="prepare"/>
+            <interceptor-ref name="chain"/>
+            <interceptor-ref name="scopedModelDriven"/>
+            <interceptor-ref name="modelDriven"/>
+            <interceptor-ref name="fileUpload"/>
+            <interceptor-ref name="checkbox"/>
+            <interceptor-ref name="datetime"/>
+            <interceptor-ref name="multiselect"/>
+            <interceptor-ref name="staticParams"/>
+            <interceptor-ref name="actionMappingParams"/>
+            <interceptor-ref name="params"/>
+            <interceptor-ref name="conversionError"/>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="debugging"/>
+            <interceptor-ref name="deprecation"/>
+			<result name="success" type="dispatcher">/success.jsp</result>
+		</action>
+	</package>
+</struts>

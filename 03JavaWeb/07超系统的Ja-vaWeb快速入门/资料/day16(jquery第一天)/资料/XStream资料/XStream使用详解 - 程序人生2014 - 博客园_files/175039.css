@@ -1,0 +1,284 @@
+#Header1_HeaderTitle {
+	font-family: Verdana, Consolas, "Courier New", Arial;
+	font-size: 32px;
+	color: #FF9999;
+	font-weight: bold;
+}
+.postTitle h1{
+	padding-left: 0px;
+	font-size: 22px;
+}
+a.postTitle2{
+	font-family: 微软雅黑, Consolas, Arial, 宋体;
+	text-decoration: none;
+	padding: 3px;
+}
+a.postTitle2:hover{
+	color: #fff;
+	background-color: #78AFD3;
+	padding: 3px;
+	text-decoration: none;
+}
+#cnblogs_post_body, #navCategory {
+    font-family: "Courier New", 微软雅黑, Consolas, Arial, 宋体;
+    font-size: 14px;
+}
+div.articleFooter{
+    font-family: "Courier New", 微软雅黑, Consolas, Arial, 宋体;
+}
+#cnblogs_post_body h1, #cnblogs_post_body h2, #cnblogs_post_body h3 {
+	margin-top: 24px;
+	margin-bottom: 12px;
+}
+#cnblogs_post_body h1,#cnblogs_post_body h2
+{
+	background: #4DA9C2;
+	border-radius: 6px 6px 6px 6px;
+	color: #FFFFFF;
+	font-family: "Microsoft Yahei", "宋体", Arial;
+	font-size: 28px;
+	height: 25px;
+	line-height: 25px;
+	margin: 15px 0 !important;
+	padding: 5px 0 5px 20px;
+}
+
+/*
+#cnblogs_post_body h2 
+{
+	font-family: "宋体", "宋体", Arial;
+	font-size: 18px;
+	height: 20px;
+	line-height: 20px;
+	margin: 15px 0 !important;
+	padding: 4px 0 4px 15px;
+}
+
+#cnblogs_post_body h3 
+{
+	font-family: "宋体", "宋体", Arial;
+	font-size: 16px;
+	height: 16px;
+	line-height: 16px;
+	margin: 15px 0 !important;
+	padding: 3px 0 3px 12px;
+}
+
+#cnblogs_post_body h5
+{
+	background-color: #F4F4F4;
+	width: 100%;
+	margin: 0em;
+	font-size: small;
+	color: #000;
+	font-family: consolas,"Courier New",courier,monospace;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	font: 14px/1.8 Georgia,"Times New Roman",Times,sans-serif;
+	word-break: break-all;
+	text-align: left;
+}
+
+#cnblogs_post_body h6
+{
+	color: #F00;
+	font-family: "Courier New",微软雅黑,Consolas,Arial,宋体;
+	font-size: 13px;
+	word-wrap: break-word;
+}
+*/
+
+#cnblogs_post_body pre{
+	font-family: "Courier New", Consolas;
+	font-size: 10pt;
+	margin: 0;
+}
+#cnblogs_post_body pre.code {
+	font-family: "Courier New", 微软雅黑, Consolas, Arial, 宋体;
+	background-color: #F7F7FF;
+	padding: 8px;
+	border-left: solid 5px #6699FF;
+	border-style: solid;
+	border-width: 2px 2px 2px 5px;
+	border-color: #F0F0FF #F0F0FF #F0F0FF #B0D8FF;
+}
+#cnblogs_post_body pre.msdnStyle {
+	font-family: "Courier New", 微软雅黑, Consolas, Arial, 宋体;
+	padding: 5px;
+	background-color: #F7F7FF;
+	border: 2px solid #F0F0FF;
+}
+#cnblogs_post_body p{
+	line-height: 180%;
+	padding: 0;
+}
+#cnblogs_post_body .spaceLine{
+	height: 10px;
+	margin: 0px;
+	padding: 0px;
+}
+div#information {
+    background-color: #f8f8ee;
+    border: solid 1px #e8e7d0;
+    padding: 5px 10px 0px 10px;
+    min-height: 10px;
+    margin-top: -15px;
+    margin-bottom: 30px;
+    color: #666666
+}
+.redText{
+	color: #f00;
+}
+.blodText{
+	font-weight: bold;
+}
+.x-largeText{
+	font-size: x-large;
+}
+#cnblogs_post_body a{
+	text-decoration: none;
+	color: #5B9DCA;
+	padding: 1px 2px;
+}
+#cnblogs_post_body a:hover{
+	color: #fff;
+	background-color: #78AFD3;
+	padding: 1px 2px;
+}
+
+span.link7z{
+	background: transparent url('data:image/gif;base64,R0lGODlhEAAOALMJAN3d3QQEBP/Mmf//zJmZAMzMZv//mf///wAAgP///wAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAkALAAAAAAQAA4AAARMMMmJqr2SaIKO/x6SEMAwGN1xdQhRvG/6VSph3rKatqfhy7SQzfebAYdE4LFXBM2Qv9UFKjBUr4JCYDS4Wr+CsHYEK5vHiYB6zWYnIgA7') no-repeat 0 0;
+	padding-left: 20px;
+}
+#cnblogs_post_body th{
+	text-align: left;
+}
+#blog_post_info_block a{
+	text-decoration: none;
+	color: #5B9DCA;
+	padding: 3px;
+}
+#blog_post_info_block a:hover{
+	color: #fff;
+	background-color: #78AFD3;
+	padding: 3px;
+	text-decoration: none;
+}
+
+#cnblogs_post_body ul {
+    margin: 0px;
+    padding-left: 20px;
+}
+.icon_expand{
+	background: transparent url('data:image/gif;base64,R0lGODlhEAAQAKIEAMjIwWaZzP//+wAAAAAAAAAAAAAAAAAAACH5BAEAAAQALAAAAAAQABAAAAMxSLrc/jDKqUC4OIAXhP9CwH3HJzqdVwrWeLxvi5Ks3GgAcOQ2g/O5U8OSuWwoyOQkAQA7') no-repeat 0 0;
+	padding-left: 16px;
+}
+.icon_collapse{
+	background: transparent url('data:image/gif;base64,R0lGODlhEAAQAKIEAMjIwWaZzP//+QAAAAAAAAAAAAAAAAAAACH5BAEAAAQALAAAAAAQABAAAAMsSLrc/jDKqUC4OIAXhP9CwIGf6HSkNR4sq57p22hAbZuzreOMlV0binA4SQAAOw==') no-repeat 0 0;
+	padding-left: 16px;
+}
+.icon_smile{
+	background: transparent url('data:image/gif;base64,R0lGODlhEAAQAOZ/AMiYGPPcpfC4JMCkMLigNO7OZ1QkFPTlrmhAFOzo7erm0fnz3UwYDO7ky/jYOKhQIOCoHui4INCWMGA4EPDAKPDIKPDQQMCoQPDAMPjwSPDQOPj4UODY0Ojg4OCwKMioQNigIPjoUPjwQN/m7fjQMPz13ui4MLiYQNioINvXyuPe0ciIJPjQOLhoKOiwGNioGMq8lciwSPj4WNvh5/r79fbed8CgQPv03dioKL6fV7igSPDAONiwMNHCnNjQyMiAKOTp7uC4MLBgINjAOLiQIOCwIPjQQObs9OiwKOi4KOXWv6hQGMCQHOXYw+/y9NjQ0PDAIPDYWNjQwOXGZufIaNjAQPDYQMiwUPjYQMigKMCoSPDz9PX48/rz9aiQKNigMLiYOPjoQM/BtODY2LeXULafV9CQIL+fWL2lXvbWb/DIMNCwOMiIMNi4MOvl2NTGlvjIKNnKnNzXy/Ht2dCwWNy1XsWlXsCoUPToZPjYMPjgSOiwIPjwUPjoSPjgQP///yH5BAEAAH8ALAAAAAAQABAAAAfxgH+CfzQlBwUFASVdg403NRp+fX0OalRuW40NViIyfCGTYXlBSk6CCxZ4MRd4fH1RFx8WHgp/XGkiV1Icd3wZWmM+H1B0CQsaGwRPHTp8fCcdHGAkKAoHfskGDCe+XgwGNnAQbwV6fGsIEwOgAxMIWRR7ZwV+enpVQ/Z+Rm08GAJ7ygRgUW+SHz9YHDggQSECCBhzMBxsIWGHHwcmVgiJsIdJigRTKjj48oCNBAk/HpgR8ILMjD8KPFQwIeHBgyUPVkBw4XFQExwRkCTZU2QPBAhExIwYdMRNHRAQ9uxBASCHnKWN/iRQEMcOmh4qgDQKBAA7') no-repeat 0 0;
+	padding-left: 16px;
+}
+.icon_favorite{
+	background: transparent url('data:image/gif;base64,R0lGODlhEAAQAOZLAK+HMu7er7iNGdGiC//SFEJAPqyFQsyyffDlhu67Af/PCuu9Dv/8kT9ETql/N//9lK+IOP/zdv/iQv/wbP/ZKENJWENKWmpRJ//cQ3NfP//XIf/lUv/jRP/OBv/MAP/cMbyVMv/hP+vgx//TFf/4iP/xp/bptLuZVfPYRv/WIP/WHv/rXf/fOf/RDv/mcYVzV//pV//0ef/uZ//eNv/mTqt/Htq6XauEQsytP//qif/MAv7wsruPFv/ycfzgR//bLf/NA09RWKh6LN3GiP/9qUpQXv/SEu7OOMykInd3d5tqCP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAEsALAAAAAAQABAAAAeegEuCg0tKhIeHSoqIjEpHhoyESgAUAJCRhQJGApeSiooDOgOfi4UIAagHGAooByIBJghKSUoDEgwyMx0qMAwTHwmWSUtJAAshGkAsPQ8bPBcVw4JJLzgEIzQkMTUFFtKDSUMePxEPKwIN34NKLi0+NkQcC0HqgkoEKUIFJzkKEBCJdiS4kS4JiBJIHKhTIiBDkW8GDCg8lKQiRYtLAgEAOw==') no-repeat 0 0;
+	padding-left: 16px;
+}
+
+#cnblogs_post_body p.msdnRef {
+	padding: 15px;
+	background-color: #E6F2FF;
+	border: 1px solid #99CCFF;
+}
+#cnblogs_post_body p.console, #cnblogs_post_body pre.console {
+	padding: 15px;
+	background-color: #EAEAEA;
+	border: 1px solid #C0C0C0;
+	color: #003300;
+	font-family: "Courier New", Consolas;
+	font-size: 10pt;
+}
+#cnblogs_post_body .articleFooter {
+	padding: 15px;
+	background-color: #FFF7DC;
+	border: 2px solid #FFBFBF;
+}
+#right_content{
+	margin: 0;
+	width: 96%;
+}
+#side_ing_block ul li{
+	background: #fff;
+	padding: 0;
+}
+#side_ing_block ul li a.ing_lnk{
+	color: #ccc;
+}
+#post_next_prev {
+    line-height: 1.8;
+    font-size: 14px;
+}
+#div_digg {
+	position: fixed;
+	bottom: 0px;
+	right: -20px;
+	padding: 8px 8px 8px 10px;
+	background-color: #fff;
+	border: 1px solid #D9DBE1;
+}
+/* 自定义图片
+#bnr_pic {
+    background: url("http://images.cnblogs.com/cnblogs_com/fish-li/297352/r_top_opacity_65.png") no-repeat scroll right center transparent;
+} 
+*/
+#navCategory p{
+	font-size: 12pt;
+	margin-bottom: 0px;
+}
+#navCategory ul{
+	margin: 0 0 30px 0;
+	padding: 0 0 0 30px;
+}
+#navCategory ul li{
+	margin: 0;
+	padding: 3px;
+}
+#cnblogs_post_body table {
+    border: 0;
+    margin: 0;
+}
+#cnblogs_post_body th, #cnblogs_post_body td {
+    border: 0;
+}
+.feedbackItem {
+	padding: 5px 10px;
+	line-height: 150%;
+	margin-bottom: 5px;
+	margin-top: 20px;
+	border: 1px dashed #676767;
+	background-color: #FAFAFF;
+}
+#cnblogs_post_body a.nopadding{
+	padding: 0;
+}
+#cnblogs_post_body a.nopadding:hover{
+	background-color: #fff;
+}
+#cnblogs_post_body table.MyTable {
+	background-color: #C0C0C0;
+	border-collapse: separate;
+}
+#cnblogs_post_body table.MyTable td{
+	background-color: #fff;
+	padding: 3px;
+	border-collapse: separate;
+}
+#cnblogs_post_body table.MyTable thead td {
+	background-color: #D8D8D8;
+}
+
+
+div.feedbackCon img{
+	display: none;
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>账户中心</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!--base文件，放置公用样式-->
+		<link rel="stylesheet" type="text/css" href="css/space.css" />
+		<!--**.css文件，本页面专用样式-->
+	</head>
+
+	<body>
+		
+		<!--nav-->
+		<!--navTop-->
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container">
+				<!--for mobile display-->
+				 <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-0">
+				        <span class="sr-only">折叠菜单</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a href="index.html" class="navbar-brand">P2P金融平台</a>
+				</div>
+				<div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-0">
+					<p class="navbar-text navbar-right">您好，欢迎来到P2P平台！ <span><a href="register.html">免费注册</a></span> <span><a href="login.html">立即登录</a></p>
+				</div>
+			</div>
+		</nav>
+		<!--navMain-->
+		<nav class="navbar navbar-default navindex" role="navigation">
+			<div class="container">
+				<!--for mobile display-->
+				 <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				        <span class="sr-only">折叠菜单</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="传智金融" width="312px" height="89px" title="" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="index.html" target="_blank">首页</a>
+						</li>
+						<li>
+							<a href="moto.html" target="_blank">我要投资</a>
+						</li>
+						<li>
+							<a href="school.html" target="_blank">新手指引</a>
+						</li>
+						<li>
+							<a href="helper.html" target="_blank">帮助中心</a>
+						</li>
+						<li  class="active">
+							<a href="#">账户中心</a>
+						</li>
+						<li>
+							<a href="#">我要借款</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--main-->
+		<section class="container">
+			<div class="account row">
+				<div class="col-sm-6 col-md-3">
+					<div class="user-photo">
+						<img src="img/member/nophoto.jpg" class="img-responsive"/>
+						<div class="state-tips">
+							<a href="#" class="tip-one"></a>
+							<a href="#" class="tip-two"></a>
+							<a href="#" class="tip-three"></a>
+							<a href="#" class="tip-four"></a>			
+						</div>
+						<div class="rank">
+							<p>安全等级：<span>弱</span></p>
+						</div>
+						
+					</div>
+				     
+				     <div class="tabs">
+				     	<div class="nav nav-tabs nav-stacked">
+				
+						<div class="nav-header">
+							<a href="#tab1" data-toggle="tab"><i class="glyphicon glyphicon-home"></i>&nbsp;首页</a>
+						</div>
+						<div class="nav-header">
+							<a href="#zichan" data-toggle="collapse">
+								<i class="glyphicon glyphicon-compressed"></i>&nbsp;
+				     				资产管理
+				     			<span class="pull-right glyphicon glyphicon-chevron-toggle"></span></a>
+						</div>
+						<ul id="zichan" class="nav nav-list collapse">
+							<li>
+								<a href="#tab2" data-toggle="tab">&nbsp;资产统计</a>
+							</li>
+							<li>
+								<a href="javascript:void()" data-toggle="tab">&nbsp;充值</a>
+							</li>
+							<li>
+								<a href="javascript:void()" data-toggle="tab">&nbsp;提现</a>
+							</li>
+						</ul>
+						<div class="nav-header">
+							<a href="#touzi" data-toggle="collapse">
+								<i class="glyphicon glyphicon-log-in"></i>&nbsp;
+				     				投资管理
+				     			<span class="pull-right glyphicon glyphicon-chevron-toggle"></span></a>
+						</div>
+						<ul id="touzi" class="nav nav-list collapse">
+							<li>
+								<a href="javascript:void()" data-toggle="tab">&nbsp;交易记录</a>
+							</li>
+							<li>
+								<a href="javascript:void()" data-toggle="tab">&nbsp;我的投资</a>
+							</li>
+						</ul>
+						<div class="nav-header">
+							<a href="#jiang" data-toggle="collapse" data-parent="#jiang">
+								<i class="glyphicon glyphicon-gift"></i>&nbsp;
+				     				奖励管理
+				     			<span class="pull-right glyphicon glyphicon-chevron-toggle"></span></a>
+						</div>
+						<ul id="jiang" class="nav nav-list collapse">
+							<li>
+								<a href="javascript:void()" data-toggle="tab">&nbsp;邀请奖励</a>
+							</li>
+							
+						</ul>
+						<div class="nav-header">
+							<a href="#msg" data-toggle="collapse" data-parent="#msg">
+								<i class="glyphicon glyphicon-comment"></i>&nbsp;
+				     				消息管理
+				     			<span class="pull-right glyphicon glyphicon-chevron-toggle"></span></a>
+						</div>
+						<ul id="msg" class="nav nav-list collapse">
+							<li>
+								<a href="javascript:void()" data-toggle="tab">&nbsp;站内信息</a>
+							</li>
+							
+						</ul>
+						<div class="nav-header">
+							<a href="#account" data-toggle="collapse"  data-parent="#account">
+								<i class="glyphicon glyphicon-certificate"></i>&nbsp;
+				     				账户管理
+				     			<span class="pull-right glyphicon glyphicon-chevron-toggle"></span></a>
+						</div>
+						<ul id="account" class="nav nav-list collapse">
+							<li>
+								<a href="#tab3" data-toggle="tab">&nbsp;银行卡信息</a>
+							</li>
+							<li>
+								<a href="#tab4" data-toggle="tab">&nbsp;安全设置</a>
+							</li>
+							
+						</ul>
+					</div>
+				     	
+				     	
+				     	
+				     	
+				</div>
+			</div>
+				<div class="col-sm-6 col-md-9">
+					<div class="tabMain">
+						<div class="tab-content">
+						<div class="tab-pane" id="tab1">
+							<div class="content">
+								<div class="accountMain">
+									<p class="bdrtb">为了您的资金安全，请尽快进行手机认证认证  <span>手机认证</span></p>
+									<div class="yue row">
+										<div class="col-xs-6 col-md-4">
+											<div class="thumbnail">
+												<img src="img/help/m-ico_01.png"/>
+												<div class="caption">
+													<p>可用余额</p>
+													<p>0.00</p>
+													<p><a href="#" class="btn btn-success" role="button">充值</a> <a href="#" class="btn btn-info" role="button">提现</a></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-6 col-md-4">
+											<div class="thumbnail">
+												<img src="img/help/m-ico_03.png"/>
+												<div class="caption">
+													<p>资产总额</p>
+													<p>0.00</p>
+													<p><a href="#" class="btn btn-success" role="button">充值</a> <a href="#" class="btn btn-info" role="button">提现</a></p>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-6 col-md-4">
+											<div class="thumbnail">
+												<img src="img/help/m-ico_05.png"/>
+												<div class="caption">
+													<p>累计收益</p>
+													<p>0.00</p>
+													<p><a href="#" class="btn btn-success" role="button">充值</a> <a href="#" class="btn btn-info" role="button">提现</a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+		
+							</div>
+						</div>
+						<div class="tab-pane" id="tab2">
+							<div class="content tab_describe">
+								资产统计页面缺失
+							</div>
+						</div>
+						<div class="tab-pane" id="tab3">
+							<div class="content tab_describe">
+							<p class="bdb">银行卡信息</p>
+							<div class="addCard">
+								<a href="javascript:void()">
+									<span class="plus"></span>
+									<span>添加银行卡</span>
+								</a>
+							</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="tab4">
+							<div class="content tab_describe safe">
+								<p class="bdb">安全设置</p>
+								<table class="table">
+									<tr>
+										<td width="12%" style="border-top: none;">用户名</td>
+										<td style="border-top: none;"><span class="glyphicon glyphicon-ok-circle"></span></td>
+										<td colspan="2" style="border-top: none;"></td>
+									</tr>
+									<tr>
+										<td>手机认证</td>
+										<td><span class="glyphicon glyphicon-info-sign"></span></td>
+										<td><span class="no">未认证</span></td>
+										<td><span class="tool">认证</span></td>
+									</tr>
+									<tr>
+										<td>实名认证</td>
+										<td><span class="glyphicon glyphicon-info-sign"></span></td>
+										<td><span class="no">未认证</span></td>
+										<td><span class="tool">认证</span></td>
+									</tr>
+									<tr>
+										<td>邮箱认证</td>
+										<td><span class="glyphicon glyphicon-info-sign"></span></td>
+										<td><span class="no">未认证</span></td>
+										<td><span class="tool">验证</span></td>
+									</tr>
+									<tr>
+										<td>登录密码</td>
+										<td><span class="glyphicon glyphicon-ok-circle"></span></td>
+										<td><span class="yes">已设置</span></td>
+										<td><span class="tool">修改</span></td>
+									</tr>
+									<tr>
+										<td>支付密码</td>
+										<td><span class="glyphicon glyphicon-info-sign"></span></td>
+										<td><span class="no">未设置</span></td>
+										<td><span class="tool">设置</span></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>	
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<footer class="navbar-inverse"></footer>
+		
+		<script type="text/javascript" src="js/jquery.1.9.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				/*tabs*/
+				$('.tabs a[data-toggle="tab"]').eq(0).tab('show');
+				$('.tabs a[data-toggle="tab"]').on('click',function(e){
+					$('.tabs a[data-toggle="tab"]').parent('li').removeClass('active');
+					$('.tabs a[data-toggle="tab"]').removeClass('active');
+					$(this).addClass('active');
+				})
+			})
+		</script>
+	</body>
+
+</html>

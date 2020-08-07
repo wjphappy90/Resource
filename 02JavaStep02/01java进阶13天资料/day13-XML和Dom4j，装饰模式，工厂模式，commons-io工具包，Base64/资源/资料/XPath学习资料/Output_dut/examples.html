@@ -1,0 +1,161 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" type="text/css" href="../CSS/tutorial.css" tppabs="http://www.zvon.org/xxl/XPathTutorial/CSS/tutorial.css">
+      <title>XPath Tutorial</title>
+   <style>#newZvonMessage {margin:1em; padding:1em; border:2px solid navy;}</style>
+<script src="../../../../www.google.com/jsapi" tppabs="http://www.google.com/jsapi"></script> 
+<script src="../../../Javascript/old_zvon.js" tppabs="http://www.zvon.org/Javascript/old_zvon.js" type="text/javascript" ></script> 
+<script>google.load("jquery", "1");</script> 
+</head>
+   <body>
+      <table xmlns="http://www.w3.org/1999/xhtml" width="100%">
+         <tr>
+            <td><span class="mediumText"><a class="naviBlack" target="_self" href="../Output/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output/examples.html">English</a> | <a class="naviBlack" target="_self" href="../Output_cze/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/examples.html">膷esky</a> | <b>&gt;&gt;&nbsp;Nederlands&nbsp;&lt;&lt;</b> | <a class="naviBlack" target="_self" href="../Output_fre/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_fre/examples.html">Fran&ccedil;ais</a> | <a class="naviBlack" target="_self" href="../Output_spa/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/examples.html">Espa&ntilde;ol</a> | <a class="naviBlack" target="_self" href="../Output_rus/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_rus/examples.html">袩芯-褉褍褋褋泻懈</a> | <a class="naviBlack" target="_self" href="../Output_ger/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ger/examples.html">Deutsch</a> | <a class="naviBlack" target="_self" href="../Output_chi/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/examples.html">涓枃</a> | <a class="naviBlack" target="_self" href="../Output_ita/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/examples.html">Italiano</a> | <a class="naviBlack" target="_self" href="../Output_pol/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_pol/examples.html">Polski</a></span></td>
+         </tr>
+      </table>
+      <table xmlns="http://www.w3.org/1999/xhtml" class="bar" width="750px" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+            <td class="naviBlue"><a class="naviWhite" target="_top" href="../General_dut/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_dut/examples.html">Begin</a> 
+               	/
+               	  <a class="naviWhite" target="_top" href="javascript:if(confirm('http://zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://zvon.org/'" tppabs="http://zvon.org/">Zoek</a> 
+               	/
+               	<a class="naviWhite" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/"> ZVON </a></td>
+         </tr>
+      </table>
+      <table xmlns="http://www.w3.org/1999/xhtml" width="100%">
+         <tr>
+            <td class="descriptionMenu">
+               <ul>
+                  <li>
+                     	 &gt;&gt;&nbsp;Examples&nbsp;&lt;&lt;
+                     
+                  </li>
+                  <li><a class="menu" href="paths.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/paths.html">XPaths</a></li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <hr xmlns="http://www.w3.org/1999/xhtml">
+      <table border="1" width="100%" cellpadding="1">
+         <tr>
+            <td><a class="example" href="example1.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example1.html" target="mainWindow">Voorbeeld 1</a><br>De basis XPath schrijfwijze kan je vergelijken met het addresseren van bestanden door het besturingssysteem. Als het path
+               begint met een schuine streep, /, dan stelt het een absoluut path voor bij het verplichte element
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example2.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example2.html" target="mainWindow">Voorbeeld 2</a><br>Als het path begint met // dan zullen alle elementen van het document die overeenkomen met de erna volgende criteria geselecteerd
+               worden.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example3.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example3.html" target="mainWindow">Voorbeeld 3</a><br>Een ster * selecteert alle elementen gelocaliseerd door het voorgaande path.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example4.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example4.html" target="mainWindow">Voorbeeld 4</a><br>Een beschrijving tussen vierkante haken kan een element meer specif&iuml;en. Een nummer tussen de haken geeft de positie van het
+               element aan in het geselecteerde path. De functie last() selecteert het laatste element van de selectie.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example5.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example5.html" target="mainWindow">Voorbeeld 5</a><br>Attributen worden gespecif&iuml;eerd met het @ voorvoegsel.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example6.html" target="mainWindow">Voorbeeld 6</a><br>Attribuutwaarden kunnen gebruikt worden als selectie criteria. De functie normalize-space verwijdert voorloop spaties en vervangt
+               spatie reeksen met een enkele spatie.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example7.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example7.html" target="mainWindow">Voorbeeld 7</a><br>Functie count() telt het aantal geselecteerde elementen
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example8.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example8.html" target="mainWindow">Voorbeeld 8</a><br>Functie name() geeft de naam van het element weer, de functie starts-with wordt van toepassing als het begin van het eerste
+               argument gelijk is aan het tweede argument en de functie contains wordt van toepassing als het eerste argument het tweede
+               argument bevat
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example9.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example9.html" target="mainWindow">Voorbeeld 9</a><br>De functie string-length geeft het aantal tekens weer van een tekenreeks. U moet &amp;lt; gebruiken als vervanging voor &lt; en &amp;gt;
+               als vervanging voor &gt;
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example10.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example10.html" target="mainWindow">Voorbeeld 10</a><br>Verschillende paths kunnen gecombineerd worden met de | scheider
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example11.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example11.html" target="mainWindow">Voorbeeld 11</a><br>De child spil bevat de kinderen van de context geleding. De kind spil is de standaard spil en kan weg gelaten worden.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example12.html" target="mainWindow">Voorbeeld 12</a><br>De descendant spil bevat de onderdanen van de context geleding, Een onderdaan is een kind of een kind van een kind, zodoende
+               bevat een onderdaan nooit attribuut of namespace geledingen.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example13.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example13.html" target="mainWindow">Voorbeeld 13</a><br>De parent spil bevat de ouder van de context geleding, als er al een is
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example14.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example14.html" target="mainWindow">Voorbeeld 14</a><br>De ancestor spil bevat de onderdanen van de context geleding. De onderdanen van de context geleding bestaan uit de ouder van
+               de context geleding en de ouder van de ouder enzovoort. Zodoende dat de onderdaan spil altijd de basis geleding bevat tenzij
+               de contexxt gelding de basis geleding is.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example15.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example15.html" target="mainWindow">Voorbeeld 15</a><br>De following-sibling spil bevat alle volgende afstammelingen van de context geleding.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example16.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example16.html" target="mainWindow">Voorbeeld 16</a><br>De preceding-sibling spil bevat alle voorgaande afstammelingen van de context geleding.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example17.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example17.html" target="mainWindow">Voorbeeld 17</a><br>De following spil bevat alle geledingen die in hetzelfde document staan als de context geleding die na de context geleding
+               komen in het document behalve de onderdanige elementen en de attribuut en namespace geledingen.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example18.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example18.html" target="mainWindow">Voorbeeld 18</a><br>De preceding spil bevat alle geledingen die in hetzelfde documentstaan als de context geleding voor de context geleding behalve
+               de ouder elementen en de atribuut en namespace geledingen.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example19.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example19.html" target="mainWindow">Voorbeeld 19</a><br>De descendant-or-self spil bevat de context geleding en zijn onderdanige elementen.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example20.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example20.html" target="mainWindow">Voorbeeld 20</a><br>De ancestor-or-self spil bevat de context geleding en zijn ouders zodoende dat de ouder spil altijd de basis geleding bevat.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example21.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example21.html" target="mainWindow">Voorbeeld 21</a><br>De ancestor, descendant, following, preceding en self spillen verdelen een document, niet kijkende naar de attribuut en namespace
+               geledingen. Ze overlappen elkaar niet maar samen kunnen ze wel alle geledingen bevatten van het document.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example22.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example22.html" target="mainWindow">Voorbeeld 22</a><br>De div operator maakt komma getal delingen; De mod operator geeft de rest weer van een staartdeling. De floor functie geeft
+               het grootste getal weer, dichtst bij het positieve oneindige, dat niet groter is dan het argument en geheel is. De ceiling
+               functie geeft het kleinste getal weer, dichtst bij het negatieve oneindige, dat niet kleiner is dan het het argument en geheel
+               is.
+            </td>
+         </tr>
+      </table>
+   
+<script type="text/javascript"> 
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15189975-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })(); 
+</script>
+</body>
+</html>

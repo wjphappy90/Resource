@@ -1,0 +1,127 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" type="text/css" href="../CSS/tutorial.css" tppabs="http://www.zvon.org/xxl/XPathTutorial/CSS/tutorial.css">
+      <title>XPath Tutorial</title>
+      <link rel="index" href="index.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/index.html">
+      <link rel="previous" href="example5.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/example5.html">
+      <link rel="next" href="example7.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/example7.html">
+   <style>#newZvonMessage {margin:1em; padding:1em; border:2px solid navy;}</style>
+<script src="../../../../www.google.com/jsapi" tppabs="http://www.google.com/jsapi"></script> 
+<script src="../../../Javascript/old_zvon.js" tppabs="http://www.zvon.org/Javascript/old_zvon.js" type="text/javascript" ></script> 
+<script>google.load("jquery", "1");</script> 
+</head>
+   <body>
+      <table xmlns="http://www.w3.org/1999/xhtml" width="100%">
+         <tr>
+            <td><span class="mediumText"><a class="naviBlack" target="_self" href="../Output/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output/example6.html">English</a> | <a class="naviBlack" target="_self" href="../Output_cze/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example6.html">Äesky</a> | <a class="naviBlack" target="_self" href="../Output_dut/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example6.html">Nederlands</a> | <a class="naviBlack" target="_self" href="../Output_fre/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_fre/example6.html">Fran&ccedil;ais</a> | <a class="naviBlack" target="_self" href="../Output_spa/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example6.html">Espa&ntilde;ol</a> | <a class="naviBlack" target="_self" href="../Output_rus/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_rus/example6.html">ĞŸĞ¾-Ñ€ÑƒÑÑĞºĞ¸</a> | <a class="naviBlack" target="_self" href="../Output_ger/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ger/example6.html">Deutsch</a> | <b>&gt;&gt;&nbsp;ä¸­æ–‡&nbsp;&lt;&lt;</b> | <a class="naviBlack" target="_self" href="../Output_ita/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example6.html">Italiano</a> | <a class="naviBlack" target="_self" href="../Output_pol/example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_pol/example6.html">Polski</a></span></td>
+            <td style="text-align:right"><span class="mediumText"><a class="naviBlack" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">ZVON</a>
+                  		&gt;
+                  		<a class="naviBlack" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">Tutorials</a>
+                  		&gt;
+                  		<b>XPath Tutorial</b></span></td>
+         </tr>
+      </table>
+      <table xmlns="http://www.w3.org/1999/xhtml" class="bar" width="750px" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+            <td class="naviBlue"><a class="naviWhite" target="_top" href="../General_chi/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_chi/examples.html">ä»‹ç»</a> 
+               	/
+               	  <a class="naviWhite" target="_top" href="javascript:if(confirm('http://zvon.org/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://zvon.org/'" tppabs="http://zvon.org/">æœç´¢</a> 
+               	/
+               	<a class="naviWhite" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/"> ZVON </a></td>
+         </tr>
+      </table>
+      <table class="hangingMenu" border="0" cellpadding="1" cellspacing="0" width="100%">
+         <tr>
+            <td><b>&gt;&gt; å®ä¾‹ 6 &lt;&lt;</b>
+               		|
+               <a class="naviBlack" href="example5.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/example5.html">å‰é¡µ</a>
+               		|
+               <a class="naviBlack" href="example7.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/example7.html">åé¡µ</a></td>
+         </tr>
+      </table><br><div class="description">å±æ€§çš„å€¼å¯ä»¥è¢«ç”¨æ¥ä½œä¸ºé€‰æ‹©çš„å‡†åˆ™, normalize-spaceå‡½æ•°åˆ é™¤äº†å‰éƒ¨å’Œå°¾éƒ¨çš„ç©ºæ ¼, å¹¶ä¸”æŠŠè¿ç»­çš„ç©ºæ ¼ä¸²æ›¿æ¢ä¸ºä¸€ä¸ªå•ä¸€çš„ç©ºæ ¼</div>
+      <div><a name="b9b1c37c29"></a>&nbsp;
+      </div>
+      <table border="1" cellpadding="5" width="85%">
+         <tr>
+            <th>//BBB[@id='b1']</th>
+         </tr>
+         <tr>
+            <td>é€‰æ‹©å«æœ‰å±æ€§idä¸”å…¶å€¼ä¸º'b1'çš„BBBå…ƒç´ </td>
+         </tr>
+         <tr>
+            <td class="code">
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">AAA</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">BBB</span><span class="element"> id = "b1"</span>/&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">BBB</span><span class="element"> name = " bbb "</span>/&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">BBB</span><span class="element"> name = "bbb"</span>/&gt;
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">AAA</span>&gt;
+               	
+            </td>
+         </tr>
+         <tr>
+            <td><a target="_top" href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[@id=\'b1\']  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[@id=\'b1\']'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[@id='b1']">åœ¨XLabä¸­æ‰“å¼€å®ä¾‹</a> | <a href="javascript:if(confirm('http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_0_png.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÎŞ·¨È¡µÃ£¬»òÖøËüÈ¡»Øºó·ÅÆú£¬»òÊÇÏîÄ¿Í£Ö¹µÄÌ«¿ì¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_0_png.html'" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_0_png.html">æ ‘è§†å›¾ (JPG)</a></td>
+         </tr>
+      </table>
+      <div><a name="b9b1c37c31"></a>&nbsp;
+      </div>
+      <table border="1" cellpadding="5" width="85%">
+         <tr>
+            <th>//BBB[@name='bbb']</th>
+         </tr>
+         <tr>
+            <td>é€‰æ‹©å«æœ‰å±æ€§nameä¸”å…¶å€¼ä¸º'bbb'çš„BBBå…ƒç´ </td>
+         </tr>
+         <tr>
+            <td class="code">
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">AAA</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">BBB</span><span class="element"> id = "b1"</span>/&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">BBB</span><span class="element"> name = " bbb "</span>/&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">BBB</span><span class="element"> name = "bbb"</span>/&gt;
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">AAA</span>&gt;
+               	
+            </td>
+         </tr>
+         <tr>
+            <td><a target="_top" href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[@name=\'bbb\']  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[@name=\'bbb\']'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[@name='bbb']">åœ¨XLabä¸­æ‰“å¼€å®ä¾‹</a> | <a href="javascript:if(confirm('http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_1_png.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÎŞ·¨È¡µÃ£¬»òÖøËüÈ¡»Øºó·ÅÆú£¬»òÊÇÏîÄ¿Í£Ö¹µÄÌ«¿ì¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_1_png.html'" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_1_png.html">æ ‘è§†å›¾ (JPG)</a></td>
+         </tr>
+      </table>
+      <div><a name="b9b1c37c33"></a>&nbsp;
+      </div>
+      <table border="1" cellpadding="5" width="85%">
+         <tr>
+            <th>//BBB[normalize-space(@name)='bbb']</th>
+         </tr>
+         <tr>
+            <td>é€‰æ‹©å«æœ‰å±æ€§nameä¸”å…¶å€¼(åœ¨ç”¨normalize-spaceå‡½æ•°å»æ‰å‰åç©ºæ ¼å)ä¸º'bbb'çš„BBBå…ƒç´ </td>
+         </tr>
+         <tr>
+            <td class="code">
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">AAA</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">BBB</span><span class="element"> id = "b1"</span>/&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">BBB</span><span class="element"> name = " bbb "</span>/&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">BBB</span><span class="element"> name = "bbb"</span>/&gt;
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">AAA</span>&gt;
+               	
+            </td>
+         </tr>
+         <tr>
+            <td><a target="_top" href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[normalize-space(@name)=\'bbb\']  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüµÄÓò»òÂ·¾¶³¬¹ı¿ªÊ¼ÍøÖ·ÖĞÉèÖÃµÄ·¶Î§¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[normalize-space(@name)=\'bbb\']'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_6.html?stylesheetFile=XSLT/xpath.xslt&value=//BBB[normalize-space(@name)='bbb']">åœ¨XLabä¸­æ‰“å¼€å®ä¾‹</a> | <a href="javascript:if(confirm('http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_2_png.html  \n\nÎÄ¼ş²¢Î´ÒÀ Teleport Pro È¡»Ø£¬ÒòÎª ËüÎŞ·¨È¡µÃ£¬»òÖøËüÈ¡»Øºó·ÅÆú£¬»òÊÇÏîÄ¿Í£Ö¹µÄÌ«¿ì¡£  \n\nÄãÒª´Ó·şÎñÆ÷ÉÏ´ò¿ªËüÂğ£¿'))window.location='http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_2_png.html'" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/example6_2_png.html">æ ‘è§†å›¾ (JPG)</a></td>
+         </tr>
+      </table>
+      
+<script type="text/javascript"> 
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15189975-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })(); 
+</script>
+</body>
+</html>

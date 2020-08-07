@@ -1,0 +1,88 @@
+--COMPLETE  完全刷新  
+--FAST      增量更新
+--FORCE     自动选择
+
+--ON COMMIT   在基表做提交操作是刷新物化视图
+--ON DEMAND   手动刷新
+
+
+--创建手动刷新的物化视图
+create materialized view mv_address1 as
+select ad.id,ad.name,ar.name arname from t_address ad,t_area ar
+where ad.areaid=ar.id
+
+--查询物化视图
+select * from mv_address1
+
+--向基表插入数据
+insert into T_ADDRESS VALUES(9,'西四旗',2,2);
+commit;
+--查询基表数据
+select * from t_address
+
+--执行下列语句来进行刷新
+begin
+ DBMS_MVIEW.refresh('MV_ADDRESS1','C');
+end;
+
+
+--创建自动刷新的物化视图  -基表发生commit操作，自动刷新物化视图
+create materialized view mv_address2
+refresh 
+on commit
+as
+select ad.id,ad.name,ar.name arname from t_address ad,t_area ar
+where ad.areaid=ar.id
+
+--向基表插入数据
+insert into T_ADDRESS VALUES(10,'西5旗',2,2);
+commit;
+--查询物化视图
+select * from mv_address2
+
+
+--创建时不生成数据的物化视图
+
+create materialized view mv_address3
+build deferred
+refresh 
+on commit
+as
+select ad.id,ad.name,ar.name arname from t_address ad,t_area ar
+where ad.areaid=ar.id
+
+--查询物化视图
+select * from mv_address3
+
+insert into T_ADDRESS VALUES(12,'西7旗',2,2);
+commit;
+--第一次必须手动执行刷新，
+begin
+ DBMS_MVIEW.refresh('MV_ADDRESS3','C');
+end;
+
+--.创建增量刷新的物化视图
+
+--前提是必须创建物化视图日志 ：记录基表发生了哪些变化，用这些记录去更新物化视图
+
+create materialized view log on t_address with rowid
+create materialized view log on t_area with rowid
+
+--创建物化视图中的语句中，必须有基表的ROWID
+
+create materialized view mv_address4
+refresh fast
+as
+select ad.rowid adrowid,ar.rowid arrowid, ad.id,ad.name,ar.name arname from t_address ad,t_area ar
+where ad.areaid=ar.id
+
+select * from mv_address4
+--插入数据 
+insert into T_ADDRESS VALUES(14,'西9旗',2,2);
+commit;
+delete from t_address where id=13;
+commit;
+--手动刷新
+begin
+ DBMS_MVIEW.refresh('MV_ADDRESS4','C');
+end;

@@ -1,0 +1,242 @@
+1、今天属于复习内容，利用今天的时间，复习整理这几日所学内容!
+	a、大串中查找子串出现的次数
+		public class Test01 {
+
+		public static void main(String[] args) {
+			// 查找字串在大串中出现的次数
+			String str = "hanbasdnbafllgnbahjnbakqqqqlnbaxnbai";
+			String regex = "nba";
+			// 方式1
+			int count = getCount1(str, regex);
+			
+			// 方式2
+			int count2 = getCount2(str, regex);
+			System.out.println(count);
+			System.out.println(count2);
+		}
+
+		/*
+		 * 方式2： 不截取字符串，逐渐缩小查找范围
+		 */
+		private static int getCount2(String str, String regex) {
+			// 定义统计变量
+			int count = 0;
+			// 定义子串在大串中第一次出现的索引
+			int index = 0;
+			// 从每次找到的小串后，开始下一次查找
+			while ((index = str.indexOf(regex, index)) != -1) {
+				// 如果找到小串，下一次开始查找的起始索引是小串出现的索引+小串的长度
+				index = index + regex.length();
+				// 统计变量++
+				count++;
+			}
+			return count;
+		}
+
+		/*
+		 * 方式1：查找到小串后将已经查询的部分截取掉。
+		 * 返回值：统计变量的值 int 
+		 * 参数列表：大串和小串
+		 * 注：这种方式会在常量池产生很多截取出来的字符串数据，浪费内存
+		 */
+		public static int getCount1(String maxString, String minString) {
+			// 定义统计变量
+			int count = 0;
+			// 定义小串在大串中第一次出现的索引
+			int index = 0;
+			// 查找赋值并判断，如果返回值不是-1，说明小串在大串中是存在的。
+			while ((index = maxString.indexOf(minString)) != -1) {
+				// 统计变量++
+				count++;
+				// 把查找过的数据给截取掉,重新赋值给大串
+				maxString = maxString.substring(index + minString.length());
+			}
+			return count;
+		}
+	}
+	
+	b、打印出字符串"abbbbbccccdddee"中每个字符出现的次数，要求输出格式："a(1)b(5)c(4)d(3)e(2)"，并将结果写入文件。
+		public class Test02 {
+
+			public static void main(String[] args) throws IOException {
+				// 1,定义一个需要被统计字符的字符串
+				String s = "abbbbbccccdddee";
+				// 2,将字符串转换为字符数组
+				char[] arr = s.toCharArray();
+				// 3,定义双列集合,存储字符串中字符以及字符出现的次数
+				TreeMap<Character, Integer> map = new TreeMap<>();
+				// 4,遍历字符数组获取每一个字符,并将字符存储在双列集合中
+				for (char c : arr) {
+					// 5,存储过程中要做判断,如果集合中不包含这个键,就将该字符当作键,值为1存储,如果集合中包含这个键,就将值加1存储
+					if (!map.containsKey(c)) { // 如果不包含这个键
+						map.put(c, 1);
+					} else {
+						map.put(c, map.get(c) + 1);
+					}
+				}
+				// 6,遍历集合将键和值拼接起来
+				StringBuilder sb = new StringBuilder();
+				for (Character key : map.keySet()) { // hm.keySet()代表所有键的集合
+					sb.append(key + "(" + map.get(key) + ")");
+				}
+				
+				// 输出结果
+				System.out.println(sb);
+				
+				// 创建输出流对象写入文件
+				BufferedWriter bw = new BufferedWriter(new FileWriter("result.txt"));
+				
+				bw.write(sb.toString());
+				
+				bw.close();
+			}
+		}
+		
+	c、将指定文件夹下（包含子文件夹）所有的.java文件复制到指定目录（目标目录为单级目录即可）。
+		public class Test03 {
+
+			public static void main(String[] args) throws IOException {
+				File src = new File("D:\\src"); // 源文件夹
+				File dest = new File("D:\\dest"); // 目标文件夹
+				if (src.equals(dest)) {
+					System.out.println("目标文件夹是源文件夹的子文件夹");
+				} else {
+					copy(src, dest);
+				}
+			}
+
+			/*
+			 * 把其中一个文件夹中(包含内容)拷贝到另一个文件夹中 1,返回值类型void 2,参数列表File src,File dest
+			 */
+			public static void copy(File src, File dest) throws IOException {
+				
+				// 1,获取原文件夹中所有的文件和文件夹,存储在File数组中
+				File[] subFiles = src.listFiles();
+				// 2,遍历数组
+				for (File subFile : subFiles) {
+					// 3,如果是文件并且是以.java结尾，就用io流读写
+					if (subFile.isFile()) {
+						// 过滤符合条件的文件，以.java结尾
+						if (subFile.getName().endsWith(".java")) {
+
+							BufferedInputStream bis = new BufferedInputStream(
+									new FileInputStream(subFile));
+
+							// 目标文件
+							File fff = new File(dest, subFile.getName()); // 想复制到的目标文件夹
+																			// + 文件名字
+
+							BufferedOutputStream bos = new BufferedOutputStream(
+									new FileOutputStream(fff));
+
+							int b;
+							while ((b = bis.read()) != -1) {
+								bos.write(b);
+							}
+
+							bis.close();
+							bos.close();
+						}
+						// 4,如果是文件夹就递归调用
+					} else {
+						copy(subFile, dest);
+					}
+				}
+			}
+		}
+		
+2、编写一个方法：统计文件夹内指定类型文件的个数（比如：.ext,.java,.doc）
+	方法描述：将用户输入的路径以及指定的扩展名传入该方法中，返回该目录下所有符合该扩展名文件的个数
+	比如：输入E:\\bbb  ，文件扩展名为 .java 那么需要统计在E:\\bbb  中所有扩展名为.java文件的个数（子文件夹中符合条件的文件也要统计进去）
+	
+	public class Test04 {
+		public static void main(String[] args) {
+			//获取文件夹路径
+			File dir = getDir();
+			Scanner sc = new Scanner(System.in);
+			//提示用户输入扩展名
+			System.out.println("请输入要统计文件数量的文件扩展名(如:.java)");
+			String exName = sc.nextLine();
+			int count = count(dir,exName);
+			System.out.println("您要统计的扩展名为 "+exName+" 的文件数量为  "+count+" 个");
+		}
+		//统计文件夹中扩展名为exName的文件的数量
+		private static int count(File dir, String exName) {
+			File[] files = dir.listFiles();
+			int count = 0;
+			for (File file : files) {
+				if(file.isFile()) {
+					if(file.getName().endsWith(exName)) {
+						count++;					
+					}
+				} else {
+					count = count + count(file,exName);
+				}
+			}
+			return count;
+		}
+		//获取文件夹路径的方法
+		public static File getDir() {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("请输入文件夹路径:");
+			while(true) {
+				String str = sc.nextLine();
+				File dir = new File(str);
+				if(dir.isFile()) {
+					System.out.println("您输入的不是文件夹路径,请重新输入:");
+					continue;
+				} else if(!dir.exists()) {
+					System.out.println("您输入的文件夹路径不存在,请重新输入:");
+					continue;
+				}
+				return dir;
+			}
+		}
+	}
+
+		
+3、逻辑思考题:
+	答案:
+		public class Test05 {
+			public static void main(String[] args) {
+		//		demo01();
+				demo02();
+				
+			}
+
+			private static void demo02() {
+				int de = 20;//每天20
+				int ze = 0;//总钱数0
+				int days = 0;
+				while(true) {
+					days++;
+					if(days%7==0) {
+						ze=(ze+de)/2;				
+					} else {
+						ze += (de/2);
+					}
+					if(ze==100)
+						break;
+				}
+				System.out.println("要攒"+ze+"需要:"+(days+1)+"天");
+			}
+
+			private static void demo01() {
+				int gd = 20;//每天固定给20元
+				int sy = 0;//每天累计的钱
+				int days = 0;//总天数
+				while(true) {
+					//小明每天会花掉一半， 把另一半存起来
+					sy+=(gd/2);
+					days++;
+					//每到周日小明拿到钱就花掉所有钱的一半
+					if(days%6==0) {
+						sy/=2;
+					}
+					//小明要攒够100元需要多少天
+					if(sy>=100)
+						break;
+				}
+				System.out.println("小明要攒"+sy+"元需要"+days+"天");
+			}
+		}

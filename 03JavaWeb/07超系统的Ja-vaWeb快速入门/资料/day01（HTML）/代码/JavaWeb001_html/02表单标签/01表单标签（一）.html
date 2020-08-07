@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			表单点击提交按钮，提交数据时。
+			?参数列表
+			参数列表格式：
+				参数1=参数值1&参数2=参数值2&参数3=参数值3
+			
+			on表示选中
+			?sex=on
+			
+			
+			单选框，用户只能选择，不能输入。指定value属性。否则提交的都是on
+			
+			文本框，用户可以自由输入。不一定指定value属性。
+			
+		-->
+		<form>
+			用户名：<input type="text" name="username"/> <br />
+			密码：<input type="password" name="password" value="123456"/> <br />
+			性别：<input type="radio" name="sex" value="man" checked="checked"/>男
+			      <input type="radio" name="sex" value="woman"/>女
+			      
+			      <!--<input type="radio" name="sex2"/>公
+			      <input type="radio" name="sex2" />母-->
+			<br />
+			<input type="submit" />
+		</form>
+	</body>
+</html>

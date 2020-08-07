@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="E:/49Project1/day15_报运单的UD操作和细粒度权限控制以及Quartz定时任务调度/课前资料/Quarz相关资料/CronExpBuilder-1.0(触发器表达式生成器).jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

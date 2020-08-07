@@ -1,0 +1,120 @@
+
+1、整理并熟练字符流拷贝功能代码(今天的核心内容)
+
+	基本流复制
+		(1)一次读取单个字符(21.03_IO流(字符流的拷贝).avi)
+		FileReader fr = new FileReader("aaa.txt");			
+		FileWriter fw = new FileWriter("bbb.txt");			
+		
+		char ch = 0;						
+		while((ch = fr.read()) != -1) {					
+			fw.write(ch);							
+		}
+		
+		fr.close();											
+		fw.close();
+		(2)一次读取多个字符(21.06_IO流(自定义字符数组的拷贝).avi)
+		FileReader fr = new FileReader("aaa.txt");			
+		FileWriter fw = new FileWriter("bbb.txt");			
+		
+		int len= 0;
+		char[] arr = new char[1024*8];						
+		while((len = fr.read(arr)) != -1) {					
+			fw.write(arr, 0, len);							
+		}
+		
+		fr.close();											
+		fw.close();
+
+	字符缓冲流复制(只需要将对应的基本流换成对应的缓冲流)
+
+		(1)一次读取单个字符(21.07_IO流(带缓冲的字符流).avi)
+		BufferedReader br = new BufferedReader(new FileReader("aaa.txt"));	
+		BufferedWriter bw = new BufferedWriter(new FileWriter("bbb.txt"));	
+		
+		int ch= 0;				
+		while((ch = br.read()) != -1) {		
+			bw.write(ch);					
+		}
+		
+		br.close();							
+		bw.close();  
+
+		(2)一次读取多个字符(自己完成)
+		BufferedReader br = new BufferedReader(new FileReader("aaa.txt"));	
+		BufferedWriter bw = new BufferedWriter(new FileWriter("bbb.txt"));	
+		
+		int len= 0;
+		char[] arr = new char[1024*8];						
+		while((len = br.read(arr)) != -1) {					
+			bw.write(arr, 0, len);							
+		}
+		
+		br.close();							
+		bw.close();  
+
+
+2、结合今天最后学习的两个视频，写出下列需求的完成思路!
+(1)从键盘接收一个文件夹路径,统计该文件夹大小
+	(a)定义一个代表文件夹大小的long类型变量sum(名字自己起，此处仅是示例)。
+	(b)定义一个Scanner对象，使用nextLine从控制台获取输入的路径所对应的String对象。
+	(c)定义一个File对象 f，指向该String对象所代表的路径。
+	(d)定义一个方法getLength(File file),将f传入该方法中。
+
+	(e)使用listFiles()方法获取到该文件夹路径下的所有的文件和文件夹,存储在File数组中。
+	(f)遍历数组,对每一个文件或文件夹做判断。
+	(g)如果是文件,就调用length()方法获取该文件的大小，并与旧sum相加得到新sum。
+	(h)如果是文件夹,就递归调用getLength()方法，将此文件夹的File对象传入getLength()方法中。
+	(i)循环结束，打印总和，即为该文件夹大小，过程结束。
+
+(2)从键盘接收一个文件夹路径,删除该文件夹。
+	(a)定义一个Scanner对象，使用nextLine从控制台获取输入的路径所对应的String对象。
+	(b)定义一个File对象 f，指向该String对象所代表的路径。
+	(c)定义一个方法deleteFile(File file),将f传入该方法中。
+
+	(d)使用listFiles()方法获取到该文件夹路径下的所有的文件和文件夹,存储在File数组中。
+	(e)遍历数组,对每一个文件或文件夹做判断。
+	(f)如果是文件,调用delete()方法将该文件删除。
+	(g)如果是文件夹,就递归调用deleteFile()方法，将此文件夹的File对象传入deleteFile()方法中。
+	(h)循环结束，调用delete方法删除file，过程结束。
+
+
+(3)从键盘接收两个文件夹路径,把其中一个文件夹中(包含内容)拷贝到另一个文件夹中
+	(a)定义一个代表文件夹大小的long类型变量sum(名字自己起，此处仅是示例)。
+	(b)定义一个Scanner对象，使用nextLine从控制台获取输入的路径所对应的String对象。
+	(c)定义一个File对象 srcf(源路径)，指向该String对象所代表的路径。
+	(d)使用nextLine从控制台获取输入的路径所对应的String对象。
+	(e)定义一个File对象 destf(目的地)，指向该String对象所代表的路径。
+	(d)定义一个方法copyFile(File srcDir,File destDir),将f传入该方法中。
+
+	(e)使用listFiles()方法获取到srcfile对应路径下的所有的文件和文件夹,存储在File数组中。
+	(f)遍历数组,对每一个文件或文件夹并赋值给一个新的File对象 file，并做判断。
+	(h)如果file是文件夹,获取此文件夹的名字，与destDir组拼成一个新的路径destDir，以file为源路径，destFile为目的地路径,递归调用copyFile()方法,将两个File对象对应传入copyFile()方法中。
+	(g)如果file是文件,获取此文件的名字，与destDir组拼成一个新的路径destFile，以file为源路径，destFile为目的地路径,进行拷贝操作(之前已经让大家熟练，具体步骤不再说明)。
+	(i)循环结束，过程结束。
+
+
+(4)从键盘接收一个文件夹路径,把文件夹中的所有文件以及文件夹的名字按层级打印, 例如:
+aaa是文件夹,里面有bbb.txt,ccc.txt,ddd.txt这些文件,有eee这样的文件夹,eee中有fff.txt和ggg.txt,打印出层级来
+aaa
+	bbb.txt
+	ccc.txt
+	ddd.txt
+
+	eee
+		fff.txt
+		ggg.txt
+
+	(a)定义一个Scanner对象，使用nextLine从控制台获取输入的路径所对应的String对象。
+	(b)定义一个File对象 f，指向该String对象所代表的路径。
+	(c)定义一个方法showFile(File file，int leave ),将f传入该方法中,leave初始值可以传0。
+	
+	(d)使用listFiles()方法获取到该文件夹路径下的所有的文件和文件夹,存储在File数组中。
+	(e)循环1:遍历数组,对每一个文件或文件夹做判断。
+	(f)循环2:在遍历的中先定义一个for循环，从0开始 (示例  int i=0;i<leave;i++)
+	(g)如果满足循环2的条件，在循环2中，打印一个制表符空白区间(示例   s.o.print("\t")  不要加ln)
+	(h)循环2结束后，打印循环1得到的文件或者文件夹的名字(直接打印，不判断)。
+	(i)打印结束，判断循环1得到的File对象，如果是文件夹,将leave+=1，递归调用copyFile()方法,将此文件夹对应的File对象和leave对应传入copyFile()方法中。
+	(j)循环结束，过程结束。
+
+	注：第2题中四个关于递归的练习我们将在第23天讲解和练习。

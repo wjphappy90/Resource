@@ -1,0 +1,23 @@
+server:
+  port: 7001 #服务端口
+spring:
+  application:
+    name: rabbitmq-producer #指定服务名
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: itcast
+    password: itcast
+    virtual-host: myhost
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: itcast-default
+        outputOrder:
+          destination: testChannel
+          producer:
+            partition-key-expression: payload
+            partition-count: 2
+      binders:
+        defaultRabbit:
+          type: rabbit

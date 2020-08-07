@@ -1,0 +1,12 @@
+预习内容
+书JAVA基础入门 
+	第八章 IO(输入输出)
+		8.3.8  SequenceInputStream
+		8.3.6  ByteArrayOutputStream
+		8.3.1  ObjecOutputStream和ObjectInputStream
+		8.3.3  PrintStream 
+		8.3.4  标准输入输出流
+		8.5    RandomAccessFile
+		8.3.2  DataInputStream和DataOutputStream
+	第七章 IO(集合)
+		7.5.4  Properties集合

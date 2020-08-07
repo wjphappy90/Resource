@@ -1,0 +1,29 @@
+server:
+  port: 8080 #端口
+spring:
+  application:
+    name: api-gateway-server #服务名称
+  cloud: #配置SpringCloudGateway的路由
+    gateway:
+      routes:
+      #配置路由 : 路由id,路由到微服务的uri,断言(判断条件)
+      - id: product-service  #保持唯一
+        #uri: http://127.0.0.1:9001  #目标微服务请求地址
+        uri: lb://service-product    #lb:// 根据微服务名称从注册中心中拉取服务请求路径
+        predicates:
+        #- Path=/product/**  #路由条件  path : 路由匹配条件
+        - Path=/product-service/** #将当前请求转发到   http://127.0.0.1:9001/product/1
+        filters: #配置路由过滤器   http://localhost:8080/product-service/product/1    -->   http://127.0.0.1:9001/product/1
+        - RewritePath=/product-service/(?<segment>.*), /$\{segment} # 路径重写的过滤器  ,在yml中 $ 写为 $\
+      #配置自动的根据微服务名称进行路由转发    http://localhost:8080/service-product
+      discovery:
+        locator:
+          enabled: true #开启根据服务名称自动转发
+          lower-case-service-id: true #微服务名称已小写形式呈现
+#eureka注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
+  instance:
+    prefer-ip-address: true #使用ip地址注册

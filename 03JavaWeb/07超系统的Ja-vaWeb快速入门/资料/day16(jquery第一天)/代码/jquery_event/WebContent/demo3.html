@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery一次性事件</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//为每一个匹配元素的特定事件（像click）绑定一个一次性的事件处理函数。
+		$("#btn").one("click", function() {
+			alert("hello world");
+		});
+		//在开发中可以对我们的表单使用one一次性函数，避免表单重复提交.
+
+	});
+</script>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+</body>
+</html>

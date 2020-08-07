@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <!--持久化单元
+       name 持久化单元的名称 唯一
+       transaction-type  事务类型
+            RESOURCE_LOCAL  本地事务
+            JTA   分布式事务
+    -->
+    <persistence-unit name="jpa01" transaction-type="RESOURCE_LOCAL">
+
+        <!--配置 JPA 规范的服务提供商,当项目中只有一个JPA的实现时,此选项可省略-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!--指定实体类,此选项可省略-->
+        <class>com.itheima.domain.Article</class>
+
+        <properties>
+            <!--跟数据库相关的信息 驱动 url 用户名 密码-->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql:///springdata"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="adminadmin"/>
+
+            <!--jpa的核心配置中兼容hibernate的配置-->
+            <!--是否显示SQL-->
+            <property name="hibernate.show_sql" value="true"/>
+            <!--是否格式化显示的SQL-->
+            <property name="hibernate.format_sql" value="true"/>
+            <!--
+                自动建表
+                    update  如果数据库存在数据表,就使用;不存在,就创建
+                    create  不管数据库有没有数据表,每次SQL请求都会重新建表
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+
+
+</persistence>

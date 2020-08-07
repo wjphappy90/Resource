@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+  <div class="mui-scroll">
+				<div style="position: relative">
+					<div style="">
+						<a href="#">
+							<img height="250px" width="100%" src="../img/1.jpg">
+						</a>
+					</div>
+					<div style="float: right;padding-right: 10px;margin-top: -55px;z-index: 2;position: relative;">
+						<div style="float: left;padding-top: 25px; padding-right: 10px;color: white;">
+							<b>我的微信</b>
+						</div>
+						<div style="float: left;">
+							<a href="#">
+								<img height="80px" width="80px" src="../img/2.jpg" style="border: 2px solid white;" />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div id="popover" class="mui-popover" style="width: 100px;">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a href="#"><span class="mui-icon mui-icon-star"></span>赞</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="#"><span class="mui-icon mui-icon-chatbubble"></span>评论</a>
+						</li>
+					</ul>
+				</div>
+				<div id="dataList" style="margin-top:-5px;padding-top: 35px;background: white;" class="data">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media" style="width: 100%;">
+							<img class="mui-media-object mui-pull-left" src="../img/3.jpg">
+							<div class="mui-media-body" style="">
+								<font color="#2187E7">幸福</font><br /> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？<br />
+								<div>
+									<p style="font-size: 13px;padding-top: 5px;float: left;">18分钟前</p>
+									<a href="#popover" id="openPopover" class="mui-icon mui-icon-compose" style="float: right;"></a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media" style="width: 100%;">
+							<img class="mui-media-object mui-pull-left" src="../img/3.jpg">
+							<div class="mui-media-body" style="">
+								<font color="#2187E7">幸福</font><br /> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？<br />
+								<div>
+									<p style="font-size: 13px;padding-top: 5px;float: left;">18分钟前</p>
+									<a href="#popover" id="openPopover" class="mui-icon mui-icon-compose" style="float: right;"></a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media" style="width: 100%;">
+							<img class="mui-media-object mui-pull-left" src="../img/3.jpg">
+							<div class="mui-media-body" style="">
+								<font color="#2187E7">幸福</font><br /> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？<br />
+								<div>
+									<p style="font-size: 13px;padding-top: 5px;float: left;">18分钟前</p>
+									<a href="#popover" id="openPopover" class="mui-icon mui-icon-compose" style="float: right;"></a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media" style="width: 100%;">
+							<img class="mui-media-object mui-pull-left" src="../img/3.jpg">
+							<div class="mui-media-body" style="">
+								<font color="#2187E7">幸福</font><br /> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？<br />
+								<div>
+									<p style="font-size: 13px;padding-top: 5px;float: left;">18分钟前</p>
+									<a href="#popover" id="openPopover" class="mui-icon mui-icon-compose" style="float: right;"></a>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media" style="width: 100%;">
+							<img class="mui-media-object mui-pull-left" src="../img/3.jpg">
+							<div class="mui-media-body" style="">
+								<font color="#2187E7">幸福</font><br /> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？<br />
+								<div>
+									<p style="font-size: 13px;padding-top: 5px;float: left;">18分钟前</p>
+									<a href="#popover" id="openPopover" class="mui-icon mui-icon-compose" style="float: right;"></a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+</div>
+</div>
+		<script src="../js/mui.min.js"></script>
+		<script  type="text/javascript" >
+			mui.init({
+				  pullRefresh : {
+				    container:"#refreshContainer",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+				    /*下拉动作*/
+				    down : {
+				      height:50,//可选,默认50.触发下拉刷新拖动距离,
+				      //auto: true,//可选,默认false.首次加载自动下拉刷新一次
+				      contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+				      contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+				      contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+				      callback :pullDownFresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+				    },
+				    /*上拉动作*/
+				   up : {
+					      height:50,//可选.默认50.触发上拉加载拖动距离
+					      //auto:true,//可选,默认false.自动上拉加载一次
+					      contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+					      contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+					      callback:pullUpFresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					    }
+				  }
+			});
+			
+			var down=1,up=1;
+			
+			//下拉执行业务的回调函数
+			function pullDownFresh(){
+				setTimeout(function(){
+					//下拉加载数据
+					//拼接朋友圈新信息字符串
+					var html="<ul class=\"mui-table-view\">"+
+								"<li class=\"mui-table-view-cell mui-media\" style=\"width: 100%;\">"+
+									"<img class=\"mui-media-object mui-pull-left\" src=\"../img/3.jpg\">"+
+									"<div class=\"mui-media-body\" style=\"\">"+
+										"<font color=\"#2187E7\">幸福"+down+"</font><br /> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？<br />"+
+										"<div>"+
+											"<p style=\"font-size: 13px;padding-top: 5px;float: left;\">18分钟前</p>"+
+											"<a href=\"#popover\" id=\"openPopover\" class=\"mui-icon mui-icon-compose\" style=\"float: right;\"></a>"+
+										"</div>"+
+									"</div>"+
+								"</li>"+
+							"</ul>";
+					//朋友圈消息列表
+					var dataList = document.getElementById("dataList");
+					dataList.innerHTML = html+	dataList.innerHTML;
+					//累加
+					down++;
+					//刷新结束后，关闭刷新的动画
+					mui("#refreshContainer").pullRefresh().endPulldownToRefresh();
+				},2000);
+				
+			}
+			
+			
+			//上拉执行业务的回调函数
+			function pullUpFresh(){
+				setTimeout(function(){
+					//下拉加载数据
+					//拼接朋友圈新信息字符串
+					var html="<ul class=\"mui-table-view\">"+
+								"<li class=\"mui-table-view-cell mui-media\" style=\"width: 100%;\">"+
+									"<img class=\"mui-media-object mui-pull-left\" src=\"../img/3.jpg\">"+
+									"<div class=\"mui-media-body\" style=\"\">"+
+										"<font color=\"#2187E7\">幸福"+up+"</font><br /> 能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？<br />"+
+										"<div>"+
+											"<p style=\"font-size: 13px;padding-top: 5px;float: left;\">18分钟前</p>"+
+											"<a href=\"#popover\" id=\"openPopover\" class=\"mui-icon mui-icon-compose\" style=\"float: right;\"></a>"+
+										"</div>"+
+									"</div>"+
+								"</li>"+
+							"</ul>";
+					//朋友圈消息列表
+					var dataList = document.getElementById("dataList");
+					dataList.innerHTML = 	dataList.innerHTML+html;
+					//累加
+					up++;
+					//刷新结束后，关闭刷新的动画
+					mui("#refreshContainer").pullRefresh().endPullupToRefresh();
+				},2000);
+				
+			}
+		</script>
+	</body>
+
+</html>

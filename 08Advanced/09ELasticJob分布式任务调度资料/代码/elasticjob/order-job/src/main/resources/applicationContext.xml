@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置读取properties文件 -->
+    <context:property-placeholder
+            location="classpath:jdbc.properties"/>
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          destroy-method="close">
+        <!-- 数据库驱动 -->
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <!-- 连接数据库URL -->
+        <property name="url" value="${jdbc.url}"/>
+        <!-- 数据库的用户名 -->
+        <property name="username" value="${jdbc.username}"/>
+        <!-- 数据库的密码 -->
+        <property name="password" value="${jdbc.password}"/>
+        <!-- 初始化连接数 -->
+        <property name="initialSize" value="${jdbc.initialSize}"/>
+        <!-- 最大连接数 -->
+        <property name="maxActive" value="${jdbc.maxActive}"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${jdbc.maxWait}"/>
+        <!-- 最小空闲连接数 -->
+        <property name="minIdle" value="${jdbc.minIdle}"/>
+    </bean>
+
+    <!-- 配置SqlSessionFactory -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 设置数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 设置加载MyBatis全局配置文件 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!-- 设置加载mapper映射文件 -->
+        <property name="mapperLocations" value="classpath:mappers/**/*.xml"/>
+        <!-- 设置类型别名采用包扫描 -->
+        <property name="typeAliasesPackage" value="cn.itcast.order.pojo"/>
+    </bean>
+
+    <!-- 配置数据访问接口采用包扫描 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 设置基础扫描包 -->
+        <property name="basePackage" value="cn.itcast.order.mapper"/>
+    </bean>
+
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 开启事务注解驱动 -->
+    <tx:annotation-driven/>
+    <!-- 配置service扫描 -->
+    <context:component-scan base-package="cn.itcast.order"/>
+</beans>

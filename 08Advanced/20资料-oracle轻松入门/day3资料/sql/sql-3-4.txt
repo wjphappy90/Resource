@@ -1,0 +1,35 @@
+--创建普通索引
+create index index_owners_name on t_owners(name);
+
+select * from t_owners where name='张哲'
+
+--性能测试  创建一个表，
+CREATE TABLE T_INDEXTEST ( ID NUMBER, NAME VARCHAR2(30) );
+
+--向表中插入100万条记录
+begin
+  for x in 1..1000000
+  loop
+    insert into T_INDEXTEST values(x,'AA'||x );
+  end loop;
+  commit;
+end;
+
+--创建索引
+CREATE INDEX INDEX_TEST ON T_INDEXTEST(NAME);
+
+SELECT * FROM T_INDEXTEST WHERE ID=765432;
+
+SELECT ROWID,t.* FROM T_INDEXTEST t WHERE NAME='AA765432'
+
+select * from t_indextest where rowid='AAAM3GAAGAAAAqHAA6';
+
+--创建唯一索引
+create unique index index_owners_meter on t_owners(watermeter);
+
+
+select * from t_owners where addressid=1 and housenumber='1-3';
+
+--创建复合索引
+create index index_owners_ah on t_owners(addressid,housenumber);
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        
+		.box1 {
+			/* height: 200px; 很多情况下，我们父级盒子，不方便给高度 考虑孩子高度会变  */
+			width: 600px;
+			background-color: pink;
+		}
+		.box2 {
+			width: 600px;
+			height: 240px;
+			background-color: purple;
+		}
+		.son1 { /*  son1 和 son2 是标准流，会撑开盒子 */
+			width: 150px;
+			height: 100px;
+			background-color: skyblue;
+			float: left;
+		}
+		.son2 {
+			width: 300px;
+			height: 100px;
+			background-color: hotpink;
+			float: left;
+		}
+		/* p:after {
+			content: "456";
+		} */
+		.clearfix:after {
+			content: ".";  /* 内容为小点， 尽量加不要空， 否则旧版本浏览器有空隙 */
+			display: block;  /* 转换为块级元素 */
+			height: 0; /* 高度为0 */
+			visibility: hidden;  /* 隐藏盒子 */
+			clear: both; /* 清除浮动 */
+		}
+		.clearfix {  /* ie6.7浏览器的处理方式 */
+			*zoom: 1; 
+			/*  * 代表ie6.7能识别的特殊符号  带有这个*的属性 只有ie6.7才执行  
+			 zoom 就是ie6.7 清除浮动的方法 */
+		}
+        </style>
+    </head>
+    <body>
+    <p>123</p>
+	<div class="box1 clearfix">
+		<div class="son1"></div>
+		<div class="son2"></div>
+	</div>
+	<div class="box2"></div>
+
+    </body>
+</html>

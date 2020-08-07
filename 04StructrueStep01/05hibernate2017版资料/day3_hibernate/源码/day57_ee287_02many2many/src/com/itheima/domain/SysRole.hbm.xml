@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.itheima.domain">
+	<class name="SysRole" table="sys_role" >
+		<id name="roleId" column="role_id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="roleName" column="role_name"></property>
+		<property name="roleMemo" column="role_memo"></property>
+		<!-- 多对多关系映射 -->
+		 <set name="users" table="user_role_ref" inverse="true" cascade="delete">
+		 	<key column="role_id"></key>
+		 	<many-to-many class="SysUser" column="user_id"/>
+		 </set>
+	</class>
+</hibernate-mapping>

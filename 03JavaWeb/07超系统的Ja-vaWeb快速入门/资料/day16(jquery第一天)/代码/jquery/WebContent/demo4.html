@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>层级选择器</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		//1.	获取id=d的所有<a>子元素
+		//var size=$("#d a").size();
+		//2.	获取id=d 的直接<a>子元素
+		//var size=$("#d>a").size();
+		//3.	获取id=d第一个<p>兄弟元素
+		//alert($("#d+ p").html());
+		//4.	获取id=d的所有<p>兄弟元素
+		//var size=$("#d~p").size();
+		//alert(size);
+		//5.	将id=d下的所有子元素<a>的文字颜色设置成红色
+		$("#d >a").css({"color":"red"});
+	});
+</script>
+</head>
+<body>
+
+	<div id="d">
+		<a>itcast java</a>
+		<p>
+			<a>itheima ios</a>
+		</p>
+		<a>itcast android</a>
+	</div>
+	<p>itheima php</p>
+	<p>itheima ui</p>
+</body>
+</html>

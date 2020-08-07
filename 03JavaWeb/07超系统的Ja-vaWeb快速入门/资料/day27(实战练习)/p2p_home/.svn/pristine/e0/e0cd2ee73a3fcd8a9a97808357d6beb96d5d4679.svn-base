@@ -1,0 +1,29 @@
+.container-fluid{
+background: #1052b3;;
+}
+.helper .bdrtb{
+	border-top: 1px;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: #eaeaea;
+    color: #19b2ef;
+    padding: 8px 0;
+    border-left: 0;
+    border-right: 0;
+    line-height: 28px;
+}
+.helper .bdrb{
+	padding: 8px 0;
+	border-bottom: 1px solid #EAEAEA;
+	margin-bottom: 40px;
+}
+.helper .thumbnail{
+	border: none;
+}
+.helper .thumbnail .caption{
+	text-align: center;
+}
+.problem .col-md-2{
+	/*width: 20%;*/
+}
+

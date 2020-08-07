@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>第一个 Highcharts 图表</title>
+    <!-- 引入 highcharts.js -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/highcharts.js"></script>
+</head>
+<body>
+<!-- 图表容器 DOM -->
+<div id="container" style="width: 600px;height:400px;"></div>
+
+<script type="text/javascript">
+    // 图表配置
+    var options = {
+        chart: {
+            type: 'bar'                          //指定图表的类型，默认是折线图（line）
+        },
+        title: {
+            text: '我的第一个图表'                 // 标题
+        },
+        subtitle: {
+            text: '数据来源：传智播客'
+        },
+        xAxis: {
+            //指定x轴的标题
+            title: {
+                text: "水果分类"
+            },
+            categories: ['苹果', '香蕉', '橙子']   // x 轴分类
+        },
+        yAxis: {
+            labels: {
+                //显示刻度
+                enabled: true,
+                //自定义显示刻度
+                formatter:function() {
+                    return this.value + "个";
+                },
+                //定义步长
+                step: 1
+            },
+            title: {
+                text: null                // y 轴标题不显示出来
+            }
+        },
+        series: [{                              // 数据列
+            name: '小明',                        // 数据列名
+            data: [1, 0, 4]                     // 数据
+        }, {
+            name: '小红',
+            data: [5, 7, 3]
+        }]
+    };
+    // 图表初始化函数
+    //var chart = Highcharts.chart('container', options);
+    //使用jQuery调用图表
+    $("#container").highcharts(options);
+</script>
+</body>
+</html>

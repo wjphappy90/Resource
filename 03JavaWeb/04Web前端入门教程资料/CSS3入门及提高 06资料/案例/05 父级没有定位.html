@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		.father {
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+			margin: 100px;
+		}
+		.son {
+			width: 100px;
+			height: 100px;
+			background-color: purple;
+			position: absolute;
+			top: 15px;
+			left: 15px; 
+			/* 绝对定位 父亲没有定位， 孩子以浏览器为基准点对齐 */
+		}
+        </style>
+    </head>
+    <body>
+    <div class="father">
+    	<div class="son">孩子跑走了</div>
+    </div>
+    </body>
+</html>

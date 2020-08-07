@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript中类定义--原型方式</title>
+		<script type="text/javascript">
+			function Car(){
+			
+			}
+			Car.prototype.color="白色";
+			Car.prototype.name="奥迪";
+			Car.prototype.run=function(){
+				alert(this.color+this.name+"  running...");
+			};
+			var c=new Car();
+			c.run();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

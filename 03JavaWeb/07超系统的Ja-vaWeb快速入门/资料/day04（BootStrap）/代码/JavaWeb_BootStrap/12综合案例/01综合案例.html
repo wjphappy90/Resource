@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+    
+    	//密码和确认密码一致性校验
+    	//前提：密码和确认密码必须填写
+    	function checkPwdAndRepwd(f1,f2){
+    		if(f1&&f2){
+    			//密码和确认密码不为空，进行非空校验
+    			//1、密码和确认密码 值拿到
+    			var pwd=document.getElementById("password").value;
+    			var repwd=document.getElementById("repassword").value;
+    			var msg=document.getElementById("repasswordMsg");
+    			var div=document.getElementById("repasswordDiv");
+    			//2、一致性判断
+    			if(pwd==repwd){
+    				div.className="form-group";
+    			  msg.innerHTML="";
+    				return true;
+    			}else{
+    				div.className+=" has-error";
+    			  msg.innerHTML="必须和密码一致";
+    				return false;
+    			}
+    		}else{
+    			//密码和确认密码有一个为空，直接返回false
+    			return false;
+    		}
+    	}
+    
+      //非空校验
+    	function checkNotNull(nid){
+    		//1、获取表单输入项 元素对象
+    		var nodex=document.getElementById(nid);
+    		//获取对应的错误信息回显 label元素
+    		var msg=document.getElementById(nid+"Msg");
+    		//获取对应的DIV
+    		var div=document.getElementById(nid+"Div");
+    		//2、对进行非空判断
+    		var reg = /^\s*$/;//如果有0~多个空白符，就为true
+    		if(reg.test(nodex.value)){
+    			//信息不合格
+    			div.className+=" has-error";
+    			msg.innerHTML="不能为空";
+    			return false;
+    		}else{
+    			//信息合格
+    			div.className="form-group";
+    			msg.innerHTML="";
+    			return true;
+    		}
+    	}
+    
+    	//表单校验方法
+    	function checkForm(){
+    		//用户名
+    		var flag1=checkNotNull("username");
+    		//密码
+    		var flag2=checkNotNull("password");
+    		//确认密码
+    		var flag3=checkNotNull("repassword");
+    		//一致性校验
+    		var flag4=checkPwdAndRepwd(flag2,flag3);
+    		return flag1&&flag2&&flag3&&flag4;
+    	}
+    </script>
+  </head>
+  <body>
+		   <div class="container">
+		   	 <!-- 网站头部 -->
+		   	 <div class="row">
+		   	 	<div class="col-md-4">
+		   	 		<img src="../img/logo2.png" />
+		   	 	</div>
+		   	 	<div class="col-md-4">
+		   	 		<img src="../img/header.png" />
+		   	 	</div>
+		   	 	<div class="col-md-4">
+		   	 		<ul class="list-inline" style="margin-top:10px;">
+		   	 			<li><a href="" class="btn btn-primary">登录</a></li>
+		   	 			<li><a href="" class="btn btn-primary">注册</a></li>
+		   	 			<li><a href="" class="btn btn-danger">购物车</a></li>
+		   	 		</ul>
+		   	 	</div>
+		   	 </div>
+		   	 <!--  导航条 -->
+		   	 <nav class="navbar navbar-inverse">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand" href="#">首页</a>
+				    </div>
+				
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
+				        <li><a href="#">电脑办公</a></li>
+				        <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+				          <ul class="dropdown-menu">
+				            <li><a href="#">母婴用品</a></li>
+				            <li><a href="#">汽车配件</a></li>
+				            <li role="separator" class="divider"></li>
+				          </ul>
+				        </li>
+				      </ul>
+				      <form class="navbar-form navbar-right" role="search">
+				        <div class="form-group">
+				          <input type="text" class="form-control" placeholder="Search">
+				        </div>
+				        <button type="submit" class="btn btn-default">Submit</button>
+				      </form>
+				    </div>
+				  </div>
+					</nav>
+		   	 <!-- 注册页面主体-->
+		   	 <div class="row" style="background-image: url(../img/regist_bg.jpg)">
+		   	 	<div class="col-sm-8 col-sm-offset-2" style="border:5px solid gainsboro;background-color:white;">
+		   	 		<!-- 表单部分 -->
+		   	 		<div class="row">
+		   	 			<div class="col-sm-8 col-sm-offset-2">
+		   	 				<font color="#204D74" size="4">会员注册</font>
+		   	 			</div>
+		   	 		</div>
+		   	 		<form class="form-horizontal" onsubmit="return checkForm()">
+						  <div id="usernameDiv" class="form-group">
+						    <label class="col-sm-2 control-label">用户名</label>
+						    <div class="col-sm-8">
+						      <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
+						    </div>
+						    <label id="usernameMsg" class="col-sm-2 control-label"></label>
+						  </div>
+						  
+						  <div id="passwordDiv" class="form-group">
+						    <label class="col-sm-2 control-label">密码</label>
+						    <div class="col-sm-8">
+						      <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+						    </div>
+						    <label id="passwordMsg" class="col-sm-2 control-label"></label>
+						  </div>
+						  <div id="repasswordDiv" class="form-group">
+						    <label class="col-sm-2 control-label">确认密码</label>
+						    <div class="col-sm-8">
+						      <input type="password" class="form-control" id="repassword" placeholder="请输入确认密码">
+						    </div>
+						    <label id="repasswordMsg" class="col-sm-2 control-label"></label>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label">email</label>
+						    <div class="col-sm-8">
+						      <input type="text" class="form-control" id="email" name="email" placeholder="请输入email">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label">姓名</label>
+						    <div class="col-sm-8">
+						      <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label">性别</label>
+						    <div class="col-sm-8">
+						      <input type="radio" name="sex" value="man" checked="checked"/>男
+						      <input type="radio" name="sex" value="woman"/>女
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-sm-offset-2 col-sm-10">
+						      <input type="submit" class="btn btn-danger btn-lg" value=" 注 册 "/>
+						    </div>
+						  </div>
+						</form>
+		   	 	</div>
+		   	 </div>
+		   	 <!-- 网站底部 -->
+		   	 <div class="row">
+		   	 	<div class="col-xs-12">
+		   	 		<img src="../img/footer.jpg" width="100%"/>	
+		   	 	</div>
+		   	 </div>
+		   	 <div class="row">
+		   	 	<div class="col-xs-12 text-center">
+		   	 		<ul class="list-inline">
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 			<li><a href="">联系我们</a></li>
+		   	 		</ul>
+		   	 	</div>
+		   	 </div>
+		   	 <div class="row">
+		   	 	<div class="col-xs-12 text-center">
+		   	 		Copyright © 2005-2020 黑马商城 版权所有 
+		   	 	</div>
+		   	 </div>
+		   </div>
+  </body>
+</html>

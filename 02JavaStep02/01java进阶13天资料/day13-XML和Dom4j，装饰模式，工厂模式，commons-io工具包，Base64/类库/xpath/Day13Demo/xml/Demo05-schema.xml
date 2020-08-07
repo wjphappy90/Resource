@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 在根元素中添加约束文件的地址 : xmlns="http://www.itcast.cn"
+            这里可以设置别名，以后用这个地址约束文件下的标签就必须带别名：it:书架
+    xsi:schemaLocation="http://www.itcast.cn books_xsd.xsd":才是真正找约束文件的路径
+ -->
+<书架 xmlns="http://www.itcast.cn"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.itcast.cn books.xsd"
+>
+    <书>
+        <书名>JavaEE</书名>
+        <作者>张三</作者>
+        <售价>10000</售价>
+    </书>
+
+    <书>
+        <书名>西游记</书名>
+        <作者>吴承恩</作者>
+        <售价>3000</售价>
+    </书>
+</书架>

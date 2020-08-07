@@ -1,0 +1,102 @@
+
+1.熟练掌握String类的相关知识(多练习)
+	(1)String类的特征
+	(2)String类的构造方法
+	(3)String类的常见判断功能及课堂案例
+	(4)String类的常见获取功能及课堂案例
+	(5)String类的常见转换功能及课堂案例
+	(6)String类的常见其他功能及课堂案例
+		答：略
+	
+2.分析以下需求，并用代码实现：
+	(1)定义如下方法public static String getPropertyGetMethodName(String property);
+	(2)该方法的参数为String类型，表示用户给定的成员变量的名字，返回值类型为String类型，返回值为成员变量对应的get方法的名字
+	(3)如：用户调用此方法时给定的参数为"name",该方法的返回值为"getName"
+		答：参考答案
+			public class Test01 {
+				public static void main(String[] args) {
+					String property = "name";
+					String propertyGetMethodName = getPropertyGetMethodName(property);
+					System.out.println(propertyGetMethodName);
+				}
+				public static String getPropertyGetMethodName(String property) {
+					//1.property.substring(0, 1).toUpperCase():获取属性property的第一个字母并变成大写字母
+					//2.property.substring(1):获取属性property的第二个字母以后的字母
+					//3.用concat进行字符串的连接		
+					return "get".concat(property.substring(0, 1).toUpperCase()).concat(property.substring(1));
+				}
+			}	
+	
+3.分析以下需求，并用代码实现：
+	(1)定义数字字符串数组{"010","3223","666","7890987","123123"}
+	(2)判断该数字字符串数组中的数字字符串是否是对称(第一个数字和最后一个数字相等，第二个数字和倒数第二个数字是相等的，依次类推)的，并逐个输出
+	(3)如：010 是对称的，3223 是对称的，123123 不是对称的
+		答：参考答案
+			public class Test02 {
+				public static void main(String[] args) {
+					//英文单词symmetrical，表示对称的
+					String[] strs = {"010","3223","666","7890987","123123"};
+					for (String str : strs) {
+						boolean b = isSymmString(str);
+						System.out.println(str+(b==true?" 是":" 不是")+"对称的");			
+					}
+					
+				}
+				//判断数字字符串是否是对称的
+				private static boolean isSymmString(String str) {
+					char[] arr = str.toCharArray();
+					for(int start =0,end=arr.length-1;start<=end;start++,end--) {
+						if(arr[start]!=arr[end]) {
+							return false;
+						}
+					}
+					return true;
+				}
+			}
+	
+4.分析以下需求，并用代码实现：
+	(1)从键盘录入一个字符串
+	(2)统计该串中有大写字母、小写字母、数字各有多少个。
+		举例:
+			Hello12345World
+			大写 : 2个
+			小写 : 8个
+			数字 : 5个
+		答：参考答案
+			public class Test03 {
+				public static void main(String[] args) {
+					//1.创建键盘录入对象
+					Scanner sc = new Scanner(System.in);
+					System.out.println("请输入字符串(可以包含数字、字母及其它符号):");
+					//2.用户输入字符串"ABCDEabcd123456!@#$%^"
+					String s = sc.nextLine();
+					int big = 0;
+					int small = 0;
+					int num = 0;
+					int other = 0;
+					//1,获取每一个字符,通过for循环遍历
+					for(int i = 0; i < s.length(); i++) {
+						char c = s.charAt(i);						//通过索引获取每一个字符
+						//2,判断字符是否在这个范围内
+						if(c >= 'A' && c <= 'Z') {
+							big++;									//如果满足是大写字母,就让其对应的变量自增
+						}else if(c >= 'a' && c <= 'z') {
+							small++;
+						}else if(c >= '0' && c <= '9') {
+							num++;
+						}else {
+							other++;
+						}
+					}
+					
+					//3,打印每一个计数器的结果
+					System.out.println(s + "中大写字母有:" + big + "个,小写字母有:" + small + "个,数字字符:" 
+					+ num + "个,其他字符:" + other + "个");
+				}
+			}	
+
+5.回去总结一下，常用API的学习和使用习惯。
+   最后思考下：
+	如果我给你任意一个类(JDK已经提供的类)，你能够通过API来完成学习和使用吗?
+	如何调用呢？
+	注意哪些问题呢?

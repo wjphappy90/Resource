@@ -1,0 +1,74 @@
+/**
+ * 8.分析以下需求，并用代码实现(每个小需求都要封装成一个方法)：
+ *	(1)求两个数据之和(整数和小数)
+ *	(2)判断两个数据是否相等(整数和小数)
+ *	(3)获取两个数中较大的值(整数和小数)
+ *	(4)打印m行n列的星形矩形
+ *	(5)打印nn乘法表
+ * @author JX
+ *
+ */
+public class Test07 {
+	public static void main(String[] args) {
+		int a = 10;
+		int b = 20;
+		int sum = add(a,b);
+		System.out.println("sum="+sum);
+		System.out.println(isEquals(a, b));
+		System.out.println("max="+getMax(a, b));
+		double ad = 10.35;
+		double bd = 10.355;
+		double sumd = add(ad,bd);
+		System.out.println();
+		System.out.println("sum="+sumd);
+		System.out.println(isEquals(ad, bd));
+		System.out.println("max="+getMax(ad, bd));
+		print(5,5);
+		print99(5);
+		
+	}
+	//1.求两个int类型数据的和
+	public static int add(int a,int b) {	
+		int sum = a + b;
+		return sum;							
+	}
+	//2.求两个double类型数据的和
+	public static double add(double a,double b) {	
+		double sum = a + b;
+		return sum;							
+	}
+	//3.判断两个int数据是否相等
+	public static boolean isEquals(int a,int b) {		//isEquals 是否相等
+		return a == b;
+	}
+	//4.判断两个double数据是否相等
+	public static boolean isEquals(double a,double b) {		//isEquals 是否相等
+		return a == b;
+	}
+	//5.求两个int类型数据的最大值
+	public static int getMax(int a,int b) {
+		return a > b ? a : b;
+	}
+	//6.求两个double类型数据的最大值
+	public static double getMax(double a,double b) {
+		return a > b ? a : b;
+	}
+	//7.打印m行n列的星形矩形
+	public static void print(int a,int b) {
+		for (int i = 1;i <= a ;i++ ) {					//行数
+			for (int j = 1;j <= b ;j++ ) {				//列数
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	//8.打印nn乘法表
+	public static void print99(int a) {
+		for (int i = 1;i <= a ;i++ ) {					//行数
+			for (int j = 1;j <= i ;j++ ) {				//列数
+				System.out.print(j + "*" + i + "=" + (i * j) + "\t" );
+			}
+			System.out.println();
+		}
+	}
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/jquery_ajax/js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+	//页面加载完成后
+	$(function() {
+		//添加失焦事件
+		$("#username").blur(function() {
+			//获取录入的用户名
+			var usernamevalue = $("#username").val();			
+			//向服务器发送请求
+			var url="/jquery_ajax/load";
+			//使用$.post完成操作
+			//$.post(url,{"username":usernamevalue},function(data){
+			//	$("#username_span").html(data);
+			//},"html");
+			//下面是$.get请求
+			$.get(url,{"username":usernamevalue},function(data){
+				$("#username_span").html(data);
+			},"html");
+			
+			
+		});
+
+	});
+</script>
+</head>
+<body>
+
+	<input type="text" name="username" id="username"><span id="username_span"></span>
+	<br>
+	<input type="password" name="password">
+	<br>
+
+</body>
+</html>

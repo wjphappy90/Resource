@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>案例主页</title>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+     <div class="container">
+     		<!-- 网站顶部 -->
+     		<div class="row">
+     			<div class="col-lg-4">
+     				<img src="example_img/logo2.png"/>
+     			</div>
+     			<div class="col-lg-4">
+     				<img src="example_img/header.png"/>
+     			</div>
+     			<div class="col-lg-4">
+     				<ul class="list-inline" style="margin-top:10px;">
+     					<li><a href="" class="btn btn-primary">登录</a></li>
+     					<li><a href="" class="btn btn-primary">注册</a></li>
+     					<li><a href="" class="btn btn-danger">购物车</a></li>
+     				</ul>
+     			</div>
+     		</div>
+     		<!-- 导航条 -->
+     		<nav class="navbar navbar-inverse">
+				  <div class="container-fluid">
+				    <!-- 汉堡按钮 -->
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a class="navbar-brand" href="#">首页</a>
+				    </div>
+				    <!-- 选项链接 -->
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
+				        <li><a href="#">电脑办公</a></li>
+				        <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+				          <ul class="dropdown-menu">
+				            <li><a href="#">Action</a></li>
+				            <li><a href="#">Another action</a></li>
+				            <li><a href="#">Something else here</a></li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="#">Separated link</a></li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="#">One more separated link</a></li>
+				          </ul>
+				        </li>
+				      </ul>
+				      <form class="navbar-form navbar-right" role="search">
+				        <div class="form-group">
+				          <input type="text" class="form-control" placeholder="Search">
+				        </div>
+				        <button type="submit" class="btn btn-default">Submit</button>
+				      </form>
+				    </div>
+				  </div>
+				</nav>
+				
+				<!-- 注册主体部分 -->
+				<div class="row" style="background-image:url(example_img/regist_bg.jpg)">
+					<div class="col-sm-8 col-sm-offset-2" style="background-color: white; border:8px solid gainsboro">
+						<div class="row" style="margin-top: 10px;">
+							<div class="col-sm-3 col-sm-offset-1">
+								<font color="#1859A5" size="4">用户注册</font>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-9 col-sm-offset-1">
+								<form class="form-horizontal">
+								  <div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+								    <div class="col-sm-10">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="请输入用户名">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+								    <div class="col-sm-10">
+								      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="inputPassword3" class="col-sm-2 control-label">确认密码</label>
+								    <div class="col-sm-10">
+								      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入确认密码">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+								    <div class="col-sm-10">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="请输入Email">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
+								    <div class="col-sm-10">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="请输入姓名">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">性别</label>
+								    <div class="col-sm-10">
+								      <input type="radio" class="radio-inline" id="inputEmail3" name="sex"> 男
+								       <input type="radio" class="radio-inline" id="inputEmail3" name="sex"> 女
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <div class="col-sm-offset-2 col-sm-10">
+								      <button type="submit" class="btn btn-danger" style="width: 100px;">注册</button>
+								    </div>
+								  </div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 底部 -->
+				<div class="row" style="margin-top:20px;">
+					<div class="col-xs-12">
+						<img  src="example_img/footer.jpg" width="100%"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<ul class="list-inline">
+							<li><a href="">关于我们</a></li>
+							<li><a href="">联系我们</a></li>
+							<li><a href="">招贤纳士</a></li>
+							<li><a href="">法律声明</a></li>
+							<li><a href="">友情链接</a></li>
+							<li><a href="">支付方式</a></li>
+							<li><a href="">配送方式</a></li>
+							<li><a href="">服务声明</a></li>
+							<li><a href="">广告声明</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						Copyright © 2005-2020 黑马商城 版权所有 
+					</div>
+				</div>
+     </div>
+  </body>
+</html>

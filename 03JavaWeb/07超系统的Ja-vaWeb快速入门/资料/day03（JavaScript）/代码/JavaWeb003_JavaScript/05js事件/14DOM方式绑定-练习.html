@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function run1(){
+				alert("run1");
+			}
+			function run2(){
+				alert("run2");
+			}
+			
+			//当页面加载完毕时，  元素对象已经加载到内存中
+			window.onload=function(){
+				//使用DOM方式获取到元素对象
+				var t1=document.getElementById("t1");
+				t1.onclick=function(){
+					run1();
+					run2();
+				};
+			};
+			
+		</script>
+	</head>
+	<body>
+		<!--
+			为文本框  onclick事件绑定上两个函数，run1和run2
+			
+			
+		-->
+		<input type="text" id="t1"/>
+	</body>
+</html>

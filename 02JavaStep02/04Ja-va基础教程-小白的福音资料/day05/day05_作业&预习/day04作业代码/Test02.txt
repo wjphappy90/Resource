@@ -1,0 +1,33 @@
+/**
+ * 3.分析以下需求，并用代码实现：
+ *	(1)按照从大到小的顺序输出四位数中的个位+百位=十位+千位(3553,2332,1166,8228,3773)的数字及个数
+ *	(2)每行输出5个满足条件的数，之间用空格分隔
+ *	(3)如：9999 9988 9977 9966 9955 
+ * @author JX
+ *
+ */
+public class Test02 {
+	public static void main(String[] args) {
+		//1.定义计数器count用来统计满足条件的四位数的个数
+		int count = 0;
+		//2.从大到小的顺序遍历四位数(这样就按照从大到小的顺序输出了)，并输出满足条件的四位数
+		for(int i=9999;i>=1000;i--) {
+			//3.求出每个四位数的每位数字个位(ge)、十位(shi)、百位(bai)、千位(qian)
+			int ge = i%10;
+			int shi = i/10%10;
+			int bai = i/100%10;
+			int qian = i/1000;
+			//4.满足条件，计数器自增，并5个一行打印
+			if(ge + bai == shi + qian) {
+				count++;
+				System.out.print(i+" ");
+				if(count%5==0) {
+					System.out.println();
+				}
+			}
+		}
+		//5.打印满足条件的所有四位数的个数
+		System.out.println();
+		System.out.println("满足条件的四位数的个数为:"+count);
+	}
+}

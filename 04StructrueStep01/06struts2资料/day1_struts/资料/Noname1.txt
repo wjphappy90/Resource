@@ -1,0 +1,62 @@
+Struts2四天课
+第一天：Struts2入门
+	能够独立搭建struts2的开发环境
+	能够使用struts2+hibernate实现客户列表的查询
+第二天：Struts2中的请求参数封装
+	struts2中使用原始ServletAPI对象的方式
+		原始ServletAPI对象：HttpServletRequest
+				    HttpServletResponse
+				    HttpSession
+				    ServletContext
+	struts2提供的请求参数封装
+第三天：OGNL表达式和OGNL上下文
+	能够使用OGNL表达式获取数据
+	能够明白OGNL上下文中封装着什么数据，是什么结构
+第四天：struts2中自定义拦截器和基于注解的配置方式
+	能够编写自定义拦截器
+	能够使用注解配置struts2
+----------------------------------------------------------
+1、三层架构
+	表现层：接收和处理请求。
+		MVC模型：它是一个表现层模型。
+	业务层：处理程序业务需求。
+	持久层：对数据库操作的。
+2、MVC模型
+	M：Model		模型	作用是封装数据的。 目前就是实体类作为模型。
+	V：View		视图	作用是展示数据的。  JSP/HTML
+	C：Controller	控制器	作用是控制程序流转的。Servlet/Filter 
+3、Servlet和Filter
+	共同点：
+		都有3个常用方法：初始化，销毁和核心方法（service,doFilter)
+		他们的核心方法都有request和response
+		他们都是单例对象，即一个应用只有一个对象。
+	区别：
+		创建时间点不一样：
+			Servlet：请求第一次到达时（默认情况下）
+			Filter：应用一加载就创建
+		Filter不是一个资源，不能通过地址栏访问
+		Servlet是一个资源，可以通过地址栏访问
+4、在线商城案例中的小问题：
+	访问时Servlet中有很多的if和else判断。
+	我们解决判断过的方式:BaseServlet。
+	BaseServlet中有个问题：jsp中访问路径的method取值和Servlet的方法名称绑定了。
+
+	解决上面的问题：可以使用配置文件
+		<a href="${pageContext.....}/addCategory">添加分类</a>
+		<servlet  name="addCategory"
+			  class="com.itheima.web.servlet.CategoryServlet"
+			  method="addCategory">
+
+		public class CategoryServlet extends HttpServlet{
+			public void addCategory(request,response){
+				
+			}
+		}
+--------------------------------------------------------
+struts2中的6个配置：
+	default.properties
+	struts-default.xml
+	struts-plugin.xml
+	struts.xml
+	struts.properties
+	web.xml

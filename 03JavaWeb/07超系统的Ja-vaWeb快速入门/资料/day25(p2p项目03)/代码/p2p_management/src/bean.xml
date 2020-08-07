@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean name="userService" class="com.itheima.service.impl.UserServiceImpl" />
+
+	<bean name="userDao" class="com.itheima.dao.impl.UserDAOImpl" />
+
+	<bean name="productService" class="com.itheima.service.impl.ProductServiceImpl" />
+
+	<bean name="productDao" class="com.itheima.dao.impl.ProductDAOImpl" />
+</beans>

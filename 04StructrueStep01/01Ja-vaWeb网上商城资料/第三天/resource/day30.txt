@@ -1,0 +1,250 @@
+回顾:
+1.展示分类信息
+	包含
+	ajax
+		$.post(url,params,fn,type)
+		$.get(url,params,fn,type)
+		$.ajax(选项);
+2.展示最新和热门商品
+	入口
+		访问项目首页
+3.展示商品详情
+	
+4.分页展示分类商品
+////////////////////////////////////////////
+////////////////////////////////////////////
+解耦合思想
+	
+案例1-添加到购物车
+需求:
+	在商品的详情页面,输入购买数量,点击加入购物车,将该商品添加到购物车了
+技术分析:
+	session
+涉及到实体:
+	购物车(cart)
+		属性:
+			购物项(商品购买信息)的集合
+				Map<String pid,CartItem>
+			总金额(total)
+		方法:
+			加入购物车
+				add2cart(CartItem item){
+					//1.判断购物车是否有该商品
+					//有:	
+							修改购买数量(原来的数量+item.getCount)
+							修改总金额(原来的金额+item.getSubtotal())
+					//无:直接put进去 修改总金额(原来的金额+item.getSubtotal())
+				}
+			从购物车中移除
+				removeFromCart(String pid){
+					从map中移除指定购物项
+					修改总金额
+				}
+			清空购物车
+				clearCart(){
+					清空map
+					修改总金额=0.0
+				}
+		/////////////////////////////////////////////
+		/////////////////////////////////////////////
+	购物项(cartItem)
+		属性:
+			商品对象(product)
+			购买数量(count)
+			小计(subtotal)
+		方法:
+			重新编写 
+			getSubtotal(){
+				return product.getShop_price*count
+			}
+步骤分析:
+	1.修改商品详情页面(product_info.jsp)
+		添加一个表单:
+			要执行方法:method=add2cart
+			商品的pid:pid=xxx
+			商品的购买数量:count=123123
+		点击"加入购物车",将表单提交 /store/cart
+	2.编写cartServlet 继承baseservlet 编写add2cart
+		获取商品的pid和count
+		调用productservice通过pid获取商品
+		
+		封装cartItem
+			new cartItem(Product,count)
+		将cartitem加入购物车
+			获取购物车(session中获取)
+			调用购物车的add2cart方法即可
+			
+		重定向到cart.jsp上
+////////////////////////////////
+////////////////////////////////
+案例2-从购物车移除一个商品
+需求:
+	在cart.jsp上,点击某一个商品的 删除 ,弹出一个提示"您忍心抛弃我吗?",点击确定,从购物车中移除.否则不删
+步骤分析:
+	1.给 删除 添加连接
+		/store/cart?method=remove&pid=xxx
+	2.在cartservlet中编写remove方法
+		获取pid
+		获取cart,执行removeFromCart()方法
+		重定向到cart.jsp
+
+案例3-清空购物车
+需求:
+	点击cart.jsp上的 清空购物车,需要将购物车中所有商品移除掉
+步骤分析:
+	1.修改 清空购物车的连接
+		/store/cart?method=clear
+	2.编写clear方法
+		获取购物车,执行clearCart()
+		重定向到cart.jsp上
+	3.判断购物车中是否有商品,	
+		有则展示
+		无则提示
+/////////////////////////
+案例4-生成订单
+需求:
+	在cart.jsp上,点击 "提交订单",将购物车中的商品,最终保存到数据库中.
+实体分析:
+	用户
+	订单
+	商品
+	用户和订单 :一对多
+	订单和商品 :多对多
+表分析
+	用户
+	商品 
+	订单 
+	
+	用户和订单是一对多,在订单表中添加外键
+	订单和商品是多对多,引入一张中间表(orderitem)
+	
+	订单表:
+		id
+		订单状态
+		订单金额
+		下单时间
+		收货人信息
+		user_id
+	订单项表:
+		pid
+		oid
+		itemid
+		某个商品的购买数量
+		小计
+
+	-- 订单表
+	CREATE TABLE `orders` (
+		  `oid` varchar(32) NOT NULL,
+		  `ordertime` datetime DEFAULT NULL,
+		  `total` double DEFAULT NULL,
+		  `state` int(11) DEFAULT NULL,
+		  `address` varchar(30) DEFAULT NULL,
+		  `name` varchar(20) DEFAULT NULL,
+		  `telephone` varchar(20) DEFAULT NULL,
+		  `uid` varchar(32) DEFAULT NULL,
+		  PRIMARY KEY (`oid`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	
+	-- 订单项表
+		CREATE TABLE `orderitem` (
+		  `itemid` varchar(32) NOT NULL,
+		  `count` int(11) DEFAULT NULL,
+		  `subtotal` double DEFAULT NULL,
+		  `pid` varchar(32) DEFAULT NULL,
+		  `oid` varchar(32) DEFAULT NULL,
+		  PRIMARY KEY (`itemid`),
+		  KEY `fk_0001` (`pid`),
+		  KEY `fk_0002` (`oid`),
+		  CONSTRAINT `fk_0001` FOREIGN KEY (`pid`) REFERENCES `product` (`pid`),
+		  CONSTRAINT `fk_0002` FOREIGN KEY (`oid`) REFERENCES `orders` (`oid`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+实体具体分析:
+	订单
+		属性:
+		id
+		订单状态
+		订单金额
+		下单时间
+		收货人信息
+		user对象
+		订单项列表
+			List<OrderItem> list
+	
+	订单项属性:(OrderItem)
+		product对象
+		order
+		itemid
+		某个商品的购买数量(count)
+		小计(subtotal)	
+	
+
+ 步骤分析:
+	保存订单:
+		在orders中插入一条数据
+		在orderitem中插入多条数据
+	1.在cart.jsp上,点击提交订单 发送请求
+		路径:	
+			/store/order?method=save
+	2.编写orderservlet,编写save方法	
+		封装订单对象
+			创建order对象
+				设置id
+					uuidutils
+				设置订单状态
+					0
+				设置订单金额
+					获取购物车中总金额
+				设置下单时间
+					当前时间
+				设置收货人信息
+					null
+				设置user对象
+					从session中获取
+				设置订单项列表
+					List<OrderItem> list
+					遍历购物车中购物项,获取每一个购物项
+						封装成orderitem
+							设置product对象 
+								购物中获取product
+							设置order
+								order
+							设置itemid
+								UUIDUtils
+							设置某个商品的购买数量(count)
+								购物项中获取
+							设置小计(subtotal)
+								购物项中获取
+		调用orderservice,执行保存操作
+		请求转发到订单详情页面
+		...
+	3.编写service:开启事务
+		向orders保存一条
+		向orderitem中保存多条
+
+//////////////////////////////////
+总结:
+	购物车设计
+		添加到购物车
+		从购物车移除一个商品
+		清空购物车
+	订单实体
+		user对象
+		List<OrderItem>
+	订单项实体
+		Order对象
+		Product对象
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+* 设置事务的隔离级别
+	SET SESSION TRANSACTION ISOLATION LEVEL 隔离级别
+* 查看当前的隔离级别
+	SELECT @@tx_isolation;

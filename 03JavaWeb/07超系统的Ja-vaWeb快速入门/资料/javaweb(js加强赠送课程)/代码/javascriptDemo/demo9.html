@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>函数调用-直接调用</title>
+		<script type="text/javascript">
+			//函数a它是声明在全局作用域中
+			function a() {
+				//在函数中有一个全局对象arguments，它是一个数组
+				for(var i = 0; i < arguments.length; i++) {
+					console.info(arguments[i]);
+				}
+				alert("hello world ");
+			}
+			a(1, 2, 3);
+			//对于javascript它的函数如果有参数，调用 时可以传递实参数，也可以不传。
+			//对于javascript它的函数如果没有参数，我们在调用时也可以传递参数，
+			//可以通过argumets数组对象来获取所有的请求参数
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

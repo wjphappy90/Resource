@@ -1,0 +1,196 @@
+回顾:
+我的订单
+	查询我的订单(订单基本信息)
+		select * from orders where uid = ?
+	查询订单项列表
+		select * from orderitem oi,product p where oi.pid = p.pid and oi.oid = ?
+		使用maplisthandler
+		
+订单详情
+在线支付
+	支付方式:
+		对银行
+		对第三方
+	如何保证数据有效性?电子签名
+权限过滤
+////////////////////////////
+////////////////////////////
+案例1-后台所有分类展示
+需求:
+	在左侧的树上上添加一个连接 "分类列表",点击分类列表 将所有的分类展示在右边的主页面上
+步骤分析:
+	1.在left.jsp上添加一个连接 父节点"分类管理",在分类管理下面添加一个子节点"分类列表"
+		连接: /store/adminCategory?method=findAll
+	2.编写adminCategoryservlet,继承baseservlet,编写findAll方法
+		调用service 查询所有分类,返回值:List<Category>
+		请求转发 /admin/category/list.jsp
+		
+	///////////////////////////	
+案例2-后台添加分类
+需求:
+	在一个表单页面中,输入分类名称,点击保存,将分类保存到数据库
+步骤分析:
+	1.在left.jsp上添加一个连接 "添加分类"
+		/store/adminCategory?method=addUI
+	2.在admincategoryservlet下编写addUI方法
+		请求转发到 /admin/category/add.jsp
+	3.修改add.jsp,
+		action:/store/adminCategory?method=save
+		给分类input标签添加name属性
+	4,点击保存,发送 adminCategory一个请求 请求方法:save
+		获取cname,设置cid
+		封装category对象
+		
+		调用service完成添加操作
+		
+		重定向到分类列表页面
+	5.service
+		调用dao保存
+		更新redis中数据(清空redis中该条记录)
+		
+		
+		
+案例3-后台展示所有商品
+需求:
+	点击左边树上的一个连接 "已上架商品列表",在右边的主页面上展示所有的商品
+步骤分析:
+	1.在left.jsp上添加一个连接 "已上架商品列表",
+		/store/adminProduct?method=findAll
+	2.编写adminProductServlet,继承baseservlet,编写findAll方法
+		调用service,获取所有的已上架的商品信息 返回值:list
+		将list放入request中,请求转发 /admin/product/list.jsp
+		
+	
+案例4-后台添加商品
+需求:
+	有一个商品的表单页面,填写商品信息,选择商品的图片,点击保存,将商品的信息保存到数据库中和web服务器上
+技术分析:
+	文件上传
+///////////////////////////////////////////
+///////////////////////////////////////////
+文件上传:
+	就是将客户端的数据发送到服务器上
+	
+	文件上传要求:
+		浏览器端要求:
+			1.表单提交方式 post
+			2.提供文件上传框(组件) input type="file"
+			3.表单entype属性必须为 multipart/form-data
+		服务器端要求:
+			request.getInputStream()
+		注意:
+			若表单使用了 multipart/form-data ,使用原生request去获取参数的时候都为null
+	使用工具类或者框架去解析用户上传的内容
+		commons-fileupload
+		struts(底层:commons-fileupload)
+		serlvet3.0
+		....
+	
+commons-fileupload
+	apache出品的一款专门处理文件上传的工具类
+	使用步骤:
+		1.导入jar包
+		2.创建磁盘文件项工厂
+			DiskFileItemFactory factory=new DiskFileItemFactory();
+		3.创建核心上传对象
+			ServletFileUpload upload=new ServletFileUpload(factory);
+		4.解析请求,获取所有的上传组件 List<FileItem>
+			List<FileItem> list=upload.parseRequest(request);
+		5.遍历list 获取每一个上传项
+			
+			getFiledName():获取标签name属性的值
+			
+			isFormFiled():判断是否是普通上传组件
+				true:普通上传组件
+				false:文件上传组件  <input type="file">
+			
+			普通上传组件
+				getString("utf-8"):获取用户输入的内容
+				
+			文件上传组件
+				getName():文件名称
+				getInputStream():获取文件的流
+			
+				delete():删除文件上传时候产生的临时文件
+
+	上传注意问题:
+		1.文件名称	
+			浏览器不同,有可能获取的名称不同, 1.txt 或者 G:\1.txt
+			
+		2.文件重名
+			给文件来一个随机名称
+				uuid方式
+				毫米值+三个随机数
+			数据库中可以存放多个字段: 文件名称和文件路径
+				文件名称:身份证正面.jpg
+				文件路径:g:\123123123423sfsf.jpg
+			文件下载:
+				response.setHeader("content-disposition","attachment;filename="+真实名称);
+				
+		3.文件安全(fastDFS)
+			安全目录:web-inf meta-inf 项目之外的目录
+			不安全目录:项目目录(除去web-inf和meta-inf)
+			
+		4.目录分离
+			常用的方式:
+				按用户划分
+				按时间划分
+				按数量划分
+				随机划分 
+					/AA/AB
+////////////////////////////////////////////
+////////////////////////////////////////////
+步骤分析:
+	1.在left.jsp上添加一个连接,"添加商品",点击他,在主页面上打开一个表单页面
+		/store/adminProduct?method=addUI
+	2.在adminproductserlvet中编写addUI方法
+		调用categoryservice查询所有的分类 findList
+		请求转发到 /admin/product/add.jsp
+		分类信息没有查询出来:
+			方式1:同步
+			方式2:异步
+	3.编辑表单页面
+		action: /store/addProduct
+		method:post
+		entype:multipart/form-data
+			给所有的子标签添加name属性
+		点击保存,向addProductServlet发送请求
+	4.编写addProductServlet
+		封装prodcut对象
+			让product的所有字段都有值
+			将product的图片保存到服务器
+			
+			以前使用beanUtils.populate(Product bean,Map map);
+				但是现在request.getParameterMap不好使,若还想使用上面的方法封装对象,
+					我们需要创建一个map 且map中存放product对象的信息
+					Map<String 字段名,Object 值> map
+						字段名: getFieldName()
+						值:getString("utf-8");
+						除了图片
+						
+			将图片通过commons-fileupload保存到服务器上
+			将图片的路径 put到map中
+		调用service保存商品
+		重定向到商品列表页面
+	5.service dao
+			
+	注意:
+		图片目录 保存 备份
+
+///////////////////////////////////////
+///////////////////////////////////////
+总结;
+添加分类的时候别忘记更新redis数据库
+commons-fileupload:
+	
+
+
+
+
+
+
+
+
+
+
+

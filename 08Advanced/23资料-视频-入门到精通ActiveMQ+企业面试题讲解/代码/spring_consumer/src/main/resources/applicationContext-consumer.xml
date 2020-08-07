@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amp="http://activemq.apache.org/schema/core"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
+
+
+    <!--1.连接工厂-->
+    <amp:connectionFactory
+        id="connectionFactory"
+        brokerURL="tcp://192.168.66.133:61616"
+        userName="admin"
+        password="admin"
+    />
+
+
+    <!--2.缓存连接工厂-->
+    <bean id="cachingConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="targetConnectionFactory" ref="connectionFactory"/>
+        <property name="sessionCacheSize" value="5"/>
+    </bean>
+
+
+    <!--3.配置消息监听组件扫描-->
+    <context:component-scan base-package="com.itheima.listener"/>
+
+    <!--4.配置监听器（点对点）-->
+    <!--
+         destination-type: 目标的类型（queue：点对点，topic：发布订阅）
+    -->
+    <jms:listener-container connection-factory="cachingConnectionFactory" destination-type="queue">
+        <jms:listener destination="spring_queue" ref="queueListener"/>
+    </jms:listener-container>
+
+
+    <!--5.配置监听器（发布订阅）-->
+    <jms:listener-container connection-factory="cachingConnectionFactory" destination-type="topic">
+        <jms:listener destination="spring_topic" ref="topicListener"/>
+    </jms:listener-container>
+
+</beans>

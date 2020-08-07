@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>内容过滤选择器</title>
+<style type="text/css">
+.divColor {
+	color: yellow;
+}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//1.设置含有文本内容JAVA的div字体颜色为红色
+		//$("div:contains('JAVA')").css("color","red");
+		//2.设置没有子元素的div文本内容为"这是一个空的DIV"
+		//$("div:empty").html("这是一个空的DIV");
+		//3.包含<a>元素的div字体颜色为黄色
+		$("div:has(a)").addClass("divColor");
+		//4.设置所有含有子元素的span字体为蓝色
+		$("span:parent").css("color","blue");
+		
+	});
+</script>
+</head>
+<body>
+
+	<div>itcast JAVA</div>
+	<div>itcast IOS</div>
+	<div></div>
+	<div>
+		<a>传智播客</a>欢迎您
+	</div>
+	<div>
+		世界第一语言<a>JAVA</a>
+	</div>
+	<div>
+		<span>今天天天气不错</span>
+	</div>
+</html>

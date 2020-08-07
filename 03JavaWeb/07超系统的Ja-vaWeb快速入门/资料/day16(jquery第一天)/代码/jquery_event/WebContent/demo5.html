@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery事件切换-hover</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//1.先设置div隐藏
+		$("div").hide();
+		//2.给h1添加hover操作
+		$("h1").hover(function(){
+			//鼠标移入到h1上会执行
+			//$("div").show(2000);
+			//$("div").slideDown(2000);
+			$("div").fadeIn(2000);
+		},function(){
+			//鼠标离开h1时会执行
+			//$("div").hide(2000);
+			//$("div").slideUp(2000);
+			$("div").fadeOut(2000);
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>jquery介绍</h1>
+	<div>
+		jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。<br>
+		jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。<br>
+		它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。<br>
+		jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的css选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。<br>
+		jQuery兼容各种主流浏览器，如IE6.0+、FF 1.5+、Safari 2.0+、Opera 9.0+等。[1]<br>
+	</div>
+</body>
+</html>

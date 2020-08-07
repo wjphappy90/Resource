@@ -1,0 +1,201 @@
+1.使用三元运算符完成如下练习(以int类型数据为例,数字要求键盘录入)
+	(1)比较两个数是否相等
+		答：参考答案
+		public class Test1 {
+			public static void main(String[] args) {
+				// 录入两个整数
+				Scanner sc = new Scanner(System.in); // 创建键盘录入对象
+				System.out.println("请输入第一个整数:");
+				int x = sc.nextInt(); // 将键盘录入的数据存储在x中
+				System.out.println(x);
+				System.out.println("请输入第二个整数:");
+				int y = sc.nextInt(); // 将键盘录入的数据存储在y中
+				// boolean b = (x == y) ? true : false;
+				boolean b = (x == y);
+				System.out.println("b = " + b);
+			}
+		}
+	(2)获取两个数中最小值
+		答：参考答案
+		public class Test2 {
+			public static void main(String[] args) {
+				Scanner sc = new Scanner(System.in);	//创建键盘录入对象		
+				//键盘录入练习：键盘录入两个数据，获取这两个数据中的最小值
+				System.out.println("请输入第一个整数:");
+				int x = sc.nextInt();					//将键盘录入的数据存储在x中
+				System.out.println("请输入第二个整数:");
+				int y = sc.nextInt();					//将键盘录入的数据存储在y中
+				int min = (x < y) ? x : y;				//获取x和y中的最小值
+				System.out.println("min = " + min);
+			}
+		}
+		
+	(3)获取三个数中最小值(考虑能否用一条三元运算符实现)
+		答：参考答案
+			public class Test3 {
+				public static void main(String[] args) {
+					Scanner sc = new Scanner(System.in);		//创建键盘录入对象
+					//键盘录入练习：键盘录入三个数据，获取这三个数据中的最小值
+					System.out.println("请输入第一个整数:");
+					int x = sc.nextInt();						//将键盘录入的数据存储在x中
+					System.out.println("请输入第二个整数:");
+					int y = sc.nextInt();						//将键盘录入的数据存储在y中
+					System.out.println("请输入第三个整数:");
+					int z = sc.nextInt();						//将键盘录入的数据存储在y中
+					//定义临时变量记录住比较出前两个变量中的最小值
+					//int temp = (x < y) ? x : y;
+					//将比较后的结果与第三个变量中的值比较,比较出三个数中的最小值
+					//int min = (temp < z) ? temp : z;
+					//用一条三元运算符搞定
+					int min = ((x < y) ? x : y)<z?((x < y) ? x : y):z;
+					System.out.println("min="+min);
+				}
+			}
+
+		
+	
+
+2.看程序写结果：请自己独立分析，先不要编译运行。
+	第一题
+		int x = 1,y = 1;
+
+		if(x++==2 & ++y==2)
+		{
+			x =7;
+		}
+		System.out.println("x="+x+",y="+y); 
+		答：参考答案，x=2,y=2
+			解题步骤:(++,--运算符的优先级比==要高,所以先算++或--)
+			第一:上面if语句中的条件(x++==2)是将x++表达式的值和2进行比较,而不是将x和2比较
+			第二:上面if语句中的条件(++y==2)是将++y表达式的值和2进行比较,而不是将y和2比较
+			第三:&是不管左侧的表达式的结果为true还是false,右侧的表达式都要运算
+			
+			先看x++==2:
+			第一步:是将(x++)表达式的值和2进行比较,判断是否等于2,但是由于++符号在x的后面,所以先使用x的值(此时为1)作为(x++)表达式的值
+			第二步:执行++运算,相当于x=x+1,此时x的值为2,但是不管x的结果是多少,都不会影响第一步中已经计算出来的(x++)表达式的值,(x++)表达式的值还是1
+			第三步:将第一步(x++)表达式的值(1)和2进行==运算,很显然1==2为false,但是此时x的值由于第二步的操作已经变为了2
+			因为用的是&,所以右侧的表达式(++y==2)始终要运算
+			
+			所以再看++y==2
+			第一步:是将(++y)表达式的值和2进行比较,判断是否等于2,但是由于++符号在y的前面,所以y要先进行自增的运算,y变为2,再将自增后的y的值(2)作为(++y)表达式的值
+			第二步:将第一步(++y)表达式的值(2)和2进行==运算,很显然2==2为true,但是此时y的值由于第一步的操作已经变为了2
+			
+			由于(x++==2)的结果为false,所以不管(++y==2)是什么,(x++==2 & ++y==2)为false,x=7的赋值运算不执行
+			有上面的分析可以得出:x=2,y=2
+
+---------------------------------------------------
+	第二题
+		int x = 1,y = 1;
+
+		if(x++==2 && ++y==2)
+		{
+			x =7;
+		}
+		System.out.println("x="+x+",y="+y);
+		答：参考答案,x=2,y=1
+			此题的解题思路和上面是一致的,只是用的是短路&&,只有当第一个表达式为true时,才计算第二个表达式的值,否则不计算
+
+---------------------------------------------------
+	第三题
+		boolean b = true;
+
+		if(b==false) 
+			System.out.println("a");
+		else if(b)
+			System.out.println("b");
+		else if(!b)
+			System.out.println("c");
+		else
+			System.out.println("d");
+		答：参考答案输出 b，思考如果将b==false,改成b=false这样结果是什么？
+		
+
+---------------------------------------------------
+
+3.分析以下需求，并用代码实现：
+	(1)键盘录入一个整数给变量x，输出对应的变量y的值
+	(2)x值和y值的对应关系如下：
+		x<0 y=-1
+		x=0 y=0
+		x>0 y=1
+	(3)如果用户输入的x的值为2，程序运行后打印格式"x=2,y=1"
+	答：参考答案(三种实现方式)
+		public class Test4 {
+			public static void main(String[] args) {
+				Scanner sc = new Scanner(System.in);
+				System.out.println("请输入一个整数：");
+				int x = sc.nextInt();
+				int y;
+				if(x<0) {
+					y = -1;
+				} else if(x==0) {
+					y = 0;
+				} else {
+					y = 1;
+				}
+				System.out.println("x="+x+",y="+y);
+			}
+		}
+
+4.分析以下需求，并用代码实现：
+	(1)根据工龄(整数)给员工涨工资(整数),工龄和基本工资通过键盘录入
+	(2)涨工资的条件如下：
+		[10-15)     +5000
+		[5-10)      +2500
+		[3~5)       +1000
+		[1~3)       +500
+		[0~1)       +200
+	(3)如果用户输入的工龄为10，基本工资为3000，程序运行后打印格式"您目前工作了10年，基本工资为 3000元, 应涨工资 5000元,涨后工资 8000元"
+	答：参考答案
+		public class Test5 {
+			public static void main(String[] args) {
+				//1.定义键盘录入对象
+				Scanner sc = new Scanner(System.in);
+				System.out.println("请输入基本工资(整数)：");
+				//2.输入员工基本工资
+				int salary = sc.nextInt();
+				System.out.println("请输入工龄(整年)：");
+				//3.输入工龄
+				int workAge = sc.nextInt();
+				//4.定义临时变量tempSalary用于存储所涨的工资
+				int tempSalary = 0;
+				//5.用if判断给员工涨工资
+				if(workAge<0||workAge>15) {
+					System.out.println("您输入的工龄有误！");
+					return ;
+				} else if(workAge>=10) {
+					tempSalary = 5000;
+				} else if(workAge>=5) {
+					tempSalary = 2500;
+				} else if(workAge>=3) {
+					tempSalary = 1000;
+				} else if(workAge>=1) {
+					tempSalary = 500;
+				} else {
+					tempSalary = 200;
+				}
+				System.out.println("您目前工作了"+workAge+"年，基本工资为 "+salary+", 应涨工资 "+tempSalary+"元,涨后工资 "+(salary+tempSalary));
+			}
+		}
+
+5.看程序，分析下面程序的结果：
+	int x = 2,y=3;
+
+	switch(x)
+	{
+		default:
+			y++;
+		case 3:
+			y++;
+			break;
+		case 4:
+			y++;
+	}
+
+	System.out.println("y="+y);
+		答：参考答案
+			出现case穿透的情况，最终结果y=5
+
+
+		
+6.把今天讲过的其他案例再练习一遍

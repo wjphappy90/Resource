@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			text-align: center;
+			line-height: 100px;
+			margin: 100px auto;
+			position: relative; /* 子绝父相 */
+
+		}
+		div img {
+			position: absolute;
+			left: 110px;
+			top: 0;
+			display: none;  /* 隐藏二维码 */
+		}
+		div:hover img {  /* 我们鼠标经过div 的时候， 里面的 那个 img图片会显示出来 */
+			display: block;  /* 显示二维码  */
+		}
+        </style>
+    </head>
+    <body>
+    <div>
+    	扫二维码
+    	<img src="images/erweima.png"  alt="">
+    </div>
+    </body>
+</html>

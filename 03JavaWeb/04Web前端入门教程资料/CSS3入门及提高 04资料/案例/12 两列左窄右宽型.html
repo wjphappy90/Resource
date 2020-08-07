@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.top,  /* 并集选择器给相同样式集体声明 */
+		.banner,
+		.main,
+		.footer {
+			width: 960px;
+			margin: 0 auto;
+			border: 1px dashed #ccc;
+			text-align: center;
+			background-color: #eee;
+			margin-bottom: 8px;
+		}
+		.top {
+			height: 80px;
+		}
+		.banner {
+			height: 150px;
+		}
+		 .main {
+			height: 500px;
+		} 
+		.left {
+			width: 360px;
+			height: 500px;
+			background-color: pink;
+			float: left;
+
+		}
+		.right {
+			width: 592px;
+			height: 500px;
+			background-color: purple;
+			float: right;
+		}
+		.footer {
+			height: 120px;
+		}
+        </style>
+    </head>
+    <body>
+	<div class="top">top</div>
+	<div class="banner">banner</div>
+	<div class="main">
+		<div class="left">left</div>
+		<div class="right">right</div>
+	</div>
+	<div class="footer">footer</div>
+    </body>
+</html>

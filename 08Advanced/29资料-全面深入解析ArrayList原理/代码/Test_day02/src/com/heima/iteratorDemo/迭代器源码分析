@@ -1,0 +1,61 @@
+public class ArrayList<E> {
+    //长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+
+    //获取迭代器的方法
+    public Iterator<E> iterator() {
+        //创建了一个对象
+        return new Itr();
+    }
+
+    //ArrayList集合的内部类 --> 迭代器的源码
+    private class Itr implements Iterator<E> {
+        int cursor;       // 光标,默认值就是0
+        int lastRet = -1; // 记录-1
+        // 将集合实际修改次数赋值给预期修改次数
+        int expectedModCount = modCount;
+
+        //判断集合是否有元素
+        public boolean hasNext() {
+            //光标是否不等于集合的size 3
+            return cursor != size;
+        }
+
+        public E next() {
+            checkForComodification();
+            //光标赋值给i = 0
+            int i = cursor;
+            //判断,如果大于集合的size就说明没有元素了
+            if (i >= size)
+                throw new NoSuchElementException();
+            //把集合存储数据数组的地址赋值给该方法的局部变量
+            Object[] elementData = ArrayList.this.elementData;
+            //进行判断,如果条件满足就会产生并发修改异常
+            if (i >= elementData.length)
+                throw new ConcurrentModificationException();
+            //光标自增
+            cursor = i + 1;
+            //从数组中取出元素且返回
+            return (E) elementData[lastRet = i];
+        }
+
+        //校验预期修改集合次数是否和实际修改集合次数一样
+        final void checkForComodification() {
+            if (modCount != expectedModCount)
+                throw new ConcurrentModificationException();
+        }
+    }
+
+ }

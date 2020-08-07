@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery.fn.extend</title>
+
+<script src="/jquery_other/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	//定义一个jquery的插件，完成表单转换成json操作-----{username:tom,password:123}
+	$.fn.extend({
+		serializeJson:function(){
+			
+			var json={}; //就是一个javascript的对象.
+			
+			//1.通过jquery提供的serializeArray方法得到不符合要求的json串
+			var msg=this.serializeArray();
+			//console.info(msg);  //[Object { name="username",  value="tom"}, Object { name="password",  value="123"}]
+			$(msg).each(function(){
+				json[this.name]=this.value
+			});
+			
+			return json
+		}
+	});
+	//页面加载完成后操作
+	$(function() {
+		var json=$("#f").serializeJson();
+		console.info(json);
+	});
+</script>
+</head>
+<body>
+	<form id="f" action="#" method="post">
+		username:<input type="text" name="username" value="tom"><br>
+		password:<input type="password" name="password" value="123"><br>
+		<input type="submit" value="login">
+	</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+server:
+  port: 9002
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+spring:
+  cloud:
+    config:
+      name: product
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server

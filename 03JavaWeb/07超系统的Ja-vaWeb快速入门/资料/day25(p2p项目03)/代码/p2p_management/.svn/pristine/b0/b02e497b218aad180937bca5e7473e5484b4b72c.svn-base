@@ -1,0 +1,27 @@
+
+// 关闭操作
+function shutdown() {
+	$.post("/p2p_management/user?method=shutdown", function() {
+		// 将浏览器窗口关闭
+		var flag = window.confirm("确认关闭窗口吗");
+		if (flag) {
+			// window.close(); // 它存在浏览器的兼容问题
+			if (navigator.userAgent.indexOf("MSIE") > 0) {
+				if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+					window.opener = null;
+					window.close();
+				} else {
+					window.open('', '_top');
+					window.top.close();
+				}
+			} else if (navigator.userAgent.indexOf("Firefox") > 0) {
+				window.location.href = 'about:blank ';
+			} else {
+				window.opener = null;
+				window.open('', '_self', '');
+				window.close();
+			}
+
+		}
+	});
+};

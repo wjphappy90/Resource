@@ -1,0 +1,14 @@
+
+public class ArrayList<E> {
+    //默认空容量的数组,长度为0
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}
+
+    //集合真正存储数据的容器
+    Object[] elementData;
+
+    //空参构造
+    public ArrayList() {
+        //赋值
+        this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
+    }
+}

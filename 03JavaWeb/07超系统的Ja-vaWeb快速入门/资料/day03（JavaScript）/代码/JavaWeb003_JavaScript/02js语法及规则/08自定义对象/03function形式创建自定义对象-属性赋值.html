@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//为属性赋值
+			//1、构造参数赋值
+			//2、创建对象后，调用属性进行赋值
+			function Person(n,a){
+				this.name=n;
+				this.age=a;
+			}
+			
+			//创建了一个Person对象，p
+			var p =new Person("小王","20");
+			alert(p.name);
+			alert(p.age);
+			p.name="小李";
+			alert(p.name);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	/* li:nth-child(odd) {  可以选择所有的 odd奇数 的孩子标签 
+				color: pink;
+        	}
+
+        	li:nth-child(even) {    可以选择所有的 even 偶数 的孩子标签 
+				color: deeppink;
+        	} */
+
+			li:nth-child(3n) {   /* n 0   2n    2n是 选择 0 2.4.6.8..的孩子  3n 0.3.6.9的孩子元素 */
+				color: pink;
+            
+        	}
+        </style>
+    </head>
+    <body>
+    	<ul>
+    		<li>第一个孩子</li>
+    		<li>第二个孩子</li>
+    		<li>第三个孩子</li>
+    		<li>第四个孩子</li>
+    		<li>第五个孩子</li>
+    		<li>第六个孩子</li>
+    		<li>第七个孩子</li>
+    	</ul>
+    </body>
+</html>

@@ -1,0 +1,232 @@
+回顾:
+redis:
+	nosql的一种
+		nosql :非关系型数据库
+		分类:
+			key/value
+			文档
+			列式
+			图式
+	redis是由c编写,高性能key/value存储方式,缓存
+		redis的安装
+		redis的启动
+			后台启动
+				编辑 redis.conf
+				daemonize yes
+				./redis-server redis.conf
+		redis的连接
+			通过自带的客户端
+				./redis-cli [-h ip地址 -p 端口号]
+		redis的关闭
+			通过客户端 
+				shutdown
+	jedis:
+		1.导入jar包
+		2.获取jedis
+		3.操作redis
+		4.释放资源
+	
+	使用连接池优化
+			pool.getResource()
+	
+	redis中数据结构(value)
+		String 
+			set key value
+			get key
+			del key
+		Hash
+			hset key subkey subvalue
+			hmset key subkey subvalue subkey1 subvalue1 .. 
+		
+			hget key subkey
+			hmget key subkey1 subkey2..
+			
+			hdel key subkey1 ..
+		list
+		set
+		zset
+	///////////////////////
+	redis 常用命令
+		keys *
+		del key
+		expire key 秒数
+		ttl key
+		exists key
+	redis 特性
+		多数据库(16个数据库)
+			select index
+		信息发布和订阅
+		事务
+	redis的持久化
+		rdb
+		aof
+///////////////////////
+商城实体:
+	用户
+	商品
+	订单
+	分类
+实体关系:
+	用户和订单:一对多
+	商品和订单:多对多
+	分类和商品:一对多	
+		
+今日任务:用户模块开发
+	用户注册
+	用户激活
+	用户登录
+	用户退出
+	
+把所有的关于用户的操作,封装userservlet中
+环境的搭建:
+	1.数据库和表
+		create database store38;
+		use store38;
+		CREATE TABLE `user` (
+		  `uid` varchar(32) NOT NULL,
+		  `username` varchar(20) DEFAULT NULL,
+		  `password` varchar(20) DEFAULT NULL,
+		  `name` varchar(20) DEFAULT NULL,
+		  `email` varchar(30) DEFAULT NULL,
+		  `telephone` varchar(20) DEFAULT NULL,
+		  `birthday` date DEFAULT NULL,
+		  `sex` varchar(10) DEFAULT NULL,
+		  `state` int(11) DEFAULT NULL,
+		  `code` varchar(64) DEFAULT NULL,
+		  PRIMARY KEY (`uid`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	2.新建项目
+		导入jar包	
+			驱动 c3p0 dbutils beanutils jstl mail
+		导入配置文件和工具类
+		导入页面
+	3.新建包结构:
+		com.itheima.service
+		com.itheima.service.impl
+		com.itheima.dao
+		com.itheima.dao.impl
+		com.itheima.web.servlet
+		com.itheima.web.filter
+		com.itheima.domain
+		com.itheima.utils
+		com.itheima.constant
+servlet抽取:
+	之前编写的servlet的问题:
+		1.doget每次请求都会执行--- 重写service
+		2.用了大量 if else if 判断执行的是那个方法让方法执行
+			Method method = this.getClass().getMethod(mt, HttpServletRequest.class,HttpServletResponse.class);
+			method.invoke(this, request,response);
+		3.每个方法执行的结果无非就是请求转发或者重定向或者打印数据
+			让所有的方法都返回一个字符串
+				若最后的结果需要请求转发,就把转发的路径给返回
+				若最后的结果不需要请求转发,就返回一个null
+				
+				String path=method.invoke(this, request,response);
+				if(path != null){
+					request.getx(path).forward(...)
+				}
+		4.所有servlet的service中的代码都一样
+			向上继续抽取
+			编写一个BaseServlet,将之前service方法中的代码复制过来即可,
+			然所有的servlet都继承baseservlet即可
+		5.统一的错误页面
+/////////////////////////////////////////
+案例1-用户注册	
+需求:
+	在register.jsp上填写用户的信息,点击保存,将用户信息保存到数据库中
+步骤分析:
+	1.设置默认首页(index.jsp),让其自动的跳转到/jsp/index.jsp
+	2.修改index.jsp上的 注册 连接
+		<a href='/store/user?method=registUI'>注册</a>
+	3.在userservlet中编写reigstUI方法
+		请求转发到 /jsp/register.jsp
+	4.修改register.jsp上的表单信息
+		action	="/store/user?method=regist"
+		method
+		为每一个子标签添加name属性
+	5.点击注册按钮 向userservlet发送请求
+	6.userservlet中编写regist方法
+		获取参数,封装成user对象
+		调用service完成注册
+		生成提示信息,转发 /jsp/msg.jsp
+	7.userservice中的操作:
+		调用dao完成注册操作
+		发送邮件
+	8.userdao...
+///////////////////////////////	
+案例2-用户激活	
+需求:
+	用户登录邮箱之后,点击邮箱中的连接,完成用户激活操作
+步骤分析:
+	1.点击邮箱中的连接	,向商城userservlet发送一个请求
+		user?method=active&coed=xxxx
+	2.在userservlet中编写active方法
+		接受code
+		调用service完成激活 返回值:user
+		生成提示信息 转发
+	3.在service中编写激活方法
+		通过code获取用户
+			若没有找到:提示重新激活或者重新注册
+			若找到了 
+				设置激活状态 1
+				将code设置为null
+	4.在dao需要编写两个方法
+		getByCode
+		update
+///////////////////////////////////
+案例3-用户登录
+需求:
+	在一个登录页面上,输入用户名和密码,点击登录,完成登录操作
+步骤分析:
+	1.在index.jsp点击 登录 连接,跳转到登录页面
+	2.在userserlvet中编写 loginUI
+	3.修改login.jsp表单的信息
+		action: /user?method=login
+		method
+		给子标签添加name属性
+	5.点击提交发送请求
+	6.在userservlet中编写login方法
+		获取用户名和密码
+		调用service完成登录 返回值:user
+		若登录成功,跳转到index.jsp 并展示用户信息
+		若登录失败,
+			若user为空:提示 用户名和密码 跳转到login.jsp
+			若user不为空但是未激活:提示信息 "请先去邮箱激活,再登录" 跳转msg.jsp
+	7.service,dao
+///////////////////////////////////
+///////////////////////////////////
+案例4-用户退出	
+需求:
+	点击 index.jsp上 退出连接,退出当前的用户,跳转index.jsp
+步骤分析:
+	1.点击 index.jsp上 退出 连接,向userservlet发送请求
+		/user?methode=logout
+	2.在userservlet中编写logout方法
+		销毁session
+		重定向到index.jsp
+		
+		
+扩展:
+	记住用户名
+	需求:
+		登录成功之后,若勾选了记住用户名,下一次再登录的时候,会展示出来用户名
+	步骤分析:
+		修改login方法的逻辑
+			登录成功之后,判断是否勾选了记住用户名
+				若勾选了,将用户名(将用户名编码)保存到cookie中
+			
+		在login.jsp加载成功的时候需要从cookie中获取用户名且展示出来
+	
+		
+///////////////////////////////////		
+///////////////////////////////////
+baseservlet的抽取:
+	
+		
+		
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,39 @@
+server:
+  port: 9004 #端口
+spring:
+  application:
+    name: service-order #服务名称
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shop?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 111111
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+#配置Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/,http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true #使用ip地址注册
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: ExecutionIsolationStrategy.SEMAPHORE #信号量隔离
+          strategy: # ExecutionIsolationStrategy.THREAD 线程池隔离
+          thread:
+            timeoutInMilliseconds: 3000 #默认的连接超时时间1秒,若1秒没有返回数据,自动的触发降级逻辑
+      circuitBreaker:
+        requestVolumeThreshold: 5 #触发熔断的最小请求次数，默认20 /10秒
+        sleepWindowInMilliseconds: 10000 #熔断多少秒后去尝试请求 默认 5   打开状态的时间
+        errorThresholdPercentage: 50 #触发熔断的失败请求最小占比，默认50%

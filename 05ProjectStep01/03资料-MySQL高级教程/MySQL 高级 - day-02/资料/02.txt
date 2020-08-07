@@ -1,0 +1,14 @@
+-- tb_item 表结构 
+
+CREATE TABLE `tb_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商品id',
+  `title` varchar(100) NOT NULL COMMENT '商品标题',
+  `price` decimal(20,2) NOT NULL COMMENT '商品价格，单位为：元',
+  `num` int(10) NOT NULL COMMENT '库存数量',
+  `categoryid` bigint(10) NOT NULL COMMENT '所属类目，叶子类目',
+  `status` varchar(1) DEFAULT NULL COMMENT '商品状态，1-正常，2-下架，3-删除',
+  `sellerid` varchar(50) DEFAULT NULL COMMENT '商家ID',
+  `createtime` datetime DEFAULT NULL COMMENT '创建时间',
+  `updatetime` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品表'

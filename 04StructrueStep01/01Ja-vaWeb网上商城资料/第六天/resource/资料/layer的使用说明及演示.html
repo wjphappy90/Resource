@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-1.11.0.min.js" ></script>
+		<script type="text/javascript" src="layer/layer.js" ></script>
+		
+	</head>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn11").click(function(){
+				layer.open({
+			        type: 1,//0:信息框; 1:页面; 2:iframe层;	3:加载层;	4:tip层
+			        title:"我自信,我骄傲!",//标题
+			        area: ['400px', '300px'],//大小
+			        shadeClose: true, //点击弹层外区域 遮罩关闭
+			        content: '我是黑马的一员'//内容
+			    });
+			});
+		})
+		
+	</script>
+	<body>
+		使用说明:<br/>
+		1、使用时，请把文件夹layer整个放置在您站点的任何一个目录，在页面上只需引入layer.js即可<br/>
+		2、jquery需使用1.8以上的版本,先导入jquery的js,再导入layer.js<br/>
+		3、更多使用说明与演示，请参见layer官网。<br/>
+		<input type="button" id="btn11" value="点下试试"  />
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--解析配置文件-->
+    <context:property-placeholder location="classpath:config/jdbc.properties" />
+
+    <!-- 数据库连接池 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="${driverClassName_account}" />
+        <property name="url" value="${url_account}" />
+        <property name="username" value="${username_account}" />
+        <property name="password" value="${password_account}" />
+    </bean>
+
+    <!-- SqlSessionFactoryBean -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceProxy" />
+    </bean>
+
+    <!--
+        配置接口扫描包
+        如果是单数据源，则可以不配置sqlSessionFactoryBeanName
+    -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+          p:basePackage="com.itheima.mapper"
+          p:sqlSessionFactoryBeanName="sqlSessionFactoryBean" />
+
+</beans>

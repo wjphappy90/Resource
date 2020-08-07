@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link href="css/webuploader.css" rel="stylesheet" type="text/css" />
+<title>图片上传插件-webupload</title>
+</head>
+<body>
+<div class="clearfix" id="add_picture">
+   <div class="page_right_style">
+		<div class="clearfix cl">
+			<label class="form-label col-2">图片上传：</label>
+			<!-- 隐藏域,存储图片上传返回的图片名称 -->
+			<input type="text" hidden="true" value="" id="prodImgs">
+			<div class="formControls col-10">
+				<div class="uploader-list-container"> 
+					<div class="queueList">
+						<div id="dndArea" class="placeholder">
+							<div id="filePicker-2"></div>
+							<p>或将照片拖到这里，单次最多可选300张</p>
+						</div>
+					</div>
+					<div class="statusBar" style="display:none;">
+						<div class="progress"> <span class="text">0%</span> <span class="percentage"></span> </div>
+						<div class="info"></div>
+						<div class="btns">
+							<div id="filePicker2"></div>
+							<div class="uploadBtn">开始上传</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix cl">
+			<div class="Button_operation">
+				<button onClick="imgUrl();" class="btn btn-primary radius"><i class="icon-save"></i>输出图片上传地址</button>
+			</div>
+		</div>
+    </div>
+</div>
+<!-- 页尾加载js -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="js/webuploader.js"></script>
+<script type="text/javascript" src="js/customWebUpload.js"></script> 
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery事件触发</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		//给按钮注册一个点击事件
+		$("#btn").click(function() {
+			alert("hello world");
+		});
+
+		//给按钮注册一个mouseover事件
+		$("#btn").bind("mouseover", function() {
+
+			//事件触发
+			$(this).trigger("click");
+		});
+
+	});
+</script>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+</body>
+</html>

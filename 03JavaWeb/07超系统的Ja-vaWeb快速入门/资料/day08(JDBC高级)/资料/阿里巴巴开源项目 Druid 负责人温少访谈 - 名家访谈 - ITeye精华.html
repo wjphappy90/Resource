@@ -1,0 +1,823 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0033)http://www.iteye.com/magazines/90 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华</title>
+    <meta name="description" content="Druid是阿里巴巴开源平台上的一个项目，整个项目由数据库连接池、插件框架和SQL解析器组成。该项目主要是为了扩展JDBC的一些限制，可以让程序员实现一些特殊的需求，比如向密钥服务请求凭证、统计SQL信息、SQL性能收集、SQL注入检查、SQL翻译等，程序员可以通过定制来实现自己需要的功能。 该项目在阿里巴巴内部得到了广泛的部署，在外部也有大量的用户群。为了使大家更好地了解和使用Druid，我们采访 ...">
+    <meta name="keywords" content="名家访谈,阿里巴巴, druid, sql, 数据库连接池, jdbc,database,数据库">
+    <link rel="shortcut icon" href="http://www.iteye.com/images/favicon.ico" type="image/x-icon">
+    
+    <link rel="search" type="application/opensearchdescription+xml" href="http://www.iteye.com/open_search.xml" title="ITeye">
+    <link href="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/news.css" media="screen" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/ecvm"></script><script type="text/javascript" async="" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/ga.js.下载"></script><script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/application.js.下载" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-535605-1']);
+  _gaq.push(['_setDomainName', 'iteye.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+      
+  <link href="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/SyntaxHighlighter.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/shCoreCommon.js.下载" type="text/javascript"></script>
+<script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/hotkey.js.下载" type="text/javascript"></script>
+<script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/weiboshare.js.下载" type="text/javascript"></script>
+  <style type="text/css">.dp-xml .cdata { color: #ff1493; }.dp-xml .tag, .dp-xml .tag-name { color: #069; font-weight: bold; }.dp-xml .attribute { color: red; }.dp-xml .attribute-value { color: blue; }</style><script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/get_ads.php" type="text/javascript"></script></head>
+  <body><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div>
+    <div id="page">
+      <div id="header">
+        <div class="clearfix"><div id="user_nav">
+      <a href="http://www.iteye.com/login" class="welcome" title="登录">您还未登录 !</a>
+    <a href="http://www.iteye.com/login">登录</a>
+    <a href="http://www.iteye.com/signup" class="nobg">注册</a>
+  </div>
+</div>
+        <div class="clearfix">
+          <div id="branding">
+            <a href="http://www.iteye.com/"><img alt="ITeye3.0" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/logo.gif" title="ITeye-最棒的软件开发交流社区"></a>
+          </div>
+          <div id="gg">
+          	          	<div class="J_adv" data-view="true" data-mod="ad_popu_164" data-mtp="34" data-order="92" data-con="ad_content_479" style="width: 728px; height: 90px;"><!-- 广告占位容器 --><div id="cpro_u1617745"><iframe id="iframeu1617745_0" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/ecvm.html" width="728" height="90" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0; vertical-align:bottom;margin:0;" allowtransparency="true"></iframe></div><!-- 投放代码 --><script type="text/javascript">   /*服务器频道首页置顶Banner960*90，创建于2014-7-3*/    (window.cproArray = window.cproArray || []).push({        id: 'u1617745'      });  </script>  <script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/c.js.下载" type="text/javascript"></script></div>
+          </div>
+        </div>
+      </div>
+      <div id="content" class="clearfix">
+        <div id="main">
+          
+
+
+
+          
+
+<div class="h-entry" style="display:none">
+  <a href="http://wangguo.iteye.com/" class="p-author" target="_blank">wangguo</a>
+</div>
+
+<a name="top"></a>
+
+<div class="crumbs" style="margin:10px 0;">
+  <a href="http://www.iteye.com/magazines">精华频道</a> <span class="arrow">→</span>
+  <a href="http://www.iteye.com/magazines/category/database">数据库</a>
+</div>
+
+<div id="interview_main">
+  <div class="title_block">
+    <div class="user_logo"><div class="logo"><img alt="" class="logo" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/c8217345-4fc0-3f99-8fcd-74085043a0c6-thumb.jpg" title="阿里巴巴开源项目 Druid 负责人温少访谈"></div></div>
+    <h1 class="news_operation">
+      <div id="news_icon"><a href="http://www.iteye.com/magazines/category/database" title="查看数据库分类精华" target="_blank"><img alt="数据库" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/database.gif"></a></div>
+      <img alt="名家访谈" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/interview.gif"> <a href="http://www.iteye.com/magazines/90" title="阿里巴巴开源项目 Druid 负责人温少访谈">阿里巴巴开源项目 Druid 负责人温少访谈</a>&nbsp;&nbsp;
+      <span class="actions">
+        
+        
+      </span>
+    </h1>
+    <div class="news_info" style="background-color: transparent;">
+      <span class="date">2012-07-16</span>
+      
+      &nbsp;编辑 <a href="http://wangguo.iteye.com/" target="_blank" title="wangguo">wangguo</a>
+      
+      <span class="comment"><a href="http://www.iteye.com/magazines/90#comments">评论(95条)</a></span>
+      
+      <span class="view">有157327人浏览</span>
+      
+      <div class="news_tag">
+      
+        <a href="http://www.iteye.com/magazines/tag/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4">阿里巴巴</a>
+      
+        <a href="http://www.iteye.com/magazines/tag/druid">druid</a>
+      
+        <a href="http://www.iteye.com/magazines/tag/sql">sql</a>
+      
+        <a href="http://www.iteye.com/magazines/tag/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0">数据库连接池</a>
+      
+        <a href="http://www.iteye.com/magazines/tag/jdbc">jdbc</a>
+      
+      </div>
+    </div>
+  </div>
+
+  <div style="width:700px;">
+    
+    
+  </div>
+
+  
+    <h4 class="copyright">声明：ITeye精华文章的版权属于ITeye网站所有，严禁任何网站转载本文，否则必将追究法律责任！</h4>
+  
+  	    
+		
+<div class="newfors">
+  <em>相关知识库：</em>
+  
+  <a target="_blank" href="http://lib.csdn.net/base/javase">
+  	<img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/1453169124297_297.jpg" width="30" height="30" alt="" class="imgradius">
+    <span>Java SE知识库</span>
+  </a>
+  
+  <a target="_blank" href="http://lib.csdn.net/base/wechat">
+  	<img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/1452500582376_376.jpg" width="30" height="30" alt="" class="imgradius">
+    <span>微信开发知识库</span>
+  </a>
+  
+  <a target="_blank" href="http://lib.csdn.net/base/reactnative">
+  	<img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/1473751990490_490.jpg" width="30" height="30" alt="" class="imgradius">
+    <span>React Native知识库</span>
+  </a>
+  
+  <a target="_blank" href="http://lib.csdn.net/base/css3">
+  	<img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/1478154582437_437.jpg" width="30" height="30" alt="" class="imgradius">
+    <span>CSS3知识库</span>
+  </a>
+  </div>
+
+    
+  <div id="news_content">
+    Druid是阿里巴巴开源平台上的一个项目，整个项目由数据库连接池、插件框架和SQL解析器组成。该项目主要是为了扩展JDBC的一些限制，可以让程序员实现一些特殊的需求，比如向密钥服务请求凭证、统计SQL信息、SQL性能收集、SQL注入检查、SQL翻译等，程序员可以通过定制来实现自己需要的功能。
+<br>
+<br>该项目在阿里巴巴内部得到了广泛的部署，在外部也有大量的用户群。为了使大家更好地了解和使用Druid，我们采访了Druid项目的主要负责人——温少（<a target="_blank" href="http://wenshao.iteye.com/">博客</a>）。
+  </div>
+
+  
+    <div id="interview_menu">
+      <h4>目 录 <a href="http://www.iteye.com/magazines/90#" onclick="$$(&#39;#interview_menu ol&#39;)[0].toggle();return false;" title="隐藏/显示目录"><small>[ - ]</small></a></h4>
+      <ol>
+        
+          <li><a href="http://www.iteye.com/magazines/90#110">温少是ITeye的名人了，为了照顾新会员，先来个自我介绍吧！</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#111">Druid是什么？有什么作用？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#112">Druid的项目背景？目前的项目团队情况？开源目的？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#113">Druid支持哪些数据库？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#114">Druid是如何扩展JDBC的?</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#115">为什么说Druid是“最好的数据库连接池”?体现在哪些方面？这是如何实现的？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#116">Druid的性能如何？能否给出一些测试对比数据？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#117">谈谈Druid的SQL解析功能？效率如何？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#118">Druid的扩展性如何？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#119">在SQL注入防御方面，Druid的优势是什么？实现原理是什么？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#120">目前Druid的应用（部署）情况？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#121">我想将其中的某个模块（比如监控模块）用到其他连接池，是否可以？模块的独立性如何？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#122">我想在项目中使用，应该注意哪些事项？能否用于商业项目？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#123">配置是否复杂？能否给出一个典型的配置实例？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#124">我目前使用其他连接池（DBCP/C3P0/Proxool等），如何迁移到Druid？</a></li>
+        
+          <li><a href="http://www.iteye.com/magazines/90#125">其他开发者如何反馈问题、提交bug？</a></li>
+        
+      </ol>
+    </div>
+
+    
+      <h2>
+        温少是ITeye的名人了，为了照顾新会员，先来个自我介绍吧！
+        <span class="actions"><a name="110" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        我2001年毕业于深圳大学，毕业后到金蝶软件研发中心工作9年，工作内容包括工作流引擎、多数据库支持引擎、短信网网关等。
+<br>
+<br>2010年3月加入阿里巴巴至今，主要的工作是设计和实现阿里巴巴应用监控系统Dragoon，Druid和Fastjson都是监控系统实现的副产品。
+      </div>
+    
+      <h2>
+        Druid是什么？有什么作用？
+        <span class="actions"><a name="111" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid首先是一个数据库连接池，但它不仅仅是一个数据库连接池，它还包含一个ProxyDriver，一系列内置的JDBC组件库，一个SQL Parser。
+      </div>
+    
+      <h2>
+        Druid的项目背景？目前的项目团队情况？开源目的？
+        <span class="actions"><a name="112" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        2010年开始，我负责设计一个叫做Dragoon的监控系统，需要一些监控组件，监控应用程序的运行情况，包括Web URI、Spring、JDBC等。为了监控SQL执行情况，我做了一个Filter-Chain模式的ProxyDriver，缺省提供StatFilter。当时我还做了一个SQL Parser。老板说，不如我们来一个更大的计划，把连接池、SQL Parser、Proxy Driver合起来做一个项目，命名为Druid，于是Druid就诞生了。
+<br>
+<br>2011年2月春节期间，我完成了连接池（DruidDataSource）的第一个版本，4月开始在生产环境测试，2012年第一季度开始大规模实施。
+<br>
+<br>提交过代码的开发者有5个人，主要代码是我维护，有一人专门负责内部实施。
+<br>
+<br>通过开源，希望有更多使用场景，更多的反馈，更多人参与其中，共同打造最好的数据库连接池。
+      </div>
+    
+      <h2>
+        Druid支持哪些数据库？
+        <span class="actions"><a name="113" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid支持所有JDBC兼容的数据库，包括Oracle、MySql、Derby、Postgresql、SQL Server、H2等等。
+<br>
+<br>Druid针对Oracle和MySql做了特别优化，比如Oracle的PS Cache内存占用优化，MySql的ping检测优化。
+      </div>
+    
+      <h2>
+        Druid是如何扩展JDBC的?
+        <span class="actions"><a name="114" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid在DruidDataSourc和ProxyDriver上提供了Filter-Chain模式的扩展API，类似Serlvet的Filter，配置Filter拦截JDBC的方法调用。
+      </div>
+    
+      <h2>
+        为什么说Druid是“最好的数据库连接池”?体现在哪些方面？这是如何实现的？
+        <span class="actions"><a name="115" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        阿里巴巴是一个重度使用关系数据库的公司，我们在生产环境中大量的使用Druid，通过长期在极高负载的生产环境中实际使用、修改和完善，让Druid逐步发展成最好的数据库连接池。Druid在监控、可扩展性、稳定性和性能方面都有明显的优势。
+<br>
+<br>首先，强大的监控特性，通过Druid提供的监控功能，可以清楚知道连接池和SQL的工作情况。
+<br>
+<br><ul>
+<li>监控SQL的执行时间、ResultSet持有时间、返回行数、更新行数、错误次数、错误堆栈信息。
+</li><li>SQL执行的耗时区间分布。什么是耗时区间分布呢？比如说，某个SQL执行了1000次，其中0~1毫秒区间50次，1~10毫秒800次，10~100毫秒100次，100~1000毫秒30次，1~10秒15次，10秒以上5次。通过耗时区间分布，能够非常清楚知道SQL的执行耗时情况。
+</li><li>监控连接池的物理连接创建和销毁次数、逻辑连接的申请和关闭次数、非空等待次数、PSCache命中率等。</li></ul>
+<div style="text-align: center;"><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/775a7a10-fd54-35ab-8728-23f8049025d1.jpg" title="点击查看原始大小图片" class="magplus" width="650" height="279"></div>
+<br>其次，方便扩展。Druid提供了Filter-Chain模式的扩展API，可以自己编写Filter拦截JDBC中的任何方法，可以在上面做任何事情，比如说性能监控、SQL审计、用户名密码加密、日志等等。
+<br>
+<br>Druid内置提供了用于监控的StatFilter、日志输出的Log系列Filter、防御SQL注入攻击的WallFilter。
+<br>
+<br>阿里巴巴内部实现了用于数据库密码加密的CirceFilter，以及和Web、Spring关联监控的DragoonStatFilter。
+<br>
+<br><div style="text-align: center;"><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/8a350468-05d3-3e8c-a2d8-2f1fcc7a7fe9.jpg" title="点击查看原始大小图片" class="magplus" width="650" height="482"></div>
+<br>第三，Druid集合了开源和商业数据库连接池的优秀特性，并结合阿里巴巴大规模苛刻生产环境的使用经验进行优化。
+<br>
+<br><ul>
+<li>ExceptionSorter。当一个连接产生不可恢复的异常时，例如Oracle error_code_28 session has been killed，必须立刻从连接池中逐出，否则会产生大量错误。目前只有Druid和JBoss DataSource实现了ExceptionSorter。
+</li><li>PSCache内存占用优化对于支持游标的数据库（Oracle、SQL Server、DB2等，不包括MySql），PSCache可以大幅度提升SQL执行性能。一个PreparedStatement对应服务器一个游标，如果PreparedStatement被缓存起来重复执行，PreparedStatement没有被关闭，服务器端的游标就不会被关闭，性能提高非常显著。在类似“SELECT * FROM T WHERE ID = ?”这样的场景，性能可能是一个数量级的提升。但在Oracle JDBC Driver中，其他的数据库连接池（DBCP、JBossDataSource）会占用内存过多，极端情况可能大于1G。Druid调用OracleDriver提供管理PSCache内部API。
+</li><li>LRU是一个性能关键指标，特别Oracle，每个Connection对应数据库端的一个进程，如果数据库连接池遵从LRU，有助于数据库服务器优化，这是重要的指标。Druid、DBCP、Proxool、JBoss是遵守LRU的。BoneCP、C3P0则不是。BoneCP在mock环境下性能可能还好，但在真实环境中则就不好了。
+</li></ul>
+      </div>
+    
+      <h2>
+        Druid的性能如何？能否给出一些测试对比数据？
+        <span class="actions"><a name="116" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        性能不是Druid的设计目标，但是测试数据表明，Druid性能比DBCP、C3P0、Proxool、JBoss都好。
+<br>
+<br>这里有一些测试数据：<a target="_blank" href="http://code.alibabatech.com/wiki/pages/viewpage.action?pageId=2916539">http://code.alibabatech.com/wiki/pages/viewpage.action?pageId=2916539</a>
+      </div>
+    
+      <h2>
+        谈谈Druid的SQL解析功能？效率如何？
+        <span class="actions"><a name="117" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid提供了MySql、Oracle、Postgresql、SQL-92的SQL的完整支持，这是一个手写的高性能SQL Parser，支持Visitor模式，使得分析SQL的抽象语法树很方便。
+<br>
+<br>简单SQL语句用时10微秒以内，复杂SQL用时30微秒。
+<br>
+<br>通过Druid提供的SQL Parser可以在JDBC层拦截SQL做相应处理，比如说分库分表、审计等。Druid防御SQL注入攻击的WallFilter就是通过Druid的SQL Parser分析语义实现的。
+      </div>
+    
+      <h2>
+        Druid的扩展性如何？
+        <span class="actions"><a name="118" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid提供Filter-Chain模式的插件框架，通过编写Filter配置到DruidDataSource中就可以拦截JDBC的各种API，从而实现扩展。Druid提供了一系列内置Filter。
+      </div>
+    
+      <h2>
+        在SQL注入防御方面，Druid的优势是什么？实现原理是什么？
+        <span class="actions"><a name="119" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid的优势是在JDBC最低层进行拦截做判断，不会遗漏。
+<br>
+<br>Druid实现了Oracle、MySql、Postgresql、SQL-92的Parser，基于SQL语法分析实现，理解其中的SQL语义，智能、准确、误报率低。
+<br>
+<br>具体细节参考这里：<a target="_blank" href="http://code.alibabatech.com/wiki/display/Druid/WallFilter">http://code.alibabatech.com/wiki/display/Druid/WallFilter</a>
+      </div>
+    
+      <h2>
+        目前Druid的应用（部署）情况？
+        <span class="actions"><a name="120" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid是阿里巴巴监控系统Dragoon的副产品，从Dragoon监控系统的数据来看，在阿里巴巴已经部署了600多个应用。在阿里巴巴外部也有很多Druid的用户，外部用户没有正式统计数据，但经常有反馈。
+      </div>
+    
+      <h2>
+        我想将其中的某个模块（比如监控模块）用到其他连接池，是否可以？模块的独立性如何？
+        <span class="actions"><a name="121" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        可以通过DruidDriver把内置的Filter用在其他连接池中。在2011年上半年DruidDataSource不成熟的时候，我们也是这么做的。在其他连接池中使用内置的Filter，需要修改jdbc-url，使用DruidDriver作为一个ProxyDriver。
+      </div>
+    
+      <h2>
+        我想在项目中使用，应该注意哪些事项？能否用于商业项目？
+        <span class="actions"><a name="122" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid是一个开源项目，基于Apache 2.0协议，你可以免费自由使用。Druid只支持JDK 6以上版本，不支持JDK 1.4和JDK 5.0。
+      </div>
+    
+      <h2>
+        配置是否复杂？能否给出一个典型的配置实例？
+        <span class="actions"><a name="123" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        为了方便大家迁移，Druid的配置和DBCP是基本一致的，如果你原来是使用DBCP，迁移是十分方便的，只需要把corg.apache.commons.dbcp.BasicDataSource修改为om.alibaba.druid.pool.DruidDataSource就好了。
+<br>
+<br>以下是一个参考配置：
+<br>
+<br><div class="dp-highlighter"><div class="bar"><div class="tools">Xml代码 <embed wmode="transparent" src="/javascripts/syntaxhighlighter/clipboard_new.swf" width="14" height="15" flashvars="clipboard=%3Cbean%20id%3D%22dataSource%22%20class%3D%22com.alibaba.druid.pool.DruidDataSource%22%20init-method%3D%22init%22%20destroy-method%3D%22close%22%3E%20%0A%20%20%20%20%3Cproperty%20name%3D%22url%22%20value%3D%22%24%7Bjdbc_url%7D%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22username%22%20value%3D%22%24%7Bjdbc_user%7D%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22password%22%20value%3D%22%24%7Bjdbc_password%7D%22%20%2F%3E%0A%20%20%20%20%20%0A%20%20%20%20%3Cproperty%20name%3D%22filters%22%20value%3D%22stat%22%20%2F%3E%0A%20%0A%20%20%20%20%3Cproperty%20name%3D%22maxActive%22%20value%3D%2220%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22initialSize%22%20value%3D%221%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22maxWait%22%20value%3D%2260000%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22minIdle%22%20value%3D%221%22%20%2F%3E%0A%20%0A%20%20%20%20%3Cproperty%20name%3D%22timeBetweenEvictionRunsMillis%22%20value%3D%2260000%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22minEvictableIdleTimeMillis%22%20value%3D%22300000%22%20%2F%3E%0A%20%0A%20%20%20%20%3Cproperty%20name%3D%22validationQuery%22%20value%3D%22SELECT%20&#39;x&#39;%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22testWhileIdle%22%20value%3D%22true%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22testOnBorrow%22%20value%3D%22false%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22testOnReturn%22%20value%3D%22false%22%20%2F%3E%0A%20%20%20%20%20%0A%20%20%20%20%3Cproperty%20name%3D%22poolPreparedStatements%22%20value%3D%22true%22%20%2F%3E%0A%20%20%20%20%3Cproperty%20name%3D%22maxPoolPreparedStatementPerConnectionSize%22%20value%3D%2250%22%20%2F%3E%0A%3C%2Fbean%3E" quality="high" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></div></div><ol start="1" class="dp-xml"><li><span><span class="tag">&lt;</span><span class="tag-name">bean</span><span>&nbsp;</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"dataSource"</span><span>&nbsp;</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"com.alibaba.druid.pool.DruidDataSource"</span><span>&nbsp;</span><span class="attribute">init-method</span><span>=</span><span class="attribute-value">"init"</span><span>&nbsp;</span><span class="attribute">destroy-method</span><span>=</span><span class="attribute-value">"close"</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"url"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"${jdbc_url}"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"username"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"${jdbc_user}"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"password"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"${jdbc_password}"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"filters"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"stat"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"maxActive"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"20"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"initialSize"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"1"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"maxWait"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"60000"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"minIdle"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"1"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"timeBetweenEvictionRunsMillis"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"60000"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"minEvictableIdleTimeMillis"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"300000"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"validationQuery"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"SELECT&nbsp;'x'"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"testWhileIdle"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"testOnBorrow"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"false"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"testOnReturn"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"false"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"poolPreparedStatements"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"true"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">property</span><span>&nbsp;</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"maxPoolPreparedStatementPerConnectionSize"</span><span>&nbsp;</span><span class="attribute">value</span><span>=</span><span class="attribute-value">"50"</span><span>&nbsp;</span><span class="tag">/&gt;</span><span>&nbsp;&nbsp;</span></span></li><li><span><span class="tag">&lt;/</span><span class="tag-name">bean</span><span class="tag">&gt;</span><span>&nbsp;&nbsp;</span></span></li></ol></div><pre class="xml" name="code" style="display: none;">&lt;bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"&gt; 
+    &lt;property name="url" value="${jdbc_url}" /&gt;
+    &lt;property name="username" value="${jdbc_user}" /&gt;
+    &lt;property name="password" value="${jdbc_password}" /&gt;
+     
+    &lt;property name="filters" value="stat" /&gt;
+ 
+    &lt;property name="maxActive" value="20" /&gt;
+    &lt;property name="initialSize" value="1" /&gt;
+    &lt;property name="maxWait" value="60000" /&gt;
+    &lt;property name="minIdle" value="1" /&gt;
+ 
+    &lt;property name="timeBetweenEvictionRunsMillis" value="60000" /&gt;
+    &lt;property name="minEvictableIdleTimeMillis" value="300000" /&gt;
+ 
+    &lt;property name="validationQuery" value="SELECT 'x'" /&gt;
+    &lt;property name="testWhileIdle" value="true" /&gt;
+    &lt;property name="testOnBorrow" value="false" /&gt;
+    &lt;property name="testOnReturn" value="false" /&gt;
+     
+    &lt;property name="poolPreparedStatements" value="true" /&gt;
+    &lt;property name="maxPoolPreparedStatementPerConnectionSize" value="50" /&gt;
+&lt;/bean&gt;</pre>
+<br>在上面的配置中，通常你需要配置url、username、password、maxActive这几项。
+<br>
+<br>在DruidDataSource中，你可以不配置DriverClass，它根据url自动识别。Druid能够自动识别20多中url，常见的JDBC Driver都包括了。
+      </div>
+    
+      <h2>
+        我目前使用其他连接池（DBCP/C3P0/Proxool等），如何迁移到Druid？
+        <span class="actions"><a name="124" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        从DBCP迁移最方便，把org.apache.commons.dbcp.BasicDataSource修改为om.alibaba.druid.pool.DruidDataSource就好了。
+<br>
+<br>Druid网站上提供了<a target="_blank" href="http://code.alibabatech.com/wiki/pages/viewpage.action?pageId=6947005">Druid/DBCP/C3P0/JBoss/WebLogic的参数对照表</a>，通过这个对照表来迁移你目前的配置。
+      </div>
+    
+      <h2>
+        其他开发者如何反馈问题、提交bug？
+        <span class="actions"><a name="125" href="http://www.iteye.com/magazines/90#top"><img alt="Top" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/top.gif"></a></span>
+        
+      </h2>
+      <div class="news_content">
+        Druid源码托管在github.com上，项目地址是<a target="_blank" href="https://github.com/AlibabaTech/druid">https://github.com/AlibabaTech/druid</a>。
+<br>
+<br>你可以在github上提交patch和issue（包括bug和新特性）。你也可以加入我们的QQ群92748305，和开发者以及其他用户一起交流。
+      </div>
+    
+  
+  
+  <div class="attachments">
+    
+      
+        <ul style="display:none;">
+          <li><a href="http://dl2.iteye.com/upload/attachment/0070/8056/775a7a10-fd54-35ab-8728-23f8049025d1.jpg" target="_blank"><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/775a7a10-fd54-35ab-8728-23f8049025d1-thumb.jpg" class="magplus" title="点击查看原始大小图片"></a></li>
+          
+          <li>大小: 81.4 KB</li>
+        </ul>
+      
+    
+      
+        <ul style="display:none;">
+          <li><a href="http://dl2.iteye.com/upload/attachment/0070/8058/8a350468-05d3-3e8c-a2d8-2f1fcc7a7fe9.jpg" target="_blank"><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/8a350468-05d3-3e8c-a2d8-2f1fcc7a7fe9-thumb.jpg" class="magplus" title="点击查看原始大小图片"></a></li>
+          
+          <li>大小: 79.4 KB</li>
+        </ul>
+      
+    
+    
+      <ul>
+        <li><a href="http://www.iteye.com/magazines/90#" onclick="$$(&#39;div.attachments ul&#39;).invoke(&#39;show&#39;);$(this).up(1).hide();return false;">查看图片附件</a></li>
+      </ul>
+    
+  </div>
+
+
+  <br><br>
+  
+    <div id="news_recommended_n2"></div>
+    <div id="digg_bottom" class="clearfix">
+      <div class="share_weibo" id="">分享到：
+        <a data-type="sina" href="javascript:;" title="分享到新浪微博"><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/sina.jpg"></a>
+        <a data-type="qq" href="javascript:;" title="分享到腾讯微博"><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/tec.jpg"></a>
+      </div>
+    </div>
+    <div class="comments">
+      <span style="font-weight:bold; font-size:16px;margin-right:14px;">评论</span> 共 95 条
+      <a id="comments" name="comments"></a>
+      <div class="comment" id="comment_3143">
+  <h5>95 楼
+    <a href="http://zhangwusheng.iteye.com/" target="_blank" title="zhangwusheng">zhangwusheng</a> 2015-09-16 16:04 
+    
+    
+  </h5>
+  <div><div class="quote_title">zhangwusheng 写道</div><div class="quote_div">Lexer.java:688 <br><br>688: public void scanVariable() {<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (;;) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ch = charAt(++pos);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ch == '}') {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bufPos++;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>这里的for如果我sql语句里面 select ${fffffffff 就死循环了吧？<br></div><br><br><br>说错了，最终也会异常</div>
+</div>
+<div class="comment" id="comment_3142">
+  <h5>94 楼
+    <a href="http://zhangwusheng.iteye.com/" target="_blank" title="zhangwusheng">zhangwusheng</a> 2015-09-16 16:02 
+    
+    
+  </h5>
+  <div>Lexer.java:688 <br><br>688: public void scanVariable() {<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (;;) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ch = charAt(++pos);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ch == '}') {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bufPos++;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>这里的for如果我sql语句里面 select ${fffffffff 就死循环了吧？<br></div>
+</div>
+<div class="comment" id="comment_3104">
+  <h5>93 楼
+    <a href="http://lyh2011.iteye.com/" target="_blank" title="lyh2011">lyh2011</a> 2015-06-04 16:31 
+    
+    
+  </h5>
+  <div><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/icon_idea.gif"> </div>
+</div>
+<div class="comment" id="comment_3100">
+  <h5>92 楼
+    <a href="http://windshome.iteye.com/" target="_blank" title="windshome">windshome</a> 2015-05-28 09:18 
+    
+    
+  </h5>
+  <div>我的系统启动程序中初始化了数据库连接池，但是配置中db的url写的是“1”，按道理说初始化池应该出错（初始连接数是1），但是奇怪的是，系统启动毫无问题，启动后各种与数据库无关的功能也运行完全正常。<br><br>那么，初始连接数是没有用的？druid开始根本不检查数据源配置是否正确？这个误打误撞还正好满足了我这个特殊需求，想来也怪怪的。</div>
+</div>
+<div class="comment" id="comment_2884">
+  <h5>91 楼
+    <a href="http://jikemike.iteye.com/" target="_blank" title="jikemike">jikemike</a> 2014-09-04 18:13 
+    
+    
+  </h5>
+  <div>druid sql注入问题： 使用druid版本为1.08.<br>查询字段包含tq.point报错，修改为 2 as point,则可以。<br> 错误提示Caused by: java.sql.SQLException: sql injection violation, limit row 0 :<br></div>
+</div>
+<div class="comment" id="comment_2866">
+  <h5>90 楼
+    <a href="http://tanwan.iteye.com/" target="_blank" title="tanwan">tanwan</a> 2014-08-11 11:30 
+    
+    
+  </h5>
+  <div>您好..我使用了您的sql parser...当我解析insert into test.rss_server values ('\'1', 2, '3')这类sql就会失败..有没有什么办法?</div>
+</div>
+<div class="comment" id="comment_2795">
+  <h5>89 楼
+    <a href="http://kanghui520520.iteye.com/" target="_blank" title="kanghui520520">kanghui520520</a> 2014-07-02 15:13 
+    
+    
+  </h5>
+  <div>你好，请教个问题，我在使用druid1.0.3时候，会偶尔报这样一个错：<br>java.lang.ArrayIndexOutOfBoundsException:3<br>	at java.util.concurrent.CopyOnWriteArrayList.get(CopyOnWriteArrayList.java:368)<br>	at java.util.concurrent.CopyOnWriteArrayList.get(CopyOnWriteArrayList.java:377)<br>	at com.alibaba.druid.filterChainImpl.nextFilter(FilterChainImpl.java:405)<br>	at com.alibaba.druid.filterChainImpl.Connection_isClosed(FilterChainImpl.java:371)<br>	at com.alibaba.druid.FilterAdapter.Connection_isClosed(FilterAdapter.java:888)<br>	at com.alibaba.druid.filterChainImpl.Connection_isClosed(FilterChainImpl.java:371)<br>	at com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl.isClosed(ConnectionProxyImpl.java:284)<br>	at com.alibaba.druid.pool.DruidPooledConnection.isClosed(DruidPooledConnection.java:816)<br>	at com.alibaba.druid.pool.DruidPooledPreparedStatment.close(DruidPooledPreparedStatment.java:172)<br>我用的是derby数据库，配置了Filter为：stat,log,wall<br>因为要支持wall功能，强制将DbType设置为oracle，这是什么原因造成的呢，能帮分析下吗</div>
+</div>
+<div class="comment" id="comment_2789">
+  <h5>88 楼
+    <a href="http://kanghui520520.iteye.com/" target="_blank" title="kanghui520520">kanghui520520</a> 2014-06-30 10:26 
+    
+    
+  </h5>
+  <div>请问，项目使用druid后，第一次登录很慢约500毫秒，第二次登录就很快，30到60毫秒，在高并发测试下，更慢，这是为什么呢？怎么才能让第一次登录变得快呢？</div>
+</div>
+<div class="comment" id="comment_2780">
+  <h5>87 楼
+    <a href="http://kanghui520520.iteye.com/" target="_blank" title="kanghui520520">kanghui520520</a> 2014-06-23 16:12 
+    
+    
+  </h5>
+  <div><div class="quote_title">yunnysunny 写道</div><div class="quote_div"><div class="quote_title">kanghui520520 写道</div><div class="quote_div">请问，我要在人大金仓数据库（国产数据库）下使用druid，我该怎么操作，如果不能实现，我该怎么修改druid代码呢</div><br>没听说过这个数据库，这个数据库提供jdbc驱动吗</div><br>该数据库提供了jdbc驱动，我在fillter里面不加wall的配置是支持的，但我需要wall的功能，<br>加了后，报<br>dbType not support:null,url jdbc:kingbase:192.168.8.45:54321/SAN<br>at com.alibaba.druid.wall.WallFilter.init(WallFilter.java:150)<br>，<br>能配置吗？<br>不能配置，我该怎么改呢,这个数据库的结构和功能和oracle类似<br></div>
+</div>
+<div class="comment" id="comment_2779">
+  <h5>86 楼
+    <a href="http://yunnysunny.iteye.com/" target="_blank" title="yunnysunny">yunnysunny</a> 2014-06-23 12:53 
+    
+    
+  </h5>
+  <div><div class="quote_title">kanghui520520 写道</div><div class="quote_div">请问，我要在人大金仓数据库（国产数据库）下使用druid，我该怎么操作，如果不能实现，我该怎么修改druid代码呢</div><br>没听说过这个数据库，这个数据库提供jdbc驱动吗</div>
+</div>
+<div class="comment" id="comment_2777">
+  <h5>85 楼
+    <a href="http://kanghui520520.iteye.com/" target="_blank" title="kanghui520520">kanghui520520</a> 2014-06-23 11:47 
+    
+    
+  </h5>
+  <div>请问，我要在人大金仓数据库（国产数据库）下使用druid，我该怎么操作，如果不能实现，我该怎么修改druid代码呢</div>
+</div>
+<div class="comment" id="comment_2721">
+  <h5>84 楼
+    <a href="http://yunnysunny.iteye.com/" target="_blank" title="yunnysunny">yunnysunny</a> 2014-06-05 11:03 
+    
+    
+  </h5>
+  <div><div class="quote_title">FireZHFox 写道</div><div class="quote_div">92748305这个群已经没法加入了<img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/icon_cry.gif"> </div><br>群已经满了，如果有问题，可以在github上提交</div>
+</div>
+<div class="comment" id="comment_2685">
+  <h5>83 楼
+    <a href="http://firezhfox.iteye.com/" target="_blank" title="FireZHFox">FireZHFox</a> 2014-05-21 09:21 
+    
+    
+  </h5>
+  <div>92748305这个群已经没法加入了<img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/icon_cry.gif"> </div>
+</div>
+<div class="comment" id="comment_2501">
+  <h5>82 楼
+    <a href="http://sunshine-bean.iteye.com/" target="_blank" title="sunshine_bean">sunshine_bean</a> 2014-04-15 10:38 
+    
+    
+  </h5>
+  <div><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/icon_biggrin.gif"> 好东西 </div>
+</div>
+<div class="comment" id="comment_2325">
+  <h5>81 楼
+    <a href="http://abc382410124.iteye.com/" target="_blank" title="abc382410124">abc382410124</a> 2013-11-14 18:05 
+    
+    
+  </h5>
+  <div>小白学习了</div>
+</div>
+<div class="comment" id="comment_2160">
+  <h5>80 楼
+    <a href="http://yunnysunny.iteye.com/" target="_blank" title="yunnysunny">yunnysunny</a> 2013-06-14 10:46 
+    
+    
+  </h5>
+  <div><div class="quote_title">hamber 写道</div><div class="quote_div"><div class="quote_title">引用</div><div class="quote_div"><br>通过Druid提供的SQL Parser可以在JDBC层拦截SQL做相应处理，比如说分库分表、审计等。Druid防御SQL注入攻击的WallFilter就是通过Druid的SQL Parser分析语义实现的。 </div><br><br>我对druid如何实现分库、分表功能很感兴趣。求指教，求demo</div><br>druid中没有涉及到分库分表操作</div>
+</div>
+<div class="comment" id="comment_2157">
+  <h5>79 楼
+    <a href="http://hamber.iteye.com/" target="_blank" title="hamber">hamber</a> 2013-06-13 15:30 
+    
+    
+  </h5>
+  <div><div class="quote_title">引用</div><div class="quote_div"><br>通过Druid提供的SQL Parser可以在JDBC层拦截SQL做相应处理，比如说分库分表、审计等。Druid防御SQL注入攻击的WallFilter就是通过Druid的SQL Parser分析语义实现的。 </div><br><br>我对druid如何实现分库、分表功能很感兴趣。求指教，求demo</div>
+</div>
+<div class="comment" id="comment_2156">
+  <h5>78 楼
+    <a href="http://xusheng87.iteye.com/" target="_blank" title="xusheng87">xusheng87</a> 2013-06-13 15:13 
+    
+    
+  </h5>
+  <div><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/icon_arrow.gif"> </div>
+</div>
+<div class="comment" id="comment_2119">
+  <h5>77 楼
+    <a href="http://woaini245693140.iteye.com/" target="_blank" title="woaini245693140">woaini245693140</a> 2013-05-26 11:06 
+    
+    
+  </h5>
+  <div><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/icon_idea.gif"> </div>
+</div>
+<div class="comment" id="comment_2100">
+  <h5>76 楼
+    <a href="http://windshome.iteye.com/" target="_blank" title="windshome">windshome</a> 2013-05-09 16:22 
+    
+    
+  </h5>
+  <div>数据库连接池是一个牵涉面非常广的话题，我看到druid在效率方面的优化，的确是同类开源组件中最好的，关于password的处理以及监控的设计，都体现出设计者的经验：）。<br><br>我是做商业软件的，的确都遇到过这类需求，真实客户提出的种种需求。但是做开源连接池的，基本不会考虑这些，呵呵。<br><br>希望druid能够越做越好，如果文档和测试能跟上就非常棒了。顺便提一句的是，系统在PK时，所需体现的特性和在实际生产环境中使用的时候，需要的特性、侧重点是完全不一样的，在设计连接池这种核心组件尤其要考虑。<br><br>我关于连接池的文章：<a rel="nofollow" target="_blank" href="http://windshome.iteye.com/admin/blogs/1837903">http://windshome.iteye.com/admin/blogs/1837903</a></div>
+</div>
+<div class="comment" id="comment_1411">
+  <h5>75 楼
+    <a href="http://fjiis.iteye.com/" target="_blank" title="fjiis">fjiis</a> 2012-11-21 16:59 
+    
+    
+  </h5>
+  <div>统计出错了，数据是sql server 2008，什么解决？<br><br>14:09:25,256 ERROR StatFilter:147 - merge sql error, dbType jtds, sql : <br>&nbsp;&nbsp; SELECT * FROM (&nbsp;&nbsp;&nbsp;&nbsp; SELECT ROW_NUMBER() OVER (ORDER BY FAlertDate Desc, FAlertLevel, FAlertType)&nbsp; AS RowNumber, *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; from monitor_business&nbsp;&nbsp; where&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FRemoveAlert = ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ) AS temp_table&nbsp;&nbsp; WHERE RowNumber BETWEEN ? AND ?&nbsp; <br>com.alibaba.druid.sql.parser.SQLParseException: syntax error, expect RPAREN, actual LPAREN OVER<br>	at com.alibaba.druid.sql.parser.SQLParser.accept(SQLParser.java:121)<br>	at com.alibaba.druid.sql.parser.SQLSelectParser.parseTableSource(SQLSelectParser.java:226)<br>	at com.alibaba.druid.sql.parser.SQLSelectParser.parseFrom(SQLSelectParser.java:217)<br>	at com.alibaba.druid.sql.parser.SQLSelectParser.query(SQLSelectParser.java:153)<br>	at com.alibaba.druid.sql.parser.SQLSelectParser.select(SQLSelectParser.java:52)<br>	at com.alibaba.druid.sql.parser.SQLStatementParser.parseSelect(SQLStatementParser.java:534)<br>	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:84)<br>	at com.alibaba.druid.sql.parser.SQLStatementParser.parseStatementList(SQLStatementParser.java:68)<br>	at com.alibaba.druid.sql.visitor.ParameterizedOutputVisitorUtils.parameterize(ParameterizedOutputVisitorUtils.java:40)<br>	at com.alibaba.druid.filter.stat.StatFilter.mergeSql(StatFilter.java:145)<br>	at com.alibaba.druid.filter.stat.StatFilter.createSqlStat(StatFilter.java:647)<br>	at com.alibaba.druid.filter.stat.StatFilter.statementPrepareAfter(StatFilter.java:305)<br>	at com.alibaba.druid.filter.FilterEventAdapter.connection_prepareStatement(FilterEventAdapter.java:124)<br>	at com.alibaba.druid.filter.FilterChainImpl.connection_prepareStatement(FilterChainImpl.java:442)<br>	at com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl.prepareStatement(ConnectionProxyImpl.java:242)<br>	at com.alibaba.druid.pool.DruidPooledConnection.prepareStatement(DruidPooledConnection.java:305)<br><br><br></div>
+</div>
+<div class="comment" id="comment_929">
+  <h5>74 楼
+    <a href="http://wenshao.iteye.com/" target="_blank" title="wenshao">wenshao</a> 2012-09-03 21:16 
+    
+    
+  </h5>
+  <div>阿里巴巴开源数据库连接池Druid发布0.2.6版本。这个版本最大的增强是内置监控界面，支持web-spring-sql关联监控，引入bootstrap重写了内置监控界面。内置监控功能演示：<br>1) springside4 mini-web [url]hhttp://110.76.43.235:8080/mini-web/ [/url]<br>2) sonar <a rel="nofollow" target="_blank" href="http://110.76.43.235:9000/">http://110.76.43.235:9000/</a> 监控页面 <a rel="nofollow" target="_blank" href="http://110.76.43.235:9000/druid/index.html">http://110.76.43.235:9000/druid/index.html</a><br><br>文档<br><a rel="nofollow" target="_blank" href="https://github.com/AlibabaTech/druid/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">https://github.com/AlibabaTech/druid/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98</a></div>
+</div>
+<div class="comment" id="comment_805">
+  <h5>73 楼
+    <a href="http://picksun.iteye.com/" target="_blank" title="picksun">picksun</a> 2012-08-09 09:11 
+    
+    
+  </h5>
+  <div><div class="quote_title">wenshao 写道</div><div class="quote_div"><div class="quote_title">picksun 写道</div><div class="quote_div">我的意思是：<br>1 连接数上涨很快，而且用show full processlist（数据库是mysql） <br>查知状态大都是sleep，time多为个位数，<br>这种状况让连接池负责回收有困难<br>2 刚启动就再死的情况很多见。<br>目前解决办法：<br>通过禁止外网用户访问，<br>等启动完一会再放行，<br>就不会死</div><br><br>通过连接池回收可能有困难，但是用Druid有办法能够知道那些代码申请了连接而没有及时释放。加入Druid用户的扣扣群吧，我们为你出谋划策。&nbsp;<img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/icon_biggrin.gif"> </div><br><br><br>谢谢~</div>
+</div>
+<div class="comment" id="comment_804">
+  <h5>72 楼
+    <a href="http://wenshao.iteye.com/" target="_blank" title="wenshao">wenshao</a> 2012-08-08 19:58 
+    
+    
+  </h5>
+  <div><div class="quote_title">picksun 写道</div><div class="quote_div">我的意思是：<br>1 连接数上涨很快，而且用show full processlist（数据库是mysql） <br>查知状态大都是sleep，time多为个位数，<br>这种状况让连接池负责回收有困难<br>2 刚启动就再死的情况很多见。<br>目前解决办法：<br>通过禁止外网用户访问，<br>等启动完一会再放行，<br>就不会死</div><br><br>通过连接池回收可能有困难，但是用Druid有办法能够知道那些代码申请了连接而没有及时释放。加入Druid用户的扣扣群吧，我们为你出谋划策。&nbsp;<img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/icon_biggrin.gif"> </div>
+</div>
+<div class="comment" id="comment_802">
+  <h5>71 楼
+    <a href="http://picksun.iteye.com/" target="_blank" title="picksun">picksun</a> 2012-08-08 14:04 
+    
+    
+  </h5>
+  <div>我的意思是：<br>1 连接数上涨很快，而且用show full processlist（数据库是mysql） <br>查知状态大都是sleep，time多为个位数，<br>这种状况让连接池负责回收有困难<br>2 刚启动就再死的情况很多见。<br>目前解决办法：<br>通过禁止外网用户访问，<br>等启动完一会再放行，<br>就不会死</div>
+</div>
+<div class="comment" id="comment_801">
+  <h5>70 楼
+    <a href="http://picksun.iteye.com/" target="_blank" title="picksun">picksun</a> 2012-08-08 12:16 
+    
+    
+  </h5>
+  <div><div class="quote_title">wenshao 写道</div><div class="quote_div">这应该是你的应用存在连接泄漏。你参考这个做配置，然后看错误日志，查找连接泄漏的来源吧：http://code.alibabatech.com/wiki/pages/viewpage.action?pageId=7673683<br><br><div class="quote_title">picksun 写道</div><div class="quote_div">接手一个WEB项目，出现死锁：CPU为0，数据库连接为800多，线程涨到1000，凡是用到数据库的线程都locked同一个对象，DBCP死在getConnection（使用代理prepareStatement）的时候<br>at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:748)<br>	- locked &lt;0x00002aaad8bdecd0&gt; (a org.apache.commons.pool.impl.GenericObjectPool)<br>	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:95)<br><br>用了温少的druid-0.2.4.jar包，则死在getConnection（使用代理prepareStatement）或者close的时候<br><br><br>不知道什么原因，请赐教~谢谢~!<br></div></div><br><br><br>我回来晚了，温兄回复很及时，非常感谢！<br>服务器死掉前连接数是直线上涨很快的。<br>而且是启动完不久，很快就再死的可能性很高<br>反复n次，反复重启都是如此，<br>除非当时访问量很低如凌晨<br>（凌晨也有可能因为蜘蛛抓取过多死机的）。<br>我担心设置30分钟很快就死了，甚至1分钟都不够。<br><br>我目前是：先把80封了不让外网访问，<br>然后监测到系统启动彻底完成，再开80端口，<br>这样就能够启动完成。<br><br>我会尽快测试，谢谢。<br></div>
+</div>
+<div class="comment" id="comment_797">
+  <h5>69 楼
+    <a href="http://wenshao.iteye.com/" target="_blank" title="wenshao">wenshao</a> 2012-08-07 11:05 
+    
+    
+  </h5>
+  <div>这应该是你的应用存在连接泄漏。你参考这个做配置，然后看错误日志，查找连接泄漏的来源吧：http://code.alibabatech.com/wiki/pages/viewpage.action?pageId=7673683<br><br><div class="quote_title">picksun 写道</div><div class="quote_div">接手一个WEB项目，出现死锁：CPU为0，数据库连接为800多，线程涨到1000，凡是用到数据库的线程都locked同一个对象，DBCP死在getConnection（使用代理prepareStatement）的时候<br>at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:748)<br>	- locked &lt;0x00002aaad8bdecd0&gt; (a org.apache.commons.pool.impl.GenericObjectPool)<br>	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:95)<br><br>用了温少的druid-0.2.4.jar包，则死在getConnection（使用代理prepareStatement）或者close的时候<br><br><br>不知道什么原因，请赐教~谢谢~!<br></div></div>
+</div>
+<div class="comment" id="comment_796">
+  <h5>68 楼
+    <a href="http://picksun.iteye.com/" target="_blank" title="picksun">picksun</a> 2012-08-07 09:49 
+    
+    
+  </h5>
+  <div>接手一个WEB项目，出现死锁：CPU为0，数据库连接为800多，线程涨到1000，凡是用到数据库的线程都locked同一个对象，DBCP死在getConnection（使用代理prepareStatement）的时候<br>at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:748)<br>	- locked &lt;0x00002aaad8bdecd0&gt; (a org.apache.commons.pool.impl.GenericObjectPool)<br>	at org.apache.commons.dbcp.PoolingDataSource.getConnection(PoolingDataSource.java:95)<br><br>用了温少的druid-0.2.4.jar包，则死在getConnection（使用代理prepareStatement）或者close的时候<br><br><br>不知道什么原因，请赐教~谢谢~!<br></div>
+</div>
+<div class="comment" id="comment_790">
+  <h5>67 楼
+    <a href="http://hemanzi.iteye.com/" target="_blank" title="hemanzi">hemanzi</a> 2012-08-03 12:34 
+    
+    
+  </h5>
+  <div>我感觉应该给apache比较好些.</div>
+</div>
+<div class="comment" id="comment_684">
+  <h5>66 楼
+    <a href="http://wenshao.iteye.com/" target="_blank" title="wenshao">wenshao</a> 2012-07-22 01:36 
+    
+    
+  </h5>
+  <div>非常感谢@xuershan 反馈问题，这是一个bug，问题已经修正，我将会做一次彻查，避免存在类似问题。我将会尽快发布一个版本修正此问题，预计下一次发布时间为8月初。<br><br>JIRA : http://code.alibabatech.com/jira/browse/DRUID-133<br><br>TestCase :https://github.com/AlibabaTech/druid/blob/master/src/test/java/com/alibaba/druid/bvt/bug/Bug_for_xuershan.java<br><br></div>
+</div>
+
+      
+      <div class="pagination"><span class="disabled prev_page">« 上一页</span> <span class="current">1</span> <a href="http://www.iteye.com/magazines/90?page=2#comments" rel="next">2</a> <a href="http://www.iteye.com/magazines/90?page=3#comments">3</a> <a href="http://www.iteye.com/magazines/90?page=4#comments">4</a> <a href="http://www.iteye.com/magazines/90?page=2#comments" class="next_page" rel="next">下一页 »</a></div>
+    </div>
+
+  
+    <div class="comments"><h3>发表评论</h3></div>
+    
+  <p style="text-align:center; margin-top:10px;margin-bottom:20px;"><a href="http://www.iteye.com/login"> <img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/login_icon.png" style="vertical-align:middle; margin-right: 10px;"> 您还没有登录,请您登录后再发表评论 </a></p>
+    
+  
+  
+
+<script type="text/javascript">
+    function quote_comment(id) {
+      new Ajax.Request('/editor/quote', {
+        parameters: {'id':id, 'type':'EssenceComment'},
+        onSuccess:function(response){editor.bbcode_editor.textarea.insertAfterSelection(response.responseText);
+          Element.scrollTo(editor.bbcode_editor.textarea.element);}
+      });
+    }
+
+    dp.SyntaxHighlighter.HighlightAll('code', true, true);
+    fix_image_size($$('#news_content img', '.news_content img', '.comments .comment img'), 650);
+    new WeiboShare({share_buttons: $$('.share_weibo')[0], img_scope: $('news_content')});
+</script>
+</div>
+
+
+
+        </div>
+        <div id="local">
+                    
+  <div>
+  <form action="http://www.iteye.com/magazines/search" method="get">    <input class="text" id="query" name="query" size="15" style="width: 135px;" type="text">
+    <input class="submit" type="submit" value="搜索精华" style="width: 68px;">
+  </form></div>
+
+
+
+  
+  
+  <div>
+    <h3>相关资讯</h3>
+          <ul>
+                  <li><a href="http://www.iteye.com/news/3529" target="_blank">Eurasia3 支持百万级用户的服务器和框架 - 国内开源项目介绍（五）</a></li>
+                  <li><a href="http://www.iteye.com/news/27941-open-source-hero-2013" target="_blank">“开源群英会2013” 参会“英雄榜”（持续更新中）</a></li>
+                  <li><a href="http://www.iteye.com/news/29056" target="_blank">程序员的十大烦恼</a></li>
+                  <li><a href="http://www.iteye.com/news/2973" target="_blank">[听译大师说话]python 创始人访谈录2: python 的起源 特点和未来</a></li>
+                  <li><a href="http://www.iteye.com/news/1704" target="_blank">微软，你的软件是驴子Eeyore在设计吗？</a></li>
+              </ul>
+      </div>
+    <div>
+    <h3>相关讨论</h3>
+          <ul>
+        
+          <li><a href="http://www.iteye.com/topic/1040094" target="_blank">阿里巴巴开源平台新增项目Druid</a></li>
+        
+          <li><a href="http://www.iteye.com/topic/773518" target="_blank">谁该为失败的项目负责</a></li>
+        
+          <li><a href="http://www.iteye.com/topic/670770" target="_blank">我的项目经历及分析：为什么一个小项目要花掉8个人月？</a></li>
+        
+          <li><a href="http://www.iteye.com/topic/711954" target="_blank">加班、代码恶心是架构师的失职</a></li>
+        
+          <li><a href="http://www.iteye.com/topic/1113553" target="_blank">对话jQuery之父John Resig：JavaScript的开发之路</a></li>
+        
+      </ul>
+      </div>
+    <div>
+    <h3>相关博客</h3>
+          <ul>
+        
+          <li><a href="http://nanjingjiangbiao-t.iteye.com/blog/1795107" target="_blank">阿里巴巴开源项目 Druid 负责人温少访谈</a></li>
+        
+          <li><a href="http://blogdevteam.iteye.com/blog/1841732" target="_blank">阿里巴巴开源项目 Druid 负责人温少访谈</a></li>
+        
+          <li><a href="http://panyongzheng.iteye.com/blog/2259867" target="_blank">Druid  的SQL翻译功能如何使用</a></li>
+        
+          <li><a href="http://jishudaima.iteye.com/blog/956145" target="_blank">1.3 项目管理的角色</a></li>
+        
+          <li><a href="http://javababy1.iteye.com/blog/1022410" target="_blank">1.3 项目管理的角色</a></li>
+        
+      </ul>
+      </div>
+
+
+
+        </div>
+        <div id="nav">
+  <div class="wrapper">
+    <ul>
+            <li><a href="http://www.iteye.com/">首页</a></li>
+      <li><a href="http://www.iteye.com/news">资讯</a></li>
+      <li><a href="http://www.iteye.com/magazines" class="selected">精华</a></li>
+      <li><a href="http://www.iteye.com/forums">论坛</a></li>
+      <li><a href="http://www.iteye.com/ask">问答</a></li>
+      <li><a href="http://www.iteye.com/blogs">博客</a></li>
+      <li><a href="http://www.iteye.com/blogs/subjects">专栏</a></li>
+      <li><a href="http://www.iteye.com/groups">群组</a></li>
+      <!-- <li><a target="_blank" href="http://job.iteye.com/iteye">招聘</a></li>-->
+      <li><a target="_blank" href="http://lib.csdn.net/">知识库</a></li>
+      <li class="last"><a href="http://www.iteye.com/search">搜索</a></li>
+    </ul>
+  </div>
+</div>
+      </div>
+      <div id="footer">
+  <div id="site_nav">
+    <ul>
+      <li><a href="http://www.iteye.com/index/service">广告服务</a></li>
+      <li><a href="http://webmaster.iteye.com/">ITeye黑板报</a></li>
+      <li><a href="http://www.iteye.com/index/contactus">联系我们</a></li>
+      <li class="last"><a href="http://www.iteye.com/index/friend_links">友情链接</a></li>
+    </ul>
+  </div>
+  <div id="copyright">
+    © 2003-2017 ITeye.com.    [ <a href="http://www.miibeian.gov.cn/">京ICP证070598号</a>  京公网安备11010502027441 ]<br>
+    北京创新乐知信息技术有限公司 版权所有<br>
+  </div>
+</div>
+    </div>
+    <script type="text/javascript">
+  document.write("<img src='http://stat.iteye.com/?url="+ encodeURIComponent(document.location.href) + "&referrer=" + encodeURIComponent(document.referrer) + "&user_id=' width='0' height='0' />");
+</script><img src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/saved_resource" width="0" height="0">
+
+<script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/tracking.js.下载" type="text/javascript"></script>
+
+    
+    <script language="javascript" type="text/javascript" src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/async_new.js.下载"></script>
+<script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/jquery-1.11.1.min.js.下载" type="text/javascript"></script>
+<script type="text/javascript">var $csdn_iteye_jq = jQuery.noConflict();// 解决jq与prototype.js命名空间冲突的问题</script>
+<script src="./阿里巴巴开源项目 Druid 负责人温少访谈 - 名家访谈 - ITeye精华_files/tracking.js(1).下载" type="text/javascript"></script>
+     
+
+</body></html>

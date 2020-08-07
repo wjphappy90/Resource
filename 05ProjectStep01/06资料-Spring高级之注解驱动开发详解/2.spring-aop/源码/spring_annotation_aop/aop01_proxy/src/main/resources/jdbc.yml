@@ -1,0 +1,5 @@
+jdbc:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/spring_ioc
+  username: root
+  password: 1234

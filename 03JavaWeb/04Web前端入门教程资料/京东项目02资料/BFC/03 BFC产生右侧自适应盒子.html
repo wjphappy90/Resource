@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .father {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 0 auto;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+
+        .txt {
+            height: 300px;
+            background-color: purple;
+            overflow: hidden;  /*给txt 创建BFC 区域 在不和浮动产生交集 紧贴制浮动的边缘 */
+            
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="box"></div>
+    <div class="txt">我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子
+        我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子
+        我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子
+        我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子我可以制作右侧自适应的盒子</div>
+</div>
+</body>
+</html>

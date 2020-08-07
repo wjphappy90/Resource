@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();//初始化页面应用mui
+      	
+      	//mui加载完成事件
+      	mui.plusReady(function(){
+      		//定义子页面的数组
+      		 var subPages = ["sub1.html","sub2.html","sub3.html","sub4.html"];
+      		 //定义子页面显示位置样式
+      		 var subPageStyle={
+      		 	top:"44px",//距离顶部44px
+      		 	bottom:"50px"//距离底部50px
+      		 };
+      		 //获取主webView
+      		 var mainView = plus.webview.currentWebview();
+      		 //遍历子页面数组，根据每个子页面url创建webView
+      		 for(var i=0;i<subPages.length;i++){
+      		 	var url = subPages[i];
+      		 	//根据url创建每个子页面的webView
+      		 	//创建webView语法：plus.webview.create(url,id,style),返回webView对象;
+      		 	//	参数1：url,用于指定将那个web页面创建为webView
+      		 	//  参数2：id,给每个web页面起个标识符，用于后面控制显示
+      		 	//  参数3：style，设置样式
+      		 	var subView = plus.webview.create(url,url,subPageStyle);
+      		 	//默认设置每个子webView处理隐藏状态
+      		 	subView.hide();
+      		 	//为了主子webView同时显示，需要将每个子webView加入到主webView中
+      		 	mainView.append(subView);
+      		 }
+      		 //默认设置sub1.html好友列表子页面显示
+      		 //根据id设置具体webView显示的语法：plus.webview.show(id);
+      		 plus.webview.show(subPages[0]);
+      		 
+      		 
+      		 //给每个导航栏目注册模拟用户的“轻击”事件
+      		 //注册事件语法：mui(html元素的元素父选择器).on(事件名,注册事件的html元素选择器,事件函数)
+      		 //   事件名：tap，用户轻击事件，注意onclick,click网页事件在手机里面无效
+      		 mui(".mui-bar-tab").on("tap","a",function(){
+      		 	//获取当前事件源对象表情属性href的值
+      		 	var id = this.getAttribute("href");
+      		 	//设置当前导航对应的子页面显示，就是根据指定id设置webView显示
+      		 	plus.webview.show(id);
+      		 });
+      		 
+      	});
+    </script>
+</head>
+<body>
+	<!--头部-->
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">微信</h1>
+	</header>
+	
+	<!--底部-->
+	<nav class="mui-bar mui-bar-tab">
+	    <a class="mui-tab-item mui-active" href="sub1.html">
+	        <span class="mui-icon mui-icon-chatbubble"></span>
+	        <span class="mui-tab-label">微信</span>
+	    </a>
+	    <a class="mui-tab-item" href="sub2.html">
+	        <span class="mui-icon mui-icon-contact"></span>
+	        <span class="mui-tab-label">通讯录</span>
+	    </a>
+	    <a class="mui-tab-item" href="sub3.html">
+	        <span class="mui-icon mui-icon-navigate"></span>
+	        <span class="mui-tab-label">发现</span>
+	    </a>
+	    <a class="mui-tab-item" href="sub4.html">
+	        <span class="mui-icon mui-icon-person"></span>
+	        <span class="mui-tab-label">我</span>
+	    </a>
+	</nav>
+</body>
+</html>

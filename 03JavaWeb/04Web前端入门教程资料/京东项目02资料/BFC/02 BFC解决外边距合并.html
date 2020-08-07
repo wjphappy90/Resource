@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .father {
+            width: 300px;
+            height: 500px;
+            border: 1px solid red;
+        }
+        .son1, .son2 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .son1 {
+            margin-bottom: 50px;
+        }
+        .over {
+            overflow: hidden;
+        }
+        .son2 {
+            background-color: purple;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="over"> <!--over隔开，那么 son1 就和son1 不是同一BFC-->
+        <div class="son1"></div>
+    </div>
+    <div class="son2"></div>
+</div>
+</body>
+</html>

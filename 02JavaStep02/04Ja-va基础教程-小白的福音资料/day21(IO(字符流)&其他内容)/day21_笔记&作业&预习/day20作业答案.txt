@@ -1,0 +1,55 @@
+
+1、整理并熟练字节流拷贝功能代码(今天的核心内容)
+	基本流复制
+		(1)一次读取单个字节
+		FileInputStream fis = new FileInputStream("致青春.mp3");		
+		FileOutputStream fos = new FileOutputStream("copy.mp3");		
+
+		int by = 0;
+		while((by = fis.read()) != -1) {		
+			fos.write(by);
+		}
+		fis.close();					
+		fos.close();
+		(2)一次读取多个字节
+		FileInputStream fis = new FileInputStream("致青春.mp3");			
+		FileOutputStream fos = new FileOutputStream("copy.mp3");		
+
+		byte[] bys = new byte[1024];
+		int len = 0;
+		while((len = fis.read(bys)) != -1) {		
+			fos.write(bys,0,len);
+		}
+		fis.close();						
+		fos.close();
+	字节缓冲流复制
+		(1)一次读取单个字节
+		FileInputStream fis = new FileInputStream("致青春.mp3");			
+		BufferedInputStream bis = new BufferedInputStream(fis);			
+		FileOutputStream fos = new FileOutputStream("copy.mp3");		
+		BufferedOutputStream bos = new BufferedOutputStream(fos);		
+
+		int by = 0;
+		while((by = bis.read()) != -1) {		
+			bos.write(by);
+		}
+		
+		bis.close();						
+		bos.close();
+		(2)一次读取多个字节
+
+		FileInputStream fis = new FileInputStream("致青春.mp3");			
+		BufferedInputStream bis = new BufferedInputStream(fis);			
+		FileOutputStream fos = new FileOutputStream("copy.mp3");		
+		BufferedOutputStream bos = new BufferedOutputStream(fos);		
+		
+		byte[] bys = new byte[1024];
+		int len = 0;
+		while((len = bis.read(bys)) != -1) {		
+			bos.write(bys,0,len);
+		}
+		
+		bis.close();						
+		bos.close();
+2、用自己能想到的办法实现需求:求5的阶乘(n的阶乘 = n*(n-1)*(n-2)*...*1)！
+参考: 21.16_File类(递归).avi

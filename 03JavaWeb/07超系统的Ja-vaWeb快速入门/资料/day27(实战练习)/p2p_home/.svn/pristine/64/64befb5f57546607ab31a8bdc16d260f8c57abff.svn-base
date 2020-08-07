@@ -1,0 +1,51 @@
+.container-fluid{
+	padding: 0;
+	margin: 0;
+}
+
+.IndexContent .intro{
+	margin: 20px 0;
+}
+.carousel-inner .container{
+	position: absolute;
+	top: 60px;
+}
+.carousel-control{
+	opacity: .2;
+}
+.warn{
+    background-color: rgba(224,224,230,0.8);
+    text-align: center;
+    padding-bottom: 40px;
+}
+.warn h4{
+	border-bottom: 1px solid #9a9696;
+    line-height: 36px;
+    color: red;
+    font-size: 20px;
+}
+.warn .btn-info{
+	font-size:16px;
+	padding: 6px;
+}
+
+.col-md-3{
+	width: 24%;
+	margin: 0 2px;
+	border: 1px dotted #397cc0;
+}
+.intro h3{
+	color: #397cc0;
+}
+.intro p{
+	font-size:18px
+}
+.buy{
+	text-align: center;
+	margin: 20px 0;
+}
+.buy .btn-info{
+	font-size: 18px;
+    padding: 6px 40px;
+    background: #3a99dc;
+}

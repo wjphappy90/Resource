@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 开启开发者模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<!-- 配置公共包，有公共的配置就写在此处-->
+	<package name="myDefault" extends="struts-default" abstract="true">
+	</package>
+	
+	<!-- 引入其他struts2配置文件 -->
+	<include file="config/struts/struts-customer.xml"></include>
+</struts>

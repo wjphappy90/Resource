@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<!-- 开启开发者模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" namespace="/" extends="json-default">
+		<!-- 配置自定义来拦截器 -->
+		<interceptors>
+			<interceptor name="thirdInterceptor" class="cn.itcast.interceptor.ThirdInterceptor"></interceptor>
+		</interceptors>
+		<action name="userList" class="cn.itcast.action.UserAction"
+			method="list">
+			<!-- 引入拦截器 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="thirdInterceptor"></interceptor-ref>
+			<result name="success">
+				/userList.jsp
+			</result>
+			<result name="json" type="json">
+				<param name="root">users</param>
+			</result>
+		</action>
+	</package>
+</struts>

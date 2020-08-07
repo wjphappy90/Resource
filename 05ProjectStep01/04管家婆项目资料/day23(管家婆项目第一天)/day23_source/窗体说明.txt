@@ -1,0 +1,40 @@
+窗体和他的控制器子类说明
+
+  主窗体类：AbstractMainFrame  继承JFrame
+  子类(控制器)，继承AbstractMainFrame
+  显示主窗体，new 他的子类，控制器
+  MainFrameController子类
+  
+  
+  分类对话框： AbstractSortMngDialog  继承JDialog
+  子类(控制器), 继承AbstractSortMngDialog
+  SortMngController 子类
+  是由主窗体的，分类管理按钮，点击后，显示
+  MainFrameController子类 方法sortMng() 显示出分类对话框
+  
+  SortMngController 子类重写的三个方法
+  添加，编辑，删除分类
+  
+  
+  操作分类对话框，AbstractOperationSortDialog  继承JDialog
+  在分类管理对话框中，点击了添加分类或者编辑分类，弹出操作分类对话框，AbstractOperationSortDialog对话框
+  子类(控制器)，AddSortController 继承 AbstractOperationSortDialog
+  子类(控制器)，EditSortController 继承 AbstractOperationSortDialog
+  
+  
+  
+  账务管理对话框: AbstractLedgerMngDialog 继承JDialog
+  子类(控制器): LedgerMngController. 显示账务管理对话框，new LedgerMngController
+  主窗体类：AbstractMainFrame--子类(MainFrameController子类,账务管理按钮)
+  
+  操作账务对话框：AbstractOperationLedgerDialog  继承JDialog
+  在账务对话框中，点击添加账务，编辑账务，弹出操作账务对话框，AbstractOperationLedgerDialog
+  子类(控制器)  AddLedgerController  继承AbstractOperationLedgerDialog
+  子类(控制器)  EditLedgerController 继承AbstractOperationLedgerDialog
+  
+  
+  
+  
+  
+  
+  

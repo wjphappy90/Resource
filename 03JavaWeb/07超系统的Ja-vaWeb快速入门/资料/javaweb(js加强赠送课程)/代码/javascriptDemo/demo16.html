@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript中类定义--动态原型方式</title>
+		<script type="text/javascript">
+			function Car(name, color) {
+				this.name = name;
+				this.color = color;
+				if(typeof Car.init == "undefined") {
+					alert("run函数创建");
+					Car.prototype.run = function() {
+						alert(this.color + this.name + " running...");
+					}
+					Car.init = true;
+				}
+			}
+
+			var c = new Car("宝马", "白色");
+			c.run();
+			var cc = new Car("奥迪", "黑色");
+			cc.run();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

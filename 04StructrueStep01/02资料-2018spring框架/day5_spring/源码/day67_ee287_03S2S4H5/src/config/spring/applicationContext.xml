@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" 
+       xmlns:context="http://www.springframework.org/schema/context" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd
+       					   http://www.springframework.org/schema/tx 
+       					   http://www.springframework.org/schema/tx/spring-tx.xsd
+       					   http://www.springframework.org/schema/aop 
+       					   http://www.springframework.org/schema/aop/spring-aop.xsd
+       					   http://www.springframework.org/schema/context
+       					   http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- 配置spring创建容器时要扫描的包 -->
+	<context:component-scan base-package="com.itheima"></context:component-scan>
+	
+	<!-- 配置hibernateTemplate -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 第一部分：连接数据库的  用连接池-->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 第二部分：hibernate的可选配置 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key=""></prop>
+				<!-- 数据库的方言 -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- 是否显示hibernate生成的SQL语句 -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- 是否使用格式化输出sql语句到控制台 -->
+				<prop key="hibernate.format_sql">false</prop>
+				<!-- 配置hibernate采用何种方式生成DDL语句 -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<!-- 把session和线程绑定，从而实现一个线程只有一个Session -->
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
+			</props>
+		</property>
+		<!-- 第三部分：指定实体类所在的包，当创建SessionFactory,会去该包中扫描实体类上的注解，从而生成映射配置-->
+		<property name="packagesToScan">
+			<array>
+				<value>com.itheima.domain</value>
+			</array>
+		</property>
+	</bean>
+
+	<!-- 配置连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/day67_ee287_ssh"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+	
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 开启spring对注解事务的支持 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

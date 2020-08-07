@@ -1,0 +1,80 @@
+--创建简单序列
+create sequence seq_test;
+
+--查询序列的下一个值
+select seq_test.nextval from dual;
+--查询序列的当前值
+select seq_test.currval from dual;
+
+--有最大值的非循环序列
+create sequence seq_test1 
+maxvalue 20;
+
+select seq_test1.nextval from dual;
+
+
+create sequence seq_test2
+increment by 10
+start with 10
+maxvalue 100
+
+select seq_test2.nextval from dual;
+
+create sequence seq_test3
+increment by 10
+start with 10
+minvalue 5
+maxvalue 100
+
+
+select seq_test3.nextval from dual;
+
+--循环的序列
+create sequence seq_test4
+increment by 10
+start with 10
+minvalue 10
+maxvalue 210
+cycle
+
+--
+create sequence seq_test5
+increment by 10
+start with 10
+minvalue 10
+maxvalue 201
+cycle
+
+select seq_test5.nextval  from dual;
+
+
+create sequence seq_test6
+increment by 10
+start with 10
+minvalue 10
+maxvalue 100
+cycle 
+cache 5
+
+--一次缓存的数有多少  cache值*增长值
+--一次循环的值不能小于 一次缓存的数
+
+create sequence seq_test7
+increment by 10
+start with 10
+minvalue 10
+maxvalue 100
+cache 20
+
+--创建私有同义词
+
+create synonym owner for t_owners;
+
+select * from owner
+
+--创建公有同义词
+
+create public synonym OWNERS2 for t_owners
+
+select * from OWNERS2
+

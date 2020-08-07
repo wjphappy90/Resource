@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript中类定义--工厂方式</title>
+		<script type="text/javascript">
+			//工厂方式
+			function Car(name, color) {
+				//创建一个对象
+				var obj = new Object();
+				obj.name = name;
+				obj.color = color;
+				obj.run = function() {
+					alert(this.name + this.color + " running...");
+				};
+				return obj;
+			}
+
+			var c = new Car("宝马", "红色");
+			c.run();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

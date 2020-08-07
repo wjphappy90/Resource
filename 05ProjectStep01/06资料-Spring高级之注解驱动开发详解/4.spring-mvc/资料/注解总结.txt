@@ -1,0 +1,32 @@
+用于配置控制器
+	@Controller
+	@RestController
+用于提供方法映射的
+	@RequestMapping
+	@GetMapping
+	@PostMapping
+	@PutMapping
+	@DeleteMapping
+	@PatchMapping
+用于增强控制器方法的
+	@ModelAttribute
+	@ExceptionHandler
+	@InitBinder
+用于给控制器方法提供通知的注解
+	@ControllerAdive
+	@RestControllerAdive
+用于绑定控制器方法参数的注解
+	@RequestParam
+	@RequstBody
+	@RequestHeader
+	@CookieValue
+	@PathVariable
+	@SessionAttribute
+用于改变响应方式的
+	响应的方式：转发，重定向，用流输出
+	@ResponeBody 用流输出的方式
+用于在控制器方法提供Model或者ModelMap存入会话域的
+	@SessionAttribues
+用于提供跨域访问
+	@CrossOrigin
+

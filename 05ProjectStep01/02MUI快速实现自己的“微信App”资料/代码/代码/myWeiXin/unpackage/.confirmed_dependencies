@@ -1,0 +1,31 @@
+{
+  "index.html": {
+    "resources": [
+      "sub1.html"
+    ],
+    "refer": [
+      "sub4.html",
+      "sub3.html",
+      "sub2.html",
+      "sub1.html"
+    ]
+  },
+  "sub1.html": {
+    "refer": [
+      "sub1/chat.html"
+    ]
+  },
+  "sub3.html": {
+    "refer": [
+      "sub3/fdHeader.html"
+    ]
+  },
+  "sub3/fdHeader.html": {
+    "resources": [
+      "sub3/fdBody.html"
+    ],
+    "refer": [
+      "sub3/fdBody.html"
+    ]
+  }
+}

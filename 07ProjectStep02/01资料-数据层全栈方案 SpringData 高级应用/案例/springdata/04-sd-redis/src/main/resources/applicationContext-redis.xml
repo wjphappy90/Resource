@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置Jedis连接池参数-->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <!--最大连接数-->
+        <property name="maxTotal" value="30"/>
+        <!--最大空闲连接数-->
+        <property name="maxIdle" value="20"/>
+        <!--最小空闲连接数-->
+        <property name="minIdle" value="10"/>
+    </bean>
+
+    <!--配置Jedis连接工厂-->
+    <bean id="jedisConnectionFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:hostName="192.168.106.128" p:port="6379" p:poolConfig-ref="jedisPoolConfig"
+    />
+
+
+    <!--配置Redis的模板-->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <!--配置jedis的连接工厂,目的是为了获取jedis连接-->
+        <property name="connectionFactory" ref="jedisConnectionFactory"/>
+
+        <!--配置非hash类型的序列化器-->
+<!--        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>-->
+    </bean>
+
+</beans>

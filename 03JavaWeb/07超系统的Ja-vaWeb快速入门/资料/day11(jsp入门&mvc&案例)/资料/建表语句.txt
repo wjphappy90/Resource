@@ -1,0 +1,10 @@
+create table user(
+	uid int primary key auto_increment,
+	username varchar(20),
+	password varchar(20),
+	nickname varchar(20)
+);
+
+insert into user values (null,'zs','123','张三');
+insert into user values (null,'ls','123','李四');
+insert into user values (null,'ww','123','王五');

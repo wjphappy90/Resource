@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我要投资</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!--base文件，放置公用样式-->
+		<link rel="stylesheet" type="text/css" href="css/moto.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.range.css" />
+		<!--**.css文件，本页面专用样式-->
+	</head>
+
+	<body>
+
+		<!--nav-->
+		<!--navTop-->
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container">
+				<!--for mobile display-->
+				 <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-0">
+				        <span class="sr-only">折叠菜单</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a href="index.html" class="navbar-brand">P2P金融平台</a>
+				</div>
+				<div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-0">
+					<p class="navbar-text navbar-right">您好，欢迎来到P2P平台！ <span><a href="register.html">免费注册</a></span> <span><a href="login.html">立即登录</a></p>
+				</div>
+			</div>
+		</nav>
+		<!--navMain-->
+		<nav class="navbar navbar-default navindex" role="navigation">
+			<div class="container">
+				<!--for mobile display-->
+				 <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				        <span class="sr-only">折叠菜单</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="传智金融" width="312px" height="89px" title="" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="index.html" target="_blank">首页</a>
+						</li>
+						<li  class="active">
+							<a href="#">我要投资</a>
+						</li>
+						<li>
+							<a href="school.html" target="_blank">新手指引</a>
+						</li>
+						<li>
+							<a href="helper.html" target="_blank">帮助中心</a>
+						</li>
+						<li>
+							<a href="space.html" target="_blank">账户中心</a>
+						</li>
+						<li>
+							<a href="#">我要借款</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--main-->
+		<div class="container-fluid">
+			<!--banner-->
+			<img src="img/school/02.png" class="img-responsive center-block" />
+		</div>
+		<!--content-->
+		<div class="container">
+			<!--operate-->
+			<!--navbtn-->
+			<!--table-->
+			<div class="intro">
+				<div class="show">
+					<div class="row">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<div class="caption pro1">
+									<h4>理财产品I</h4>
+								</div>
+								<img src="img/help/m-ico_01.png" />
+								<div class="caption">
+									<h4>整存零取，存本取息</h4>
+									<a href="#shopArea1" data-toggle="tab" class="btn btn-info">我要购买</a>
+								</div>
+							</div>
+							<span class="ico"></span>
+						</div>
+
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<div class="caption pro2">
+									<h4>理财产品II</h4></div>
+								<img src="img/help/m-ico_03.png" />
+								<div class="caption">
+									<h4>整存整取，利上滚利息</h4>
+									<a href="#shopArea2" data-toggle="tab" class="btn btn-info">我要购买</a>
+								</div>
+							</div>
+							<span class="ico"></span>
+						</div>
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<div class="caption pro2">
+									<h4>理财产品III</h4></div>
+								<img src="img/help/m-ico_05.png" />
+								<div class="caption">
+									<h4>零存整取，积少成多</h4>
+									<a href="#shopArea3" data-toggle="tab" class="btn btn-info">我要购买</a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+				</div>
+				<!--展开的内容-->
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade in" id="shopArea1">
+						<span class="ico"></span>
+						<table class="table table-bordered">
+							<tr>
+								<td class="shopWidth">投资金额</td>
+								<td><input type="text" placeholder="金额需为100元的整数倍" class="form-control num" />&nbsp;元 
+									<span class="word"></span>
+								</td>
+							</tr>
+							<tr>
+								<td>请选择期限</td>
+								<td>
+									<div class="demo">
+										<input type="hidden" class="single-slider one" value="6" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>预计年化收益</td>
+								<td><span class="yellow"><i>0</i>%</span></td>
+							</tr>
+							<tr>
+								<td>预期收益</td>
+								<td><span class="yellow"><i>0.00</i>元</span></td>
+							</tr>
+							<tr>
+								<td>配置结果</td>
+								<td>您选择了<span class="yellow">《投资-月存计划》</span>加入的本金为<span class="yellow"></span>元，投资期限为<span class="yellow">15</span>，预期年化收益率为<span class="yellow">0</span>%,请确认购买。 </td>
+							</tr>
+						</table>
+					</div>
+					<div class="tab-pane fade in" id="shopArea2">
+						<span class="ico"></span>
+						<table class="table table-bordered">
+							<tr>
+								<td class="shopWidth">投资金额</td>
+								<td><input type="text" placeholder="金额需为100元的整数倍" class="form-control" />&nbsp;元</td>
+							</tr>
+							<tr>
+								<td>请选择期限</td>
+								<td>
+									<div class="demo">
+										<input type="hidden" class="single-slider two" value="12" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>预计年化收益</td>
+								<td><span class="yellow"><i>0</i>%</span></td>
+							</tr>
+							<tr>
+								<td>预期收益</td>
+								<td><span class="yellow"><i>0.00</i>元</span></td>
+							</tr>
+							<tr>
+								<td>配置结果</td>
+								<td>您选择了<span class="yellow">《投资-月乘计划》</span>加入的本金为<span class="yellow"></span>元，投资期限为<span class="yellow">15</span>，预期年化收益率为<span class="yellow">0</span>%,请确认购买。 </td>
+							</tr>
+						</table>
+					</div>
+					<div class="tab-pane fade in" id="shopArea3">
+						<span class="ico"></span>
+						<table class="table table-bordered">
+							<tr>
+								<td class="shopWidth">投资金额</td>
+								<td><input type="text" placeholder="金额需为100元的整数倍" class="form-control" />&nbsp;元</td>
+							</tr>
+							<tr>
+								<td>请选择期限</td>
+								<td class="range">
+									<div class="demo">
+										<input type="hidden" class="single-slider" value="18" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>预计年化收益</td>
+								<td><span class="yellow"><i>0</i>%</span></td>
+							</tr>
+							<tr>
+								<td>预期收益</td>
+								<td><span class="yellow"><i>0.00</i>元</span></td>
+							</tr>
+							<tr>
+								<td>配置结果</td>
+								<td>您选择了<span class="yellow">《投资-月乘计划》</span>加入的本金为<span class="yellow"></span>元，投资期限为<span class="yellow">15</span>，预期年化收益率为<span class="yellow">0</span>%,请确认购买。 </td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="title">
+					<span class="tit-one">产品介绍</span><span>帮助中心</span>
+				</div>
+
+				<table class="table table-bordered table-striped">
+					<tr>
+						<th class="width">名称</th>
+						<th>投资计划</th>
+					</tr>
+					<tr>
+						<td>投资模式介绍</td>
+						<td>自动复投、自动盈利、期限灵活、收益最大化。在用户认可的收益及期限的范围内，对符合要求的标的进行自动投标，且回款在相应期限内自动复投，期限结束后系统会平台进行自动债权转让和退出，到期返回本息。投资计划所对应的标的均100%适用于平台的风险准备金制度并由系统实现标的分散投资。出借所获利息收益可选择每月复投或提取，更好的满足用户灵活自由、多样化的投资需求。</td>
+					</tr>
+					<tr>
+						<td class="width">投标范围</td>
+						<td>实地认证</td>
+					</tr>
+					<tr>
+						<td>投投资预期年化收益率</td>
+						<td>
+							<p>1.理财产品I预期年化收益率（16%）</p>
+							<p>2.理财产品II预期年化收益率（4.80%起，根据期限不同而增加）</p>
+							<p>3.理财产品III 预期年化收益率（4.80%起，根据期限不同而增加） </p>
+						</td>
+					</tr>
+					<tr>
+						<td class="width">投资期限</td>
+						<td>
+							<p>1.理财产品I期限（12期-36期）</p>
+							<p>2.理财产品II期限（1期-36期）</p>
+							<p>3.理财产品III期限（1期-36期） </p>
+						</td>
+					</tr>
+					<tr>
+						<td>退出日期</td>
+						<td>随时退出</td>
+					</tr>
+					<tr>
+						<td class="width">加入条件</td>
+						<td>加入金额100元起，且为100元的整数倍递增。</td>
+					</tr>
+					<tr>
+						<td>加入上限</td>
+						<td>无上限</td>
+					</tr>
+					<tr>
+						<td class="width">到期退出方式</td>
+						<td>系统将通过债权转让自动完成退出，您所持债权出售完成的具体时间，视债权转让市场交易情况而定。</td>
+					</tr>
+					<tr>
+						<td>费用</td>
+						<td>
+							<p>加入费用（充值）：免费</p>
+							<p>管理费用（账户管理费）：免费</p>
+							<p>退出费用（提现）：免费/笔 </p>
+						</td>
+					</tr>
+					<tr>
+						<td class="width">保障方式</td>
+						<td>风险准备金</td>
+					</tr>
+
+				</table>
+			</div>
+
+		</div>
+
+		<footer class="navbar-inverse"></footer>
+		<script type="text/javascript" src="js/jquery.1.9.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.range.js"></script>
+		<script type="text/javascript" src="js/moto.js"></script>
+	</body>
+
+</html>

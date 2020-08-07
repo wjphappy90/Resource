@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function run1(){
+				alert("run1");
+			}
+			
+			//希望两秒执行一次run1方法
+			var id=setTimeout("run1()",2000);
+			
+			//取消一次性定时器
+			clearTimeout(id);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

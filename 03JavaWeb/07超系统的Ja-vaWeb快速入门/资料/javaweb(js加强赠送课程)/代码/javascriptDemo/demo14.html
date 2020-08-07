@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript中类定义--构造函数</title>
+		<script type="text/javascript">
+			function Car(name,color){
+				this.name=name;
+				this.color=color;
+				this.run=function(){
+					alert(this.name+this.color+" running...");
+				}
+			}
+			var c=new Car("benz","黑色");
+			c.run();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

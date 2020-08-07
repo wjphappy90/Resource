@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<span id="s1">今天天气好晴朗</span>
+		<script>
+			//想要获取span标签的内容体
+			var s1=document.getElementById("s1");
+			alert(s1.innerHTML);
+			
+			//设置span 标签的内容体   今天好像要下雪
+			s1.innerHTML="今天好像要下雪";
+			
+			
+			//向span标签  追加内容体信息   ，今天0度
+			s1.innerHTML+="，今天0度";
+		</script>
+	</body>
+</html>

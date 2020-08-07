@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /*animation: go 2s ease 0s infinite alternate; 引用动画*/
+            animation: go 2s infinite; /*引用动画*/
+            /*animation:动画名称 动画时间 运动曲线  何时开始  播放次数  是否反方向;*/
+            /*动画名称是自己定义的 go google*/
+            /*infinite 无限循环*/
+            /*一般情况下，我们就用前2个 animation: go 2s*/
+        }
+        /*@keyframes go {}  定义动画*/
+        @keyframes go {
+            0% { /*起始位置，等价于 form*/
+                transform: translate3d(0, 0, 0);
+            }
+            25% {
+                transform: translate3d(800px, 0, 0);
+            }
+            50% {
+                transform: translate3d(800px, 400px, 0);
+
+            }
+            75% {
+                transform: translate3d(0, 400px, 0);
+
+            }
+            100% {
+                transform: translate3d(0, 0, 0);  /*100% 相当于结束位置 to*/
+
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

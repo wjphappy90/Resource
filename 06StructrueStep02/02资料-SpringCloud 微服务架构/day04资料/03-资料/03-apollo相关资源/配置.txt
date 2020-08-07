@@ -1,0 +1,6 @@
+apollo:
+  bootstrap:
+    enabled: true
+  meta: http://192.168.74.101:8080
+app:
+  id: test01

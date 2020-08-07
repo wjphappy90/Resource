@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>案例-省市二级联动</title>
+<script type="text/javascript" src="/jquery_ajax/js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//页面加载完成后向服务器发送请求来获取省份信息--不带参数
+		var url = "/jquery_ajax/city";
+		$.post(url + "?method=pro", function(data) {
+			//data [{"id":1,"name":"黑龙江"},{"id":3,"name":"辽宁"},{"id":2,"name":"吉林"}]
+			var jsonObj = eval(data);
+			$(jsonObj).each(function() {
+				//得到省份名称
+				var pname = (this.name);
+				//转换成jquery对象
+				$("#province").append($("<option>" + pname + "</option>"));
+
+			});
+
+		}, "json");
+
+		//当选择了省份时
+		$("#province").change(function() {
+			
+			//清理城市下拉框
+			$("#city").html("<option>--选择城市--</option>");
+			
+			//这次请求操作的作用是获取省份对应的城市信息---带参数
+			//获取选择的省份名称
+			var pname=$(this).val();
+			
+			$.post(url + "?method=city",{"pname":pname},  function(data) {				
+			
+				var jsonObj=eval(data);  //[{"id":1,"name":"哈尔滨"},{"id":2,"name":"大庆"}]
+				
+				//遍历
+				$(jsonObj).each(function(){
+					var cityName=this.name; //获取城市名称
+					$("#city").append($("<option>" + cityName + "</option>"));
+				});
+
+			}, "json");
+		});
+
+	});
+</script>
+</head>
+<body>
+
+	<select id="province">
+		<option>--选择省份--</option>
+	</select>省
+
+	<select id="city">
+		<option>--选择城市--</option>
+	</select>市
+</body>
+</html>

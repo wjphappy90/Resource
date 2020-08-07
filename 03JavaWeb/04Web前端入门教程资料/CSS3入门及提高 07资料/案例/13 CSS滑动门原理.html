@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		margin: 100px;
+		display: inline-block;
+		height: 33px;
+		/* 千万不能给宽度 写死宽度是不对滴，我们要推拉门 自由缩放*/
+		background: url(images/ao.png) no-repeat;
+		padding-left: 15px;
+		color: #fff;
+		text-decoration: none;
+		line-height: 33px;
+	}
+	a span {
+		display: inline-block;
+		height: 33px;
+		background: url(images/ao.png) no-repeat right; 
+		/* span 不能给宽度 利用padding挤开  要我要span 右边的圆角  所以 背景位置 右对齐 */
+		padding-right: 15px;
+	}
+	</style>
+</head>
+<body>
+	<a href="#">
+		<span>首页</span>
+	</a>
+	<a href="#">
+		<span>楚乔传</span>
+	</a>
+	<a href="#">
+		<span>公司简介</span>
+	</a>
+</body>
+</html>

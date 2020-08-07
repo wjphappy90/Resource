@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div {
+		width: 310px;
+		height: 190px;
+		border: 1px solid #ccc;
+		margin: 50px auto;  
+		padding: 10px;
+		position: relative;  /* 根据子绝父相最合适 */
+	}
+	.topIcon {
+		position: absolute; /* 绝对定位 不占有位置 */
+		top: 0;
+		left: 0;  /* 孩子加了绝对定位， 如果父级没有定位，以浏览器为准 */
+	}
+	.bottomIcon {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+	</style>
+
+</head>
+<body>
+	<div>
+		<img src="images/top_tu.gif" alt="" class="topIcon">
+		<img src="images/adv.jpg" alt="">
+		<img src="images/br.gif" height="54" width="60" alt="" class="bottomIcon">
+	</div>
+</body>
+</html>

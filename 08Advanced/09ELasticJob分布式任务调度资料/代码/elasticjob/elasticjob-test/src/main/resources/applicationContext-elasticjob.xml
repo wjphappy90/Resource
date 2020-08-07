@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:reg="http://www.dangdang.com/schema/ddframe/reg"
+       xmlns:job="http://www.dangdang.com/schema/ddframe/job"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.dangdang.com/schema/ddframe/reg
+       http://www.dangdang.com/schema/ddframe/reg/reg.xsd
+       http://www.dangdang.com/schema/ddframe/job
+       http://www.dangdang.com/schema/ddframe/job/job.xsd">
+
+    <!-- 配置作业注册中心
+       server-lists: 配置连接zookeeper的服务地址(host1:port,host2:port)
+       namespace: 配置zookeeper命名空间
+       id: bean的id
+       max-retries: 最大重试次数
+       base-sleep-time-milliseconds 等待重试的时间毫秒数(初始值)
+       max-sleep-time-milliseconds 等待重试的最大时间毫秒数
+    -->
+    <reg:zookeeper server-lists="127.0.0.1:2181"
+                   namespace="elasticjob-test"
+                   id="regCenter"
+                   max-retries="3"
+                   base-sleep-time-milliseconds="1000"
+                   max-sleep-time-milliseconds="3000"/>
+
+    <!-- 配置作业类型
+        registry-center-ref: 引用注册中心
+        cron: 触发作业调度的时间表达式[秒 分 小时 日 月  周 年]
+        sharding-total-count: 分片项总数
+        id : 作业名称
+        class: 作业类
+        sharding-item-parameters: 分片项参数值 分片项索引号=参数值，多个参数中间用逗号隔开
+         分片项索引号不能大于 分片项总数(0=A,1=B,2=C,3=D)
+    -->
+    <job:simple registry-center-ref="regCenter"
+                cron="0/5 * * * * ?"
+                sharding-total-count="4"
+                id="myJob"
+                class="cn.itcast.ej.job.MyJob"
+                sharding-item-parameters="0=北京,1=上海,2=广州,3=深圳"/>
+</beans>

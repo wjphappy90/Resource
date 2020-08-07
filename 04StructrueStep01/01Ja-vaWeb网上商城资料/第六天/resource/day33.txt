@@ -1,0 +1,186 @@
+回顾:
+	分类管理
+		分类列表
+		添加分类
+			更新缓存
+	商品管理
+		商品列表
+		添加商品
+//////////////////////////////
+文件上传:
+	浏览器要求:
+		表单提交方式为post
+		表单提供文件上传框
+		表单enctype:multipart/form-data
+	若enctype:multipart/form-data,在后台原生request获取参数的方法返回值都是null
+	
+commons-fileupload工具类
+	apache
+	使用步骤1:
+		1.导入jar包
+		2.创建磁盘文件项工厂
+			DiskFileItemFactory factory=new DiskFileItemFactory();
+		3.创建核心上传对象
+			ServletFileUpload upload=new ServletFileUpload(factory);
+		4.解析request list<FileItem>
+			List<FileItem> list=upload.parseRequest(request);
+		5.遍历list获取每一个fileitem
+			获取name属性的值 getFieldName()
+			判断是否是普通的上传组件 ifFormFiled()
+			若是普通
+				getString("utf-8")
+			
+			若是文件
+				getName():文件名称
+				getInputStream():获取文件内容
+				delete():删除临时文件
+//////////////////////////////////////////
+//////////////////////////////////////////
+案例1-按照状态查询订单列表
+需求:
+	在left.jsp上有一个订单管理,下面有5个连接,点击每个连接显示当前状态所有订单
+步骤分析:
+	1.修改left.jsp,添加5个连接
+		/store/adminOrder?method=findAllByState&state=x
+	2.编写adminorderservlet,继承baseservlet,编写findAllByState方法
+		获取state
+		调用service获取列表
+		请求转发到 /admin/order/list.jsp
+	3.dao中
+		判断state,发送不同的sql即可
+	
+案例2-查询订单的详情
+需求:
+	在list.jsp上点击每一个订单的 "订单详情" 将该订单的订单项列表展示出来
+技术分析:
+	ajax
+步骤分析:
+	1.给 "订单详情" 添加单击事件  携带oid
+	2.编写函数
+		$.post(url,params,fn,type);
+			url:/store/adminOrder
+			params:{method:showDetail,oid:xxx}
+			fn:展示
+			type:json
+	3.编写showDetail方法
+		获取oid
+		调用service中的getById() .获取order,获取order的订单项列表
+		将list转成json返回给浏览器
+///////////////////////////////	
+///////////////////////////////	
+		
+案例3-修改订单的状态
+需求:
+	在已付款的订单列表,点击"去发货",修改订单的状态为2
+步骤分析:
+	1.修改list.jsp,给 "去发货"添加连接,
+		/store/adminOrder?method=updateState&oid=xxx
+	2.在adminorderservlet中 编写updateState
+		获取oid
+		调用service 获取order,设置state=2 更新order
+		重定向到 已付款订单列表中
+
+////////////////////////		
+/////////////////////////		
+部署应用
+	linux
+	安装jdk
+	安装tomcat
+	安装mysql
+	安装redis
+需求:
+	将我们自己的项目(应用)发布到linux下的tomcat中
+技术分析:
+	项目打包(war包)
+	数据备份还原
+////////////////////////
+项目打包:
+	后缀名: .war
+	特点:在tomcat的webapps目录下,随着服务器的启动而解压
+	打包方式:
+		方式1:通过ide工具 ★
+			在项目右键-->export-->搜索 war -->选择目的地
+		方式2:手动打包
+			在项目目录右键-->添加到压缩文件(zip),-->修改后缀名为.war即可
+////////////////////////
+数据备份还原
+	mysql备份:
+		方式1:命令
+			在cmd窗口
+			mysqldump -uroot -p密码 要备份的数据库名称>文件磁盘位置
+			例如;
+				mysqldump -uroot -p1234 store38>g:\store38.sql
+		方式2:工具
+		
+	mysql还原:
+		方式1:命令
+			方式a:
+				在cmd窗口中(前提:手动创建数据库)
+				mysql -uroot -p密码 目的地数据库<文件磁盘位置
+				例如:
+					mysql -uroot -p1234 store381<g:\store38.sql
+			方式b:
+				先登录到目的地数据库中
+				source 文件磁盘位置
+					source g:\store38.sql
+		方式2:工具
+///////////////////////////////
+///////////////////////////////
+步骤:
+	1.将war和sql上传到linux
+	2.将war包放入tomcat的webapps目录下
+	3.还原sql
+		service mysql status  #查询mysql的运行状态
+		service mysql start   #启动mysql
+	4.启动tomcat
+		进入tomcat/bin目录
+		sh startup.sh
+	5.启动redis
+		ps -ef|grep redis
+		
+		进入redis的目录
+			/usr/local/redis/bin
+		./redis-server redis.conf
+	
+注意:
+	中文乱码
+		在连接的url后面追加:
+			?useUnicode=true&characterEncoding=utf-8
+	注意:若配置文件为xml的时候,特殊字符必须转义	
+		& 	&amp;
+	
+////////////////////////
+扩展-第一次访问慢:
+	linux命令
+		hostname  #查看主机名
+		vi /etc/hosts #修改本地dns配置
+			在127.0.0.1 最后加上 " 自己的主机名"
+	
+扩展:为所有的dao中的save方法添加一段代码
+动态代理
+步骤:
+	1.判断是否dao,若是dao才创建代理对象
+	2.判断是否是save方法,若是save方法
+		打印一句话,然后执行原来逻辑
+		
+	aop:面向切面编程
+	ioc:控制反转(解耦合)
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>文档操作-删除</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+
+	$(function(){
+		
+		//1.empty代表的是将元素下所有子元素删除
+		//$("#d1").empty();
+		
+		
+		//给p注册事件
+		$("#d1 p").click(function(){
+			alert("pppppppppp");
+		});
+		
+		//2.remove与detach功能都是删除
+		//var p=$("#d1 p").remove();
+		var p=$("#d1 p").detach();
+		
+		//remove与detach的区别:remove删除时连注册的事件也删除 而detach它不删除注册事件.
+		
+		$("#d2").append(p);
+		
+	});	
+</script>
+</head>
+<body>
+
+	<div id="d1">
+		<p>ppppp</p>
+		<span>ssssss</span>
+	</div>
+	
+	<div id="d2">
+	</div>
+	
+</body>
+</html>

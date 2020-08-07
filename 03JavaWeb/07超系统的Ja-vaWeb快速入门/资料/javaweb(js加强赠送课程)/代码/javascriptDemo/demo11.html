@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数调用--构造器调用</title>
+		<script type="text/javascript">
+			
+			//创建一个构造器
+			function Student(name,age){
+				this.name=name;
+				this.age=age;
+				this.toString=function(){
+					alert(this.name+"  "+this.age);
+				};
+			}
+			
+			//通过构造器创建对象
+			var s=new Student("张三",20);
+			s.toString();
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

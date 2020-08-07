@@ -1,0 +1,115 @@
+--存储函数创建
+create or replace function fn_getaddress
+(v_id number)
+return varchar2
+is
+  v_name varchar2(30);
+begin
+  --查询地址表
+  select name into v_name from t_address where id=v_id;
+  return v_name;
+end; 
+
+--存储函数测试
+select fn_getaddress(3) from dual;
+
+--存储函数应用
+
+select id,name,fn_getaddress(addressid) from t_owners;
+
+create sequence seq_owners start with 11;--业主序列
+
+--创建不带传出参数的存储过程
+create or replace procedure pro_owners_add 
+(
+v_name varchar2,--名称
+v_addressid number,--地址编号
+v_housenumber varchar2,--门牌号
+v_watermeter varchar2,--水表号
+v_ownertypeid number--业主类型
+)
+is
+
+begin
+  insert into t_owners 
+         values( seq_owners.nextval,v_name,v_addressid,v_housenumber ,v_watermeter,sysdate,v_ownertypeid ); 
+  commit;
+end;
+
+--调用不带传出参数的存储过程
+call pro_owners_add( '马大哈',2,'22333','66777',1 );
+
+begin
+  pro_owners_add( '马小哈',2,'22333','223344',1 );
+end;
+
+
+--创建带传出参数的存储过程
+create or replace procedure pro_owners_add 
+(
+v_name varchar2,--名称
+v_addressid number,--地址编号
+v_housenumber varchar2,--门牌号
+v_watermeter varchar2,--水表号
+v_ownertypeid number,--业主类型
+v_id out number
+)
+is
+
+begin
+  --对传出参数赋值
+  select seq_owners.nextval into v_id from dual;
+  --新增业主
+  insert into t_owners 
+         values( v_id,v_name,v_addressid,v_housenumber ,v_watermeter,sysdate,v_ownertypeid ); 
+  commit;
+  
+end;
+
+--调用传出参数的存储过程
+declare
+  v_id number;
+begin
+  pro_owners_add( '马二哈',2,'22333','2233666',1,v_id );
+  dbms_output.put_line(v_id);  
+end;
+
+--前置触发器
+create or replace trigger tri_account_num1
+before
+update of num1
+on t_account
+for each row
+declare
+
+begin
+  --通过伪记录变量修改usenum字段的值
+  :new.usenum:= :new.num1-:new.num0;
+    
+end;
+
+--后置触发器
+--创建日志表，记录业主名称修改前和修改后的名称 
+create table t_owners_log(
+updatetime date,
+ownerid number,
+oldname varchar2(30),
+newname varchar2(30)
+);
+
+create or replace trigger tri_owners_log
+after
+update of name
+on t_owners
+for each row
+declare
+
+begin
+  --向日志表插入记录
+  insert into t_owners_log values(sysdate,:new.id,:old.name,:new.name);
+
+end;
+
+
+update t_owners set name='林玲玲' where id=4;
+

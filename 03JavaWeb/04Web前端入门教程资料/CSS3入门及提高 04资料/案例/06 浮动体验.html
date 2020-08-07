@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			/*display: inline-block;   
+			转换为行内块元素 就可以放一行上 有宽度高度  但是 元素之间有空隙 不方便处理*/
+			float: left; /* 左侧浮动 */
+		}
+		div:nth-child(2) {
+			background-color: hotpink;
+		}
+		div:last-child {
+			background-color: deeppink;
+		}
+        </style>
+    </head>
+    <body>
+	<div></div>
+	<div></div>
+	<div></div>
+    </body>
+</html>

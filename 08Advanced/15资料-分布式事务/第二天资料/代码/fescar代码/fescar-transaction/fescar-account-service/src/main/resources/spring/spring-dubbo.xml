@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo
+       http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    <!--注册dubbo服务名字-->
+    <dubbo:application name="fescar-account" />
+    <!--注册中心-->
+    <dubbo:registry address="zookeeper://192.168.81.131:2181" />
+    <!--提供服务端口-->
+    <dubbo:protocol name="dubbo" port="20881" />
+    <dubbo:annotation package="com.itheima" />
+
+    <!--注入全局事务管理器-->
+    <bean class="com.alibaba.fescar.spring.annotation.GlobalTransactionScanner">
+        <constructor-arg value="fescar-account"/>
+        <constructor-arg value="my_test_tx_group"/>
+    </bean>
+
+
+    <!--代理数据源-->
+
+    <bean id="dataSourceProxy" class="com.alibaba.fescar.rm.datasource.DataSourceProxy">
+        <!--注入当前(被代理的)数据源-->
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+    <!--引入spring-mybatis.xml-->
+    <import resource="spring-mybatis.xml" />
+</beans>

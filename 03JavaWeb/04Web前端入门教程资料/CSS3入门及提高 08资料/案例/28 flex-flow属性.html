@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		section {
+		width: 1000px;
+		height: 600px;
+		border: 2px solid pink;
+		margin: 100px auto;
+		display: flex;
+		/* flex-direction: row;
+		flex-wrap: wrap;   这两句话等价于下面的这句话*/
+		flex-flow: column wrap;  /* 两者的综合 */
+		}
+		div {
+			width: 250px;
+			height: 200px;
+
+		}
+		div:first-child {
+			background-color: pink;
+		}
+		div:nth-child(2) {
+			background-color: purple;
+		}
+		div:nth-child(3) {
+			background-color: skyblue;
+		}
+		div:nth-child(4) {
+			background-color: hotpink;
+		}
+		div:nth-child(5) {
+			background-color: deeppink;
+		}
+        </style>
+    </head>
+    <body>
+    <section>
+    	<div>1</div>
+    	<div>2</div>
+    	<div>3</div>
+    	<div>4</div>
+    	<div>5</div>
+    </section>
+    </body>
+</html>

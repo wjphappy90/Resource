@@ -1,0 +1,8 @@
+C:\Documents and Settings\rui.xin\My Documents\Visual Studio 2005\Projects\HTMLcommon\HTMLcommon\bin\HTMLcommon.dll
+C:\Documents and Settings\rui.xin\My Documents\Visual Studio 2005\Projects\HTMLcommon\HTMLcommon\bin\HTMLcommon.pdb
+C:\Documents and Settings\rui.xin\My Documents\Visual Studio 2005\Projects\HTMLcommon\HTMLcommon\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\rui.xin\My Documents\Visual Studio 2005\Projects\HTMLcommon\HTMLcommon\obj\Debug\HTMLcommon.dll
+C:\Documents and Settings\rui.xin\My Documents\Visual Studio 2005\Projects\HTMLcommon\HTMLcommon\obj\Debug\HTMLcommon.pdb
+C:\Documents and Settings\rui.xin\My Documents\Visual Studio 2005\Projects\HTMLcommon\HTMLcommon\bin\com.yeepay.dll
+C:\Documents and Settings\rui.xin\My Documents\Visual Studio 2005\Projects\HTMLcommon\HTMLcommon\bin\com.yeepay.pdb
+C:\Documents and Settings\rui.xin\My Documents\Visual Studio 2005\Projects\HTMLcommon\HTMLcommon\bin\com.yeepay.xml

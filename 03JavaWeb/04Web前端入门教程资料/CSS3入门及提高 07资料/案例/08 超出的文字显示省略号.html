@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		div {
+			width: 120px;
+            height: 20px;
+            border: 1px solid #f00;
+            white-space: nowrap;  /* 首先先需要添加这句话 强制一行*/
+            
+            overflow: hidden;  /* 其次必须有这句话 */
+            /* text-overflow: clip;  直接裁剪 */
+            text-overflow: ellipsis;  /* 超出的部分，省略号代替 */
+           
+		}
+        </style>
+    </head>
+    <body>
+    <div>
+    	我的名字是安迪，楚乔的男朋友  
+    </div>
+    </body>
+</html>

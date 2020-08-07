@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<script src="/jquery_other/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	//页面加载完成后操作
+	$(function() {
+		var msg = $("#f").serializeArray();   //将表单信息序列化成json数据:
+			//[Object { name="username",  value="tom"}, Object { name="password",  value="123"}]
+		//想要的是这样格式{username=tom,password=123}
+		console.info(msg); //将信息打印到浏览器的控制台  
+	});
+</script>
+</head>
+<body>
+	<form id="f" action="#" method="post">
+		username:<input type="text" name="username" value="tom"><br>
+		password:<input type="password" name="password" value="123"><br>
+		<input type="submit" value="login">
+	</form>
+</body>
+</html>

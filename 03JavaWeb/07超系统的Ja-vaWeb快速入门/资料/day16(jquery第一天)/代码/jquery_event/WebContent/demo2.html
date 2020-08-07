@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery事件绑定机制介绍</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		//这种方案是jquery提供的一种简化绑定事件操作
+		//$("#btn").click(function(){
+		//	alert("hell");
+		//});
+		//bind用于绑定事件
+		//$("#btn").bind("click",function(){
+		//	alert("hello");
+		//});
+		//unbind用于解除事件的绑定
+		//$("#btn").unbind("click");
+		
+		//我们也可以使用live来进行事件绑定
+		//$("#btn").live("click",function(){
+		//	alert("hello world");
+		//});
+		
+		//我们可以使用die方法来解决live的绑定操作
+		//$("#btn").die("click");
+		
+		//live与bind的区别
+		//bind只能为存在的元素进行事件的绑定，而live它可以为没有存在，后续通过代码新添加的元素绑定事件.
+		$(":button").live("click",function(){
+			alert("hello...");
+		});
+		
+		//新添加一个按钮
+		$("body").append($("<input type='button' value='新按钮'>"));
+		
+	});
+	
+		//传统的javascript中绑定事件
+	/* windown.onload=function(){
+		document.getElementById("btn").onclick=function(){
+			
+		}
+	}; */
+	
+</script>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+</body>
+</html>

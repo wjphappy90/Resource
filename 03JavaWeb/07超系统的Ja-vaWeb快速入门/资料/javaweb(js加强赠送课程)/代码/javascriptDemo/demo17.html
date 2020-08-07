@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript中继承--原型链</title>
+		<script type="text/javascript">
+			//创建一个父类
+			function Father(){
+				this.name="张三";
+				this.show=function(){
+					alert("hello "+this.name);
+				}
+			}
+			
+			//创建一个子类
+			function Son(){
+				
+			}
+			Son.prototype=new Father();
+			Son.prototype.name="李四";
+			var s=new Son();
+			s.show();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

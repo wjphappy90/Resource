@@ -1,0 +1,140 @@
+.container-fluid{
+	padding: 0;
+	margin: 0;
+}
+.thumbnail{
+	border: none;
+}
+.thumbnail .caption{
+	text-align: center;
+}
+.normal{
+	font-size:18px
+}
+.bigsize{
+	font-size:24px
+}
+
+.p2p-title{
+	height: 68px;
+	padding-left: 80px;
+	padding-top: 25px;
+	color: #595757;
+	text-indent: .5em;
+	font-size: 30px;
+	position: relative;
+}
+.p2p-content{
+	padding: 35px 15px;
+	line-height: 36px;
+	overflow: hidden;
+}
+.p2p-title .ico{
+	width: 80px;
+	height: 70px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../img/school/tit_ico.png) no-repeat;
+	background-color: #fff;
+}
+.p2p-one .p2p-title{
+	border-bottom: 2px solid #36a4da;
+}
+.p2p-two,.p2p-five,.p2p-seven{
+	background: #f2f2f2;
+}
+.p2p-two .p2p-title{
+	border-bottom: 2px solid #64bf4a;
+}
+.p2p-two .p2p-title .ico{
+	background-position: 0 -90px;
+	background-color: #f2f2f2;
+}
+.p2p-three .p2p-title{
+	border-bottom: 2px solid #f8b42d;
+}
+.p2p-three .p2p-title .ico{
+	background-position: 0 -180px;
+}
+.p2p-four .p2p-title{
+	border-bottom: 2px solid #f8b42d;
+}
+.p2p-four .p2p-title .ico{
+	background-position: 0 -279px;
+}
+.p2p-five .p2p-title{
+	border-bottom: 2px solid #f8b42d;
+}
+.p2p-five .p2p-title .ico{
+	background-position: 0 -378px;
+	background-color: #f2f2f2;
+}
+.p2p-six .p2p-title{
+	border-bottom: 2px solid #f8b42d;
+}
+.p2p-six .p2p-title .ico{
+	background-position: 0 -479px;
+}
+.p2p-seven .p2p-title{
+	border-bottom: 2px solid #f8b42d;
+}
+.p2p-seven .p2p-title .ico{
+	background-position: 0 -586px;
+	background-color: #f2f2f2;
+}
+/*Content*/
+.SchoolContent{
+	color: #595757;
+	margin-top: 3%;
+}
+.SchoolContent .header{
+	font-size:24px;
+}
+.header span{
+	font-size:33px
+}
+.SchoolContent .media-body{
+	vertical-align: middle;
+}
+.p2p-four .list-group{
+	padding-left: 25px;
+}
+
+
+.p2p-five .list-group li{
+	list-style: none;
+}
+.p2p-six .list-inline li{
+	
+   padding: 20px 25px 0;
+    background: #2fa8e1;
+    color: #fff;
+    font-size:16px;
+    float: left;
+    height: 340px;
+    margin: 3px 8px;
+    width: 23%;
+    position: relative;
+}
+.p2p-six .list-inline li .arrow-icon{
+	background: url(../img/school/box.png) no-repeat;
+	width: 36px;
+    height: 195px;
+    top: 0;
+    right: -36px;
+    position: absolute;
+    z-index: 10;
+}
+.p2p-seven .col-md-4{
+	width: 31.5%;
+}
+.p2p-seven .list{
+	background: #fff;
+    border-radius: 4px;
+    margin: 0 5px;
+   padding: 20px 20px 0;
+    min-height: 420px;
+    box-shadow: 2px 2px 3px #b5b3b3;
+	
+}

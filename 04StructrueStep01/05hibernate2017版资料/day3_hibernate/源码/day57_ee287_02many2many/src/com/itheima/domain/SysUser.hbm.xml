@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.itheima.domain">
+	<class name="SysUser" table="sys_user" >
+		<id name="userId" column="user_id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="userName" column="user_name"></property>
+		<property name="userPassword" column="user_password"></property>
+		<property name="userState" column="user_state"></property>
+		<!-- 多对多关系映射
+				涉及的标签：
+					set:
+						作用：用于映射set集合属性
+						属性：
+							name：指定集合的名称
+							table：指定的是中间表的名称
+					key:
+						作用：用于映射外键字段
+						属性：
+							column：指定的是当前实体在中间表的外键字段名称
+					many-to-many
+						作用：用于映射多对多的关系
+						属性：
+							class：对方的实体类名称
+							column：对方在中间表的外键字段名称
+		 -->
+		 <set name="roles" table="user_role_ref" cascade="delete">
+		 	<key column="user_id"></key>
+		 	<many-to-many class="SysRole" column="role_id"/>
+		 </set>
+	</class>
+</hibernate-mapping>

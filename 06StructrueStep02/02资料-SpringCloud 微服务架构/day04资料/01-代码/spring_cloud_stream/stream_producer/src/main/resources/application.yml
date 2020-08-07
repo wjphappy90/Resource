@@ -1,0 +1,22 @@
+server:
+  port: 7001 #服务端口
+spring:
+  application:
+    name: stream_producer #指定服务名
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: itcast-default  #指定消息发送的目的地,在rabbitmq中,发送到一个itcast-default的exchange中
+        myoutput:
+          destination: itcast-custom-output
+          producer:
+            partition-key-expression: payload  #分区关键字   对象中的id,对象
+            partition-count: 2  #分区大小
+      binders:  #配置绑定器
+        defaultRabbit:
+          type: rabbit

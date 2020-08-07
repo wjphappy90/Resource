@@ -1,0 +1,20 @@
+#  zipkin:
+#    base-url: http://127.0.0.1:9411/  #zipkin server的请求地址
+#    sender:
+#      #type: rabbit
+#      type: web  #请求方式,默认以http的方式向zipkin server发送追踪数据
+#  sleuth:
+#    sampler:
+#      probability: 1.0  #采样的百分比
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#    listener: # 这里配置了重试策略
+#      direct:
+#        retry:
+#          enabled: true
+#      simple:
+#        retry:
+#          enabled: true

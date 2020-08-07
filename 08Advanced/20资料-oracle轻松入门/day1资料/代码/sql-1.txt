@@ -1,0 +1,44 @@
+--创建表空间
+create tablespace waterboss
+datafile 'c:\waterboss.dbf'
+size 100m
+autoextend on
+next 10m;
+
+--创建用户
+create user wateruser
+identified by itcast
+default tablespace waterboss;
+
+
+--给wateruser赋予DBA权限
+grant dba to wateruser
+
+
+
+--创建业主表
+CREATE TABLE T_OWNERS(
+ID NUMBER PRIMARY KEY,
+NAME VARCHAR2(30),
+ADDRESSID NUMBER,
+HOUSENUMBER VARCHAR2(30),
+WATERMETER VARCHAR2(30),
+ADDDATE DATE,
+OWNERTYPEID NUMBER
+)
+
+--插入语句
+insert into T_OWNERTYPE (ID,NAME) VALUES (1,'居民');
+
+insert into T_OWNERS VALUES (1,'张三丰',1,'1-1','123456',sysdate,1 );
+commit;
+--修改语句
+update T_OWNERS set adddate=adddate-3 where id=1;
+commit;
+
+--删除语句
+delete from T_OWNERS where id=1;
+commit;
+
+--删除语句
+truncate table T_OWNERTYPE

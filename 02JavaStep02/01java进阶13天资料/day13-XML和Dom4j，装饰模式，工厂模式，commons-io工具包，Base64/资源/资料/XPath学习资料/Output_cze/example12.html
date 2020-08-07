@@ -1,0 +1,213 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" type="text/css" href="../CSS/tutorial.css" tppabs="http://www.zvon.org/xxl/XPathTutorial/CSS/tutorial.css">
+      <title>XPath Tutorial</title>
+      <link rel="index" href="index.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/index.html">
+      <link rel="previous" href="example11.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example11.html">
+      <link rel="next" href="example13.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example13.html">
+   <style>#newZvonMessage {margin:1em; padding:1em; border:2px solid navy;}</style>
+<script src="../../../../www.google.com/jsapi" tppabs="http://www.google.com/jsapi"></script> 
+<script src="../../../Javascript/old_zvon.js" tppabs="http://www.zvon.org/Javascript/old_zvon.js" type="text/javascript" ></script> 
+<script>google.load("jquery", "1");</script> 
+</head>
+   <body>
+      <table xmlns="http://www.w3.org/1999/xhtml" width="100%">
+         <tr>
+            <td><span class="mediumText"><a class="naviBlack" target="_self" href="../Output/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output/example12.html">English</a> | <b>&gt;&gt;&nbsp;膷esky&nbsp;&lt;&lt;</b> | <a class="naviBlack" target="_self" href="../Output_dut/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/example12.html">Nederlands</a> | <a class="naviBlack" target="_self" href="../Output_fre/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_fre/example12.html">Fran&ccedil;ais</a> | <a class="naviBlack" target="_self" href="../Output_spa/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/example12.html">Espa&ntilde;ol</a> | <a class="naviBlack" target="_self" href="../Output_rus/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_rus/example12.html">袩芯-褉褍褋褋泻懈</a> | <a class="naviBlack" target="_self" href="../Output_ger/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ger/example12.html">Deutsch</a> | <a class="naviBlack" target="_self" href="../Output_chi/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/example12.html">涓枃</a> | <a class="naviBlack" target="_self" href="../Output_ita/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example12.html">Italiano</a> | <a class="naviBlack" target="_self" href="../Output_pol/example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_pol/example12.html">Polski</a></span></td>
+            <td style="text-align:right"><span class="mediumText"><a class="naviBlack" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">ZVON</a>
+                  		&gt;
+                  		<a class="naviBlack" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">Tutorials</a>
+                  		&gt;
+                  		<b>XPath Tutorial</b></span></td>
+         </tr>
+      </table>
+      <table xmlns="http://www.w3.org/1999/xhtml" class="bar" width="750px" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+            <td class="naviBlue"><a class="naviWhite" target="_top" href="../General_cze/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_cze/examples.html">&Uacute;vod</a> 
+               	/
+               	  <a class="naviWhite" target="_top" href="javascript:if(confirm('http://zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://zvon.org/'" tppabs="http://zvon.org/">Hledej</a> 
+               	/
+               	<a class="naviWhite" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/"> ZVON </a></td>
+         </tr>
+      </table>
+      <table class="hangingMenu" border="0" cellpadding="1" cellspacing="0" width="100%">
+         <tr>
+            <td><b>&gt;&gt; P艡&iacute;klad 12 &lt;&lt;</b>
+               		|
+               <a class="naviBlack" href="example11.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example11.html">P艡ede拧l&yacute;</a>
+               		|
+               <a class="naviBlack" href="example13.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example13.html">N&aacute;sleduj&iacute;c&iacute;</a></td>
+         </tr>
+      </table><br><div class="description">
+         Osa potomk暖 (descendant axis) obsahuje potomky uzlu, kter&yacute;
+         je v kontextu; 
+         potomek je p艡&iacute;m&yacute; potomek (d&iacute;t臎, "child") nebo p艡&iacute;m&yacute; potomek
+         p艡&iacute;m&eacute;ho potomka atd.
+         Proto osa potomk暖 nikdy neobsahuje uzly typu atribut nebo jmenn&yacute; prostor.
+         
+      </div>
+      <div><a name="b9b1b7c27"></a>&nbsp;
+      </div>
+      <table border="1" cellpadding="5" width="85%">
+         <tr>
+            <th>/descendant::*</th>
+         </tr>
+         <tr>
+            <td>Vyber v拧echny potomky ko艡enov&eacute;ho elementu - tj. v拧echny elementy</td>
+         </tr>
+         <tr>
+            <td class="code">
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">AAA</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">BBB</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">CCC</span>&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>/&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">EEE</span>/&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">CCC</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">DDD</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">BBB</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">CCC</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">EEE</span>&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>&gt;
+               							<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">FFF</span>/&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">EEE</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">DDD</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">CCC</span>&gt;
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">AAA</span>&gt;
+               	
+            </td>
+         </tr>
+         <tr>
+            <td><a target="_top" href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=/descendant::*&lang=cze  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=/descendant::*&lang=cze'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=/descendant::*&lang=cze">Otev艡&iacute;t p艡&iacute;klad v XLabu.</a> | <a href="example12_0_png.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_0_png.html">Zobrazen&iacute; jako strom (JPG)</a></td>
+         </tr>
+      </table>
+      <div><a name="b9b1b7c29"></a>&nbsp;
+      </div>
+      <table border="1" cellpadding="5" width="85%">
+         <tr>
+            <th>/AAA/BBB/descendant::*</th>
+         </tr>
+         <tr>
+            <td>Vyber v拧echny potomky elementu /AAA/BBB</td>
+         </tr>
+         <tr>
+            <td class="code">
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">AAA</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">BBB</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">CCC</span>&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>/&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">EEE</span>/&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">CCC</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">DDD</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">BBB</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">CCC</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">EEE</span>&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">DDD</span>&gt;
+               							<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">FFF</span>/&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">EEE</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">DDD</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">CCC</span>&gt;
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">AAA</span>&gt;
+               	
+            </td>
+         </tr>
+         <tr>
+            <td><a target="_top" href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=/AAA/BBB/descendant::*&lang=cze  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=/AAA/BBB/descendant::*&lang=cze'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=/AAA/BBB/descendant::*&lang=cze">Otev艡&iacute;t p艡&iacute;klad v XLabu.</a> | <a href="javascript:if(confirm('http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_1_png.html  \n\n文件并未依 Teleport Pro 取回，因为 它无法取得，或著它取回后放弃，或是项目停止的太快。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_1_png.html'" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_1_png.html">Zobrazen&iacute; jako strom (JPG)</a></td>
+         </tr>
+      </table>
+      <div><a name="b9b1b7c31"></a>&nbsp;
+      </div>
+      <table border="1" cellpadding="5" width="85%">
+         <tr>
+            <th>//CCC/descendant::*</th>
+         </tr>
+         <tr>
+            <td>Vyber v拧echny elementy, kter&eacute; maj&iacute; za p艡edka element CCC</td>
+         </tr>
+         <tr>
+            <td class="code">
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">AAA</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">BBB</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">CCC</span>&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>/&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">EEE</span>/&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">CCC</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">DDD</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">BBB</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">CCC</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">EEE</span>&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>&gt;
+               							<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">FFF</span>/&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">EEE</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">DDD</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">CCC</span>&gt;
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">AAA</span>&gt;
+               	
+            </td>
+         </tr>
+         <tr>
+            <td><a target="_top" href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=//CCC/descendant::*&lang=cze  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=//CCC/descendant::*&lang=cze'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=//CCC/descendant::*&lang=cze">Otev艡&iacute;t p艡&iacute;klad v XLabu.</a> | <a href="javascript:if(confirm('http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_2_png.html  \n\n文件并未依 Teleport Pro 取回，因为 它无法取得，或著它取回后放弃，或是项目停止的太快。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_2_png.html'" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_2_png.html">Zobrazen&iacute; jako strom (JPG)</a></td>
+         </tr>
+      </table>
+      <div><a name="b9b1b7c33"></a>&nbsp;
+      </div>
+      <table border="1" cellpadding="5" width="85%">
+         <tr>
+            <th>//CCC/descendant::DDD</th>
+         </tr>
+         <tr>
+            <td>Vyber elemnty DDD, kter&eacute; maj&iacute; element CCC jako p艡edka</td>
+         </tr>
+         <tr>
+            <td class="code">
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">AAA</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">BBB</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">CCC</span>&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>/&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">EEE</span>/&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">CCC</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">DDD</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">BBB</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">CCC</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">EEE</span>&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="elementOn">DDD</span>&gt;
+               							<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="element">FFF</span>/&gt;
+               						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">DDD</span>&gt;
+               					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">EEE</span>&gt;
+               				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="elementOn">DDD</span>&gt;
+               			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">CCC</span>&gt;
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="element">AAA</span>&gt;
+               	
+            </td>
+         </tr>
+         <tr>
+            <td><a target="_top" href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=//CCC/descendant::DDD&lang=cze  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=//CCC/descendant::DDD&lang=cze'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xpatut_12.html?stylesheetFile=XSLT/xpath.xslt&value=//CCC/descendant::DDD&lang=cze">Otev艡&iacute;t p艡&iacute;klad v XLabu.</a> | <a href="javascript:if(confirm('http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_3_png.html  \n\n文件并未依 Teleport Pro 取回，因为 它无法取得，或著它取回后放弃，或是项目停止的太快。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_3_png.html'" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/example12_3_png.html">Zobrazen&iacute; jako strom (JPG)</a></td>
+         </tr>
+      </table>
+      
+<script type="text/javascript"> 
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15189975-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })(); 
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        section {
+            width: 80%;
+            height: 200px;
+            border: 1px solid pink;
+            margin: 100px auto;
+            /*父盒子添加 flex*/
+            display: flex;  /*伸缩布局模式*/
+            min-width: 500px;
+            flex-direction: row-reverse; /*给父盒子添加 排列方式 可以是水平 也可以 是 垂直*/
+        }
+        section div {
+
+
+
+        }
+        section div:nth-child(1) {
+            background-color: pink;
+            width: 200px;
+        }
+        section div:nth-child(2) {
+            background-color: purple;
+            margin: 0 5px;
+            width: 100px;
+        }
+        section div:nth-child(3) {
+            background-color: pink;
+            flex: 1;/*子盒子添加分数*/
+        }
+        section div:nth-child(4) {
+            background-color: skyblue;
+            flex: 1;/*子盒子添加分数*/
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</section>
+</body>
+</html>

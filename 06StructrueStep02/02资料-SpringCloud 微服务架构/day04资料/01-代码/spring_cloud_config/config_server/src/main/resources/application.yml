@@ -1,0 +1,27 @@
+server:
+  port: 10000 #服务端口
+spring:
+  application:
+    name: config-server #指定服务名
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/it-lemon/config-repostory.git
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9000/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #spring.cloud.client.ip-address:获取ip地址

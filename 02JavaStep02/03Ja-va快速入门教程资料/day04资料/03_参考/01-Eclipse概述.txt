@@ -1,0 +1,21 @@
+开发Java程序的一般步骤：
+
+1. 用记事本编写源代码文件（*.java）
+2. 启动cmd命令提示符
+3. 使用javac命令来编译
+4. 使用java命令来运行
+
+例如洗衣服
+
+手洗衣服 VS 洗衣机
+
+集成开发环境（Integrated Development Environment, IDE）
+免费的当中使用最多的是：Eclipse
+收费的当中使用最多的是：IntelliJ IDEA
+
+Eclipse IDE基本特点：
+1. 完全免费
+2. 完全开源
+3. Java语言编写
+4. 绿色软件
+5. 扩展性很强

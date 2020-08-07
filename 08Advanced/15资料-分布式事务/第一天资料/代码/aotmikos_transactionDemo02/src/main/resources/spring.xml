@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--加载配置文件-->
+    <context:property-placeholder location="jdbc.properties" />
+
+    <!--包扫描-->
+    <context:component-scan base-package="com.itheimabk02" />
+
+    <!--@Aspect-->
+    <aop:aspectj-autoproxy/>
+
+    <!--使用CGLIB动态代理-->
+    <tx:annotation-driven transaction-manager="springTransactionManager" proxy-target-class="true" />
+<!--配置事务的通知-->
+    <!-- the transactional advice (what 'happens'; see the <aop:advisor/> bean
+        below) 事务传播特性配置 -->
+    <tx:advice id="txAdvice" transaction-manager="springTransactionManager">
+        <!-- the transactional semantics... -->
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED" isolation="DEFAULT"
+                       rollback-for="java.lang.Exception" />
+            <tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT"
+                       rollback-for="java.lang.Exception" />
+            <tx:method name="insert*" propagation="REQUIRED" isolation="DEFAULT"
+                       rollback-for="java.lang.Exception" />
+            <tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT"
+                       rollback-for="java.lang.Exception" />
+            <tx:method name="modify*" propagation="REQUIRED" isolation="DEFAULT"
+                       rollback-for="java.lang.Exception" />
+            <tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT"
+                       rollback-for="java.lang.Exception" />
+            <!-- 查询方法 -->
+            <tx:method name="query*" read-only="true" />
+            <tx:method name="select*" read-only="true" />
+            <tx:method name="find*" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+
+
+    <!--
+        配置事务管理器atomikos事务管理器
+     -->
+    <bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager" init-method="init" destroy-method="close">
+        <property name="forceShutdown" value="false"/>
+    </bean>
+    <!--
+        本地事务管理器
+    -->
+    <bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+        <property name="transactionTimeout" value="300000"/>
+    </bean>
+
+    <!--JTA事务管理器-->
+    <bean id="springTransactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="transactionManager">
+            <ref bean="atomikosTransactionManager"/>
+        </property>
+        <property name="userTransaction">
+            <ref bean="atomikosUserTransaction"/>
+        </property>
+        <property name="allowCustomIsolationLevels" value="true"/>
+    </bean>
+
+
+    <!--数据源基础配置-->
+    <bean id="abstractXADataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close" abstract="true">
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>
+        <property name="poolSize" value="10"/>
+        <property name="minPoolSize" value="10"/>
+        <property name="maxPoolSize" value="30"/>
+        <property name="borrowConnectionTimeout" value="60"/>
+        <property name="reapTimeout" value="20"/>
+        <property name="maxIdleTime" value="60"/>
+        <property name="maintenanceInterval" value="60"/>
+        <property name="testQuery">
+            <value>SELECT 1</value>
+        </property>
+    </bean>
+
+
+    <!-- 数据库基本信息配置 -->
+    <bean id="dataSourceOne" parent="abstractXADataSource">
+        <property name="uniqueResourceName">
+            <value>dataSourceOne</value>
+        </property>
+        <!--数据库驱动-->
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>
+        <property name="xaProperties">
+            <props>
+                <prop key="URL">${jdbc.url}</prop>
+                <prop key="user">${jdbc.username}</prop>
+                <prop key="password">${jdbc.pwd}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--日志数据源-->
+    <bean id="dataSourceLog" parent="abstractXADataSource">
+        <property name="uniqueResourceName">
+            <value>dataSourceLog</value>
+        </property>
+        <property name="xaDataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"/>
+        <property name="xaProperties">
+            <props>
+                <prop key="URL">${jdbc.log.url}</prop>
+                <prop key="user">${jdbc.log.username}</prop>
+                <prop key="password">${jdbc.log.pwd}</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <!--SqlSessionFactoryBean的配置-->
+    <bean id="sqlSessionFactoryBeanOne" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="typeAliasesPackage" value="com.itheimabk02.domain" />
+        <property name="dataSource" ref="dataSourceOne"/>
+    </bean>
+
+    <!--操作日志数据源的SqlSessionFactoryBean-->
+    <bean id="sqlSessionFactoryBeanLog" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="typeAliasesPackage" value="com.itheimabk02.domain" />
+        <property name="dataSource" ref="dataSourceLog"/>
+    </bean>
+
+
+    <!--包扫描,订单Dao包扫描-->
+    <bean id="mapperScannerConfigurerOne" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.itheimabk02.mapper" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBeanOne" />
+    </bean>
+
+    <!--包扫描,日志Dao包扫描-->
+    <bean id="mapperScannerConfigurerLog" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.itheimabk02.logmapper" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBeanLog" />
+    </bean>
+
+    <!-- 声明式事务AOP配置,配置aop切入点表达式 -->
+    <aop:config>
+        <aop:pointcut expression="execution(* com.itheimabk02.service.impl.*.*(..))" id="tranpointcut" />
+
+        <!--声明式事务通知,配置切入点表倒是-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="tranpointcut" />
+    </aop:config>
+
+
+
+</beans>

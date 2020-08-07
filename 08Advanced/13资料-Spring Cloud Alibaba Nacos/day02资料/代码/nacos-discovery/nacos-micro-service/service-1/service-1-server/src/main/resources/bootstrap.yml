@@ -1,0 +1,34 @@
+server:
+  port: ${port:56030} #启动端口 命令行注入
+
+spring:
+  application:
+    name: service1
+  main:
+    allow-bean-definition-overriding: true # Spring Boot 2.1 需要设定
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c67e4a97-a698-4d6d-9bb1-cfac5f5b51c4
+        cluster-name: DEFAULT
+      config:
+        server-addr: 127.0.0.1:8848 # 配置中心地址
+        file-extension: yaml
+        namespace: c67e4a97-a698-4d6d-9bb1-cfac5f5b51c4 # 开发环境
+        group: NACOS_MICROSERVICE_GROUP # xx业务组
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.itheima.microservice
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    # dubbo 协议端口
+    port: ${dubbo_port:20881}
+  registry:
+    address: nacos://127.0.0.1:8848
+  application:
+    qos-enable: false #dubbo运维服务是否开启
+  consumer:
+    check: false  #启动时就否检查依赖的服务

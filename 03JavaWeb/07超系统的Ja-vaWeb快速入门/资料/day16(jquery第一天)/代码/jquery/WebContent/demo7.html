@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>可见性过滤选择器</title>
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//1.获取表单中隐藏域的值
+		//var value=$("input:hidden").val();
+		//alert(value);
+		//alert($("form :hidden").val());
+		
+		//2.设置table中所有可见tr背景色为蓝色
+		$("tr:visible").css("background-color","blue");
+		//3.获取table中所有隐藏tr中文本值，
+		alert($("tr:hidden").text());
+		//并将隐藏tr显示出来，
+		$("tr:hidden").show();
+		//原来显示的tr隐藏起来
+		$("tr:visible").hide();
+	});
+</script>
+</head>
+<body>
+
+	<form>
+		<input type="text" name="email" /> <br>
+		 <input type="hidden" name="id" value="10" />
+	</form>
+	<table>
+		<tr style="display: none">
+			<td>Value 1</td>
+		</tr>
+		<tr>
+			<td>Value 2</td>
+		</tr>
+		<tr>
+			<td>Value 3</td>
+		</tr>
+	</table>
+</html>

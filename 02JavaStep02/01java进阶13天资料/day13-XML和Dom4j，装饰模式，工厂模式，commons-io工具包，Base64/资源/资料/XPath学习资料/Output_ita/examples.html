@@ -1,0 +1,162 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" type="text/css" href="../CSS/tutorial.css" tppabs="http://www.zvon.org/xxl/XPathTutorial/CSS/tutorial.css">
+      <title>XPath Tutorial</title>
+   <style>#newZvonMessage {margin:1em; padding:1em; border:2px solid navy;}</style>
+<script src="../../../../www.google.com/jsapi" tppabs="http://www.google.com/jsapi"></script> 
+<script src="../../../Javascript/old_zvon.js" tppabs="http://www.zvon.org/Javascript/old_zvon.js" type="text/javascript" ></script> 
+<script>google.load("jquery", "1");</script> 
+</head>
+   <body>
+      <table xmlns="http://www.w3.org/1999/xhtml" width="100%">
+         <tr>
+            <td><span class="mediumText"><a class="naviBlack" target="_self" href="../Output/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output/examples.html">English</a> | <a class="naviBlack" target="_self" href="../Output_cze/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_cze/examples.html">膷esky</a> | <a class="naviBlack" target="_self" href="../Output_dut/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_dut/examples.html">Nederlands</a> | <a class="naviBlack" target="_self" href="../Output_fre/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_fre/examples.html">Fran&ccedil;ais</a> | <a class="naviBlack" target="_self" href="../Output_spa/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_spa/examples.html">Espa&ntilde;ol</a> | <a class="naviBlack" target="_self" href="../Output_rus/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_rus/examples.html">袩芯-褉褍褋褋泻懈</a> | <a class="naviBlack" target="_self" href="../Output_ger/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ger/examples.html">Deutsch</a> | <a class="naviBlack" target="_self" href="../Output_chi/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_chi/examples.html">涓枃</a> | <b>&gt;&gt;&nbsp;Italiano&nbsp;&lt;&lt;</b> | <a class="naviBlack" target="_self" href="../Output_pol/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_pol/examples.html">Polski</a></span></td>
+         </tr>
+      </table>
+      <table xmlns="http://www.w3.org/1999/xhtml" class="bar" width="750px" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+            <td class="naviBlue"><a class="naviWhite" target="_top" href="../General_ita/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_ita/examples.html">Introduzione</a> 
+               	/
+               	  <a class="naviWhite" target="_top" href="javascript:if(confirm('http://zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://zvon.org/'" tppabs="http://zvon.org/">Ricerca</a> 
+               	/
+               	<a class="naviWhite" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/"> ZVON </a></td>
+         </tr>
+      </table>
+      <table xmlns="http://www.w3.org/1999/xhtml" width="100%">
+         <tr>
+            <td class="descriptionMenu">
+               <ul>
+                  <li>
+                     	 &gt;&gt;&nbsp;Examples&nbsp;&lt;&lt;
+                     
+                  </li>
+                  <li><a class="menu" href="javascript:if(confirm('http://www.zvon.org/xxl/XPathTutorial/Output_ita/paths.html  \n\n文件并未依 Teleport Pro 取回，因为 它无法取得，或著它取回后放弃，或是项目停止的太快。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/XPathTutorial/Output_ita/paths.html'" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/paths.html">XPaths</a></li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <hr xmlns="http://www.w3.org/1999/xhtml">
+      <table border="1" width="100%" cellpadding="1">
+         <tr>
+            <td><a class="example" href="example1.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example1.html" target="mainWindow">Esempio 1</a><br>La sintassi XPath di base &egrave; simile al sistema di indirizzamento utilizzato all'interno di un filesystem. Se il path inizia
+               con lo slash /, esso rappresenta un percorso assoluto verso l'elemento richiesto.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example2.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example2.html" target="mainWindow">Esempio 2</a><br>Se il path inizia con // allora vengono selezionati tutti gli elementi del documento che soddisfano i criteri successivi.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example3.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example3.html" target="mainWindow">Esempio 3</a><br>L'asterisco * seleziona tutti gli elementi localizzati dal path precedente.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example4.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example4.html" target="mainWindow">Esempio 4</a><br>Le espressioni all'interno di parentesi quadre consentono di specificare ulteriormente la locazione di un elemento. Un valore
+               numerico all'interno delle parentesi quadre consente di specificare la posizione di un elemento all'interno dell'insieme selezionato.
+               La funzione last() seleziona l'ultimo elemento dell'insieme.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example5.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example5.html" target="mainWindow">Esempio 5</a><br>Gli attributi sono preceduti dal prefisso @
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example6.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example6.html" target="mainWindow">Esempio 6</a><br>I valori degli attributi possono essere utilizzati come criteri di selezione. La funzione normalize-space() rimuove gli spazi
+               precedenti e successivi e sostituisce con un singolo spazio sequenze di caratteri di spaziatura.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example7.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example7.html" target="mainWindow">Esempio 7</a><br>La funzione count() calcola il numero degli elementi selezionati.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example8.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example8.html" target="mainWindow">Esempio 8</a><br>La funzione name() restituisce il nome dell'elemento, la funzione starts-with() ritorna true se la stringa utilizzata come
+               primo argomento inizia con la stringa utilizzata come secondo argomento e, infine, la funzione contains() restituisce true
+               se la stringa utilizzata come primo argomento contiene la stringa passata come secondo argomento.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example9.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example9.html" target="mainWindow">Esempio 9</a><br>La funzione string-length() restituisce il numero di caratteri presenti nella stringa. Dovete utilizzre &amp;lt; in sostituzione
+               di &lt; e &amp;gt; al posto di &gt; .
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example10.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example10.html" target="mainWindow">Esempio 10</a><br>Path distinti possono essere composti tra loro grazie al separatore |
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example11.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example11.html" target="mainWindow">Esempio 11</a><br>L'asse child contiene i nodi figli del nodo contestuale. Tale asse &egrave; quello di default e pu&ograve; essere omesso.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example12.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example12.html" target="mainWindow">Esempio 12</a><br>L'asse descendant contiene i discendenti del nodo contestuale; un discendente &egrave; un figlio o il figlio di un figlio e cos&igrave;
+               via. Dunque, l'asse descendant non contiene mai nodi di attributo o di namespace.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example13.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example13.html" target="mainWindow">Esempio 13</a><br>L'asse parent contiene (se esiste) il genitore del nodo contestuale.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example14.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example14.html" target="mainWindow">Esempio 14</a><br>L'asse ancestor contiene i progenitori del nodo contestuale: i progenitori del nodo contestuale consistono nel genitore del
+               nodo contestuale, nel genitore del genitore e cos&igrave; via. Dunque, l'asse ancestor contiene sempre il nodo radice, tranne nel
+               caso in cui il nodo contestuale sia esso stesso il nodo radice.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example15.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example15.html" target="mainWindow">Esempio 15</a><br>L'asse following-sibling contiene tutti i successivi nodi-fratello del nodo contestuale.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example16.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example16.html" target="mainWindow">Esempio 16</a><br>L'asse preceding-sibling contiene tutti i precedenti nodi-fratello del nodo contestuale.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example17.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example17.html" target="mainWindow">Esempio 17</a><br>L'asse following contiene tutti i nodi che sono presenti nello stesso documento del nodo contestuale e che sono successivi
+               rispetto a esso secondo l'ordine del documento, esclusi nodi discendenti, di attributo o di namespace.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example18.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example18.html" target="mainWindow">Esempio 18</a><br>L'asse preceding contiene tutti i nodi che sono presenti nello stesso documento del nodo contestuale e che sono precedenti
+               rispetto a esso secondo l'ordine del documento, esclusi nodi progenitori, di attributo o di namespace
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example19.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example19.html" target="mainWindow">Esempio 19</a><br>L'asse descendant-or-self contiene il nodo contestuale e i suoi discendenti.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example20.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example20.html" target="mainWindow">Esempio 20</a><br>L'asse ancestor-or-self contiene il nodo contesuale e i suoi progenitori: dunque, l'asse ancestor-or-self includer&agrave; sempre
+               il nodo radice.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example21.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example21.html" target="mainWindow">Esempio 21</a><br>Gli assi ancestor, descendant, following, preceding e self partizionano un documento (ignorando gli attributi e i nodi di
+               namespace). Il contenuto di tali assi &egrave; differente l'uno dagli altri e congiuntamente rappresentano l'insieme di tutti i nodi
+               del documento.
+            </td>
+         </tr>
+         <tr>
+            <td><a class="example" href="example22.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example22.html" target="mainWindow">Esempio 22</a><br>L'operatore div esegue una divisione a virgola mobile, l'operatore mod restituisce il resto di una divisione con troncamento.
+               La funzione floor() restituisce l'intero pi&ugrave; grande minore del suo argomento. La funzione ceiling() restituisce l'intero pi&ugrave;
+               piccolo maggiore del suo argomento.
+            </td>
+         </tr>
+      </table>
+   
+<script type="text/javascript"> 
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15189975-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })(); 
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery事件介绍</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	//页面加载时执行操作
+	//$(document).ready(function);
+	//$(function(){
+	//	alert("加载页面1");
+	//});
+	$(function(){
+	//	alert("加载页面2");
+		$("#btn").click(function(){
+			alert("btn1");
+		});
+		$("#btn").click(function(){
+			alert("btn2");
+		});
+	});
+	
+	/*
+	//传统的javascript操作
+	window.onload=function(){
+		//alert("加载页面1");
+	};
+	window.onload=function(){
+		//alert("加载页面2");
+		document.getElementById("btn").onclick=function(){
+			alert("btn1");
+		};
+		document.getElementById("btn").onclick=function(){
+			alert("btn2");
+		};
+		
+	};
+	*/
+</script>
+</head>
+<body>
+	<input type="button" id="btn" value="按钮">
+</body>
+</html>

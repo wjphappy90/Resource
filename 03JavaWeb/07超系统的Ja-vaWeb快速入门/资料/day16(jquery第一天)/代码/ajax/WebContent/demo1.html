@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xmlhttp = null;
+
+	function sendAjax() {
+		//1.获取一个XMLHttpRequest对象
+
+		if (window.XMLHttpRequest) {// code for all new browsers
+			xmlhttp = new XMLHttpRequest();
+		} else if (window.ActiveXObject) {// code for IE5 and IE6
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		//2.设置回调函数
+		xmlhttp.onreadystatechange = callback;
+
+		//3.设置请求方式及url
+		var url = "http://localhost:8080/ajax/ajax";
+		xmlhttp.open("POST", url, true);
+		
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		
+		//4.向服务器发送请求
+		xmlhttp.send(null);
+
+	}
+
+	//回调函数
+	function callback() {
+
+		//alert(xmlhttp.readyState); //得到状态码
+		
+	//if (xmlhttp.readyState == 4) {
+		//		if (xmlhttp.status == 200) {
+
+		//5.得到响应数据
+		//			alert(xmlhttp.responseText);
+		//		}
+		//	} else {
+		//		alert("Problem retrieving XML data");
+		//	}
+
+	}
+</script>
+</head>
+<body>
+
+	<input type="button" value="按钮" onclick="sendAjax()">
+</body>
+</html>

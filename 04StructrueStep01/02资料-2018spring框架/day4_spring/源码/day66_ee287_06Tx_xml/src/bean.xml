@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd
+       					   http://www.springframework.org/schema/tx 
+       					   http://www.springframework.org/schema/tx/spring-tx.xsd
+       					   http://www.springframework.org/schema/aop 
+       					   http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<!-- 配置service -->
+	<bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
+		<property name="accountDao" ref="accountDao"></property>
+	</bean>
+	
+	<!-- 配置dao -->
+	<bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- 配置SPRING内置数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/day66_ee287_spring"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+	
+	<!-- spring基于XML的声明式事务控制 -->
+	<!-- 第一步：配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!-- 注入数据源 -->
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- 第二步：配置事务的通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- 第四步：配置事务的属性 
+			isolation：配置事务的隔离级别。默认值：DEFAULT，使用数据库的默认隔离级别。mysql是REPEATABLE_READ 
+			propagation：配置事务的传播行为。默认值是：REQUIRED。 一般的选择。（增删改方法）。当是查询方法时，选择SUPPORTS 
+			timeout：指定事务的超时时间。默认值是：-1，永不超时。当指定其他值时，以秒为单位 
+			read-only：配置是否只读事务。默认值是：false，读写型事务。   当指定为true时，表示只读，只能用于查询方法。 
+			rollback-for：用于指定一个异常，当执行产生该异常时，事务回滚。产生其他异常时，事务不回滚。没有默认值，任何异常都回滚。 
+			no-rollback-for：用于指定一个异常，当执行产生该异常时，事务不回滚。产生其他异常时，事务回滚。没有默认值，任何异常都回滚。
+		-->
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" read-only="false"/>
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 第三步：配置aop 
+		要配的是：切入点表达式
+				通知和切入点表达式的关联
+	-->
+	<aop:config>
+		<!-- 配置切入点表达式 -->
+		<aop:pointcut expression="execution(* com.itheima.service.impl.*.*(..))" id="pt1"/>
+		<!-- 配置事务通知和切入点表达式的关联 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pt1"/>
+	</aop:config>
+</beans>

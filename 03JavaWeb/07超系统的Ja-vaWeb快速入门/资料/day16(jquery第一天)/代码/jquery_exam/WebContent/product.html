@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>bootstrap分页组件</title>
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet"
+	href="/jquery_exam/bootstrap/css/bootstrap.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="/jquery_exam/js/jquery-1.11.3.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="/jquery_exam/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var pageNo = 1; //默认第一页
+	var pageSize = 5;//每页显示条数
+	var totalPage = 5; //总页数
+	var totalCount = 0; //总条数
+	//页面加载 无成后，要向服务器发送请求，来获取产品信息，在table中显示出来
+	$(function() {
+		skipPage(pageNo);
+	});
+
+	//处理跳转页面
+	function skipPage(pageNum) {
+		pageNo = pageNum;
+		var url = "/jquery_exam/product";
+		$
+				.post(
+						url,
+						{
+							"pageNo" : pageNo,
+							"pageSize" : pageSize
+						},
+						function(data) {
+							var json = eval(data);
+							var jsonObj = json.content; //得到分页数据
+							//将页码  每页条数  总条数，总页数与服务器响应的数据同步
+							paqgeNo = json.pageNo;
+							pageSize = json.pageSize;
+							totalPage = json.totalPage;
+							totalCount = json.totalCount;
+
+							//将json数据遍历转换成对应的html代码插入到table中。
+							var html = "";
+							for (var i = 0; i < jsonObj.length; i++) {
+								html += "<tr>";
+								html += "<td>" + jsonObj[i].id + "</td><td>"
+										+ jsonObj[i].name + "</td><td>"
+										+ jsonObj[i].count + "</td><td>"
+										+ jsonObj[i].price + "</td>";
+								html += "</tr>";
+							}
+							//展示分页条数据
+							var pageMsg = "<ul class='pagination pagination-sm'>";
+
+							//处理上一页操作
+							if (pageNo == 1) {
+								//上一页操作不可以点击
+								pageMsg += "<li class='disabled'><a href='#'>&laquo;</a></li>";
+							} else {
+
+								pageMsg += "<li><a href='javascript:void(0)' onclick=skipPage("
+										+ (pageNo - 1) + ")>&laquo;</a></li>";
+							}
+
+							for (var i = 0; i < totalPage; i++) {
+
+								//判断页码与(i+1)是否一致,一致就代表当前页码要高亮显示
+								if (i + 1 == pageNo) {
+									pageMsg += "<li class='active'><a href='javascript:void(0)' onclick='skipPage("
+											+ (i + 1)
+											+ ")'>"
+											+ (i + 1)
+											+ " <span class='sr-only'>(current)</span></a></li>";
+								} else {
+									pageMsg += "<li><a href='javascript:void(0)' onclick='skipPage("
+											+ (i + 1)
+											+ ")'>"
+											+ (i + 1)
+											+ "</a></li>";
+								}
+
+							}
+							//处理下一页操作
+							if (pageNo == totalPage) {
+								pageMsg += "<li class='disabled'><a href='#'>&raquo;</a></li>";
+							} else {
+								pageMsg += "<li><a href='javascript:void(0)' onclick='skipPage("
+										+ (pageNo + 1) + ")')>&raquo;</a></li>";
+							}
+							pageMsg += "</ul>";
+
+							//清空table中的数据，让它恢复成原始状态
+							$("#tab")
+									.html(
+											"<tr><td>序号</td>	<td>名称</td><td>数量</td>	<td>价格</td>	</tr><tr><td colspan='4'><nav id='n'></nav></td></tr>");
+
+							$("#n").append(pageMsg);
+
+							$("#tab tr:nth-child(1)").after(html);
+
+						}, "json");
+	}
+</script>
+
+<style type="text/css">
+div {
+	width: 70%;
+	margin-left: 200px;
+	margin-top: 100px;
+}
+</style>
+</head>
+<body>
+	<div align="center">
+		<table class="table table-bordered" id="tab">
+			<tr>
+				<td>序号</td>
+				<td>名称</td>
+				<td>数量</td>
+				<td>价格</td>
+			</tr>
+
+			<tr>
+				<td colspan="4">
+					<nav id="n"></nav>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+</body>
+</html>

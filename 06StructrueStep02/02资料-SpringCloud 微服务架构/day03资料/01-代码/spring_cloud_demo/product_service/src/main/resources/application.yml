@@ -1,0 +1,48 @@
+server:
+  port: 9001 #端口
+spring:
+  application:
+    name: service-product #服务名称
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shop?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 111111
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+  #修改zipkin使用rabbitmq采集数据
+  zipkin:
+    #base-url: http://127.0.0.1:9411/  #server的请求地址
+    sender:
+      #type: web #数据的传输方式 , 已http的形式向server端发送数据
+      type: rabbit #向rabbitmq中发送消息
+  sleuth:
+    sampler:
+      probability: 1 #采样比
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener: # 这里配置了重试策略
+      direct:
+        retry:
+          enabled: true
+      simple:
+        retry:
+          enabled: true
+#配置Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
+  instance:
+    prefer-ip-address: true #使用ip地址注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+logging:
+  level:
+    root: info
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.cloud.sleuth: DEBUG

@@ -1,0 +1,16 @@
+INSERT INTO `cst_customer` VALUES ('1', '传智播客集团', '6', 'IT培训', '23', '北京市昌平区北七家镇修正大厦', '010-66668888');
+INSERT INTO `cst_customer` VALUES ('2', '黑马训练营', '6', 'IT培训', '23', '北京市昌平区北七家镇修正大厦', '010-66668888');
+INSERT INTO `cst_customer` VALUES ('3', '京西集团', '7', '电商', '23', '京西玉泉山', '010-65085588');
+INSERT INTO `cst_customer` VALUES ('4', '修正药业', '7', '医药', '22', '北京市昌平区北七家镇', '010-68909090');
+
+
+
+INSERT INTO `cst_linkman` VALUES ('1', '张老师', 'male', '010-82935100', '1388888888', 'zzz@itcast.cn', '宣传部负责人', '很负责', '1');
+INSERT INTO `cst_linkman` VALUES ('2', '刘老师', 'female', '010-82935100', '1377777777', 'lll@itcast.cn', '全国统一咨询中心', '很负责', '1');
+INSERT INTO `cst_linkman` VALUES ('3', '赵工', 'male', '010-82935100', '1399999999', 'zg@itcast.cn', '黑马宣传中心', '宣传责任人', '2');
+INSERT INTO `cst_linkman` VALUES ('4', '高管', 'female', '010-82935100', '1366666666', 'gg@itcast.cn', '管理专员', '管理', '2');
+INSERT INTO `cst_linkman` VALUES ('5', '李总', 'male', '010-89986886', '1355555555', 'lz@jxjt.com', '总经理', '企划负责人', '3');
+INSERT INTO `cst_linkman` VALUES ('6', '王董', 'male', '010-80980990', '1333333333', 'wd@jxjt.com', '董事长', '企业老大', '3');
+INSERT INTO `cst_linkman` VALUES ('7', '孙老板', 'male', '010-80980990', '1322222222', 'slb@xzjt.com', '老板', '一把手', '4');
+INSERT INTO `cst_linkman` VALUES ('8', '陈秘书', 'female', '010-80980990', '1311111111', 'cms@xzjt.com', '秘书', '二把手', '4');
+

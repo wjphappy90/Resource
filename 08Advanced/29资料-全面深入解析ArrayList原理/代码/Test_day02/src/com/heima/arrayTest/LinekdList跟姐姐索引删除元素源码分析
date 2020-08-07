@@ -1,0 +1,74 @@
+public class LinkedList<E> {
+
+    //LinkedList集合删除的方法
+    public E remove(int index) {
+        //
+        checkElementIndex(index);
+        return unlink(node(index));
+    }
+
+    private void checkElementIndex(int index) {
+        if (!isElementIndex(index))
+            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));
+    }
+
+    //校验
+    private boolean isElementIndex(int index) {
+        return index >= 0 && index < size;
+    }
+
+    //找元素的方法
+    Node<E> node(int index) {
+        //判断index 是否小于 集合长度的一半
+        if (index < (size >> 1)) {
+            //如果小于,那么就第一个节点赋值给x
+            Node<E> x = first;
+            //从头开始往后找
+            for (int i = 0; i < index; i++)
+                //获取下一个节点
+                x = x.next;
+            //返回找到的节点
+            return x;
+        } else {
+            //把最后一个节点赋值给x
+            Node<E> x = last;
+            //从最后一个位置往前找
+            for (int i = size - 1; i > index; i--)
+                //获取前一个节点
+                x = x.prev;
+            //返回找到的节点
+            return x;
+        }
+    }
+
+    E unlink(Node<E> x) {
+        //获取节点中的元素
+        final E element = x.item;
+        //获取下一个节点
+        final Node<E> next = x.next;
+        //获取上一个节点
+        final Node<E> prev = x.prev;
+
+        if (prev == null) {
+            first = next;
+        } else {
+            prev.next = next;
+            x.prev = null;
+        }
+
+        if (next == null) {
+            last = prev;
+        } else {
+            next.prev = prev;
+            x.next = null;
+        }
+        //把元素置为null
+        x.item = null;
+        //长度--
+        size--;
+        //实际修改集合的次数自增
+        modCount++;
+        //返回被替换的元素
+        return element;
+    }
+}

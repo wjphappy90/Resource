@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd
+       					   http://www.springframework.org/schema/aop 
+       					   http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<!-- 配置service -->
+	<bean id="customerService" class="com.itheima.service.impl.CustomerServiceImpl">
+		<property name="customerDao" ref="customerDao"></property>
+	</bean>
+	
+	<!-- 配置dao -->
+	<bean id="customerDao" class="com.itheima.dao.impl.CustomerDaoImpl">
+		<property name="session" ref="session"></property>
+	</bean>
+	
+	<!-- 配置Session -->
+	<bean id="session" class="com.itheima.utils.HibernateUtil" factory-method="getCurrentSession"></bean>
+	
+	<!-- 配置aop -->
+	<!-- 把通知类也交给spring来管理 -->
+	<bean id="transactionManager" class="com.itheima.utils.TransactionManager">
+		<property name="session" ref="session"></property>
+	</bean>
+	
+	<aop:config>
+		<!-- 配置切入点表达式 -->
+		<aop:pointcut expression="execution(* com.itheima.service.impl.*.*(..))" id="pt1"/>
+		<!-- 配置切面 -->
+		<aop:aspect id="txAdvice" ref="transactionManager">
+			<!-- 配置通知类型 -->
+			<!-- <aop:before method="beginTransaction" pointcut-ref="pt1"/> -->
+			<aop:after-returning method="commit" pointcut-ref="pt1"/>
+			<aop:after-throwing method="rollback" pointcut-ref="pt1"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 配置service -->
+	<bean id="customerService" class="com.itheima.service.impl.CustomerServiceImpl">
+		<property name="customerDao" ref="customerDao"></property>
+	</bean>
+	
+	<!-- 配置dao -->
+	<bean id="customerDao" class="com.itheima.dao.impl.CustomerDaoImpl">
+		<property name="runner" ref="runner"></property>
+	</bean>
+	
+	<!-- 配置QueryRunner -->
+	<bean id="runner" class="org.apache.commons.dbutils.QueryRunner">
+		<constructor-arg name="ds" ref="dataSource"></constructor-arg>
+	</bean>
+	
+	<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/day64_ee287_spring"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+</beans>

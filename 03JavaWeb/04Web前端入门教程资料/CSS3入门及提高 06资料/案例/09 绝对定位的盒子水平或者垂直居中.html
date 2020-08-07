@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		.father {
+			width: 800px;
+			height: 400px;
+			background-color: pink;
+            margin: 40px auto;
+            position: relative;
+		}
+        .son {
+            width: 100px;
+            height: 40px;
+            background-color: purple;
+            position: absolute;
+            /* margin: 0 auto;  加了绝对定位的盒子，margin 左右auto 就无效了 */
+            /* left: 400px; */
+            left:50%;  /* left 父盒子宽度的一半 */
+            margin-left: -50px; /* 左走自己宽度 的一半 */
+            top: 50%;
+            margin-top: -20px;
+        }
+        </style>
+    </head>
+    <body>
+    <div class="father">
+    	<div class="son"></div>
+    </div>
+    </body>
+</html>

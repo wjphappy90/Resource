@@ -1,0 +1,28 @@
+public class ArrayList<E> {
+	//长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+
+    //清空集合元素的方法
+    public void clear() {
+        //实际修改次数自增
+        modCount++;
+        //遍历集合
+        for (int i = 0; i < size; i++)
+            //把数组的每一个位置都置为null,让垃圾回收期尽早地回收
+            elementData[i] = null;
+        //把集合的长度置为0
+        size = 0;
+    }
+}

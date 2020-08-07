@@ -1,0 +1,46 @@
+public class ArrayList<E> {
+    //长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+ }
+
+ //ArrayList集合的亲爷爷类
+ public abstract class AbstractCollection<E> {
+
+    public String toString() {
+        //获取迭代器
+        Iterator<E> it = iterator();
+        //判断迭代器是否有元素
+        if (! it.hasNext())
+            return "[]";
+        //创建StringBuilder
+        StringBuilder sb = new StringBuilder();
+        //先追加了'['
+        sb.append('[');
+        //无限循环
+        for (;;) {
+            //调用迭代器的next方法取出元素,且将光标向下移动
+            E e = it.next();
+            //三元判断
+            sb.append(e == this ? "(this Collection)" : e);
+            if (! it.hasNext())
+                //没有元素,在缓冲区的最后追加']',且把整个缓冲区的数据转成字符串
+                //然后再介绍该方法
+                return sb.append(']').toString();
+
+            //有元素,就直接追加
+            sb.append(',').append(' ');
+        }
+    }
+ }

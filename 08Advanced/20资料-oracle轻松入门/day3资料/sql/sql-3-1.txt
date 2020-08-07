@@ -1,0 +1,62 @@
+--创建简单视图
+create view view_owners1 as
+select * from t_owners where ownertypeid=1
+
+--查询简单视图
+select * from view_owners1 where addressid=1
+
+--修改视图数据
+update view_owners1 set name='范小冰' where id=1;
+commit;
+
+select * from t_owners
+
+--带检查约束的视图
+create view view_address2 as 
+select * from t_address where areaid=2
+with check option
+
+--无法修改成功的语句，因为该视图的条件是areaid=2
+update  view_address2 set areaid=3 where id=4
+
+
+--只读视图
+create or replace view view_owners1 as
+select * from t_owners where ownertypeid=1
+with read only
+
+--修改只读视图数据
+update view_owners1 set name='范大冰' where id=1;
+
+
+--创建带错误的视图
+create force view view_test as
+select * from t_test
+
+
+--复杂视图-多表关联
+create or replace view view_owners as
+select ow.id 业主编号,ow.name 业主名称,ot.name 业主类型  from t_owners ow,t_ownertype ot 
+where ow.ownertypeid=ot.id
+
+--查询复杂视图（多表关联）
+select * from view_owners where 业主类型='居民';
+
+--修改复杂视图（多表关联）的数据
+update view_owners set 业主名称='林玲玲' where 业主编号=4
+
+update view_owners set 业主类型='商业' where 业主编号=4
+
+--键保留表：把主键保留下来的那个表
+
+--聚合统计的复杂视图
+create view view_accountsum as
+select year,month,sum(money) money
+from t_account 
+group by year,month
+order by year,month
+
+select * from view_accountsum where year='2012' and month='03'
+--能修改吗？--答：不能地。
+update view_accountsum set month='04' where year='2012' and month='03'
+ 

@@ -1,0 +1,21 @@
+public class ArrayList<E> {
+	public E remove(int index) {
+        //范围校验
+        rangeCheck(index);
+	   //增量++
+        modCount++;
+        //将index对应的元素赋值给 oldValue
+        E oldValue = elementData(index);
+	    //计算集合需要移动元素个数
+        int numMoved = size - index - 1;
+        //如果需要移动元素个数大于0,就使用arrayCopy方法进行拷贝
+        //注意:数据源和数据目的就是elementData
+        if (numMoved > 0)
+            System.arraycopy(elementData, index+1, elementData, index,
+                             numMoved);
+        //将源集合最后一个元素置为null,尽早让垃圾回收机制对其进行回收
+        elementData[--size] = null;
+	   //返回被删除的元素
+        return oldValue;
+    }
+}

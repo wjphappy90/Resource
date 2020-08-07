@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>属性过滤选择器</title>
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//设置所有含有id属性的div，字体颜色红色
+		//$("div[id]").css("color","red");
+		//获取name=username的value值
+		//alert($("[name='username']").val());
+		//设置所有多选框被选中
+		//$("input[type='checkbox']").attr("checked",true);
+		//设置class中包含itcast的多选框被选中
+		//$("input[type='checkbox'][class*='itcast']").attr("checked",true)
+		//获取class=itcast1的多选框的name属性值
+		//alert($("input[type='checkbox'][class='itcast1']").attr("name"));
+
+	});
+</script>
+</head>
+<body>
+	<div id="d">这是一个DIV</div>
+	<form>
+		<input type="text" name="username" value="tom"><br> <input
+			type="checkbox" class="itcast1" name="food" value="米饭">米饭 <input
+			type="checkbox" class="itcast2" name="food" value="牛奶">牛奶 <input
+			type="checkbox" class="itcast3" name="food" value="洋肉">洋肉
+		<hr>
+		<input type="checkbox" name="hobby" class="itheima1" value="篮球">篮球
+		<input type="checkbox" name="hobby" class="itheima2" value="篮球">篮球
+		<input type="checkbox" name="hobby" class="itheima3" value="足球">足球
+	</form>
+	<span id="s"> 这是一个SPAN </span>
+</html>

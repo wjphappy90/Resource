@@ -1,0 +1,45 @@
+public class ArrayList<E> {
+    //长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+
+    //判断是否包含的方法
+    public boolean contains(Object o) {
+        // 根据 indexOf方法返回的结果 和 0 进行比较
+        // 如果大于等于0 就说明找到(包含)了,否则就说明没有找到(未包含)
+        return indexOf(o) >= 0;
+    }
+
+    public int indexOf(Object o) {
+        //判断要找的元素否为null
+        if (o == null) {
+            //循环遍历集合
+            for (int i = 0; i < size; i++)
+                //进行判断
+                if (elementData[i]==null)
+                    //找到之后返回该元素的索引
+                    return i;
+        } else {
+            //循环遍历集合
+            for (int i = 0; i < size; i++)
+                //拿着集合的每一个元素和要找的元素进行比较内容
+                if (o.equals(elementData[i]))
+                    //返回该元素在集合的索引
+                    return i;
+        }
+        //在if 和 else中都没有执行return,就返回-1 说明没有找到
+        return -1;
+    }
+
+}

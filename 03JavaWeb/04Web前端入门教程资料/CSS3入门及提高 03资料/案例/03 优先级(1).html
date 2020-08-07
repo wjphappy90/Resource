@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+       /*  0， 0 ， 0 ， 0  特殊性公式 */
+        
+        div {  /* 标签选择器  0,0,0,1*/
+          color: pink;
+        }
+        
+        :first-child {  /* 伪类选择器 0,0,1,0 */
+          color: green;
+        }
+
+        .king {  /* 类选择器  0,0,1,0 */
+          color: blue;
+        }
+
+        #wang {  /* id选择器   0,1,0,0 */
+          color: red;
+        }
+
+        /* 最大的  不是选择器 */
+
+        div {
+          color: orange!important;  /* important就是重要的  级别最高 一旦出现优先执行*/
+        }
+        </style>
+   
+    </head>
+    <body>
+    <div class="king" id="wang" style="color: skyblue"> 王者农药 </div>
+    </body>
+</html>

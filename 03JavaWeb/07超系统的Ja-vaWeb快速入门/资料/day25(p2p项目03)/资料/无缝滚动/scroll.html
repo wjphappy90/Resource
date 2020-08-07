@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+ <meta charset="utf-8">
+  <title> 向上滚动 </title>
+    <link rel="stylesheet" href="css/liMarquee.css">
+	<style>
+	.dowebok { width: 790px; height: 200px; margin: 100px auto; font-size: 14px;}
+	.dowebok ul { margin: 0; line-height: 30px;}
+	.dowebok a { color: #333; text-decoration: none;}
+	.dowebok a:hover { text-decoration: underline;}
+	</style>
+ </head>
+
+ <body>
+  <div class="dowebok">
+	<ul>
+		<li>
+			<a href="##">Smoothslides – 可平移的jQuery幻灯片插件</a>
+		</li>
+		<li>
+			<a href="##">jQuery全屏滚动插件fullPage.js</a>
+		</li>
+		<li>
+			<a href="##">WOW.js – 让页面滚动更有趣</a>
+		</li>
+		<li>
+			<a href="##">让IE7 IE8支持CSS3 background-size属性</a>
+		</li>
+		<li>
+			<a href="##">shCircleLoader – jQuery Loading效果插件</a>
+		</li>
+		<li>
+			<a href="##">jQuery cForm – jQuery表单美化插件</a>
+		</li>
+		<li>
+			<a href="##">Quttons – Quantum Paper风格按钮</a>
+		</li>
+		<li>
+			<a href="##">Ideal Image Slider – 简单的纯JS幻灯片</a>
+		</li>
+		<li>
+			<a href="##">evenZoom – jQuery放大镜插件</a>
+		</li>
+		<li>
+			<a href="##">DAD – jQuery拖拽/拖放插件</a>
+		</li>
+	</ul>
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.liMarquee.js"></script>
+<script>
+$(function(){
+	$('.dowebok').liMarquee({
+		direction: 'up',    //设置滚动方向
+		scrollamount: '40', // 设置滚动速度
+		runshort: false  //内容未超过容器宽度（高度），不滚动。
+	});
+});
+</script>
+ </body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<!-- 默认配置 -->
+  <default-config>
+  	<!-- 配置数据库连接信息 -->
+    <property name="user">root</property>
+    <property name="password">root</property>
+    <property name="jdbcUrl">jdbc:mysql://localhost:3306/test</property>
+    <property name="driverClass">com.mysql.jdbc.Driver</property>
+    
+    <!-- 配置连接池的信息 -->
+    <property name="initialPoolSize">5</property>
+    <property name="maxPoolSize">10</property>
+    <property name="checkoutTimeout">2000</property>
+    <property name="maxIdleTime">10000</property>
+  </default-config>
+</c3p0-config>

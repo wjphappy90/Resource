@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:security="http://www.springframework.org/schema/security"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+			    http://www.springframework.org/schema/beans/spring-beans.xsd
+			    http://www.springframework.org/schema/context
+			    http://www.springframework.org/schema/context/spring-context.xsd
+			    http://www.springframework.org/schema/aop
+			    http://www.springframework.org/schema/aop/spring-aop.xsd
+			    http://www.springframework.org/schema/tx
+			    http://www.springframework.org/schema/tx/spring-tx.xsd
+			    http://www.springframework.org/schema/mvc
+			    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                http://www.springframework.org/schema/security
+			    http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!--释放静态资源-->
+    <security:http pattern="/css/**" security="none"/>
+    <security:http pattern="/img/**" security="none"/>
+    <security:http pattern="/plugins/**" security="none"/>
+    <security:http pattern="/failer.jsp" security="none"/>
+    <!--配置springSecurity-->
+    <!--
+    auto-config="true"  表示自动加载springsecurity的配置文件
+    use-expressions="true" 表示使用spring的el表达式来配置springsecurity
+    -->
+    <security:http auto-config="true" use-expressions="true">
+        <!--让认证页面可以匿名访问-->
+        <security:intercept-url pattern="/login.jsp" access="permitAll()"/>
+        <!--拦截资源-->
+        <!--
+        pattern="/**" 表示拦截所有资源
+        access="hasAnyRole('ROLE_USER')" 表示只有ROLE_USER角色才能访问资源
+        -->
+        <security:intercept-url pattern="/**" access="hasAnyRole('ROLE_USER')"/>
+        <!--配置认证信息-->
+        <security:form-login login-page="/login.jsp"
+                             login-processing-url="/login"
+                             default-target-url="/index.jsp"
+                             authentication-failure-url="/failer.jsp"/>
+        <!--配置退出登录信息-->
+        <security:logout logout-url="/logout"
+                         logout-success-url="/login.jsp"/>
+        <!--去掉csrf拦截的过滤器-->
+        <!--<security:csrf disabled="true"/>-->
+    </security:http>
+
+    <!--把加密对象放入的IOC容器中-->
+    <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    <!--设置Spring Security认证用户信息的来源-->
+    <!--
+    springsecurity默认的认证必须是加密的，加上{noop}表示不加密认证。
+    -->
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="userServiceImpl">
+            <security:password-encoder ref="passwordEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+
+
+
+
+
+
+
+
+</beans>

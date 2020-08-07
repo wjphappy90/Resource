@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			//属性定义方式
+			//1、this关键字，在对象声明定义阶段，定义一个属性
+			//2、创建对象后，使用对象.属性方式 动态定义属性
+			function Person(n,a){
+				this.name=n;
+				this.age=a;
+			}
+			
+			//创建了一个Person对象，p
+			var p =new Person("小王","20");
+			p.sex="男"; //为Person对象 声明并赋值成功
+			alert(p.sex);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

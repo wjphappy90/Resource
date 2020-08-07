@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.mapper.CouponMapper">
+	<resultMap id="BaseResultMap" type="cn.itcast.entity.Coupon">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="money" property="money" jdbcType="DECIMAL" />
+		<result column="coupon_desc" property="couponDesc" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="expire_time" property="expireTime" jdbcType="TIMESTAMP" />
+		<result column="state" property="state" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		id,name,money,coupon_desc,create_time,expire_time,state
+	</sql>
+	
+	<sql id="table">
+		t_coupon
+	</sql>
+	
+	<select id="selectCouponById" resultMap="BaseResultMap" parameterType="long">
+		select <include refid="Base_Column_List" /> from <include refid="table" /> where id =#{id,jdbcType=BIGINT}
+	</select>
+	
+	<insert id="saveCoupon" parameterType="cn.itcast.entity.Coupon" useGeneratedKeys="true" keyProperty="id">
+		insert into <include refid="table" /> (name,money,coupon_desc,create_time,expire_time,state)
+		values (#{name}, #{money},#{couponDesc},#{createTime}, #{expireTime}, #{state})
+	</insert>
+	
+	<update id="updateCoupon" parameterType="cn.itcast.entity.Coupon">
+		update <include refid="table" />
+		set name = #{name},
+		money = #{money},
+		coupon_desc = #{couponDesc},
+		create_time = #{createTime},
+		expire_time = #{expireTime},
+		state = #{state,jdbcType=INTEGER}
+		where  id = #{id,jdbcType=BIGINT}
+	</update>
+
+</mapper>

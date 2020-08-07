@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <!--配置包扫描-->
+    <context:component-scan base-package="com.itheima"/>
+
+    <!--配置一个数据源-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql:///springdata"/>
+        <property name="username" value="root"/>
+        <property name="password" value="adminadmin"/>
+    </bean>
+
+    <!--配置EntityManagerFactory 可以产生entityManger-->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <!--配置一个数据源-->
+        <property name="dataSource" ref="dataSource"/>
+
+        <!--指定实体类-->
+        <property name="packagesToScan" value="com.itheima.domain"/>
+
+        <!--配置服务的提供商-->
+        <property name="persistenceProvider">
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider"/>
+        </property>
+
+        <!--SpringData Jpa 兼容Hibernate使用-->
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <!--配置数据库名称-->
+                <property name="database" value="MYSQL"/>
+                <!--是否自动建表  true 自动建表  false 不会自动建表-->
+                <property name="generateDdl" value="true"/>
+                <!--是否显示SQL-->
+                <property name="showSql" value="true"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!--声明事务管理器-->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <!--做一个jpa:repository的配置-->
+    <!--base-package 配置dao包的包名 它会为这个包先所有的接口动态产生代理对象-->
+    <jpa:repositories base-package="com.itheima.dao"
+                      entity-manager-factory-ref="entityManagerFactory"
+                      transaction-manager-ref="transactionManager"
+    />
+
+</beans>

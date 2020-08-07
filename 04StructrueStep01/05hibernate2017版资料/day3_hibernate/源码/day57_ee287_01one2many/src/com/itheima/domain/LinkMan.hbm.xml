@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.itheima.domain">
+	<class name="LinkMan" table="cst_linkman">
+		<id name="lkmId" column="lkm_id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="lkmName" column="lkm_name"></property>
+		<property name="lkmGender" column="lkm_gender"></property>
+		<property name="lkmPhone" column="lkm_phone"></property>
+		<property name="lkmMobile" column="lkm_mobile"></property>
+		<property name="lkmEmail" column="lkm_email"></property>
+		<property name="lkmPosition" column="lkm_position"></property>
+		<property name="lkmMemo" column="lkm_memo"></property>
+		<!-- 一对多关系映射：从表实体的映射配置 
+				涉及的标签：
+					many-to-one：
+						作用：建立多对一的映射配置
+						属性：
+						  name：从表实体中引用主表实体对象引用的名称
+						  class：指定属性所对应的实体类名称
+						  column：指定从表中外键字段的名称
+		-->
+		<many-to-one name="customer" class="Customer" column="lkm_cust_id" lazy="false"/>
+	</class>
+</hibernate-mapping>

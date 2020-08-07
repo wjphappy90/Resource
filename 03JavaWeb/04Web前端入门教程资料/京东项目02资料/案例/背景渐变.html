@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        div {
+        	width: 300px;
+        	height: 50px;
+        	/* background: linear-gradient(渐变的起始位置， 起始颜色， 结束颜色)； */
+        	background: linear-gradient(top, red, green);
+        	background: -webkit-linear-gradient(top, red, green);
+        	background: -moz-linear-gradient(top, red, green);
+        	/* 因为背景渐变 兼容性问题很严重， 必须在前面添加浏览器的私有前缀 */
+        	margin: 200px auto;
+		
+        }
+       
+        section {
+        	width: 400px;
+        	height: 100px;
+        	margin: 0 auto;
+        	 /* background:-webkit-linear-gradient(渐变的起始位置， 颜色 位置， 颜色位置....)； */
+        	background: -webkit-linear-gradient(top, red 0%, green 20%, blue 80%);
+        	background: -moz-linear-gradient(left, red 0%, green 50%, skyblue 80%,  hotpink 100%)
+        }
+        </style>
+    </head>
+    <body>
+    <div></div>
+    <section></section>
+    </body>
+</html>

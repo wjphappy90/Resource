@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/data/mongo
+        http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+
+    <!--包扫描-->
+    <mongo:repositories base-package="com.itheima"/>
+
+
+    <!-- spring连接mongodb数据库的配置 -->
+    <!--
+        host="192.168.106.128" 指定mongodb服务所在主机地址
+        port="27017"  指定mongodb服务所在主机端口号
+        dbname="heima"  数据名称
+    -->
+    <mongo:mongo-client host="192.168.106.128" port="27017" id="mongo">
+        <mongo:client-options write-concern="SAFE"/>
+    </mongo:mongo-client>
+    <mongo:db-factory id="mongoDbFactory" dbname="heima" mongo-ref="mongo"/>
+
+
+    <!--mongoTemplate-->
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
+    </bean>
+</beans>

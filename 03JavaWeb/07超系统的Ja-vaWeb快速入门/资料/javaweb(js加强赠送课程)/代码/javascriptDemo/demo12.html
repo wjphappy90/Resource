@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数调用-call与apply</title>
+		<script type="text/javascript">
+			function Animal(){
+				this.name="animal";
+				this.say=function(a,b){
+					alert("my name is "+this.name+"  "+a+"   "+b);
+				}
+			}
+			
+			function Dog(){
+				this.name="dog";				
+			}
+			
+			//创建两个对象
+			var a=new Animal();
+			var d=new Dog();
+			//a.say();
+			
+			a.say.call(d,"aaa","bbb"); //d.say()
+			a.say.apply(d,["ddd","ccc"]); // d.say()
+			//call和apply它可以实现调用其它对象的方法
+			//call与apply的区别在于被调用的方法如果有参数，传递参数形式不一样
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

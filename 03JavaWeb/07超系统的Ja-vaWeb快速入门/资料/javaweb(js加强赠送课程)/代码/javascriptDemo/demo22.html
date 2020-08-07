@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript中继承--寄生组合继承</title>
+		<script type="text/javascript">
+			//创建一个父类
+			function Father() {
+				this.name = "张三";
+				this.show = function() {
+					alert("hello " + this.name);
+				}
+			}
+			Father.prototype.say = function() {
+					alert("hello father...");
+				}
+				//创建一个子类
+			function Son() {
+				Father.call(this);
+			}
+			//创建一个匿名函数让其执行
+			(function() {
+				//创建一个没有实例方法的类
+				var Temp = function() {};
+				Temp.prototype = Father.prototype;
+				//将实例做为子类的原型
+				Son.prototype = new Temp();
+			})();
+			var s = new Son();
+			s.show(); //调用从父继承的实例方法
+			s.say();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

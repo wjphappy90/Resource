@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>js中的全局变量与局部变量</title>
+		<script type="text/javascript">
+			var num = 10; //全局
+
+			function add(a, b) { //add函数参数a,b,它们是局部变量
+				str = "hello world";
+				var num = a+b; //局部变量与全局变量重名，局部会覆盖全局
+				//alert(num); //局部
+				//闭包:函数体内部的变量都可以保存在函数作用域内
+				function getResult() {//嵌套函数，它使用了外部函数的变量
+					return a+"+"+b+"="+num;
+				}
+				return getResult();
+			}
+			//alert(num);//全局部可以使用
+			//alert(a);//有问题
+			//add(1, 2); //没有调用add函数，函数体内的str没有定义,当调用完成后，内存中保存了
+			//alert(str); //有结果
+			console.info(add(10,20)); //将结果打印到控制台
+	</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

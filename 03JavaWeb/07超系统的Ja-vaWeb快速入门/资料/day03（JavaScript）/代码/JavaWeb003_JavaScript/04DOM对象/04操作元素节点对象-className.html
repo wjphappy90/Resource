@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.ys1{
+				color:red;
+			}
+			.ys2{
+				color:blue;
+			}
+		</style>
+	</head>
+	<body>
+		<span id="s1" class="ys1">今天天气好晴朗</span>
+		<script>
+			//需要把s1 元素value属性值，拿出来
+			var s1=document.getElementById("s1");
+			alert(s1.className);
+			
+			s1.className="ys2";
+		</script>
+	</body>
+</html>

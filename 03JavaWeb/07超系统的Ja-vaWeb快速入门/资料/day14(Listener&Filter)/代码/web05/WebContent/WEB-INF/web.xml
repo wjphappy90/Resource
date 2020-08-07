@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>web05</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 过滤器========================= -->
+<!--   <filter>
+  	<filter-name>FilterDemo1</filter-name>
+  	<filter-class>com.itheima.filter.demo1.FilterDemo1</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>FilterDemo1</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>FilterDemo2</filter-name>
+  	<filter-class>com.itheima.filter.demo1.FilterDemo2</filter-class>
+  </filter>
+   <filter-mapping>
+  	<filter-name>FilterDemo3</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>  
+  <filter-mapping>
+  	<filter-name>FilterDemo2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>FilterDemo3</filter-name>
+  	<filter-class>com.itheima.filter.demo1.FilterDemo3</filter-class>
+  </filter> -->
+  
+<!--    <filter>
+  	<filter-name>FilterDemo4</filter-name>
+  	<filter-class>com.itheima.filter.demo1.FilterDemo4</filter-class>
+  	<init-param>
+  		<param-name>username</param-name>
+  		<param-value>root</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>password</param-name>
+  		<param-value>abc</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>FilterDemo4</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping> -->
+  
+<!--    <filter>
+  	<filter-name>FilterDemo5</filter-name>
+  	<filter-class>com.itheima.filter.demo1.FilterDemo5</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>FilterDemo5</filter-name>
+  	<url-pattern>/*</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping> -->
+  
+  
+  <!-- 监听器========================= -->
+<!--   <listener>
+  	<listener-class>com.itheima.listener.onlinecount.OnLineCountServletContextListener</listener-class>
+  </listener> 
+  <listener>
+  	<listener-class>com.itheima.listener.onlinecount.OnLineCountHttpSessionListener</listener-class>
+  </listener>  -->
+  
+<!--   <listener>
+  	<listener-class>com.itheima.listener.weblistener.MyHttpSessionAttributeListener</listener-class>
+  </listener> -->
+  
+<!--   <listener>
+  	<listener-class>com.itheima.listener.weblistener.MyServletContextListener</listener-class>
+  </listener> -->
+  
+<!--   <listener>
+  	<listener-class>com.itheima.listener.weblistener.MyHttpSessionListener</listener-class>
+  </listener> -->
+  
+<!--   <listener>
+  	<listener-class>com.itheima.listener.weblistener.MyServletRequestListener</listener-class>
+  </listener>  -->
+<!--   <session-config>
+  	<session-timeout>1</session-timeout>
+  </session-config> -->
+</web-app>

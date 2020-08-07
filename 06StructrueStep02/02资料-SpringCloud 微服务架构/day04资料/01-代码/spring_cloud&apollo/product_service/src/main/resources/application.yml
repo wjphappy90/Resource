@@ -1,0 +1,21 @@
+server:
+  port: 9001 #端口
+spring:
+  application:
+    name: service-product #服务名称
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shop?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 111111
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+name: zhangsan
+apollo:
+  bootstrap:  #开启apollo
+    enabled: true
+  meta: http://192.168.74.101:8080
+app:
+  id: product-service  #指定apollo配置中心中的appid

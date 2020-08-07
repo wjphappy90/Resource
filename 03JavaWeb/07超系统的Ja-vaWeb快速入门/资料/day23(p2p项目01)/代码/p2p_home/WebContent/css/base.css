@@ -1,0 +1,45 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html{
+	padding: 0;
+	margin: 0;
+}
+body{
+	font-family: "微软雅黑";
+}
+/*头部和底部样式*/
+.navbar{
+	margin: 0;
+	border-radius: 0;
+}
+.navbar-inverse{
+	background: #555;
+}
+.navbar-default{
+	background: #fff;
+}
+.navbar-inverse .navbar-brand,.navbar-inverse .navbar-text{
+	color: #ccc;
+}
+
+.navindex .navbar-brand{
+	min-height: 90px;
+	padding: 0 10px 0 0;
+}
+.navindex .navbar-nav>li>a{
+	line-height: 60px;
+	font-size: 18px;
+}
+.navbar-toggle{
+	margin-top: 15px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+	background: #fff;
+	color: #1aa2dc;
+}
+footer.navbar-inverse{
+	height: 100px;
+
+}

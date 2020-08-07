@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器的所占的百分比</title>
+    <!--导入jquery框架-->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!--导入highcharts-->
+    <script type="text/javascript" src="js/highcharts.js"></script>
+</head>
+<body>
+    <!--图表的容器，指定id，指定宽和高-->
+    <div id="container" style="width:500px; height: 500px"></div>
+    <script type="text/javascript">
+        $(function () {
+            //使用jquery的方式
+            $("#container").highcharts({
+                //指定图表的类型
+                chart: {
+                    type: "pie"   //指定饼图
+                },
+                //指定主标题
+                title: {
+                    text: "2018年某网站浏览器浏览器占比"
+                },
+                //设置数据列
+                series: [{
+                    name: "浏览器访问量的占比",   //数据名字
+                    data: [
+                        ["FireFox", 35],
+                        ["IE", 20],
+                        ["Chrome", 15],
+                        ["Safari", 8.5],
+                        ["Opera", 10],
+                        ["其它", 4]
+                    ]
+                }]
+            });
+        })
+    </script>
+</body>
+</html>

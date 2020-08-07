@@ -1,0 +1,44 @@
+1》 双击执行 Setup-Subversion-1.6.5.msi
+
+	详见：SVN安装界面文档
+
+2》 subversion 安装成功后，在启动svn前需要先建立一个文档仓库
+	
+	我们使用svn服务器端命令 svnadmin建立 如下：
+
+	svnadmin create F:\software\repository\svn\itcast
+
+3》 建立好文档仓库后，我们进行subversion启动
+	
+第一种方式：命令行启动，我们使用服务器端命令 svnserve 如下：
+	
+	svnserve -d -r F:\software\repository\svn\itcast
+
+	启动后我们如何知道svn启动成功呢？ 我们查看端口使用情况：
+	
+	netstat -an 
+
+	我们看到3690端口服务，说明启动成功
+
+
+第二种方式：安装svn后配置windows自动启动服务
+
+	sc create SVN-Service binpath= "C:\svnexec\Subversion\bin\svnserve.exe --service -r C:\svnexec\itcast\svn" displayname= "SVN-Service" start= auto depend= Tcpip
+		binpath 指定svnserve 的路径和命令
+		start= auto 表示服务自动启动。注意：等于号的左边无空格，而右边必须有一个空格
+		Displayname、start、depend
+		在此命令中-r(--root)项目版本仓库的根目录
+
+	启动服务
+
+	net start SVN-Service
+
+	
+
+	查看服务是否添加成功，可以选择windows 控制面板--》》管理工具--》》服务 会发现列表中有SVN-service服务
+
+	sc delete SVN-Service
+
+
+
+

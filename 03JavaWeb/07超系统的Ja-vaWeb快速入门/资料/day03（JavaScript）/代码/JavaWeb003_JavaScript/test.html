@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function run1(){
+				alert("run1");
+			}
+			
+			//页面加载完成时，为文本框onclick事件绑定run1方法
+			window.onload=function(){
+				document.getElementById("uname").onclick=run1;
+			};
+		</script>
+	</head>
+	<body>
+		<input type="text" name="uname" id="uname" />
+	</body>
+</html>

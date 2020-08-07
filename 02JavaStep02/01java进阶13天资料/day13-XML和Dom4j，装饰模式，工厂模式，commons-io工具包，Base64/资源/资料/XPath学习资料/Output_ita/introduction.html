@@ -1,0 +1,79 @@
+<html>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tutorial su XPath</title><link rel="meta" href="dc.z19991208.rdf" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/dc.z19991208.rdf"/><link rel="stylesheet" type="text/css" href="../CSS/front.css" tppabs="http://www.zvon.org/xxl/XPathTutorial/CSS/front.css"/><style>#newZvonMessage {margin:1em; padding:1em; border:2px solid navy;}</style>
+<script src="../../../../www.google.com/jsapi" tppabs="http://www.google.com/jsapi"></script> 
+<script src="../../../Javascript/old_zvon.js" tppabs="http://www.zvon.org/Javascript/old_zvon.js" type="text/javascript" ></script> 
+<script>google.load("jquery", "1");</script> 
+</head><body><div style="text-align:center"><br/><div> <a href="javascript:if(confirm('http://www.oxygenxml.com/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.oxygenxml.com/'" tppabs="http://www.oxygenxml.com/" class='oxygenA'><img class='oxygenA' style='margin-left:3em; border:none' src="../../../share/images/oxygenxml.png" tppabs="http://www.zvon.org/share/images/oxygenxml.png" /></a></div><br/></div><table width="100%"><tr><td><span class="mediumText"><a class="naviBlack" target="_top" href="../General/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General/examples.html">English</a> | <a class="naviBlack" target="_top" href="../General_cze/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_cze/examples.html">膷esky</a> | <a class="naviBlack" target="_top" href="../General_dut/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_dut/examples.html">Nederlands</a> | <a class="naviBlack" target="_top" href="../General_fre/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_fre/examples.html">Fran莽ais</a> | <a class="naviBlack" target="_top" href="../General_spa/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_spa/examples.html">Espa帽ol</a> | <a class="naviBlack" target="_top" href="../General_rus/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_rus/examples.html">袩芯-褉褍褋褋泻懈</a> | <a class="naviBlack" target="_top" href="../General_ger/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_ger/examples.html">Deutsch</a> | <a class="naviBlack" target="_top" href="../General_chi/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_chi/examples.html">涓枃</a> | <b>&gt;&gt;聽Italiano聽&lt;&lt;</b></span></td><td style="text-align:right"><span class="mediumText"><a class="naviBlack" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">ZVON</a>
+		&gt;
+		<a class="naviBlack" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">Tutorials</a>
+		&gt;
+		<b>XPath Tutorial</b></span></td></tr></table><table class="bar" width="750px" border="0" cellpadding="0" cellspacing="0"><tr><td class="naviBlue"><a class="naviWhite" target="_top" href="../General_ita/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_ita/examples.html">Introduzione</a> 
+	/
+	  <a class="naviWhite" target="_top" href="javascript:if(confirm('http://zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://zvon.org/'" tppabs="http://zvon.org/">Ricerca</a> 
+	/
+	<a class="naviWhite" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/"> ZVON </a></td></tr></table><table class="hangingMenu" border="0" cellpadding="1" cellspacing="0" width="100%"><tr><td><a target="_top" class="naviBlack" href="example1.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example1.html">Prima pagina</a> | <a target="_top" class="naviBlack" href="../General_ita/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_ita/examples.html">Indice</a></td></tr></table><h3>Miloslav Nic </h3><h3>Jiri Jirat </h3>Traduzione: <b>Antonio Fittipaldi</b><br/><h1>Tutorial su XPath</h1>
+
+  
+   <h3>Introduzione<a name="d0e50">聽</a></h3>
+   <p>
+XPath 猫 descritto nel documento <a href="javascript:if(confirm('http://www.w3.org/TR/xpath  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.w3.org/TR/xpath'" tppabs="http://www.w3.org/TR/xpath" target="_top">XPath 1.0 standard</a>. All'interno di questo tutorial le caratteristiche di XPath vengono illustrate attraverso numerosi esempi.
+</p>
+  
+
+
+<p>Puoi partire da:</p>
+<ul>
+<li><a href="example1.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_ita/example1.html" target="_top">Esempio 1</a></li>
+</ul>
+
+<p>oppure utilizzando il pannello di sinistra.</p>
+
+
+  
+   <h3>Ulteriori informazioni<a name="d0e78">聽</a></h3>
+   <ul>
+    <li>
+     <a href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xlabIndex.html?stylesheetFile=XSLT/xlabIndex.xslt  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xlabIndex.html?stylesheetFile=XSLT/xlabIndex.xslt'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xlabIndex.html?stylesheetFile=XSLT/xlabIndex.xslt" target="_top">XLab</a> - esperimenti interattivi su XPath
+    </li>
+    <li>
+     <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/XMLTutorial/General_ita/book.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/XMLTutorial/General_ita/book.html'" tppabs="http://www.zvon.org/xxl/XMLTutorial/General_ita/book.html">Tutorial su XML</a>
+    </li>
+    <li>
+     <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/DTDTutorial/General_ita/book.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/DTDTutorial/General_ita/book.html'" tppabs="http://www.zvon.org/xxl/DTDTutorial/General_ita/book.html">Tutorial su DTD</a>
+    </li>
+    <li>
+     <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/NamespaceTutorial/Output_ita/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/NamespaceTutorial/Output_ita/index.html'" tppabs="http://www.zvon.org/xxl/NamespaceTutorial/Output_ita/index.html">Tutorial su XML Namespace</a>
+    </li>
+    <li>
+      <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/xhtmlReference/Output/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/xhtmlReference/Output/index.html'" tppabs="http://www.zvon.org/xxl/xhtmlReference/Output/index.html">Reference su XHTML 1.0</a>
+    </li>
+    <li>
+     <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/xhtmlBasicReference/Output/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/xhtmlBasicReference/Output/index.html'" tppabs="http://www.zvon.org/xxl/xhtmlBasicReference/Output/index.html">Reference su XHTML di base</a>
+    </li>
+   </ul>
+  
+  
+
+  
+   <h3>Crediti<a name="d0e125">聽</a></h3>
+   <ul>
+    <li>Miloslav Nic - programming and examples</li>
+    <li>Jiri Jirat - tree view of examples</li> 
+   </ul>
+  
+
+<script type="text/javascript"> 
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15189975-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })(); 
+</script>
+</body></html>

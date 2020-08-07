@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: service-product
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+dubbo:
+  scan:
+    base-packages: com.itheima.service.impl # 开启包扫描
+  protocols:
+    dubbo:
+      name: dubbo # 服务协议
+      port: -1 # 服务端口
+  registry:
+    address: spring-cloud://localhost # 注册中心

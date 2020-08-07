@@ -1,0 +1,30 @@
+第二十二天JDBC&DBUtils回顾
+1. JDBC技术，Java语言连接数据库，操作数据
+   DriverManager类，管理JDBC驱动
+   静态方法 getConnection(String url,String username,String password);
+   反射形式注册驱动程序  Class.forName("驱动程序类名")
+   
+   Connection接口，表示连接对象
+   createStatement()获取执行SQL语句对象，Statement
+   prepareStatement()获取执行SQL语句对象，PreparedStatement
+   
+   PreparedStatement阻止注入攻击
+   SQL语句，写的时候，参数全部使用?占位
+   setXXX(第几个参数，具体参数) 设置参数
+   方法 executeQuery() 获取到结果集对象  ResultSet
+   
+   ResultSet接口方法
+     next()
+	 getXXX(字符串列名)
+	 
+2. DBUtils
+    数据库操作工具，操作数据
+	
+	QueryRunner核心类
+	
+	update(Connection,String sql,?占位符的具体数据)执行INSERT,DELETE,UPDATE
+	query(Connection,String sql,处理结果集方式)
+	八种结果集处理方式，熟练
+	
+	
+	

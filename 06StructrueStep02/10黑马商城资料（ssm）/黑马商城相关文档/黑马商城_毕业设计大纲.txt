@@ -1,0 +1,42 @@
+毕业设计大纲:
+	黑马商城：
+		1.技术支持： java语言开发
+		2.概述：黑马商城一个B2C的综合型电商网站 主营产品：生活用品，家用电器，书，衣服，鞋靴箱包，食品。。。
+		3.功能模块：
+			商品模块：
+				后台商品管理：商品上架，商品信息维护
+				前台商品管理：展示商品
+			搜索模块：lucene,solr,elasticSearch,endeca
+			内容管理系统：
+				广告管理
+				消息管理
+				文章管理
+			用户管理模块：用户注册,用户登录，用户地址，用户支付，用户安全。。。
+			购物车模块
+			订单模块
+			支付模块
+			物流模块
+			服务接口
+		4.软件环境
+			1.JDK java开发工具包 使用版本：JDK1.7
+			2.数据库：orcale,sql server,mysql 使用版本：MySQL5.5 sqlyog8.3(mysql可视化工具)
+			3.java语言开发工具：eclipse，myeclipse,sts,idea 使用版本：eclipse mars2
+			4.框架
+				后台框架 SSM : SpringMVC Spring Mybatis(ibatis)		
+				前台框架 bootstrap + jquery（插件） + 第三方插件
+		5.环境准备：
+			1.安装JDK 
+				JAVA_HOME=D:\java\JDK1.7.07
+				CLASSPATH=.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
+				path=%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;
+				安装成功后测试：
+					-->cmd java -version
+						java
+						javac
+			2.安装MySQL及可视化工具SQLyog
+			3.安装Eclipse
+			
+第一天：
+	搭建开发环境
+	创建“黑马商城”项目
+		

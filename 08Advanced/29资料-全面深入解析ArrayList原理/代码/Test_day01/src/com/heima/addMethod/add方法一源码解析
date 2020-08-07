@@ -1,0 +1,53 @@
+public class ArrayList<E> {
+    //长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+
+    public boolean add(E e) {
+        ensureCapacityInternal(size + 1);
+        elementData[size++] = e;
+        return true;
+    }
+
+    private void ensureCapacityInternal(int minCapacity) {
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+            minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
+        }
+
+        ensureExplicitCapacity(minCapacity);
+    }
+
+    private void ensureExplicitCapacity(int minCapacity) {
+            modCount++;
+
+        if (minCapacity - elementData.length > 0)
+            grow(minCapacity);
+    }
+
+    private void grow(int minCapacity) {
+        int oldCapacity = elementData.length;
+        // >> : 右移,右移几位就相当于除以2的几次幂
+        // << : 左移,左移几位就相当于乘以2的几次幂
+        //扩容的核心算法: 原容量的1.5倍
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        if (newCapacity - minCapacity < 0)
+            newCapacity = minCapacity;
+        if (newCapacity - MAX_ARRAY_SIZE > 0)
+            newCapacity = hugeCapacity(minCapacity);
+        // minCapacity is usually close to size, so this is a win:
+        elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+
+
+ }

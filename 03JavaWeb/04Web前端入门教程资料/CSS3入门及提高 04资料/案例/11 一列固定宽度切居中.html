@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		* {
+			margin: 0;
+			padding: 0;  /* 清除内外边距 css 第一讲句话 */
+		}
+		/* 相同的样式，我们会想到 并集选择器 */
+		.top,
+		.banner,
+		.main,
+		.footer {
+			width: 960px;
+			text-align: center; /* 文字居中对齐 */
+			margin: 0 auto; /* 可以让盒子居中对齐  只要保证 左右auto就阔以了 */
+			margin-bottom: 10px;
+			border: 1px dashed #ccc;
+		}
+		.top {		
+			height: 80px;
+			background-color: pink;									
+		}
+		.banner {
+			height: 120px;
+			background-color: purple;
+		}
+		.main {
+			height: 500px;
+			background-color: hotpink;
+		}
+		.footer {
+			height: 150px;
+			background-color: black;
+		}
+        </style>
+    </head>
+    <body>
+	<div class="top">top</div>
+	<div class="banner">banner</div>
+	<div class="main">main</div>
+	<div class="footer">footer</div>
+    </body>
+</html>

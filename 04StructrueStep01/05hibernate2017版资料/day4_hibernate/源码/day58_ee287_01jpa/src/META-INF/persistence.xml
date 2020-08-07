@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence  
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"  
+    version="2.0">  
+    <!-- 配置持久化单元，可以配置多个，但是名称不能重复
+    	name:用于指定持久化单元名称
+    	transaction-type:指定事务的类型。
+    			JTA：Java Transaction API
+    			RESOURCE_LOCAL:指的是本地代码事务。（我们用这个）
+    	
+     -->
+    <persistence-unit name="myJPAUnit" transaction-type="RESOURCE_LOCAL">
+    	<!-- JPA规范的提供商 	可以不写。-->
+    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    	<!-- 指定由Jpa注解的实体类位置 	可以不写。-->
+    	<class>com.itheima.domain.Customer</class>
+    	<!-- 连接库相关的一些配置，都是用hibernate的，所以只需要把之前hibernate主配置文件中的部分内容拷贝过来即可 -->
+    	<properties>
+    		<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/day58_ee287_jpa"/>
+			<property name="hibernate.connection.username" value="root"/>
+			<property name="hibernate.connection.password" value="1234"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/><!-- 数据库的方言 -->
+			<!-- 第二部分：hibernate的可选配置 -->
+			<!-- 是否显示hibernate生成的SQL语句 -->
+			<property name="hibernate.show_sql" value="true"/>
+			<!-- 是否使用格式化输出sql语句到控制台 -->
+			<property name="hibernate.format_sql" value="false"/>
+			<!-- 配置hibernate采用何种方式生成DDL语句 -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/><!-- update表示检测实体类的映射配置和数据库的表结构是否一致，如果不一致，更新表结构 -->
+			<!-- 设置hibernate的连接池提供商 -->
+			<property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/>
+    	</properties>
+    </persistence-unit>
+</persistence>

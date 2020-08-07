@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 这是一个注释 -->
+<person>
+    <name>播仔</name>
+    <age>35</age>
+    <sex>男</sex>
+</person>

@@ -1,0 +1,14 @@
+用户的增删改查请求URL
+传统方式：
+	http://localhost:8080/user/save		POST
+	http://localhost:8080/user/update	POST
+	http://localhost:8080/user/delete?id=1	GET
+	http://localhost:8080/user/find?id=1	GET
+Roy Thomas Fielding
+REST 表现层状态转换
+
+REST:
+	http://localhost:8080/user/		POST		保存
+	http://localhost:8080/user/3		PUT		更新
+	http://localhost:8080/user/5		DELETE		删除
+	http://localhost:8080/user/1		GET		查询一个

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		.nav li { /*  空格 后代选择器  可以选择 儿子 孙子 重孙子.. */
+			color: red;
+		}
+		.nav > li {  /* 大于号 子元素选择器  只选择 亲儿子 */
+			color: pink;
+		}
+        </style>
+    </head>
+    <body>
+    <ul class="nav">
+    	<li>一级菜单
+    		<ul>
+    			<li>二级菜单</li>
+    			<li>二级菜单</li>
+    			<li>二级菜单</li>
+    		</ul>
+    	</li>
+    	<li>一级菜单
+    		<ul>
+    			<li>二级菜单</li>
+    			<li>二级菜单</li>
+    			<li>二级菜单</li>
+    		</ul>
+    	</li>
+    	<li>一级菜单
+    		<ul>
+    			<li>二级菜单</li>
+    			<li>二级菜单</li>
+    			<li>二级菜单</li>
+    		</ul>
+    	</li>
+    </ul>
+    </body>
+</html>

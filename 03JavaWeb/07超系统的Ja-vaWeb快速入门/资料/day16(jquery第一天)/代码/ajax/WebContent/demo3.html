@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/ajax/js/my.js"></script>
+
+<script type="text/javascript">
+	//获取省份信息
+	function getProvince() {
+		//向服务器发送请求获取省份信息
+		//1.获取xmlhttprequest对象
+		var xmlHttp = getXmlHttpRequest();
+		//2.设置回调函数
+		xmlHttp.onreadystatechange = function() {
+
+			if (xmlHttp.readyState == 4) {
+				if (xmlHttp.status == 200) {
+					//将服务器得到的信息处理填充到省份下拉框
+					var provinces = xmlHttp.responseText; //辽宁,黑龙江,吉林
+					var ps = provinces.split(",");
+
+					//使用html dom来完成将数据填充到下拉框操作
+					for (var i = 0; i < ps.length; i++) {
+						var option = document.createElement('option');
+						option.text = ps[i];
+						//将option添加到下拉框中
+						document.getElementById("province").add(option);
+					}
+				}
+			}
+		}
+		//3.open
+		xmlHttp.open("POST", "/ajax/province");
+		//4.send
+		xmlHttp.setRequestHeader("content-type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send(null);
+	}
+
+	//获取城市信息
+	function getCity() {
+
+		//1.得到省份名称 
+		var provinceElement = document.getElementById("province"); //得到省份下拉框元素
+		var ops = provinceElement.options; //得到下拉框下所有option数组
+
+		var option = ops[provinceElement.selectedIndex]; //得到选中项option对象
+		var pname = option.text; //得到option文本
+
+		//2.向服务器发送请求
+
+		//2.1.获取xmlhttprequest对象
+		var xmlHttp = getXmlHttpRequest();
+		//2.2.设置回调函数
+		xmlHttp.onreadystatechange = function() {
+
+			if (xmlHttp.readyState == 4) {
+				if (xmlHttp.status == 200) {
+
+					//清空城市下拉框信息
+					document.getElementById("city").innerHTML = "<option>--请选择城市--</option>";
+
+					var citys = xmlHttp.responseText;
+					var cs = citys.split(",");
+
+					//使用html dom来完成将数据填充到下拉框操作
+					for (var i = 0; i < cs.length; i++) {
+						var option = document.createElement('option');
+						option.text = cs[i];
+						//将option添加到下拉框中
+						document.getElementById("city").add(option);
+					}
+				}
+			}
+		}
+		//2.3.open
+		xmlHttp.open("POST", "/ajax/city");
+		//4.send
+		xmlHttp.setRequestHeader("content-type",
+				"application/x-www-form-urlencoded");
+		xmlHttp.send("pname=" + pname);
+
+	}
+</script>
+
+</head>
+<body onload="getProvince()">
+	<select id="province" onchange="getCity()">
+		<option>--请选择省份--</option>
+	</select>
+
+	<select id="city">
+		<option>--请选择城市--</option>
+	</select>
+</body>
+</html>

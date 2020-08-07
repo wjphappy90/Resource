@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 开启开发者模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<package name="p1" extends="struts-default">
+		<action name="demo1" class="com.itheima.web.action.Demo1Action" method="demo1">
+			<result>/success.jsp</result>
+		</action>
+		<action name="demo2" class="com.itheima.web.action.Demo2Action" method="demo2">
+			<result>/success.jsp</result>
+		</action>
+		<action name="demo3" class="com.itheima.web.action.Demo3Action" method="demo3">
+			<result>/success.jsp</result>
+			<result name="input">/user.jsp</result>
+		</action>
+		
+		<action name="demo4" class="com.itheima.web.action.Demo4Action" method="demo4">
+			<result>/success.jsp</result>
+		</action>
+		
+		<action name="demo5" class="com.itheima.web.action.Demo5Action" method="demo5">
+			<result>/success.jsp</result>
+		</action>
+	</package>
+</struts>

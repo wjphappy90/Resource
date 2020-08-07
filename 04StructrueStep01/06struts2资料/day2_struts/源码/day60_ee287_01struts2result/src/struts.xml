@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 开启开发者模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<constant name="struts.action.extension" value="do"></constant>
+	
+	<package name="myDefault" extends="struts-default" abstract="true">
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+	</package>
+	
+	<package name="p1" extends="myDefault">
+		<action name="demo1" class="com.itheima.web.action.Demo1Action" method="demo1">
+			<!-- result标签：
+					作用：用于配置结果视图（结果视图可以是一个jsp/html，也可以是一个action）
+					属性：
+					  name：指定逻辑结果视图。作用就是和动作方法的返回值进行比较，当一致时，前往配置的页面或者action。不写的话:默认值是success		去哪
+					  type：指定前往结果视图的方式。以何种方式前往。												怎么去
+					  	type取值都是来源于struts-default.xml文件中package名称是struts-default包中定义类型
+					  	常用的结果类型：
+					  		dispatcher：请求转发  （默认值）
+					  		redirect：重定向(可以是重定向到另外一个动作或者是重定向到一个jsp)
+					  		redirectAction：重定向到另外一个动作(它由于会自动在后面为我们拼接url后缀，所以只能重定向到动作)
+					  		
+					  		请求转发和重定向的区别：
+					  			请求转发：一次请求	地址栏不变		请求域中数据不丢失	服务器行为		只能是在当前应用中转发
+					  			重定向：    两次请求	地址栏改变		请求域中数据丢失	浏览器行为		可以定向到当前应用的外部
+					  	
+					  		响应浏览器的三种方式：
+					  			请求转发	重定向	使用流输出（如果只有一种方式，那就是此种方式）
+				全局结果视图和局部结果视图
+					定义是放在action标签外面， 在global-results标签内部的结果视图。
+					可以在多个action中使用
+					优先级：先找局部，再找全局。
+			-->
+			<result name="success" type="redirectAction">demo2</result>
+			<!-- <result name="error" type="dispatcher">/error.jsp</result> -->
+		</action>
+		
+		<action name="demo2">
+			<result name="success" type="dispatcher">/success.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+	</package>
+</struts>

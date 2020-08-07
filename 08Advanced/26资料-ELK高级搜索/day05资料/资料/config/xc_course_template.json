@@ -1,0 +1,95 @@
+{
+   "mappings" : {
+      "_doc" : {
+         "_source" : {
+            "excludes" : [ "teachplan", "description", "content" ]
+         },
+          "properties" : {
+            
+            "content" : {
+               "analyzer" : "ik_max_word",
+               "type" : "text"
+            },
+            "description" : {
+               "copy_to" : [ "content" ],
+               "type" : "text"
+            },
+            "grade" : {
+               "type" : "keyword"
+            },
+            "id" : {
+               "type" : "keyword"
+            },
+            "mt" : {
+               "type" : "keyword"
+            },
+            "name" : {
+               "type" : "text",
+			   "analyzer" : "ik_max_word"
+            },
+			"users" : {
+               "index" : false,
+               "type" : "text"
+            },
+			"charge" : {
+               "type" : "keyword"
+            },
+            "valid" : {
+               "type" : "keyword"
+            },
+            "pic" : {
+               "index" : false,
+               "type" : "keyword"
+            },
+			 "qq" : {
+               "index" : false,
+               "type" : "keyword"
+            },
+            "price" : {
+               "type" : "float"
+            },
+			 "price_old" : {
+               "type" : "float"
+            },
+            "st" : {
+               "type" : "keyword"
+            },
+            "status" : {
+               "type" : "keyword"
+            },
+            "studymodel" : {
+               "type" : "keyword"
+            },
+			"teachmode" : {
+               "type" : "keyword"
+            },
+            "teachplan" : {
+               "copy_to" : [ "content" ],
+               "type" : "text"
+            },
+
+			 "expires" : {
+               "type" : "date",
+			   "format": "yyyy-MM-dd HH:mm:ss"
+            },
+			"pub_time" : {
+               "type" : "date",
+			   "format": "yyyy-MM-dd HH:mm:ss"
+            },
+			"start_time" : {
+               "type" : "date",
+			   "format": "yyyy-MM-dd HH:mm:ss"
+            },
+			"end_time" : {
+               "type" : "date",
+			   "format": "yyyy-MM-dd HH:mm:ss"
+            }
+         }
+      }
+   },
+		"settings" : {
+			"number_of_shards" : "1" ,
+			"number_of_replicas" : "0"
+   },
+   "template" : "xc_course"
+}

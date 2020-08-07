@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 在实体类所在的包下，创建一个xml文件。该文件建议名称为：实体类名称+.hbm+.xml 
+导入约束：dtd约束
+-->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.itheima.domain">
+	<class name="Customer" table="cst_customer" lazy="true">
+		<id name="custId" column="cust_id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="custName" column="cust_name"></property>
+		<property name="custSource" column="cust_source"></property>
+		<property name="custIndustry" column="cust_industry"></property>
+		<property name="custLevel" column="cust_level"></property>
+		<property name="custAddress" column="cust_address"></property>
+		<property name="custPhone" column="cust_phone"></property>
+		<!-- 一对多关系映射：主表实体的映射配置 
+			涉及的标签：
+				set：
+					作用：用于配置set集合属性。
+					属性：
+					  name：指定实体类中set集合的属性名称。
+					  table：指定从表的名称。在一对多配置时可以不写。
+				key:
+					作用：用于映射外键字段。
+					属性：
+					  column：指定外键字段名称
+				one-to-many:
+					作用：用于建立一对多的映射配置
+					属性：
+					  class：用于指定从表实体的名称
+		-->
+		<set name="linkmans" table="cst_linkman" lazy="true">
+			<key column="lkm_cust_id"></key>
+			<one-to-many class="LinkMan"/>
+		</set>
+	</class>
+</hibernate-mapping>

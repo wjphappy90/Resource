@@ -1,0 +1,4 @@
+#Fri May 04 15:55:43 CST 2018
+lisi=100
+zhangsan=90
+wangwu=85

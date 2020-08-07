@@ -1,0 +1,38 @@
+body{
+	background: #f0eeef;
+}
+
+
+/*loginArea*/
+.loginArea{
+	margin: 80px 0;
+	
+}
+.loginArea .loginImg{
+	padding: 0;
+}
+.loginArea .loginText{
+	padding:20px 0;
+	background: #fff;
+	
+}
+.loginText h4{
+	text-indent: 25px;
+}
+.loginText .btn-info{
+	font-size:18px;
+	background: #2fa8e1;
+	border-radius: 0;
+}
+.form{
+	margin: 15px 0 0 20px;
+}
+.form-group{
+	width: 90%;
+}
+.form-group .checkbox {
+	display: inline-block;
+	float:left;
+	margin: 0;
+}
+

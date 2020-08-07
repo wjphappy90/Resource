@@ -1,0 +1,24 @@
+server:
+  port: 9001 #端口
+spring:
+  application:
+    name: activemq-producer # 服务名称
+
+# springboot与activemq整合配置
+  activemq:
+    broker-url: tcp://192.168.66.133:61616 # 连接地址
+    user: admin # activemq用户名
+    password: admin  # activemq密码
+    packages:
+      trust-all: true # 让ActiveMQ信任全部自定义对象，实现对象的序列化或反序列化
+
+# 指定发送模式 （点对点 false ， 发布订阅 true）
+  jms:
+    pub-sub-domain: false
+    template:
+      delivery-mode: persistent  # 持久化配置（消息存储在日志文件里面）
+
+# 自己定义目标名称（队列或主题）
+activemq:
+  name: springboot_queue
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "https://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+    <aspects>
+        <!-- 1切面类 -->
+        <aspect name="com.itheima.utils.LoadTimeWeavingAspect" />
+    </aspects>
+    <weaver>
+        <!-- 2 指定需要进行织入操作的目标类范围 -->
+        <include within="com.itheima.service..*" />
+    </weaver>
+</aspectj>
+-javaagent:E:/MavenRepository/org/springframework/spring-instrument/5.1.6.RELEASE/spring-instrument-5.1.6.RELEASE.jar
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-instrument-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-instrument</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>

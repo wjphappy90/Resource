@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>基本过滤选择器</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		//1.设置表格第一行，显示为红色
+		//$("tr:first").css("color","red");
+		
+		//2.设置表格除了第一行以外，显示为蓝色
+		//$("tr:not(tr:first)").css("color",'blue');
+		//$("tr:gt(0)").css("color","blue");
+		
+		//3.设置表格的奇数与偶数行颜色不一致，例如，偶数行设置为红色，奇数行设置为蓝色
+		//$("tr:odd").css("color","red");
+		//$("tr:even").css("color","blue");
+		
+		//设置页面上的标题为灰色
+		$(":header").css("color","gray");
+	});
+</script>
+</head>
+<body>
+
+	<h1>商品信息</h1>
+	<table border='1'>
+		<tr>
+			<td>商品编号</td>
+			<td>商品名称</td>
+			<td>价格</td>
+			<td>数量</td>
+		</tr>
+		<tr>
+			<td>001</td>
+			<td>电视机</td>
+			<td>2100</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>002</td>
+			<td>洗衣机</td>
+			<td>1100</td>
+			<td>200</td>
+		</tr>
+		<tr>
+			<td>003</td>
+			<td>缝纫机</td>
+			<td>200</td>
+			<td>1000</td>
+		</tr>
+		<tr>
+			<td>004</td>
+			<td>割草机</td>
+			<td>11100</td>
+			<td>10</td>
+		</tr>
+	</table>
+</body>
+</html>

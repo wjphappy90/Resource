@@ -1,0 +1,105 @@
+<html>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Tutorial XPath</title><link rel="meta" href="dc.z19991208.rdf" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_pol/dc.z19991208.rdf"/><link rel="stylesheet" type="text/css" href="../CSS/front.css" tppabs="http://www.zvon.org/xxl/XPathTutorial/CSS/front.css"/><style>#newZvonMessage {margin:1em; padding:1em; border:2px solid navy;}</style>
+<script src="../../../../www.google.com/jsapi" tppabs="http://www.google.com/jsapi"></script> 
+<script src="../../../Javascript/old_zvon.js" tppabs="http://www.zvon.org/Javascript/old_zvon.js" type="text/javascript" ></script> 
+<script>google.load("jquery", "1");</script> 
+</head><body><table width="100%"><tr><td><span class="mediumText"><a class="naviBlack" target="_top" href="../General/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General/examples.html">English</a> | <a class="naviBlack" target="_top" href="../General_cze/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_cze/examples.html">膷esky</a> | <a class="naviBlack" target="_top" href="../General_dut/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_dut/examples.html">Nederlands</a> | <a class="naviBlack" target="_top" href="../General_fre/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_fre/examples.html">Fran莽ais</a> | <a class="naviBlack" target="_top" href="../General_spa/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_spa/examples.html">Espa帽ol</a> | <a class="naviBlack" target="_top" href="../General_rus/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_rus/examples.html">袩芯-褉褍褋褋泻懈</a> | <a class="naviBlack" target="_top" href="../General_ger/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_ger/examples.html">Deutsch</a> | <a class="naviBlack" target="_top" href="../General_chi/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_chi/examples.html">涓枃</a> | <a class="naviBlack" target="_top" href="../General_ita/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_ita/examples.html">Italiano</a></span></td><td style="text-align:right"><span class="mediumText"><a class="naviBlack" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">ZVON</a>
+		&gt;
+		<a class="naviBlack" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">Tutorials</a>
+		&gt;
+		<b>XPath Tutorial</b></span></td></tr></table><table class="bar" width="750px" border="0" cellpadding="0" cellspacing="0"><tr><td class="naviBlue"><a class="naviWhite" target="_top" href="../General_pol/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_pol/examples.html">Wst臋p</a> 
+	/
+	  <a class="naviWhite" target="_top" href="javascript:if(confirm('http://zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://zvon.org/'" tppabs="http://zvon.org/">Szukaj</a> 
+	/
+	<a class="naviWhite" target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/"> ZVON </a></td></tr></table><table class="hangingMenu" border="0" cellpadding="1" cellspacing="0" width="100%"><tr><td><a target="_top" class="naviBlack" href="example1.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_pol/example1.html">Start</a> | <a target="_top" class="naviBlack" href="../General_pol/examples.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/General_pol/examples.html">Index</a></td></tr></table><h3>Miloslav Nic </h3><h3>Jiri Jirat </h3>T艂umaczenie: <b>Adam Wasila</b><br/><h1>Tutorial XPath</h1>
+
+  
+   <h3>Wprowadzenie<a name="d0e50">聽</a></h3>
+   <p>
+XPath jest opisany w <a href="javascript:if(confirm('http://www.w3.org/TR/xpath  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.w3.org/TR/xpath'" tppabs="http://www.w3.org/TR/xpath" target="_top">standardzie XPath 1.0</a>. Tutorial ten prezentuje wybrane cechy XPath, ilustruj膮c je licznymi przyk艂adami.
+</p>
+  
+
+
+<p>Mo偶esz zacz膮膰 od:</p>
+<ul>
+<li><a href="example1.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/Output_pol/example1.html" target="_top">Przyk艂ad 1.</a></li>
+</ul>
+
+<p>lub te偶 pos艂u偶y膰 si臋 panelem po lewej stronie.</p>
+
+
+  
+   <h3>Zobacz te偶<a name="d0e78">聽</a></h3>
+   <ul>
+    <li>
+     <a href="javascript:if(confirm('http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xlabIndex.html?stylesheetFile=XSLT/xlabIndex.xslt  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xlabIndex.html?stylesheetFile=XSLT/xlabIndex.xslt'" tppabs="http://www.zvon.org:9001/saxon/cgi-bin/XLab/XML/xlabIndex.html?stylesheetFile=XSLT/xlabIndex.xslt" target="_top">XLab</a> - interaktywne eksperymenty z XPath
+    </li>
+    <li>
+     <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/XMLTutorial/General_pol/book.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/XMLTutorial/General_pol/book.html'" tppabs="http://www.zvon.org/xxl/XMLTutorial/General_pol/book.html">Tutorial XML</a>
+    </li>
+    <li>
+     <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/DTDTutorial/General/book.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/DTDTutorial/General/book.html'" tppabs="http://www.zvon.org/xxl/DTDTutorial/General/book.html">Tutorial DTD</a>
+    </li>
+    <li>
+     <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/NamespaceTutorial/Output_pol/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/NamespaceTutorial/Output_pol/index.html'" tppabs="http://www.zvon.org/xxl/NamespaceTutorial/Output_pol/index.html">Tutorial przestrzeni nazw XML</a>
+    </li>
+    <li>
+      <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/xhtmlReference/Output/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/xhtmlReference/Output/index.html'" tppabs="http://www.zvon.org/xxl/xhtmlReference/Output/index.html">Materia艂y referencyjne do XHTML 1.0</a>
+    </li>
+    <li>
+     <a target="_top" href="javascript:if(confirm('http://www.zvon.org/xxl/xhtmlBasicReference/Output/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/xxl/xhtmlBasicReference/Output/index.html'" tppabs="http://www.zvon.org/xxl/xhtmlBasicReference/Output/index.html">Podstawowe materia艂y referencyjne do XHTML</a>
+    </li>
+   </ul>
+  
+  
+
+  
+   <h3>Autorzy<a name="d0e125">聽</a></h3>
+   <ul>
+    <li>Miloslav Nic - programowanie oraz przyk艂ady</li>
+    <li>Jiri Jirat - przyk艂ady w widoku drzewa</li> 
+    <li>Adam Wasila - t艂umaczenie na j臋zyk polski</li> 
+   </ul>
+  
+
+
+  <div><b>S艂owo kluczowe:
+    </b><a target="_top" href="javascript:if(confirm('http://www.zvon.org/o_html/keyword_tutorial.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/o_html/keyword_tutorial.html'" tppabs="http://www.zvon.org/o_html/keyword_tutorial.html">tutorial</a>, <a target="_top" href="javascript:if(confirm('http://www.zvon.org/o_html/keyword_transformations.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/o_html/keyword_transformations.html'" tppabs="http://www.zvon.org/o_html/keyword_transformations.html">transformations</a>, <a target="_top" href="javascript:if(confirm('http://www.zvon.org/o_html/keyword_XSLT.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/o_html/keyword_XSLT.html'" tppabs="http://www.zvon.org/o_html/keyword_XSLT.html">XSLT</a>, <a target="_top" href="javascript:if(confirm('http://www.zvon.org/o_html/keyword_XML.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/o_html/keyword_XML.html'" tppabs="http://www.zvon.org/o_html/keyword_XML.html">XML</a>, <a target="_top" href="javascript:if(confirm('http://www.zvon.org/o_html/keyword_XPath.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/o_html/keyword_XPath.html'" tppabs="http://www.zvon.org/o_html/keyword_XPath.html">XPath</a></div>
+
+  <p>Look at <a href="javascript:if(confirm('http://law-ref.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://law-ref.org/'" tppabs="http://law-ref.org/">Law-Ref.org</a> for an example of site running on Zvon technologies. The site features fully indexed and crosslinked documents pertinent to international law including <a href="javascript:if(confirm('http://law-ref.org/EU/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://law-ref.org/EU/index.html'" tppabs="http://law-ref.org/EU/index.html">Europe</a> and <a href="javascript:if(confirm('http://law-ref.org/US/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://law-ref.org/US/index.html'" tppabs="http://law-ref.org/US/index.html">US</a> constitutions, <a href="javascript:if(confirm('http://law-ref.org/UDHR/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://law-ref.org/UDHR/index.html'" tppabs="http://law-ref.org/UDHR/index.html">Universal Declaration of Human Rights</a>, <a href="javascript:if(confirm('http://law-ref.org/KYOTO/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://law-ref.org/KYOTO/index.html'" tppabs="http://law-ref.org/KYOTO/index.html">Kyoto protocol</a>, <a href="javascript:if(confirm('http://law-ref.org/TRIPS/index.html  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://law-ref.org/TRIPS/index.html'" tppabs="http://law-ref.org/TRIPS/index.html">Agreement on Trade-Related Aspects of Intellectual Property Rights</a> and many more.</p>
+  <p/>
+  <p><span class="smallText">
+This material  can be <a target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">downloaded</a> for off-line use. 
+</span></p>
+ <div class="smallText">
+	  Subscribe to 
+          
+	  <a target="_top" href="javascript:if(confirm('http://www.zvon.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.zvon.org/'" tppabs="http://www.zvon.org/">ZVON mailing list</a>
+	  to get on-line help.
+	</div><div class="smallText">Generated with: | <a href="javascript:if(confirm('http://saxon.sourceforge.net/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://saxon.sourceforge.net/'" tppabs="http://saxon.sourceforge.net/">Saxon</a>  | <a href="javascript:if(confirm('http://www.python.org/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.python.org/'" tppabs="http://www.python.org/">Python</a> | <a href="javascript:if(confirm('http://xml.apache.org/batik  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://xml.apache.org/batik'" tppabs="http://xml.apache.org/batik">Batik</a> | </div><div class="smallText">Copyright (c) 2000 <a href="javascript:if(confirm('http://www.systinet.com/  \n\n文件并未依 Teleport Pro 取回，因为 它的域或路径超过开始网址中设置的范围。  \n\n你要从服务器上打开它吗？'))window.location='http://www.systinet.com/'" tppabs="http://www.systinet.com/">Systinet</a></div><p><span class="smallText">
+Permission is granted to copy, distribute and/or modify this document under the terms
+of the GNU Free Documentation License, Version 1.1 or any later version published
+by the Free Software Foundation; with no Invariant Sections with the no
+Front-Cover Texts, and with no Back-Cover Texts. A copy of the license is
+included in the section entitled 
+<a target="_top" href="../GNU/fdl.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/GNU/fdl.html">"GNU Free Documentation License"</a> 
+</span></p><p><span class="smallText">
+The programs used to prepare this reference are covered by 
+<a target="_top" href="../GNU/gpl.html" tppabs="http://www.zvon.org/xxl/XPathTutorial/GNU/gpl.html">GNU General Public License"</a> 
+</span></p>
+<script type="text/javascript"> 
+ 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15189975-1']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })(); 
+</script>
+</body></html>

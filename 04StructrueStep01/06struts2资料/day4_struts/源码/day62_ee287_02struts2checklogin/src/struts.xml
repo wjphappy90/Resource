@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<package name="myDefault" extends="struts-default" abstract="true">
+		<!-- 声明拦截器 -->
+		<interceptors>
+			<interceptor name="checkLogin" class="com.itheima.web.interceptors.CheckLoginInterceptor2"></interceptor>
+			<!-- 定义一个自己的拦截器栈 -->
+			<interceptor-stack name="myDefaultStack">
+				<interceptor-ref name="checkLogin">
+					<!-- 告知拦截器，哪些方法需要拦截，哪些方法不需要拦截 -->
+					<param name="excludeMethods">userLogin</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 把我们自定义的拦截器栈声明为默认拦截器栈 -->
+		<default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+	</package>
+	
+	<package name="p1" extends="myDefault">
+		<action name="demo1" class="com.itheima.web.action.BBSAction" method="demo1">
+			<result name="success">/demo1.jsp</result>
+		</action>
+		
+		<action name="demo2" class="com.itheima.web.action.BBSAction" method="demo2">
+			<result name="success">/demo2.jsp</result>
+		</action>
+		
+		<action name="demo3" class="com.itheima.web.action.BBSAction" method="demo3">
+			<result name="success">/demo3.jsp</result>
+		</action>
+		<action name="login"  class="com.itheima.web.action.BBSAction" method="userLogin">
+			<result name="success" type="redirect">/main.jsp</result>
+		</action>
+	</package>
+<!-- 解决登录方法也要检查登录的问题：把登录方法提取出来，单独的写到一个包中	
+	<package name="p2" extends="struts-default">
+		<action name="login"  class="com.itheima.web.action.BBSAction" method="userLogin">
+			<result name="success" type="redirect">/main.jsp</result>
+		</action>
+	</package> -->
+</struts>

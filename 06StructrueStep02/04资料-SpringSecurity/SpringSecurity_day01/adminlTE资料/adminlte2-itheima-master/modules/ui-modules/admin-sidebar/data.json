@@ -1,0 +1,203 @@
+{
+    "list": [{
+            "session": "后台通用页面",
+            "icon": "fa-folder",
+            "items": [
+                {
+                    "title": "登录",
+                    "model": "admin-login",
+                    "uri": "admin-login"
+                },
+                {
+                    "title": "注册",
+                    "model": "admin-register",
+                    "uri": "admin-register"
+                },
+                {
+                    "title": "404页",
+                    "model": "admin-404",
+                    "uri": "admin-404"
+                },
+                {
+                    "title": "500页",
+                    "model": "admin-500",
+                    "uri": "admin-500"
+                },
+                {
+                    "title": "空白页",
+                    "model": "admin-blank",
+                    "uri": "admin-blank"
+                },
+                {
+                    "title": "数据列表页",
+                    "model": "admin-datalist",
+                    "uri": "admin-datalist"
+                },
+                {
+                    "title": "表单页",
+                    "model": "admin-dataform",
+                    "uri": "admin-dataform"
+                },
+                {
+                    "title": "个人中心",
+                    "model": "admin-profile",
+                    "uri": "admin-profile"
+                },
+                {
+                    "title": "发票",
+                    "model": "admin-invoice",
+                    "uri": "admin-invoice"
+                },
+                {
+                    "title": "发票打印",
+                    "model": "admin-invoice-print",
+                    "uri": "admin-invoice-print"
+                }
+            ]
+        },
+        {
+            "session": "图表Charts",
+            "icon": "fa-pie-chart",
+            "items": [{
+                    "title": "ChartJS",
+                    "model": "charts-chartjs",
+                    "uri": "charts-chartjs"
+                },
+                {
+                    "title": "Morris Charts",
+                    "model": "charts-morris",
+                    "uri": "charts-morris"
+                },
+                {
+                    "title": "Flot Charts",
+                    "model": "charts-flot",
+                    "uri": "charts-flot"
+                },
+                {
+                    "title": "Inline Charts",
+                    "model": "charts-inline",
+                    "uri": "charts-inline"
+                }
+            ]
+        },
+        {
+            "session": "UI界面元素",
+            "icon": "fa-laptop",
+            "items": [{
+                    "title": "标准 General",
+                    "model": "elements-general",
+                    "uri": "elements-general"
+                },
+                {
+                    "title": "图标 Icons",
+                    "model": "elements-icons",
+                    "uri": "elements-icons"
+                },
+                {
+                    "title": "按钮 Buttons",
+                    "model": "elements-buttons",
+                    "uri": "elements-buttons"
+                },
+                {
+                    "title": "滑块 Sliders",
+                    "model": "elements-sliders",
+                    "uri": "elements-sliders"
+                },
+                {
+                    "title": "时间线 Timeline",
+                    "model": "elements-timeline",
+                    "uri": "elements-timeline"
+                },
+                {
+                    "title": "对话框样式 Modals",
+                    "model": "elements-modals",
+                    "uri": "elements-modals"
+                },
+                {
+                    "title": "窗体小部件 widgets",
+                    "model": "elements-widgets",
+                    "uri": "elements-widgets"
+                }
+            ]
+        },
+        {
+            "session": "表单 Forms",
+            "icon": "fa-edit",
+            "items": [{
+                    "title": "基础表单元素",
+                    "model": "form-general",
+                    "uri": "form-general"
+                },
+                {
+                    "title": "高级表单元素",
+                    "model": "form-advanced",
+                    "uri": "form-advanced"
+                },
+                {
+                    "title": "编辑器",
+                    "model": "form-editors",
+                    "uri": "form-editors"
+                }
+            ]
+        },
+        {
+            "session": "表格 tables",
+            "icon": "fa-table",
+            "items": [{
+                    "title": "简单表格",
+                    "model": "tables-simple",
+                    "uri": "tables-simple"
+                },
+                {
+                    "title": "数据表格",
+                    "model": "tables-data",
+                    "uri": "tables-data"
+                }
+            ]
+        },
+        {
+            "session": "样例-订单管理",
+            "icon": "fa-cube",
+            "items": [{
+                    "title": "全部订单",
+                    "model": "order-manage",
+                    "uri": "order-manage-list"
+                },
+                {
+                    "title": "退款",
+                    "model": "order-cancel",
+                    "uri": "order-cancel-list"
+                }
+            ]
+        },
+        {
+            "session": "样例-游记管理",
+            "icon": "fa-book",
+            "items": [{
+                    "title": "游记列表",
+                    "model": "travellog-manage",
+                    "uri": "travellog-manage-list"
+                },
+                {
+                    "title": "游记点评",
+                    "model": "travellog-review",
+                    "uri": "travellog-review-list"
+                },
+                {
+                    "title": "游记设置",
+                    "model": "travellog-setting",
+                    "uri": "travellog-setting-edit"
+                }
+            ]
+        },
+        {
+            "session": "样例-系统管理",
+            "icon": "fa-cogs",
+            "items": [{
+                "title": "系统设置",
+                "model": "system-setting",
+                "uri": "system-setting-edit"
+            }]
+        }
+    ]
+}

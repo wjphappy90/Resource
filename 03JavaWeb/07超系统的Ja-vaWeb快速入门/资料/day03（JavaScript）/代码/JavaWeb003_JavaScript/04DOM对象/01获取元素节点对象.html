@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			/**
+	DOM对象的相关方法： document
+	getElementById();   ---通过元素ID获取对应元素对象
+	getElementsByName();   ---通过元素的name属性获取符合要求的所有元素
+	getElementsByTagName();   ---通过元素的元素名属性获取符合要求的所有元素
+	getElementsByClassName();   ---通过元素的class属性获取符合要求的所有元素
+
+			 */
+		</script>
+	</head>
+	<body>
+		<input type="text" id="t1"/>
+		
+		<input type="checkbox" name="hobby" value="read"/>
+		<input type="checkbox" name="hobby" value="code"/>x
+		<input type="checkbox" name="hobby" value="run"/>
+		
+		
+		<ul>
+			<li>javaee</li>
+			<li>android</li>
+			<li>ios</li>
+			<li>php</li>
+		</ul>
+		
+		<input type="radio" name="sex" value="man" class="h1"/>
+		<input type="radio" name="sex" value="woman" class="h1"/>
+		
+		<script>
+//			var t1=document.getElementById("t1");
+//			alert(t1);
+//			alert(document.getElementById("t2"));
+
+			//通过name属性，获取所有需要的元素
+			//返回是一个元素节点对象 数组
+//			var arr=document.getElementsByName("hobby");
+//			alert(arr.length);
+
+			//通过标签名，获取所有需要的元素
+//			var arr=document.getElementsByTagName("li");
+//			alert(arr.length);
+
+			//通过class属性值，获取所有需要的元素
+			var arr=document.getElementsByClassName("h1");
+			alert(arr.length);
+		</script>
+	</body>
+</html>

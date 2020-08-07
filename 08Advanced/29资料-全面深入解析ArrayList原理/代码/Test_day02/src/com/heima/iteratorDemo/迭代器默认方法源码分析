@@ -1,0 +1,144 @@
+public class ArrayList<E> {
+    //长度为0的空数组
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //默认容量为空的数组
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //集合存元素的数组
+    Object[] elementData;
+
+    //集合的长度
+    private int size;
+
+    //默认的容量
+    private static final int DEFAULT_CAPACITY = 10;
+
+    //查看add方法其目的就是为了找到记录集合实际修改次数的变量
+    public boolean add(E e) {
+        ensureCapacityInternal(size + 1);
+        elementData[size++] = e;
+        return true;
+    }
+
+    //获取迭代器的方法
+    public Iterator<E> iterator() {
+        //创建了一个对象
+        return new Itr();
+    }
+
+    //ArrayList集合的内部类 --> 迭代器的源码
+    private class Itr implements Iterator<E> {
+        int cursor;       // 光标,默认值就是0
+        int lastRet = -1; // 记录-1
+        // 将集合实际修改次数赋值给预期修改次数
+        // 获取迭代器的时候,那么expectedModCount的值也就是 3
+        int expectedModCount = modCount;
+
+        //判断集合是否有元素
+        public boolean hasNext() {
+            //光标是否不等于集合的size 3
+            return cursor != size;
+        }
+
+         //迭代器自带的方法
+         public void remove() {
+            if (lastRet < 0)
+                throw new IllegalStateException();
+            checkForComodification();
+
+            try {
+                ArrayList.this.remove(lastRet);
+                cursor = lastRet;
+                lastRet = -1;
+                //把实际修改集合次数赋值给预期修改次数
+                expectedModCount = modCount;
+            } catch (IndexOutOfBoundsException ex) {
+                throw new ConcurrentModificationException();
+            }
+        }
+
+        public E next() {
+            checkForComodification();
+            //光标赋值给i = 0
+            int i = cursor;
+            //判断,如果大于集合的size就说明没有元素了
+            if (i >= size)
+                throw new NoSuchElementException();
+            //把集合存储数据数组的地址赋值给该方法的局部变量
+            Object[] elementData = ArrayList.this.elementData;
+            //进行判断,如果条件满足就会产生并发修改异常
+            if (i >= elementData.length)
+                throw new ConcurrentModificationException();
+            //光标自增
+            cursor = i + 1;
+            //从数组中取出元素且返回
+            return (E) elementData[lastRet = i];
+        }
+
+        //校验预期修改集合次数是否和实际修改集合次数一样
+        final void checkForComodification() {
+            if (modCount != expectedModCount)
+                //如果不一样,就会产生并发修改异常
+                throw new ConcurrentModificationException();
+        }
+    }
+
+    //集合删除元素的方法
+    public boolean remove(Object o) {
+        //判断要删除的元素是否为null
+        if (o == null) {
+            for (int index = 0; index < size; index++)
+                if (elementData[index] == null) {
+                    fastRemove(index);
+                    return true;
+                }
+        } else {
+            //遍历集合
+            for (int index = 0; index < size; index++)
+                //拿着要删除的元素和集合的每一个元素进行比较
+                if (o.equals(elementData[index])) {
+                    //如果相等就调用方法进行删除
+                    fastRemove(index);
+                    return true;
+                }
+        }
+        return false;
+    }
+
+    //真正删除元素的方法
+    private void fastRemove(int index) {
+        //在删除的方法中集合实际修改次数会自增
+        //集合实际修改次数为:4 但是预期修改次数为:3
+        modCount++;
+        //计算集合要移动元素的个数
+        int numMoved = size - index - 1;
+        if (numMoved > 0)
+            //移动的核心代码
+            System.arraycopy(elementData, index+1, elementData, index,
+                             numMoved);
+        //就是让删除的元素置为null,就是为了尽快被垃圾回收机制回收
+        elementData[--size] = null; // clear to let GC do its work
+    }
+
+    //集合删除的方法
+    public E remove(int index) {
+        rangeCheck(index);
+
+        modCount++;
+        E oldValue = elementData(index);
+
+        int numMoved = size - index - 1;
+        if (numMoved > 0)
+            System.arraycopy(elementData, index+1, elementData, index,
+                             numMoved);
+        elementData[--size] = null; // clear to let GC do its work
+
+        return oldValue;
+    }
+
+ }
+
+ 结论:
+    一,迭代器调用remove方法删除元素,其实底层真正还是调用集合自己的删除方法来删除元素
+    二,在调用remove方法中会每次都给预期修改次数的变量赋值

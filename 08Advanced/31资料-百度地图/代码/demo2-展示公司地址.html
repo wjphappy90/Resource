@@ -1,0 +1,38 @@
+<!DOCTYPE html>  
+<html>
+	<head>  
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+		<title>Hello, World</title>  
+		<style type="text/css">  
+		html{height:100%}  
+		body{height:100%;margin:0px;padding:0px}  
+		#container{height:100%}  
+		</style>  
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=1yGIc901IHvG65b3jGUu5nrkWUOYpT3c"></script>
+	</head>  
+ 
+	<body>  
+		<div id="container"></div> 
+		<script type="text/javascript"> 
+			var map = new BMap.Map("container");
+			// 创建地图实例  
+			var point = new BMap.Point(114.40688719021693, 30.71340056796788);
+			// 创建点坐标  
+			map.centerAndZoom(point, 16);
+			// 初始化地图，设置中心点坐标和地图级别 
+			map.enableScrollWheelZoom();
+	
+			var opts = {    
+				width : 500,     // 信息窗口宽度    
+				height: 160     // 信息窗口高度    
+			}    
+			var content = "<h4 style='margin:0 0 5px 0;padding:0.2em 0'>传智播客</h4>" + 
+	"<img style='float:right;margin:4px' id='imgDemo' src='./img/5.科创园.jpg' width='139' height='104' title='传智播客'/>" + 
+	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'><a href='http://wh.itcast.cn'>传智播客是致力于高素质软件开发人才培养公司。现开设JavaEE、Android、PHP、UI、IOS、前端、C++、网络营销、Python、云计算、全栈工程师、产品经理等培训学科，直营分校遍布北京、上海、广州、深圳、武汉、郑州、西安、哈尔滨、长沙、济南、重庆、南京、杭州、成都、石家庄、合肥、太原、厦门等城市。</a></p>" + 
+	"</div>";
+			var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象    
+			map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+		</script>  
+	</body>  
+</html>

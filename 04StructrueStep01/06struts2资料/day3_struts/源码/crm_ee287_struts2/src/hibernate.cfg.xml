@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!-- 配置SessionFactory-->
+	<session-factory>
+		<!-- 第一部分：连接数据库的信息 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/crm_ee287_struts2</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">1234</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property><!-- 数据库的方言 -->
+		<!-- 第二部分：hibernate的可选配置 -->
+		<!-- 是否显示hibernate生成的SQL语句 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 是否使用格式化输出sql语句到控制台 -->
+		<property name="hibernate.format_sql">false</property>
+		<!-- 配置hibernate采用何种方式生成DDL语句 -->
+		<property name="hibernate.hbm2ddl.auto">update</property><!-- update表示检测实体类的映射配置和数据库的表结构是否一致，如果不一致，更新表结构 -->
+		<!-- 设置hibernate的连接池提供商 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<!-- 把session和线程绑定，从而实现一个线程只有一个Session -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- 第三部分：映射配置文件的位置 -->
+		<mapping class="com.itheima.domain.Customer"/>
+	</session-factory>
+</hibernate-configuration>

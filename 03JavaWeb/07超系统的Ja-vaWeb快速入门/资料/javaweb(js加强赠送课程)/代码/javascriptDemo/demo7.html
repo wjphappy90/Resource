@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数声明</title>
+		<script type="text/javascript">
+			//函数定义表达式
+			function a(num1,num2){
+				var sum=num1+num2;
+			}
+			
+			//函数声明语句
+			var b=function(n1,n2){
+				var value=n1*n2;
+			}
+			
+			//使用Function来声明函数
+			var f=new Function("x","y","return x*y;");
+			//function f(x,y){
+			//	return x*y;
+			//}
+			alert(f(10,20));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
